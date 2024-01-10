@@ -3,28 +3,28 @@
     "enabled": true,
     "name": "contract",
     "paths": [],
-    "rootPath": "/mnt/Documents/CRYPTO/contract",
+    "rootPath": "/mnt/Disk_D/CRYPTO/contract",
     "tags": []
   },
   {
     "enabled": true,
     "name": "docker-info",
     "paths": [],
-    "rootPath": "/mnt/Documents/CRYPTO/docker-info",
+    "rootPath": "/mnt/Disk_D/CRYPTO/docker-info",
     "tags": []
   },
   {
     "enabled": true,
     "name": "hardhat",
     "paths": [],
-    "rootPath": "/mnt/Documents/CRYPTO/hardhat",
+    "rootPath": "/mnt/Disk_D/CRYPTO/hardhat",
     "tags": []
   },
   {
     "enabled": true,
     "name": "setup",
     "paths": [],
-    "rootPath": "/mnt/Documents/CRYPTO/setup",
+    "rootPath": "/mnt/Disk_D/CRYPTO/setup",
     "tags": []
   }
 ]

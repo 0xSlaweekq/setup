@@ -28,7 +28,7 @@ sudo ./grub2-themes/install.sh -t whitesur -i whitesur -s 2k -b
   -p 30 -m -N mojave -l --black --darker
 ./WhiteSur-icon-theme/install.sh -t default --alternative --bold
 sudo ./WhiteSur-gtk-theme/tweaks.sh -g default -o normal -c Dark -t blue \
-  -b /mnt/Documents/CRYPTO/setup/Linux/theme/wallpaper/background.jpg
+  -b /mnt/Disk_D/CRYPTO/setup/Linux/theme/wallpaper/background.jpg
 sudo ./McMojave-kde/sddm/install.sh
 sudo ./Monterey-kde/install.sh
 cd -
