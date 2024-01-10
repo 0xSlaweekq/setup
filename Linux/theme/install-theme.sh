@@ -32,7 +32,8 @@ sudo ./WhiteSur-gtk-theme/tweaks.sh -g default -o normal -c Dark -t blue \
 sudo ./McMojave-kde/sddm/install.sh
 sudo ./Monterey-kde/install.sh
 cd -
-sudo cp -r $HOME/setup/Linux/theme/wallpaper/* /usr/share/backgrounds/
+sudo cp -r ~/setup/Linux/theme/wallpaper/* /usr/share/backgrounds/
+sudo cp -r /mnt/Disk_D/CRYPTO/setup/Linux/theme/wallpaper/* /usr/share/backgrounds/
 echo 'Install done'
 echo '#################################################################'
 echo 'Remove files'

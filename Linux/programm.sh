@@ -40,7 +40,7 @@ sudo apt -y --fix-broken install
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 eval $(/usr/bin/gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
-mkdir -p "$HOME"/.local/share/trusted.gpg.d
+mkdir -p "~"/.local/share/trusted.gpg.d
 code --locate-shell-integration-path bash
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "/path/to/shell/integration/script.sh"
 

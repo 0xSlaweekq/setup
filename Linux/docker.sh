@@ -5,7 +5,7 @@ if [[ $(which docker) && $(docker --version) && $(docker compose) ]]; then
 else
 echo 'Docker NOT installed, continue...'
 for pkg in docker docker.io docker-ce docker-ce-cli docker-doc docker-desktop docker-compose docker-compose-v2 docker-compose-plugin docker-ce-rootless-extras podman-docker containerd runc docker-buildx-plugin; do sudo apt -y remove --purge $pkg; done
-rm -rf $HOME/.docker
+rm -rf ~/.docker
 sudo rm /usr/local/bin/com.docker.cli
 modprobe kvm
 modprobe kvm_intel  # Intel processors
