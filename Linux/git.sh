@@ -71,9 +71,28 @@ alias dstop="docker-compose -f ./docker-compose.yml down -v && docker-compose -f
 alias dstopall="docker-compose down --rmi=all -v --remove-orphans && docker rmi $(docker images -a -q)"
 alias dreb="docker-compose -f ./docker-compose.yml down -v && docker-compose -f ./docker-compose.yml rm -sfv && docker-compose -f ./docker-compose.yml up -d"
 alias kalistart="docker pull kalilinux/kali-rolling && docker run --tty --interactive kalilinux/kali-rolling"
-alias project="cd /mnt/Documents/CRYPTO && ls -lf"
 alias wclone="git clone git@gitlab.i-link.pro:defi-invest/defi-invest-smart-contract.git && cd defi-invest-smart-contract && git checkout dev && git pull && code ."
-alias gtext="gnome-text-editor"'
+alias gtext="gnome-text-editor"
+alias myhelp="echo "
+  si - apt -y install
+  srf - rm -rf
+  srn - reboot now
+  srp remove --purge
+  supd update,upgrade,rem,clean
+  digcon - connect to my digitalocean
+  doccon - connect docker
+  sshcon - add ssh + connect git
+  gpush - add,commit,push
+  dexec - exec -it
+  dres - restart containers and watch in cur folder
+  dstop - stop containers in cur folder
+  dstopall - stop all containers and remove img
+  dreb - restart containers without watch in cur folder
+  kalistart - start kali container in cli mod
+  wclone - work
+  gtext - gnome-text-editor
+  myhelp - this help""
+'
 
 # restore bash_profile
 # declare > .bash_profile.recovered
