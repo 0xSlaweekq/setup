@@ -1,0 +1,30 @@
+[
+  {
+    "enabled": true,
+    "name": "contract",
+    "paths": [],
+    "rootPath": "/mnt/Documents/CRYPTO/contract",
+    "tags": []
+  },
+  {
+    "enabled": true,
+    "name": "docker-info",
+    "paths": [],
+    "rootPath": "/mnt/Documents/CRYPTO/docker-info",
+    "tags": []
+  },
+  {
+    "enabled": true,
+    "name": "hardhat",
+    "paths": [],
+    "rootPath": "/mnt/Documents/CRYPTO/hardhat",
+    "tags": []
+  },
+  {
+    "enabled": true,
+    "name": "setup",
+    "paths": [],
+    "rootPath": "/mnt/Documents/CRYPTO/setup",
+    "tags": []
+  }
+]
