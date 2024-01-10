@@ -25,7 +25,7 @@ sudo apt -y install \
   unzip p7zip-rar p7zip-full rar unrar zip nmon nload conmon cmake g++ \
   ca-certificates gnupg lsb-release zlib1g-dev hardinfo hwinfo clang \
   bash-completion ubuntu-restricted-extras ppa-purge xz-utils vlc dkms \
-  gcc-multilib sweeper gparted flatpak snap snapd qbittorrent davfs2 \
+  gcc-multilib sweeper flatpak snap snapd qbittorrent davfs2 \
   gnome-tweaks gnome-extensions-app gnome-shell-extension-manager \
   gnome-software-plugin-flatpak gnome-disk-utility gnome-boxes \
   libreoffice wireguard
