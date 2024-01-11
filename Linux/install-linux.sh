@@ -25,7 +25,7 @@ sudo apt -y install \
   unzip p7zip-rar p7zip-full rar unrar zip nmon nload conmon cmake g++ \
   ca-certificates gnupg lsb-release zlib1g-dev hardinfo hwinfo clang \
   bash-completion ubuntu-restricted-extras ppa-purge xz-utils vlc dkms \
-  gcc-multilib sweeper flatpak snap snapd qbittorrent davfs2 \
+  gcc-multilib sweeper flatpak snap snapd qbittorrent davfs2 dconf-cli \
   network-manager network-manager-gnome network-manager-vpnc net-tools \
   plasma-discover-backend-flatpak libreoffice wireguard gnome-boxes
 
@@ -87,7 +87,7 @@ echo 'See All ppa repos grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/*'
 echo 'Ended'
 echo '#################################################################'
 echo 'after all installs prog and themes'
-echo 'for GNOME dconf load / < dconf-settings.ini'
+echo 'dconf load / < dconf-settings.ini'
 
 # dconf dump / > dconf-settings.ini
 
@@ -100,8 +100,9 @@ bash -c \
 # homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
 # absolute path. No other format is supported.
 #
-XDG_TEMPLATES_DIR="$HOME/"
+XDG_DESKTOP_DIR="$HOME/Desktop"
 XDG_DOWNLOAD_DIR="/mnt/Disk_D/Downloads"
+XDG_TEMPLATES_DIR="$HOME/Templates"
 XDG_PUBLICSHARE_DIR="/mnt/Disk_D/Transfer"
 XDG_DOCUMENTS_DIR="/mnt/Disk_D/Documents"
 XDG_MUSIC_DIR="/mnt/Disk_D/Music"
@@ -109,24 +110,6 @@ XDG_PICTURES_DIR="/mnt/Disk_D/Pictures"
 XDG_VIDEOS_DIR="/mnt/Disk_D/Videos"
 XDG_DISK_D_DIR="/mnt/Disk_D"
 EOF'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
