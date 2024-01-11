@@ -7,6 +7,7 @@ cat /proc/version
 
 sudo sed -i s/quiet\ splash/quiet\ splash\ intel_pstate=enable/g /etc/default/grub
 sudo update-grub
+supd
 
 touch ~/.config/plasma-workspace/env/kwin.sh
 chmod +x ~/.config/plasma-workspace/env/kwin.sh

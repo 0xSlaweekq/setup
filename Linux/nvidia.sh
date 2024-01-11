@@ -20,16 +20,17 @@ sudo apt -y install \
   libglfw3-dev
 sudo apt-key del 7fa2af80
 sudo apt -y install \
-  cuda nvidia-settings libvulkan1 libvulkan1:i386 mesa-vulkan-drivers vkbasalt
-
+  nvidia-driver-535 nvidia-dkms-535 nvidia-headless-535 nvidia-settings \
+  libvulkan1 libvulkan1:i386 mesa-vulkan-drivers vkbasalt
+# cuda
 systemctl status nvidia-persistenced
 sudo systemctl enable nvidia-persistenced
 cat /proc/driver/nvidia/version
 
-update-alternatives --display cuda
-sudo update-alternatives --config cuda
-/usr/local/cuda/bin/nvcc --version
-clang --version
+# update-alternatives --display cuda
+# sudo update-alternatives --config cuda
+# /usr/local/cuda/bin/nvcc --version
+# clang --version
 echo '#################################################################'
 
 # WINEDLLOVERRIDES="dinput8=n,b" env OBS_VKCAPTURE=1 %command%
