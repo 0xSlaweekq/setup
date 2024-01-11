@@ -26,7 +26,7 @@ sudo chmod 777 /etc/davfs2/secrets
 # sudo mount.davfs https://webdav.yandex.ru /mnt/Disk_D/Yandex.Disk/
 # http://domain.tld/davath /path/to/webdove   davfs   user,rw,noauto   0   0
 
-sudo gnome-text-editor /etc/davfs2/secrets
+kate /etc/davfs2/secrets
 
 # ~/.config/yandex-disk
 # # Путь к файлу с данными авторизации

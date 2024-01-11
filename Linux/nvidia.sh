@@ -2,7 +2,8 @@ echo 'Installing Nvidia & other graphics drivers'
 echo '#################################################################'
 curl -fSsL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub | \
   sudo gpg --dearmor | sudo tee /usr/share/keyrings/nvidia-drivers.gpg > /dev/null 2>&1
-echo 'deb [signed-by=/usr/share/keyrings/nvidia-drivers.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /' | sudo tee /etc/apt/sources.list.d/nvidia-drivers.list
+echo 'deb [signed-by=/usr/share/keyrings/nvidia-drivers.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /' | \
+sudo tee /etc/apt/sources.list.d/nvidia-drivers.list
 
 sudo add-apt-repository ppa:graphics-drivers/ppa && \
   sudo dpkg --add-architecture i386 && \
@@ -26,7 +27,11 @@ cat /proc/driver/nvidia/version
 
 update-alternatives --display cuda
 sudo update-alternatives --config cuda
+/usr/local/cuda/bin/nvcc --version
+clang --version
 echo '#################################################################'
+
+# WINEDLLOVERRIDES="dinput8=n,b" env OBS_VKCAPTURE=1 %command%
 
 # sudo add-apt-repository ppa:bumblebee/stable
 # sudo apt update

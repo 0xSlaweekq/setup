@@ -26,24 +26,26 @@ sudo apt -y install \
   ca-certificates gnupg lsb-release zlib1g-dev hardinfo hwinfo clang \
   bash-completion ubuntu-restricted-extras ppa-purge xz-utils vlc dkms \
   gcc-multilib sweeper flatpak snap snapd qbittorrent davfs2 \
-  gnome-tweaks gnome-extensions-app gnome-shell-extension-manager \
-  gnome-software-plugin-flatpak gnome-disk-utility gnome-boxes \
-  libreoffice wireguard
- # network-manager network-manager-gnome network-manager-vpnc net-tools \
- # plasma-discover-backend-flatpak
+  network-manager network-manager-gnome network-manager-vpnc net-tools \
+  plasma-discover-backend-flatpak libreoffice wireguard gnome-boxes
 
-sudo rm -f /var/lib/apt/lists/lock /var/cache/apt/archives/lock /var/lib/dpkg/lock
+#   gnome-tweaks gnome-extensions-app gnome-shell-extension-manager \
+#   gnome-software-plugin-flatpak gnome-disk-utility gnome-boxes
+
+# sudo rm -f /var/lib/apt/lists/lock /var/cache/apt/archives/lock /var/lib/dpkg/lock
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo systemctl daemon-reload
 sudo dpkg --configure -a
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 
-gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
+# gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+# gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
 
 echo 'All new useless packages installed successfully'
 echo '#################################################################'
+chmod +x ./git.sh
+sudo ./git.sh
 chmod +x ./debs.sh
 sudo ./debs.sh
 chmod +x ./intel.sh
@@ -58,8 +60,8 @@ chmod +x ./programm.sh
 sudo ./programm.sh
 chmod +x ./docker.sh
 sudo ./docker.sh
-chmod +x ./git.sh
-sudo ./git.sh
+chmod +x ./yandex.sh
+sudo ./yandex.sh
 # chmod +x ./python3.sh
 # ./python3.sh
 
@@ -78,7 +80,7 @@ sudo apt -y --fix-broken install
 sudo apt -y autoclean
 sudo apt -y autoremove --purge
 gpg --generate-key
-echo 'pass init 9D66C013A5E6BD9E147378E38D9A78933E3C773B
+echo 'pass init 750B0C209D322CE053A902A50110E97F507579A9
 systemctl --user start docker-desktop'
 curl -L https://foundry.paradigm.xyz | bash
 echo 'See All ppa repos grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/*'

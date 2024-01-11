@@ -3,9 +3,9 @@ echo '#################################################################'
 # sudo apt -y install 'bluez*' blueman
 modprobe btusb
 sudo tee -a /etc/bluetooth/main.conf <<< \
-"
+'
 ControllerMode = bredr
-"
+'
 sudo /etc/init.d/bluetooth restart
 sudo systemctl restart bluetooth
 

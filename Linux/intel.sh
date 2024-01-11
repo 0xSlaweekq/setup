@@ -31,7 +31,7 @@ sudo apt -y install \
   libxatracker-dev:i386 mesa-vdpau-drivers:i386 libva-x11-2:i386
 
 sudo apt -y install \
-  libigc-dev intel-igc-cm libigdfcl-dev level-zero-dev libigfxcmrt-dev \
-  level-zero-dev gawk dkms linux-headers-$(uname -r) libc6-dev intel-fw-gpu
-#   intel-fw-gpu intel-platform-vsec-dkms intel-platform-cse-dkms
+  libigc-dev intel-igc-cm libigdfcl-dev level-zero-dev gawk dkms \
+  linux-headers-$(uname -r) libc6-dev intel-fw-gpu intel-fw-gpu \
+  intel-platform-vsec-dkms intel-platform-cse-dkms
 echo '#################################################################'

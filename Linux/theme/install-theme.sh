@@ -24,16 +24,18 @@ chmod +x ./McMojave-kde/sddm/install.sh
 make -C dash-to-dock install
 
 sudo ./grub2-themes/install.sh -t whitesur -i whitesur -s 2k -b
-./WhiteSur-gtk-theme/install.sh -o normal -c Dark -a alt -t blue \
+./WhiteSur-gtk-theme/install.sh -o normal -c Dark -t all \
   -p 30 -m -N mojave -l --black --darker
 ./WhiteSur-icon-theme/install.sh -t default --alternative --bold
-sudo ./WhiteSur-gtk-theme/tweaks.sh -g default -o normal -c Dark -t blue \
+./WhiteSur-gtk-theme/tweaks.sh -o normal -c Dark -t blue \
   -b /mnt/Disk_D/CRYPTO/setup/Linux/theme/wallpaper/background.jpg
+#    -g default
 sudo ./McMojave-kde/sddm/install.sh
 sudo ./Monterey-kde/install.sh
 cd -
 sudo cp -r ~/setup/Linux/theme/wallpaper/* /usr/share/backgrounds/
-sudo cp -r /mnt/Disk_D/CRYPTO/setup/Linux/theme/wallpaper/* /usr/share/backgrounds/
+# wallpapers / backgrounds
+sudo cp -r /mnt/Disk_D/CRYPTO/setup/Linux/theme/wallpaper/* /usr/share/wallpapers/
 echo 'Install done'
 echo '#################################################################'
 echo 'Remove files'
@@ -78,17 +80,17 @@ echo '#################################################################'
 # big sur inline battery
 
 # install Latte Dock
-# sudo add-apt-repository -y ppa:kubuntu-ppa/backports
-# sudo apt update && sudo apt -y install \
-#   cmake extra-cmake-modules qtdeclarative5-dev libqt5x11extras5-dev \
-#   libkf5iconthemes-dev libkf5plasma-dev libkf5windowsystem-dev \
-#   libkf5declarative-dev libkf5xmlgui-dev libkf5activities-dev \
-#   build-essential libxcb-util-dev libkf5wayland-dev gettext \
-#   libkf5archive-dev libkf5notifications-dev libxcb-util0-dev \
-#   libsm-dev libkf5crash-dev libkf5newstuff-dev libxcb-shape0-dev \
-#   libxcb-randr0-dev libx11-dev libx11-xcb-dev kirigami2-dev \
-#   libwayland-dev libwayland-client0 plasma-wayland-protocols \
-#   libqt5waylandclient5-dev qtwayland5-dev-tools
+# sudo add-apt-repository ppa:kubuntu-ppa/backports
+# sudo apt update
+# sudo apt dist-upgrade
+# sudo apt -y install \
+#   cmake extra-cmake-modules qtdeclarative5-dev libqt5x11extras5-dev libx11-dev \
+#   libkf5iconthemes-dev libkf5plasma-dev libkf5windowsystem-dev libkf5declarative-dev \
+#   libkf5xmlgui-dev libkf5activities-dev build-essential libxcb-util-dev gettext \
+#   libkf5wayland-dev git libkf5archive-dev libkf5notifications-dev libwayland-dev  \
+#   libxcb-util0-dev libsm-dev libkf5crash-dev libkf5newstuff-dev libxcb-shape0-dev \
+#   libxcb-randr0-dev libx11-xcb-dev kirigami2-dev libqt5waylandclient5-dev \
+#   libwayland-client0 plasma-wayland-protocols qtwayland5-dev-tools
 
 # git clone https://github.com/KDE/latte-dock.git && \
 #   chmod +x ./latte-dock/install.sh && \
