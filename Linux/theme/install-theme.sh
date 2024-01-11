@@ -1,10 +1,20 @@
 echo 'Install WhiteSur KDE, GTK & ICON theme'
 echo '#################################################################'
 sudo add-apt-repository -y ppa:papirus/papirus
+sudo add-apt-repository ppa:kubuntu-ppa/backports
 sudo apt update
+sudo apt dist-upgrade
 sudo apt -y install \
   qt5-style-kvantum qt5-style-kvantum-themes sassc libglib2.0-dev-bin \
-  imagemagick dialog optipng inkscape x11-apps
+  imagemagick dialog optipng x11-apps make extra-cmake-modules \
+  qtdeclarative5-dev libqt5x11extras5-dev libx11-dev libkf5plasma-dev \
+  libkf5iconthemes-dev  libkf5windowsystem-dev libkf5declarative-dev \
+  libkf5xmlgui-dev libkf5activities-dev build-essential libxcb-util-dev \
+  gettext libkf5wayland-dev git libkf5archive-dev libkf5notifications-dev \
+  libwayland-dev libxcb-util0-dev libsm-dev libkf5crash-dev kirigami2-dev \
+  libkf5newstuff-dev libxcb-shape0-dev libxcb-randr0-dev libx11-xcb-dev \
+  libqt5waylandclient5-dev libwayland-client0 plasma-wayland-protocols \
+  qtwayland5-dev-tools latte-dock
 
 cd ~
 git clone https://github.com/vinceliuice/grub2-themes.git

@@ -3,11 +3,13 @@ echo '#################################################################'
 curl -fSsL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub | \
   sudo gpg --dearmor | sudo tee /usr/share/keyrings/nvidia-drivers.gpg > /dev/null 2>&1
 echo 'deb [signed-by=/usr/share/keyrings/nvidia-drivers.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /' | \
-sudo tee /etc/apt/sources.list.d/nvidia-drivers.list
+  sudo tee /etc/apt/sources.list.d/nvidia-drivers.list
 
-sudo add-apt-repository ppa:graphics-drivers/ppa && \
-  sudo dpkg --add-architecture i386 && \
-  sudo apt update
+sudo add-apt-repository -y ppa:graphics-drivers/ppa
+sudo dpkg --add-architecture i386
+sudo apt update
+sudo apt dist-upgrade
+sudo ubuntu-drivers autoinstall
 
 sudo apt -y install --reinstall xserver-xorg-video-nouveau
 sudo apt -y install \
@@ -18,8 +20,7 @@ sudo apt -y install \
   libglfw3-dev
 sudo apt-key del 7fa2af80
 sudo apt -y install \
-  cuda nvidia-driver-545 nvidia-dkms-545 nvidia-headless-545 \
-  nvidia-settings libvulkan1 libvulkan1:i386
+  cuda nvidia-settings libvulkan1 libvulkan1:i386 mesa-vulkan-drivers vkbasalt
 
 systemctl status nvidia-persistenced
 sudo systemctl enable nvidia-persistenced
