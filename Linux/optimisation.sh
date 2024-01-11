@@ -1,3 +1,4 @@
+#!/bin/bash
 # curl -s 'https://liquorix.net/install-liquorix.sh' | sudo bash
 
 sudo dpkg --configure -a
