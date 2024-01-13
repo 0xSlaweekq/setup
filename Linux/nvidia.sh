@@ -9,7 +9,7 @@ sudo add-apt-repository -y ppa:graphics-drivers/ppa
 sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt dist-upgrade
-sudo ubuntu-drivers autoinstall
+# sudo ubuntu-drivers autoinstall
 
 sudo apt -y install --reinstall xserver-xorg-video-nouveau
 sudo apt -y install \

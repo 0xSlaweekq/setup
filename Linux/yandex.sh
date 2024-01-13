@@ -1,11 +1,11 @@
-sudo add-apt-repository ppa:slytomcat/ppa
+sudo add-apt-repository -y ppa:slytomcat/ppa
 curl -fsSL http://repo.yandex.ru/yandex-disk/YANDEX-DISK-KEY.GPG | \
   sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/YANDEX-DISK-KEY.GPG
 
 echo "deb [signed-by=/etc/apt/trusted.gpg.d/YANDEX-DISK-KEY.GPG] http://repo.yandex.ru/yandex-disk/deb/ stable main" | \
   sudo tee -a /etc/apt/sources.list.d/yandex-disk.list > /dev/null
 
-mkdir /mnt/Disk_D/Yandex.Disk
+mkdir /mnt/Disk_D/YaDisk
 
 sudo apt update
 sudo apt -y install --reinstall yandex-disk yd-tools
@@ -23,7 +23,7 @@ sudo systemctl restart davfs2
 sudo usermod -aG davfs2 ${USER}
 sudo chmod 777 /etc/davfs2/secrets
 
-# sudo mount.davfs https://webdav.yandex.ru /mnt/Disk_D/Yandex.Disk/
+# sudo mount.davfs https://webdav.yandex.ru /mnt/Disk_D/YaDisk/
 # http://domain.tld/davath /path/to/webdove   davfs   user,rw,noauto   0   0
 
 kate /etc/davfs2/secrets
@@ -35,7 +35,7 @@ kate /etc/davfs2/secrets
 # config.cfg="~/.config/yandex-disk/config.cfg"
 
 # # Каталог для хранения локальной копии Диска.
-# dir="/mnt/Disk_D/Yandex.Disk"
+# dir="/mnt/Disk_D/YaDisk"
 
 # # Не синхронизировать указанные каталоги.
 # #exclude-dirs="exclude/dir1,exclude/dir2,path/to/another/exclude/dir"

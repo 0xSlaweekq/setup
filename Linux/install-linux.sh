@@ -26,11 +26,11 @@ sudo apt -y install \
   ca-certificates gnupg lsb-release zlib1g-dev hardinfo hwinfo clang \
   bash-completion ubuntu-restricted-extras ppa-purge xz-utils vlc dkms \
   gcc-multilib sweeper flatpak snap snapd qbittorrent davfs2 dconf-cli \
-  network-manager network-manager-gnome network-manager-vpnc net-tools \
-  plasma-discover-backend-flatpak libreoffice wireguard gnome-boxes
+  network-manager network-manager-gnome net-tools libreoffice wireguard \
+  plasma-discover-backend-flatpak
 
 #   gnome-tweaks gnome-extensions-app gnome-shell-extension-manager \
-#   gnome-software-plugin-flatpak gnome-disk-utility gnome-boxes
+#   gnome-software-plugin-flatpak gnome-disk-utility
 
 # sudo rm -f /var/lib/apt/lists/lock /var/cache/apt/archives/lock /var/lib/dpkg/lock
 
@@ -84,7 +84,7 @@ sudo apt -y --fix-broken install
 sudo apt -y autoclean
 sudo apt -y autoremove --purge
 gpg --generate-key
-echo 'pass init 750B0C209D322CE053A902A50110E97F507579A9
+echo 'pass init 98A6EB1926719FFB3174DE306EE66226B2696E91
 systemctl --user start docker-desktop'
 curl -L https://foundry.paradigm.xyz | bash
 echo 'See All ppa repos grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/*'
@@ -95,25 +95,25 @@ echo 'dconf load / < dconf-settings.ini'
 
 # dconf dump / > dconf-settings.ini
 
-bash -c \
-'cat << EOF > ~/.config/user-dirs.dirs
-# This file is written by xdg-user-dirs-update
-# If you want to change or add directories, just edit the line youre
-# interested in. All local changes will be retained on the next run.
-# Format is XDG_xxx_DIR="$HOME/yyy", where yyy is a shell-escaped
-# homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
-# absolute path. No other format is supported.
-#
-XDG_DESKTOP_DIR="$HOME/Desktop"
-XDG_DOWNLOAD_DIR="/mnt/Disk_D/Downloads"
-XDG_TEMPLATES_DIR="$HOME/Templates"
-XDG_PUBLICSHARE_DIR="/mnt/Disk_D/Transfer"
-XDG_DOCUMENTS_DIR="/mnt/Disk_D/Documents"
-XDG_MUSIC_DIR="/mnt/Disk_D/Music"
-XDG_PICTURES_DIR="/mnt/Disk_D/Pictures"
-XDG_VIDEOS_DIR="/mnt/Disk_D/Videos"
-XDG_DISK_D_DIR="/mnt/Disk_D"
-EOF'
+# bash -c \
+# 'cat << EOF > ~/.config/user-dirs.dirs
+# # This file is written by xdg-user-dirs-update
+# # If you want to change or add directories, just edit the line youre
+# # interested in. All local changes will be retained on the next run.
+# # Format is XDG_xxx_DIR="$HOME/yyy", where yyy is a shell-escaped
+# # homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
+# # absolute path. No other format is supported.
+# #
+# XDG_DESKTOP_DIR="$HOME/Desktop"
+# XDG_DOWNLOAD_DIR="/mnt/Disk_D/Downloads"
+# XDG_TEMPLATES_DIR="$HOME/Templates"
+# XDG_PUBLICSHARE_DIR="/mnt/Disk_D/Transfer"
+# XDG_DOCUMENTS_DIR="/mnt/Disk_D/Documents"
+# XDG_MUSIC_DIR="/mnt/Disk_D/Music"
+# XDG_PICTURES_DIR="/mnt/Disk_D/Pictures"
+# XDG_VIDEOS_DIR="/mnt/Disk_D/Videos"
+# XDG_DISK_D_DIR="/mnt/Disk_D"
+# EOF'
 
 
 

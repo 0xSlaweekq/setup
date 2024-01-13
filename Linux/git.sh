@@ -10,8 +10,9 @@ ssh-keygen -t ed25519 -C "plakidin.vyacheslav@mail.ru"
 chmod 600 ~/.ssh/id_ed25519
 chmod 600 ~/.ssh/id_ed25519.pub
 
-tee -a ~/.ssh/config <<< \
-'Host github.com
+bash -c \
+'cat << EOF > ~/.ssh/config
+Host github.com
     HostName github.com
     User git
     IdentityFile ~/.ssh/id_ed25519
@@ -24,7 +25,8 @@ Host digitalocean.com
     HostName digitalocean.com
     IdentityFile ~/.ssh/id_ed25519
     IdentitiesOnly yes
-PasswordAuthentication no'
+PasswordAuthentication no
+EOF'
 
 eval "$(ssh-agent -s)"
 echo $SSH_AGENT_SOCK

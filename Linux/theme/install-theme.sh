@@ -1,7 +1,7 @@
 echo 'Install WhiteSur KDE, GTK & ICON theme'
 echo '#################################################################'
 sudo add-apt-repository -y ppa:papirus/papirus
-sudo add-apt-repository ppa:kubuntu-ppa/backports
+# sudo add-apt-repository -y ppa:kubuntu-ppa/backports
 sudo apt update
 sudo apt dist-upgrade
 sudo apt -y install \
@@ -14,15 +14,16 @@ sudo apt -y install \
   libwayland-dev libxcb-util0-dev libsm-dev libkf5crash-dev kirigami2-dev \
   libkf5newstuff-dev libxcb-shape0-dev libxcb-randr0-dev libx11-xcb-dev \
   libqt5waylandclient5-dev libwayland-client0 plasma-wayland-protocols \
-  qtwayland5-dev-tools latte-dock
+  qtwayland5-dev-tools
+#   latte-dock
 
 cd ~
 git clone https://github.com/vinceliuice/grub2-themes.git
 git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
 git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
-git clone https://github.com/micheleg/dash-to-dock.git
 git clone https://github.com/vinceliuice/Monterey-kde.git
 git clone https://github.com/vinceliuice/McMojave-kde.git
+# git clone https://github.com/micheleg/dash-to-dock.git
 
 chmod +x ./grub2-themes/install.sh
 chmod +x ./WhiteSur-gtk-theme/install.sh
@@ -31,7 +32,7 @@ chmod +x ./WhiteSur-icon-theme/install.sh
 chmod +x ./Monterey-kde/install.sh
 chmod +x ./McMojave-kde/sddm/install.sh
 
-make -C dash-to-dock install
+# make -C dash-to-dock install
 
 sudo ./grub2-themes/install.sh -t whitesur -i whitesur -s 2k -b
 ./WhiteSur-gtk-theme/install.sh -o normal -c Dark -t all \
