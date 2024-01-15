@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # cd ~ && \
 #   curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/install-vpn.sh && \
 #   chmod +x install-vpn.sh && \
