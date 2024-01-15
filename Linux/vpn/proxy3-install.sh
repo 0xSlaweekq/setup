@@ -1,5 +1,4 @@
 #!/bin/bash
-
 version="3proxy-0.9.3"
 echo Updating system
 echo '#################################################################'
