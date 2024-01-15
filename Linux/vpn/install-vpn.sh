@@ -21,15 +21,13 @@ echo "Installing wireguard"
 echo '#################################################################'
 cd ~ && \
   curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/wireguard-install.sh && \
-  sudo chmod +x wireguard-install.sh && \
-  sudo ./wireguard-install.sh
+  sudo chmod +x wireguard-install.sh && sudo ./wireguard-install.sh
 echo "Installing 3proxy"
 echo '#################################################################'
 cd ~ && \
   curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/proxy3-install.sh && \
   curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/proxy3-uninstall.sh && \
-  chmod +x proxy3-install.sh && \
-  chmod +x proxy3-uninstall.sh && \
+  chmod +x proxy3-install.sh && chmod +x proxy3-uninstall.sh && \
   sudo ./proxy3-install.sh
 
 # #### then on my local pc init ssh key
