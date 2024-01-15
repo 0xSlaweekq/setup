@@ -34,12 +34,33 @@ function checkVirt() {
 function checkOS() {
 	source /etc/os-release
 	OS="${ID}"
-	if [[ ${OS} == "ubuntu" ]]; then
+	if [[ ${OS} == "debian" || ${OS} == "raspbian" ]]; then
+		if [[ ${VERSION_ID} -lt 10 ]]; then
+			echo "Your version of Debian (${VERSION_ID}) is not supported. Please use Debian 10 Buster or later"
+			exit 1
+		fi
+		OS=debian # overwrite if raspbian
+	elif [[ ${OS} == "ubuntu" ]]; then
 		RELEASE_YEAR=$(echo "${VERSION_ID}" | cut -d'.' -f1)
 		if [[ ${RELEASE_YEAR} -lt 18 ]]; then
 			echo "Your version of Ubuntu (${VERSION_ID}) is not supported. Please use Ubuntu 18.04 or later"
 			exit 1
 		fi
+	elif [[ ${OS} == "fedora" ]]; then
+		if [[ ${VERSION_ID} -lt 32 ]]; then
+			echo "Your version of Fedora (${VERSION_ID}) is not supported. Please use Fedora 32 or later"
+			exit 1
+		fi
+	elif [[ ${OS} == 'centos' ]] || [[ ${OS} == 'almalinux' ]] || [[ ${OS} == 'rocky' ]]; then
+		if [[ ${VERSION_ID} == 7* ]]; then
+			echo "Your version of CentOS (${VERSION_ID}) is not supported. Please use CentOS 8 or later"
+			exit 1
+		fi
+	elif [[ -e /etc/oracle-release ]]; then
+		source /etc/os-release
+		OS=oracle
+	elif [[ -e /etc/arch-release ]]; then
+		OS=arch
 	else
 		echo "Looks like you aren't running this installer on a Debian, Ubuntu, Fedora, CentOS, AlmaLinux, Oracle or Arch Linux system"
 		exit 1
@@ -151,8 +172,38 @@ function installWireGuard() {
 
 	# Install WireGuard tools and module
 	if [[ ${OS} == 'ubuntu' ]] || [[ ${OS} == 'debian' && ${VERSION_ID} -gt 10 ]]; then
-		apt -y update
-		apt install -y wireguard iptables resolvconf qrencode
+		apt-get update
+		apt-get install -y wireguard iptables resolvconf qrencode
+	elif [[ ${OS} == 'debian' ]]; then
+		if ! grep -rqs "^deb .* buster-backports" /etc/apt/; then
+			echo "deb http://deb.debian.org/debian buster-backports main" >/etc/apt/sources.list.d/backports.list
+			apt-get update
+		fi
+		apt update
+		apt-get install -y iptables resolvconf qrencode
+		apt-get install -y -t buster-backports wireguard
+	elif [[ ${OS} == 'fedora' ]]; then
+		if [[ ${VERSION_ID} -lt 32 ]]; then
+			dnf install -y dnf-plugins-core
+			dnf copr enable -y jdoss/wireguard
+			dnf install -y wireguard-dkms
+		fi
+		dnf install -y wireguard-tools iptables qrencode
+	elif [[ ${OS} == 'centos' ]] || [[ ${OS} == 'almalinux' ]] || [[ ${OS} == 'rocky' ]]; then
+		if [[ ${VERSION_ID} == 8* ]]; then
+			yum install -y epel-release elrepo-release
+			yum install -y kmod-wireguard
+			yum install -y qrencode # not available on release 9
+		fi
+		yum install -y wireguard-tools iptables
+	elif [[ ${OS} == 'oracle' ]]; then
+		dnf install -y oraclelinux-developer-release-el8
+		dnf config-manager --disable -y ol8_developer
+		dnf config-manager --enable -y ol8_developer_UEKR6
+		dnf config-manager --save -y --setopt=ol8_developer_UEKR6.includepkgs='wireguard-tools*'
+		dnf install -y wireguard-tools qrencode iptables
+	elif [[ ${OS} == 'arch' ]]; then
+		pacman -S --needed --noconfirm wireguard-tools qrencode
 	fi
 
 	# Make sure the directory exists (this does not seem the be the case on fedora)
@@ -389,9 +440,9 @@ function uninstallWg() {
 		systemctl disable "wg-quick@${SERVER_WG_NIC}"
 
 		if [[ ${OS} == 'ubuntu' ]]; then
-			apt remove -y wireguard wireguard-tools qrencode
+			apt-get remove -y wireguard wireguard-tools qrencode
 		elif [[ ${OS} == 'debian' ]]; then
-			apt remove -y wireguard wireguard-tools qrencode
+			apt-get remove -y wireguard wireguard-tools qrencode
 		elif [[ ${OS} == 'fedora' ]]; then
 			dnf remove -y --noautoremove wireguard-tools qrencode
 			if [[ ${VERSION_ID} -lt 32 ]]; then
