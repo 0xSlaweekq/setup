@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # cd ~ && \
 #   curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/install-vpn.sh && \
 #   chmod +x install-vpn.sh && \
@@ -43,13 +45,14 @@ cd ~ && \
 
 
 
+
 # #### then on my local pc init ssh key
 # echo '#################################################################'
 # If no ssh keys
 # ssh-keygen -t ed25519 -C "plakidin.vyacheslav@mail.ru"  ->plaki->pswd->pswd
-# eval "$(ssh-agent -s)" && ssh-add ~/.ssh/plaki
+# eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519
 
-# ssh-copy-id -i ~/.ssh/plaki.pub plaki@64.227.69.234 # pswd user->enter
+# ssh-copy-id -i ~/.ssh/id_ed25519.pub msi@64.227.69.234 # pswd user->enter
 
 # #### after connect to droplet
 # echo '#################################################################'
