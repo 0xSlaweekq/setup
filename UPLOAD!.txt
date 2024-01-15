@@ -3,14 +3,14 @@ Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Us
                     
                     
                        First install !!!
-|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-|||  0) install vs code                                     |||
-|||  1) install node.js || https://nodejs.org/en/download/  |||
-|||  2) install yarn || npm install -g yarn                 |||
-|||  3) install git || https://git-scm.com/download/win     |||
-|||  4) install typescript || npm install -g typescript     |||
-|||  5) install ts-node || npm install -g ts-node           |||
-|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+|||  0) install vs code                                                               |||
+|||  1) install node.js || https://nodejs.org/en/download/ |||
+|||  2) install yarn || npm install -g yarn                               |||
+|||  3) install git || https://git-scm.com/download/win       |||
+|||  4) install typescript || npm install -g typescript            |||
+|||  5) install ts-node || npm install -g ts-node                    |||
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 npm i -g(--save-dev) prettier eslint eslint-plugin-prettier eslint-config-prettier eslint-config-airbnb-base eslint-plugin-import eslint-plugin-react eslint-plugin-simple-import-sort eslint-plugin-unused-imports path-browserify
 
 cmdkey /list | Select-String -Pattern "LegacyGeneric:target=(vscode.+)" | ForEach-Object { cmdkey.exe /delete $_.Matches.Groups[1].Value }
