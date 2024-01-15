@@ -7,7 +7,6 @@ sudo apt -y --fix-broken install
 sudo apt -y autoclean
 sudo apt -y autoremove --purge
 sudo apt -y install git wget nano resolvconf curl build-essential gcc make
-
 echo "Download and unpack the sources"
 version="3proxy-0.9.3"
 cd ~
