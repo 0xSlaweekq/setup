@@ -4,14 +4,12 @@
 #   curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/install-vpn.sh && \
 #   chmod +x install-vpn.sh && \
 #   sudo ./install-vpn.sh
-
 # echo "First add new user"
 # echo "echo '#################################################################'"
 # echo "adduser plaki
 # sudo usermod -aG sudo plaki
 # su - plaki"
 # echo "echo '#################################################################'"
-
 echo "Updating system"
 echo '#################################################################'
 echo cdfecdfe | sudo -S sudo apt update && \
@@ -20,14 +18,12 @@ echo cdfecdfe | sudo -S sudo apt update && \
   sudo apt -y autoremove --purge && \
   sudo apt -y --fix-broken install && \
   sudo apt -y install git nano resolvconf curl
-
 echo "Installing wireguard"
 echo '#################################################################'
 cd ~ && \
   curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/wireguard-install.sh && \
   chmod +x wireguard-install.sh && \
   sudo ./wireguard-install.sh
-
 echo "Installing 3proxy"
 echo '#################################################################'
 cd ~ && \
@@ -37,30 +33,17 @@ cd ~ && \
   chmod +x proxy3-uninstall.sh && \
   sudo ./proxy3-install.sh
 
-
-
-
-
-
-
-
-
-
 # #### then on my local pc init ssh key
 # echo '#################################################################'
 # If no ssh keys
 # ssh-keygen -t ed25519 -C "plakidin.vyacheslav@mail.ru"  ->plaki->pswd->pswd
 # eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519
-
 # ssh-copy-id -i ~/.ssh/id_ed25519.pub msi@64.227.69.234 # pswd user->enter
-
 # #### after connect to droplet
 # echo '#################################################################'
 # ssh 64.227.69.234
-
 # check adding keys
 # sudo nano ~/.ssh/authorized_keys
-
 # edit config
 # sudo nano /etc/ssh/sshd_config
 # PermitRootLogin no
@@ -69,8 +52,6 @@ cd ~ && \
 # PasswordAuthentication no
 # PermitEmptyPasswords no ???
 # sudo systemctl restart sshd
-
-
 #### Node.js
 # echo '#################################################################'
 # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh
@@ -82,22 +63,17 @@ cd ~ && \
 # npm install -g npm@9.5.0
 # nvm use v16.17.0
 # sudo npm i -g pm2@latest
-
 # echo '#################################################################'
-
 #### npm service
 # echo '#################################################################'
 # git clone git@github.com:NarcoNik/newton-bot.git && cd ./newton-bot
 # sudo npm i
 # sudo pm2 start bot.js
-
 # sudo pm2 startup systemd
 # sudo pm2 save
-
 # sudo systemctl start pm2-root
 # sudo systemctl status pm2-root
 # sudo reboot
-
 # sudo systemctl stop pm2-root
 # sudo pm2 stop bot
 # sudo pm2 restart bot
