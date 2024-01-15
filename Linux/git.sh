@@ -9,6 +9,7 @@ cd ~/.ssh
 ssh-keygen -t ed25519 -C "plakidin.vyacheslav@mail.ru"
 chmod 600 ~/.ssh/id_ed25519
 chmod 600 ~/.ssh/id_ed25519.pub
+cd -
 
 bash -c \
 'cat << EOF > ~/.ssh/config
@@ -32,6 +33,7 @@ eval "$(ssh-agent -s)"
 echo $SSH_AGENT_SOCK
 ssh-add ~/.ssh/id_ed25519
 ssh-add -l
+ssh-copy-id -i ~/.ssh/id_ed25519.pub msi@188.166.28.84
 ssh -T git@github.com
 
 # sudo tee -a /etc/ssh/ssh_config <<< \
@@ -61,7 +63,7 @@ alias srn="sudo reboot now"
 alias srp="sudo apt -y remove --purge"
 alias sdr="sudo systemctl daemon-reload"
 alias supd="sudo apt update && sudo apt -y upgrade && sudo apt -y --fix-broken install && sudo apt -y autoclean && sudo apt -y autoremove --purge"
-alias digcon="ssh plaki@188.166.12.166"
+alias digcon="ssh 188.166.28.84"
 alias doccon="docker login --password dckr_pat_yJhGjotZbYBJLvQIcRq3P27yChc -u slaweekq"
 alias sshcon="eval "$(ssh-agent -s)" && echo $SSH_AGENT_SOCK && ssh-add ~/.ssh/id_ed25519 && ssh -T git@github.com"
 alias gpush="git add ./ && git commit -m «new» -a && git push origin"
