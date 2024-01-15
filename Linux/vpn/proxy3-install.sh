@@ -55,8 +55,7 @@ sudo iptables -I INPUT -p tcp -m tcp --dport 3128 -j ACCEPT
 sudo iptables -I INPUT -p tcp -m tcp --dport 2525 -j ACCEPT
 
 echo "Deleting temporery files"
-sudo rm ~/${version}.tar.gz
-sudo rm -rf ~/${version}
+sudo rm -rf ~/${version}.tar.gz ~/${version}
 cd ~
 
 echo "3proxy installed & running now"
