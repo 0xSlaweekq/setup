@@ -42,18 +42,18 @@ ssh -T git@github.com
 #     IdentityFile ~/.ssh/id_ed25519
 #     IdentitiesOnly yes"
 
-git config --global user.name "Slaweekq" \
- && git config --global user.email "plakidin.vyacheslav@mail.ru" \
- && git config --global --add safe.directory /mnt/Disk_D/CRYPTO/docker-info \
- && git config --global --add safe.directory /mnt/Disk_D/CRYPTO/hardhat \
- && git config --global --add safe.directory /mnt/Disk_D/CRYPTO/setup \
- && git config --global --add safe.directory /mnt/Disk_D/CRYPTO/work \
- && git config --global --add safe.directory /mnt/Disk_D/CRYPTO/defi-invest-smart-contract \
- && git config --global core.editor code \
- && git config --global core.safecrlf true \
- && git config --global push.autoSetupRemote true \
- && git config --global credential.helper cache \
- && git config --list
+git config --global user.name "Slaweekq"
+git config --global user.email "plakidin.vyacheslav@mail.ru"
+git config --global --add safe.directory /mnt/Disk_D/CRYPTO/docker-info
+git config --global --add safe.directory /mnt/Disk_D/CRYPTO/hardhat
+git config --global --add safe.directory /mnt/Disk_D/CRYPTO/setup
+git config --global --add safe.directory /mnt/Disk_D/CRYPTO/work
+git config --global --add safe.directory /mnt/Disk_D/CRYPTO/defi-invest-smart-contract
+git config --global core.editor code
+git config --global core.safecrlf true
+git config --global push.autoSetupRemote true
+git config --global credential.helper cache
+git config --list
 
 tee -a ~/.bashrc <<< \
 '
