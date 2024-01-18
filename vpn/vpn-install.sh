@@ -51,7 +51,7 @@ curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/3proxy-uninsta
 chmod +x 3proxy-install.sh
 chmod +x 3proxy-uninstall.sh
 sudo ./3proxy-install.sh
-
+sudo reboot now
 # ssh-keygen -f "/home/msi/.ssh/known_hosts" -R "178.128.17.181"
 
 # curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.noarmor.gpg | \
