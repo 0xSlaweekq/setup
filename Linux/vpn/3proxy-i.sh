@@ -1,10 +1,5 @@
 echo Updating system
 echo '#################################################################'
-sudo apt update
-sudo apt -y upgrade
-sudo apt -y --fix-broken install
-sudo apt -y autoclean
-sudo apt -y autoremove --purge
 sudo apt -y install git wget nano resolvconf curl build-essential gcc make
 echo "Download and unpack the sources"
 cd ~
@@ -55,7 +50,7 @@ sudo iptables -I INPUT -p tcp -m tcp --dport 2525 -j ACCEPT
 echo "Deleting temporery files"
 sudo rm -rf ~/3proxy-0.9.3.tar.gz ~/3proxy-0.9.3
 cd ~
-
+sudo systemctl daemon-reload
 echo "3proxy installed & running now"
 echo '#################################################################'
 

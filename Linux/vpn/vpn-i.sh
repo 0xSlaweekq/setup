@@ -10,6 +10,15 @@
 # echo "echo '#################################################################'"
 echo "Updating system"
 echo '#################################################################'
+tee -a ~/.bashrc <<< \
+'
+alias si="sudo apt -y install"
+alias srf="sudo rm -rf"
+alias srn="sudo reboot now"
+alias srp="sudo apt -y remove --purge"
+alias sdr="sudo systemctl daemon-reload"
+alias supd="sudo apt update && sudo apt -y upgrade && sudo apt -y --fix-broken install && sudo apt -y autoclean && sudo apt -y autoremove --purge"
+'
 sudo apt update
 sudo apt -y upgrade
 sudo apt -y --fix-broken install
@@ -20,6 +29,8 @@ echo "Installing wireguard"
 echo '#################################################################'
 cd ~
 # curl -O https://raw.githubusercontent.com/NarcoNik/wireguard-install/master/wireguard-install.sh
+# chmod +x wireguard-install.sh
+# sudo ./wireguard-install.sh
 curl -O https://raw.githubusercontent.com/NarcoNik/setup/master/Linux/vpn/wg-ins.sh
 chmod +x wg-ins.sh
 sudo ./wg-ins.sh

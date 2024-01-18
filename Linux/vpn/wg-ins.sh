@@ -455,4 +455,5 @@ if [[ -e /etc/wireguard/params ]]; then
 	manageMenu
 else
 	installWireGuard
+  sudo systemctl daemon-reload
 fi
