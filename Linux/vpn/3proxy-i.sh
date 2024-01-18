@@ -21,8 +21,8 @@ sudo adduser --system --no-create-home --disabled-login --group slaweekq
 id slaweekq
 
 echo "Getting config & proxyauth"
-sudo wget https://raw.githubusercontent.com/NarcoNik/setup/master/Linux/vpn/3proxy.cfg
-sudo wget https://raw.githubusercontent.com/NarcoNik/setup/master/Linux/vpn/.proxyauth
+sudo wget https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/3proxy.cfg
+sudo wget https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/.proxyauth
 
 echo "Setting access rights to proxy server files"
 # sudo chmod 600 /etc/3proxy/
