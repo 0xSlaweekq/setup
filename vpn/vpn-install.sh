@@ -1,7 +1,7 @@
 # cd ~ && \
 # curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/vpn-install.sh
-# chmod +x vpn-i.sh
-# sudo ./vpn-i.sh
+# chmod +x vpn-install.sh
+# sudo ./vpn-install.sh
 # echo "First add new user"
 # adduser msi
 # sudo usermod -aG sudo msi
@@ -37,12 +37,12 @@ echo "Installing wireguard"
 echo '#################################################################'
 cd ~
 # wget https://git.io/wireguard -O wireguard-install.sh && sudo bash wireguard-install.sh
-# curl -O https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh
-# chmod +x wireguard-install.sh
-# ./wireguard-install.sh
-curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/wig-install.sh
-chmod +x wig-install.sh
-sudo ./wig-install.sh
+curl -O https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh
+chmod +x wireguard-install.sh
+sudo ./wireguard-install.sh
+# curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/wig-install.sh
+# chmod +x wig-install.sh
+# sudo ./wig-install.sh
 echo "Installing 3proxy"
 echo '#################################################################'
 cd ~
@@ -63,3 +63,5 @@ sudo ./3proxy-install.sh
 # sudo apt-get install tailscale
 # sudo tailscale up
 # tailscale ip -4
+
+# 2C-4D-54-E9-02-BD
