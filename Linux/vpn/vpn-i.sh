@@ -1,13 +1,11 @@
 # cd ~ && \
-# curl -O https://raw.githubusercontent.com/NarcoNik/setup/master/Linux/vpn/vpn-i.sh
-# chmod +x vpn-i.sh
-# sudo ./vpn-i.sh
+curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/vpn-i.sh
+chmod +x vpn-i.sh
+sudo ./vpn-i.sh
 # echo "First add new user"
-# echo "echo '#################################################################'"
 # adduser msi
 # sudo usermod -aG sudo msi
 # su - msi
-# echo "echo '#################################################################'"
 echo "Updating system"
 echo '#################################################################'
 tee -a ~/.bashrc <<< \
@@ -32,14 +30,14 @@ wget https://git.io/wireguard -O wireguard-install.sh && bash wireguard-install.
 # curl -O https://raw.githubusercontent.com/NarcoNik/wireguard-install/master/wireguard-install.sh
 # chmod +x wireguard-install.sh
 # sudo ./wireguard-install.sh
-# curl -O https://raw.githubusercontent.com/NarcoNik/setup/master/Linux/vpn/wg-ins.sh
+# curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/wg-ins.sh
 # chmod +x wg-ins.sh
 # sudo ./wg-ins.sh
 echo "Installing 3proxy"
 echo '#################################################################'
 cd ~
-curl -O https://raw.githubusercontent.com/NarcoNik/setup/master/Linux/vpn/3proxy-i.sh
-curl -O https://raw.githubusercontent.com/NarcoNik/setup/master/Linux/vpn/3proxy-uni.sh
+curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/3proxy-i.sh
+curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/3proxy-uni.sh
 chmod +x 3proxy-i.sh
 chmod +x 3proxy-uni.sh
 sudo ./3proxy-i.sh
