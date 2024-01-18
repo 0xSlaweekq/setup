@@ -6,6 +6,16 @@
 # adduser msi
 # sudo usermod -aG sudo msi
 # su - msi
+# sudo nano ~/.ssh/authorized_keys
+# edit config
+# sudo nano /etc/ssh/sshd_config
+# PermitRootLogin no
+# PubkeyAuthentication yes
+# AuthorizedKeysFile      .ssh/authorized_keys .ssh/authorized_keys2
+# PasswordAuthentication no
+# PermitEmptyPasswords no ???
+# sudo systemctl restart sshd
+
 echo "Updating system"
 echo '#################################################################'
 tee -a ~/.bashrc <<< \
@@ -27,12 +37,12 @@ echo "Installing wireguard"
 echo '#################################################################'
 cd ~
 # wget https://git.io/wireguard -O wireguard-install.sh && sudo bash wireguard-install.sh
-curl -O https://raw.githubusercontent.com/NarcoNik/wireguard-install/master/wireguard-install.sh
-chmod +x wireguard-install.sh
-sudo ./wireguard-install.sh
-# curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/wg-install.sh
-# chmod +x wg-install.sh
-# sudo ./wg-install.sh
+# curl -O https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh
+# chmod +x wireguard-install.sh
+# ./wireguard-install.sh
+curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/wg-install.sh
+chmod +x wg-install.sh
+sudo ./wg-install.sh
 echo "Installing 3proxy"
 echo '#################################################################'
 cd ~
@@ -42,6 +52,17 @@ chmod +x 3proxy-install.sh
 chmod +x 3proxy-uninstall.sh
 sudo ./3proxy-install.sh
 
-# curl -fsSL https://pkgs.netbird.io/install.sh | sh
-
 # ssh-keygen -f "/home/msi/.ssh/known_hosts" -R "178.128.17.181"
+
+# curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.noarmor.gpg | \
+#   sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+# curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.tailscale-keyring.list | \
+#   sudo tee /etc/apt/sources.list.d/tailscale.list
+
+# sudo apt-get update
+# sudo apt-get install tailscale
+# sudo tailscale up
+# tailscale ip -4
+
+
+sudo iptables -I INPUT -p tcp -m tcp --dport 3128 -j ACCEPT
