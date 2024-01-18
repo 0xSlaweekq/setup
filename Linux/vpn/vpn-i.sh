@@ -4,9 +4,9 @@
 # sudo ./vpn-i.sh
 # echo "First add new user"
 # echo "echo '#################################################################'"
-# echo "adduser msi
+# adduser msi
 # sudo usermod -aG sudo msi
-# su - msi"
+# su - msi
 # echo "echo '#################################################################'"
 echo "Updating system"
 echo '#################################################################'
@@ -28,12 +28,13 @@ sudo apt -y install git nano resolvconf curl
 echo "Installing wireguard"
 echo '#################################################################'
 cd ~
+wget https://git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh
 # curl -O https://raw.githubusercontent.com/NarcoNik/wireguard-install/master/wireguard-install.sh
 # chmod +x wireguard-install.sh
 # sudo ./wireguard-install.sh
-curl -O https://raw.githubusercontent.com/NarcoNik/setup/master/Linux/vpn/wg-ins.sh
-chmod +x wg-ins.sh
-sudo ./wg-ins.sh
+# curl -O https://raw.githubusercontent.com/NarcoNik/setup/master/Linux/vpn/wg-ins.sh
+# chmod +x wg-ins.sh
+# sudo ./wg-ins.sh
 echo "Installing 3proxy"
 echo '#################################################################'
 cd ~
@@ -42,3 +43,7 @@ curl -O https://raw.githubusercontent.com/NarcoNik/setup/master/Linux/vpn/3proxy
 chmod +x 3proxy-i.sh
 chmod +x 3proxy-uni.sh
 sudo ./3proxy-i.sh
+
+# curl -fsSL https://pkgs.netbird.io/install.sh | sh
+
+# ssh-keygen -f "/home/msi/.ssh/known_hosts" -R "178.128.17.181"
