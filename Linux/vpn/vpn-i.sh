@@ -1,7 +1,7 @@
 # cd ~ && \
-curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/vpn-i.sh
-chmod +x vpn-i.sh
-sudo ./vpn-i.sh
+# curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/vpn-i.sh
+# chmod +x vpn-i.sh
+# sudo ./vpn-i.sh
 # echo "First add new user"
 # adduser msi
 # sudo usermod -aG sudo msi
