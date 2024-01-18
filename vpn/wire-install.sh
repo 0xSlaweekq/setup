@@ -40,9 +40,9 @@ cd ~
 # curl -O https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh
 # chmod +x wireguard-install.sh
 # ./wireguard-install.sh
-curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/wg-install.sh
-chmod +x wg-install.sh
-sudo ./wg-install.sh
+curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/wire-install.sh
+chmod +x wire-install.sh
+sudo ./wire-install.sh
 echo "Installing 3proxy"
 echo '#################################################################'
 cd ~
