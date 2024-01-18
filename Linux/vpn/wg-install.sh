@@ -31,7 +31,6 @@ function checkVirt() {
 function checkOS() {
 	source /etc/os-release
 	OS="${ID}"
-	if [[ ${OS} == "debian" || ${OS} == "raspbian" ]]; then
   if [[ ${OS} == "ubuntu" ]]; then
 		RELEASE_YEAR=$(echo "${VERSION_ID}" | cut -d'.' -f1)
 		if [[ ${RELEASE_YEAR} -lt 18 ]]; then
