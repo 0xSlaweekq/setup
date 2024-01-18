@@ -30,17 +30,17 @@ cd ~
 # curl -O https://raw.githubusercontent.com/NarcoNik/wireguard-install/master/wireguard-install.sh
 # chmod +x wireguard-install.sh
 # sudo ./wireguard-install.sh
-curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/wg-ins.sh
-chmod +x wg-ins.sh
-sudo ./wg-ins.sh
+curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/wg-install.sh
+chmod +x wg-install.sh
+sudo ./wg-install.sh
 echo "Installing 3proxy"
 echo '#################################################################'
 cd ~
-curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/3proxy-i.sh
-curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/3proxy-uni.sh
-chmod +x 3proxy-i.sh
-chmod +x 3proxy-uni.sh
-sudo ./3proxy-i.sh
+curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/3proxy-install.sh
+curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/3proxy-uninstall.sh
+chmod +x 3proxy-install.sh
+chmod +x 3proxy-uninstall.sh
+sudo ./3proxy-install.sh
 
 # curl -fsSL https://pkgs.netbird.io/install.sh | sh
 
