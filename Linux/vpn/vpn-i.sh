@@ -26,13 +26,13 @@ sudo apt -y install git nano resolvconf curl
 echo "Installing wireguard"
 echo '#################################################################'
 cd ~
-wget https://git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh
+# wget https://git.io/wireguard -O wireguard-install.sh && sudo bash wireguard-install.sh
 # curl -O https://raw.githubusercontent.com/NarcoNik/wireguard-install/master/wireguard-install.sh
 # chmod +x wireguard-install.sh
 # sudo ./wireguard-install.sh
-# curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/wg-ins.sh
-# chmod +x wg-ins.sh
-# sudo ./wg-ins.sh
+curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/Linux/vpn/wg-ins.sh
+chmod +x wg-ins.sh
+sudo ./wg-ins.sh
 echo "Installing 3proxy"
 echo '#################################################################'
 cd ~
