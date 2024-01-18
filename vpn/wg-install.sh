@@ -5,13 +5,6 @@ ORANGE='\033[0;33m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-function isRoot() {
-	if [ "${EUID}" -ne 0 ]; then
-		echo "You need to run this script as root"
-		exit 1
-	fi
-}
-
 function checkVirt() {
 	if [ "$(systemd-detect-virt)" == "openvz" ]; then
 		echo "OpenVZ is not supported"
@@ -28,21 +21,6 @@ function checkVirt() {
 	fi
 }
 
-function checkOS() {
-	source /etc/os-release
-	OS="${ID}"
-  if [[ ${OS} == "ubuntu" ]]; then
-		RELEASE_YEAR=$(echo "${VERSION_ID}" | cut -d'.' -f1)
-		if [[ ${RELEASE_YEAR} -lt 18 ]]; then
-			echo "Your version of Ubuntu (${VERSION_ID}) is not supported. Please use Ubuntu 18.04 or later"
-			exit 1
-		fi
-	else
-		echo "Looks like you aren't running this installer on a Debian, Ubuntu, Fedora, CentOS, AlmaLinux, Oracle or Arch Linux system"
-		exit 1
-	fi
-}
-
 function getHomeDirForClient() {
 	local CLIENT_NAME=$1
 
@@ -50,45 +28,18 @@ function getHomeDirForClient() {
 		echo "Error: getHomeDirForClient() requires a client name as argument"
 		exit 1
 	fi
-
-	# Home directory of the user, where the client configuration will be written
-	if [ -e "/home/${CLIENT_NAME}" ]; then
-		# if $1 is a user name
-		HOME_DIR="/home/${CLIENT_NAME}"
-	elif [ "${SUDO_USER}" ]; then
-		# if not, use SUDO_USER
-		if [ "${SUDO_USER}" == "root" ]; then
-			# If running sudo as root
-			HOME_DIR="/root"
-		else
-			HOME_DIR="/home/${SUDO_USER}"
-		fi
-	else
-		# if not SUDO_USER, use /root
-		HOME_DIR="/root"
-	fi
-
+	HOME_DIR="/root"
 	echo "$HOME_DIR"
-}
-
-function initialCheck() {
-	isRoot
-	checkVirt
-	checkOS
 }
 
 function installQuestions() {
 	echo "Welcome to the WireGuard installer!"
 	echo "The git repository is available at: https://github.com/NarcoNik/wireguard-install"
 	echo ""
-	echo "I need to ask you a few questions before starting the setup."
-	echo "You can keep the default options and just press enter if you are ok with them."
-	echo ""
 
 	# Detect public IPv4 or IPv6 address and pre-fill for the user
 	SERVER_PUB_IP=$(ip -4 addr | sed -ne 's|^.* inet \([^/]*\)/.* scope global.*$|\1|p' | awk '{print $1}' | head -1)
 	if [[ -z ${SERVER_PUB_IP} ]]; then
-		# Detect public IPv6 address
 		SERVER_PUB_IP=$(ip -6 addr | sed -ne 's|^.* inet6 \([^/]*\)/.* scope global.*$|\1|p' | head -1)
 	fi
 	read -rp "IPv4 or IPv6 public address: " -e -i "${SERVER_PUB_IP}" SERVER_PUB_IP
@@ -100,7 +51,7 @@ function installQuestions() {
 	done
 
 	until [[ ${SERVER_WG_NIC} =~ ^[a-zA-Z0-9_]+$ && ${#SERVER_WG_NIC} -lt 16 ]]; do
-		read -rp "WireGuard interface name: " -e -i wg0 SERVER_WG_NIC
+		read -rp "WireGuard interface name: " -e -i wg SERVER_WG_NIC
 	done
 
 	until [[ ${SERVER_WG_IPV4} =~ ^([0-9]{1,3}\.){3} ]]; do
@@ -119,10 +70,10 @@ function installQuestions() {
 
 	# Adguard DNS by default
 	until [[ ${CLIENT_DNS_1} =~ ^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$ ]]; do
-		read -rp "First DNS resolver to use for the clients: " -e -i 1.1.1.1 CLIENT_DNS_1
+		read -rp "First DNS resolver to use for the clients: " -e -i 8.8.8.8 CLIENT_DNS_1
 	done
 	until [[ ${CLIENT_DNS_2} =~ ^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$ ]]; do
-		read -rp "Second DNS resolver to use for the clients (optional): " -e -i 1.0.0.1 CLIENT_DNS_2
+		read -rp "Second DNS resolver to use for the clients (optional): " -e -i 8.8.4.4 CLIENT_DNS_2
 		if [[ ${CLIENT_DNS_2} == "" ]]; then
 			CLIENT_DNS_2="${CLIENT_DNS_1}"
 		fi
@@ -137,24 +88,18 @@ function installQuestions() {
 	done
 
 	echo ""
-	echo "Okay, that was all I needed. We are ready to setup your WireGuard server now."
-	echo "You will be able to generate a client at the end of the installation."
 	read -n1 -r -p "Press any key to continue..."
 }
 
 function installWireGuard() {
-	# Run setup questions first
 	installQuestions
 
-	# Install WireGuard tools and module
 	if [[ ${OS} == 'ubuntu' ]] || [[ ${OS} == 'debian' && ${VERSION_ID} -gt 10 ]]; then
 		apt update
 		apt install -y wireguard wireguard-tools iptables resolvconf qrencode
 	fi
 
-	# Make sure the directory exists (this does not seem the be the case on fedora)
 	mkdir /etc/wireguard >/dev/null 2>&1
-
 	chmod 600 -R /etc/wireguard/
 
 	SERVER_PRIV_KEY=$(wg genkey)
@@ -238,7 +183,6 @@ function newClient() {
 
 	echo ""
 	echo "Client configuration"
-	echo ""
 	echo "The client name must consist of alphanumeric character(s). It may also include underscores or dashes and can't exceed 15 chars."
 
 	until [[ ${CLIENT_NAME} =~ ^[a-zA-Z0-9_-]+$ && ${CLIENT_EXISTS} == '0' && ${#CLIENT_NAME} -lt 16 ]]; do
@@ -380,8 +324,6 @@ function uninstallWg() {
 	read -rp "Do you really want to remove WireGuard? [y/n]: " -e REMOVE
 	REMOVE=${REMOVE:-n}
 	if [[ $REMOVE == 'y' ]]; then
-		checkOS
-
 		systemctl stop "wg-quick@${SERVER_WG_NIC}"
 		systemctl disable "wg-quick@${SERVER_WG_NIC}"
 
@@ -446,8 +388,8 @@ function manageMenu() {
 	esac
 }
 
-# Check for root, virt, OS...
-initialCheck
+# Check for virt
+checkVirt
 
 # Check if WireGuard is already installed and load params
 if [[ -e /etc/wireguard/params ]]; then
