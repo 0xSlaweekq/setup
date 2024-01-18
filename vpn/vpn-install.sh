@@ -63,6 +63,3 @@ sudo ./3proxy-install.sh
 # sudo apt-get install tailscale
 # sudo tailscale up
 # tailscale ip -4
-
-
-sudo iptables -I INPUT -p tcp -m tcp --dport 3128 -j ACCEPT
