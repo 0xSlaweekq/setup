@@ -26,8 +26,8 @@ sudo apt -y install \
   ca-certificates gnupg lsb-release zlib1g-dev hardinfo hwinfo clang \
   bash-completion ubuntu-restricted-extras ppa-purge xz-utils vlc dkms \
   gcc-multilib sweeper flatpak snap snapd qbittorrent davfs2 dconf-cli \
-  network-manager network-manager-gnome net-tools libreoffice wireguard \
-  plasma-discover-backend-flatpak
+  network-manager network-manager-gnome network-manager-openvpn-gnome \
+  net-tools libreoffice wireguard plasma-discover-backend-flatpak
 
 #   gnome-tweaks gnome-extensions-app gnome-shell-extension-manager \
 #   gnome-software-plugin-flatpak gnome-disk-utility
