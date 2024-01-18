@@ -22,7 +22,7 @@ sudo apt -y upgrade
 sudo apt -y --fix-broken install
 sudo apt -y autoclean
 sudo apt -y autoremove --purge
-sudo apt -y install git nano resolvconf curl
+sudo apt -y install git nano resolvconf curl wireguard wireguard-tools
 echo "Installing wireguard"
 echo '#################################################################'
 cd ~
