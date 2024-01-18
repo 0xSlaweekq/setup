@@ -20,9 +20,9 @@ echo "Installing wireguard"
 echo '#################################################################'
 cd ~
 # curl -O https://raw.githubusercontent.com/NarcoNik/wireguard-install/master/wireguard-install.sh
-curl -O https://raw.githubusercontent.com/NarcoNik/setup/master/Linux/vpn/wg-install.sh
-chmod +x wg-install.sh
-sudo ./wg-install.sh
+curl -O https://raw.githubusercontent.com/NarcoNik/setup/master/Linux/vpn/wg-ins.sh
+chmod +x wg-ins.sh
+sudo ./wg-ins.sh
 echo "Installing 3proxy"
 echo '#################################################################'
 cd ~
