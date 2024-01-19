@@ -12,19 +12,20 @@ sudo apt dist-upgrade
 # sudo ubuntu-drivers autoinstall
 
 sudo apt -y install --reinstall xserver-xorg-video-nouveau
-sudo apt -y install \
+sudo apt -y install --reinstall \
   linux-headers-$(uname -r) gcc dirmngr make acpid ca-certificates \
   software-properties-common apt-transport-https curl dkms \
   libglvnd-core-dev libglvnd0 libglvnd-dev libc-dev freeglut3-dev \
   libx11-dev libxmu-dev libxi-dev libglu1-mesa-dev libfreeimage-dev \
   libglfw3-dev
 sudo apt-key del 7fa2af80
-sudo apt -y install \
+sudo apt -y install --reinstall \
   nvidia-driver-535 nvidia-dkms-535 nvidia-headless-535 nvidia-settings \
   libvulkan1 libvulkan1:i386 mesa-vulkan-drivers vkbasalt
 # cuda
-systemctl status nvidia-persistenced
 sudo systemctl enable nvidia-persistenced
+sudo systemctl start nvidia-persistenced
+sudo systemctl status nvidia-persistenced
 cat /proc/driver/nvidia/version
 
 # update-alternatives --display cuda
