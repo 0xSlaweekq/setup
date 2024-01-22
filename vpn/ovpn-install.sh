@@ -2,6 +2,57 @@ curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openv
 chmod +x openvpn-install.sh
 sudo ./openvpn-install.sh
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Step 1: Update and Upgrade Ubuntu
 sudo apt update
 sudo apt -y upgrade

@@ -34,6 +34,15 @@ sudo apt -y autoclean
 sudo apt -y autoremove --purge
 sudo apt -y install git nano resolvconf curl wireguard wireguard-tools
 
+echo "Installing wireguard"
+echo '#################################################################'
+cd ~
+# wget https://git.io/wireguard -O wireguard-install.sh && sudo bash wireguard-install.sh
+# curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/wireguard-install.sh
+curl -O https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh
+chmod +x wireguard-install.sh
+sudo ./wireguard-install.sh
+
 echo "Installing 3proxy"
 echo '#################################################################'
 cd ~
@@ -43,16 +52,7 @@ chmod +x 3proxy-install.sh
 chmod +x 3proxy-uninstall.sh
 sudo ./3proxy-install.sh
 
-echo "Installing wireguard"
-echo '#################################################################'
-cd ~
-# wget https://git.io/wireguard -O wireguard-install.sh && sudo bash wireguard-install.sh
-curl -O https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh
-chmod +x wireguard-install.sh
-sudo ./wireguard-install.sh
-# curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/wig-install.sh
-# chmod +x wig-install.sh
-# sudo ./wig-install.sh
+
 sudo reboot now
 
 
