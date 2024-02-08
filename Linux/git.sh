@@ -76,7 +76,6 @@ alias dstopall="docker-compose down --rmi=all -v --remove-orphans && docker rmi 
 alias dreb="docker-compose -f ./docker-compose.yml down -v && docker-compose -f ./docker-compose.yml rm -sfv && docker-compose -f ./docker-compose.yml up -d"
 alias kalistart="docker pull kalilinux/kali-rolling && docker run --tty --interactive kalilinux/kali-rolling"
 alias wclone="git clone git@gitlab.i-link.pro:defi-invest/defi-invest-smart-contract.git && cd defi-invest-smart-contract && git checkout dev && git pull && code ."
-alias gtext="gnome-text-editor"
 alias myhelp="echo "  si - apt -y install
   srf - rm -rf
   srn - reboot now

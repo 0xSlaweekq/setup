@@ -44,7 +44,7 @@ sudo ./grub2-themes/install.sh -t whitesur -i whitesur -s 2k -b
 sudo ./McMojave-kde/sddm/install.sh
 sudo ./Monterey-kde/install.sh
 cd -
-sudo cp -r ~/setup/Linux/theme/wallpaper/* /usr/share/backgrounds/
+sudo cp -r ~/Documents/setup/Linux/theme/wallpaper/* /usr/share/wallpapers/
 # wallpapers / backgrounds
 sudo cp -r /mnt/Disk_D/CRYPTO/setup/Linux/theme/wallpaper/* /usr/share/wallpapers/
 echo 'Install done'
