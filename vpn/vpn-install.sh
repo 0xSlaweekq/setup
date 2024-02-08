@@ -52,13 +52,26 @@ chmod +x 3proxy-install.sh
 chmod +x 3proxy-uninstall.sh
 sudo ./3proxy-install.sh
 
-
 sudo reboot now
 
+curl -sSL https://get.docker.com | sh \
+  sudo usermod -aG docker $(whoami) \
+  exit
 
+sudo ufw allow 443/tcp
+sudo ufw allow 8080/tcp
+sudo ufw allow 22/tcp
+sudo ufw allow 39885/tcp
+sudo ufw allow 1586/tcp
+sudo ufw allow 1586/udp
 
+sudo wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh | bash
 
+wget https://s3.amazonaws.com/outline-releases/manager/linux/stable/Outline-Manager.AppImage
+chmod +x ./Outline-Manager.AppImage
+./Outline-Manager.AppImage
 
+# {"apiUrl":"https://164.90.207.152:2389/tKuGyVsoKI7QEMt_X5A5Ew","certSha256":"5496A22D7C2FBD739984115375CB3B2119B61260CD976A33B6DF78E61D6F700D"}
 
 # ssh-keygen -f "/home/msi/.ssh/known_hosts" -R "178.128.17.181"
 
