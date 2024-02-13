@@ -34,15 +34,6 @@ sudo apt -y autoclean
 sudo apt -y autoremove --purge
 sudo apt -y install git nano resolvconf curl wireguard wireguard-tools
 
-echo "Installing wireguard"
-echo '#################################################################'
-cd ~
-# wget https://git.io/wireguard -O wireguard-install.sh && sudo bash wireguard-install.sh
-# curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/wireguard-install.sh
-curl -O https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh
-chmod +x wireguard-install.sh
-sudo ./wireguard-install.sh
-
 echo "Installing 3proxy"
 echo '#################################################################'
 cd ~
@@ -54,10 +45,14 @@ sudo ./3proxy-install.sh
 
 sudo reboot now
 
+echo "Installing Docker"
+echo '#################################################################'
 curl -sSL https://get.docker.com | sh \
   sudo usermod -aG docker $(whoami) \
   exit
 
+echo "Installing Outline"
+echo '#################################################################'
 sudo ufw allow 443/tcp
 sudo ufw allow 8080/tcp
 sudo ufw allow 22/tcp
@@ -68,8 +63,21 @@ sudo ufw allow 1586/udp
 sudo wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh | bash
 
 wget https://s3.amazonaws.com/outline-releases/manager/linux/stable/Outline-Manager.AppImage
+wget https://s3.amazonaws.com/outline-releases/client/linux/stable/Outline-Client.AppImage
 chmod +x ./Outline-Manager.AppImage
+chmod +x ./Outline-Client.AppImage
 ./Outline-Manager.AppImage
+./Outline-Client.AppImage
+
+# echo "Installing wireguard"
+# echo '#################################################################'
+# cd ~
+# wget https://git.io/wireguard -O wireguard-install.sh && sudo bash wireguard-install.sh
+# curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/wireguard-install.sh
+# curl -O https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh
+# chmod +x wireguard-install.sh
+# sudo ./wireguard-install.sh
+
 
 # {"apiUrl":"https://164.90.207.152:2389/tKuGyVsoKI7QEMt_X5A5Ew","certSha256":"5496A22D7C2FBD739984115375CB3B2119B61260CD976A33B6DF78E61D6F700D"}
 

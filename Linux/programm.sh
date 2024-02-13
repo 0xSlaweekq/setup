@@ -46,6 +46,7 @@ code --locate-shell-integration-path bash
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "/path/to/shell/integration/script.sh"
 
 sudo flatpak install -y \
-  flathub org.gnome.Maps org.kde.isoimagewriter org.kde.elisa
+  flathub org.gnome.Maps org.kde.isoimagewriter org.kde.elisa \
+  org.getoutline.OutlineClient org.getoutline.OutlineManager
 echo 'All programm installed'
 echo '#################################################################'
