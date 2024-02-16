@@ -18,3 +18,8 @@ function useIPFS() {
   return { resolveImgLink, resolveJsonLink, myGateImg, myGateJson };
 }
 export default useIPFS;
+
+https://ipfs.io/ipfs//QmUcicS7RpouvxhiJ18wNJoqrgbDTW12Qn59zUYwWRME7s
+
+
+https://gateway.pinata.cloud/ipfs/QmUcicS7RpouvxhiJ18wNJoqrgbDTW12Qn59zUYwWRME7s
