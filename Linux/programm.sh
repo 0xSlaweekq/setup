@@ -48,5 +48,8 @@ code --locate-shell-integration-path bash
 sudo flatpak install -y \
   flathub org.gnome.Maps org.kde.isoimagewriter org.kde.elisa \
   org.getoutline.OutlineClient org.getoutline.OutlineManager
+
+sudo curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts/install-linux.sh | sudo sh
+tenderly login --authentication-method access-key --access-key pdGB-7bDcER1WgNviv5KpUjUJcb-W22b --force
 echo 'All programm installed'
 echo '#################################################################'
