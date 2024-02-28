@@ -15,10 +15,10 @@ sudo wget -O /etc/apt/trusted.gpg.d/winehq.key https://dl.winehq.org/wine-builds
 sudo echo "deb [signed-by=/etc/apt/trusted.gpg.d/winehq.key] https://dl.winehq.org/wine-builds/ubuntu $(lsb_release -cs) main" | \
   sudo tee /etc/apt/sources.list.d/winehq.list > /dev/null
 
-sudo echo "deb [arch=$(dpkg --print-architecture)] https://packages.microsoft.com/repos/code stable main" |\
+sudo echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/microsoft.gpg] https://packages.microsoft.com/repos/code stable main" |\
   sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
 
-sudo echo "deb [arch=$(dpkg --print-architecture)] https://packages.microsoft.com/repos/edge stable main" |\
+sudo echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/microsoft.gpg] https://packages.microsoft.com/repos/edge stable main" |\
   sudo tee /etc/apt/sources.list.d/microsoft-edge.list > /dev/null
 # sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 sudo rm -rf packages.microsoft.gpg
@@ -37,7 +37,9 @@ sudo apt -y install grub-customizer solc ethereum telegram code \
   libgl1-mesa-glx:amd64 libgl1-mesa-glx:i386 \
   librust-proton-call-dev proton-caller
 sudo apt -y --fix-broken install
+
 # Options for shell in vscode
+xdg-mime default code.desktop text/plain
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 eval $(/usr/bin/gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
