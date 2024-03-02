@@ -33,7 +33,7 @@ eval "$(ssh-agent -s)"
 echo $SSH_AGENT_SOCK
 ssh-add ~/.ssh/id_ed25519
 ssh-add -l
-ssh-copy-id -i ~/.ssh/id_ed25519.pub msi@188.166.28.84
+ssh-copy-id -i ~/.ssh/id_ed25519.pub root@164.90.207.152
 ssh -T git@github.com
 
 # sudo tee -a /etc/ssh/ssh_config <<< \

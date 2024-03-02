@@ -8,8 +8,8 @@ sudo add-apt-repository -y multiverse
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo wget -O /etc/apt/trusted.gpg.d/winehq.key https://dl.winehq.org/wine-builds/winehq.key
-# wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-# sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/packages.microsoft.gpg
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/packages.microsoft.gpg
 # wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 # Adding repos
 sudo echo "deb [signed-by=/etc/apt/trusted.gpg.d/winehq.key] https://dl.winehq.org/wine-builds/ubuntu $(lsb_release -cs) main" | \
@@ -32,7 +32,7 @@ sudo apt -y upgrade
 sudo apt -y install --install-recommends winehq-stable
 # wine winecfg
 # sudo apt -y install google-chrome-stable
-sudo apt -y install grub-customizer solc ethereum telegram code \
+sudo apt -y install grub-customizer solc telegram code \
   microsoft-edge-stable libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 \
   libgl1-mesa-glx:amd64 libgl1-mesa-glx:i386 \
   librust-proton-call-dev proton-caller

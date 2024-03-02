@@ -84,7 +84,7 @@ sudo apt -y --fix-broken install
 sudo apt -y autoclean
 sudo apt -y autoremove --purge
 gpg --generate-key
-echo 'pass init 98A6EB1926719FFB3174DE306EE66226B2696E91
+echo 'pass init B381A9F621F86E30EB14EBAD9066D29FF5813FE3
 systemctl --user start docker-desktop'
 curl -L https://foundry.paradigm.xyz | bash
 echo 'See All ppa repos grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/*'

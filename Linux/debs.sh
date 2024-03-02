@@ -15,13 +15,13 @@ wget https://download.anydesk.com/linux/anydesk_6.1.1-1_amd64.deb
 # Install packages
 sudo apt -y install \
   ./GitHubDesktop-linux-3.1.1-linux1.deb ./anydesk_6.1.1-1_amd64.deb \
-  ./packages-microsoft-prod.deb
+  ./packages-microsoft-prod.deb ./discord-0.0.40.deb
 sudo apt -y --fix-broken install
 sudo apt install -f
 sudo systemctl daemon-reload
 # Remove packages
 sudo rm -rf \
   GitHubDesktop-linux-3.1.1-linux1.deb anydesk_6.1.1-1_amd64.deb \
-  packages-microsoft-prod.deb
+  packages-microsoft-prod.deb discord-0.0.40.deb
 sudo apt -y update
 sudo apt -y install powershell
