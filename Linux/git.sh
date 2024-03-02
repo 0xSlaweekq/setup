@@ -23,7 +23,7 @@ Host gitlab.i-link.pro
     IdentityFile ~/.ssh/id_ed25519
     IdentitiesOnly yes
 Host digitalocean.com
-    HostName digitalocean.com
+    HostName 188.166.15.133
     IdentityFile ~/.ssh/id_ed25519
     IdentitiesOnly yes
 PasswordAuthentication no
@@ -44,11 +44,14 @@ ssh -T git@github.com
 
 git config --global user.name "Slaweekq"
 git config --global user.email "plakidin.vyacheslav@mail.ru"
-git config --global --add safe.directory /mnt/Disk_D/CRYPTO/docker-info
 git config --global --add safe.directory /mnt/Disk_D/CRYPTO/hardhat
 git config --global --add safe.directory /mnt/Disk_D/CRYPTO/setup
 git config --global --add safe.directory /mnt/Disk_D/CRYPTO/work
+git config --global --add safe.directory /mnt/Disk_D/CRYPTO/contract
+git config --global --add safe.directory /mnt/Disk_D/CRYPTO/websites
+git config --global --add safe.directory /mnt/Disk_D/CRYPTO/solana
 git config --global --add safe.directory /mnt/Disk_D/CRYPTO/defi-invest-smart-contract
+git config --global --add safe.directory /mnt/Disk_D/CRYPTO/53642/defi-invest-smart-contract
 git config --global core.editor code
 git config --global core.safecrlf true
 git config --global push.autoSetupRemote true
@@ -63,7 +66,7 @@ alias srn="sudo reboot now"
 alias srp="sudo apt -y remove --purge"
 alias sdr="sudo systemctl daemon-reload"
 alias supd="sudo apt update && sudo apt -y upgrade && sudo apt -y --fix-broken install && sudo apt -y autoclean && sudo apt -y autoremove --purge"
-alias digcon="ssh 188.166.15.133"
+alias digcon="ssh root@164.90.207.152"
 alias doccon="docker login --password dckr_pat_yJhGjotZbYBJLvQIcRq3P27yChc -u slaweekq"
 alias sshcon="eval "$(ssh-agent -s)" && echo $SSH_AGENT_SOCK && ssh-add ~/.ssh/id_ed25519 && ssh -T git@github.com"
 alias gpush="git add ./ && git commit -m «new» -a && git push origin"
