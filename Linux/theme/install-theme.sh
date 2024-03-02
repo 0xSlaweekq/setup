@@ -25,12 +25,12 @@ git clone https://github.com/vinceliuice/Monterey-kde.git
 git clone https://github.com/vinceliuice/McMojave-kde.git
 # git clone https://github.com/micheleg/dash-to-dock.git
 
-chmod +x ./grub2-themes/install.sh
-chmod +x ./WhiteSur-gtk-theme/install.sh
-chmod +x ./WhiteSur-gtk-theme/tweaks.sh
-chmod +x ./WhiteSur-icon-theme/install.sh
-chmod +x ./Monterey-kde/install.sh
-chmod +x ./McMojave-kde/sddm/install.sh
+sudo chmod +x ./grub2-themes/install.sh
+sudo chmod +x ./WhiteSur-gtk-theme/install.sh
+sudo chmod +x ./WhiteSur-gtk-theme/tweaks.sh
+sudo chmod +x ./WhiteSur-icon-theme/install.sh
+sudo chmod +x ./Monterey-kde/install.sh
+sudo chmod +x ./McMojave-kde/sddm/install.sh
 
 # make -C dash-to-dock install
 
