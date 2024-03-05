@@ -58,6 +58,9 @@ git config --global push.autoSetupRemote true
 git config --global credential.helper cache
 git config --list
 
+
+# export CACHE_CODE_DIR="blob_storage Cache CachedData CachedExtensionVSIXs CachedProfilesData 'Code Cache' Crashpad DawnCache GPUCache 'Local Storage' logs 'Service Worker' 'Session Storage' User/History User/workspaceStorage Cookies Cookies-journal $HOME/.npm/_cacache $HOME/.npm/_logs $HOME/managed_context $HOME/'Telegram Desktop' $HOME/test_suite_analysis"
+
 tee -a ~/.bashrc <<< \
 '
 alias si="sudo apt -y install"
@@ -66,6 +69,7 @@ alias srn="sudo reboot now"
 alias srp="sudo apt -y remove --purge"
 alias sdr="sudo systemctl daemon-reload"
 alias supd="sudo apt update && sudo apt -y upgrade && sudo apt -y --fix-broken install && sudo apt -y autoclean && sudo apt -y autoremove --purge"
+alias cleanCode="cd $HOME/.config/Code/ && rm -rf $CACHE_CODE_DIR && cd -"
 alias digcon="ssh root@164.90.207.152"
 alias doccon="docker login --password dckr_pat_yJhGjotZbYBJLvQIcRq3P27yChc -u slaweekq"
 alias sshcon="eval "$(ssh-agent -s)" && echo $SSH_AGENT_SOCK && ssh-add ~/.ssh/id_ed25519 && ssh -T git@github.com"
@@ -80,24 +84,6 @@ alias dreb="docker-compose -f ./docker-compose.yml down -v && docker-compose -f 
 alias kalistart="docker pull kalilinux/kali-rolling && docker run --tty --interactive kalilinux/kali-rolling"
 alias wclone="git clone git@gitlab.i-link.pro:defi-invest/defi-invest-smart-contract.git && cd defi-invest-smart-contract && git checkout dev && git pull && code ."
 alias gtext="gnome-text-editor"
-alias myhelp="echo "  si - apt -y install
-  srf - rm -rf
-  srn - reboot now
-  srp remove --purge
-  supd update,upgrade,rem,clean
-  digcon - connect to my digitalocean
-  doccon - connect docker
-  sshcon - add ssh + connect git
-  gpush - add,commit,push
-  dexec - exec -it
-  dres - restart containers and watch in cur folder
-  dstop - stop containers in cur folder
-  dstopall - stop all containers and remove img
-  dreb - restart containers without watch in cur folder
-  kalistart - start kali container in cli mod
-  wclone - work
-  gtext - gnome-text-editor
-  myhelp - this help""
 '
 
 # restore bash_profile
