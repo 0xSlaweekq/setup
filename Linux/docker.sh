@@ -6,7 +6,7 @@ else
 echo 'Docker NOT installed, continue...'
 for pkg in docker docker.io docker-ce docker-ce-cli docker-doc docker-desktop docker-compose docker-compose-v2 docker-compose-plugin docker-ce-rootless-extras podman-docker containerd runc docker-buildx-plugin; do sudo apt -y remove --purge $pkg; done
 rm -rf ~/.docker
-sudo rm /usr/local/bin/com.docker.cli
+sudo rm -rf /usr/local/bin/com.docker.cli
 modprobe kvm
 modprobe kvm_intel  # Intel processors
 modprobe kvm_amd    # AMD processors
@@ -71,7 +71,7 @@ fi
 # sudo dpkg -i ./docker-desktop-4.26.1-amd64.deb
 # rm -rf ./docker-desktop-4.26.1-amd64.deb
 # gpg --generate-key
-# pass init <your_generated_gpg-id_public_key>
-# pass init 999C51E658F56983A2717BC60B7202C027D6D570
-# systemctl --user start docker-desktop
+# pass init <your_generated_gpg_id_public_key>
+# pass init 63C4EDFC4D25FF975E422917D0BD721DCBC42507
+# systemctl --user restart docker-desktop
 # systemctl --user enable docker-desktop
