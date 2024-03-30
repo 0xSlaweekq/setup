@@ -11,11 +11,10 @@ sudo apt update
 sudo apt dist-upgrade
 # sudo ubuntu-drivers autoinstall
 
-sudo apt -y install --reinstall xserver-xorg-video-nouveau
 sudo apt -y install --reinstall \
-  linux-headers-$(uname -r) gcc dirmngr make acpid ca-certificates \
-  software-properties-common apt-transport-https curl dkms \
-  libglvnd-core-dev libglvnd0 libglvnd-dev libc-dev freeglut3-dev \
+  xserver-xorg-video-nouveau linux-headers-$(uname -r) gcc make acpid \
+  ca-certificates  dirmngr software-properties-common apt-transport-https \
+  curl dkms libglvnd-core-dev libglvnd0 libglvnd-dev libc-dev freeglut3-dev \
   libx11-dev libxmu-dev libxi-dev libglu1-mesa-dev libfreeimage-dev \
   libglfw3-dev
 sudo apt-key del 7fa2af80

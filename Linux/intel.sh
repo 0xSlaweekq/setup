@@ -13,11 +13,12 @@ sudo apt -y autoclean
 sudo apt -y autoremove --purge
 
 sudo apt -y install --reinstall \
-  intel-opencl-icd intel-level-zero-gpu level-zero libmfx1 libmfxgen1 \
-  libvpl2 libegl-mesa0 libegl1-mesa libegl1-mesa-dev libgbm1 \
-  libgl1-mesa-dev libgl1-mesa-dri libglapi-mesa libgles2-mesa-dev \
+  intel-opencl-icd va-driver-all vainfo hwinfo clinfo \
+  intel-level-zero-gpu level-zero \
+  libmfx1 libmfxgen1 libvpl2 libegl-mesa0 libegl1-mesa libegl1-mesa-dev \
+  libgbm1 libgl1-mesa-dev libgl1-mesa-dri libglapi-mesa libgles2-mesa-dev \
   libglx-mesa0 libigdgmm12 libxatracker2 mesa-va-drivers mesa-vdpau-drivers \
-  mesa-vulkan-drivers va-driver-all vainfo hwinfo clinfo
+  mesa-vulkan-drivers
 
 sudo dpkg --add-architecture i386
 sudo apt update
