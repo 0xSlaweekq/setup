@@ -39,6 +39,7 @@ sudo systemctl daemon-reload
 sudo dpkg --configure -a
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 
+sudo add-apt-repository ppa:kubuntu-ppa/ppa
 sudo add-apt-repository ppa:kubuntu-ppa/backports
 sudo apt update
 sudo pkcon update

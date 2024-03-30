@@ -1,7 +1,6 @@
 echo 'Install WhiteSur KDE, GTK & ICON theme'
 echo '#################################################################'
 sudo add-apt-repository -y ppa:papirus/papirus
-# sudo add-apt-repository -y ppa:kubuntu-ppa/backports
 sudo apt update
 sudo apt dist-upgrade
 sudo apt -y install \
@@ -92,7 +91,6 @@ echo '#################################################################'
 # big sur inline battery
 
 # install Latte Dock
-# sudo add-apt-repository ppa:kubuntu-ppa/backports
 # sudo apt update
 # sudo apt dist-upgrade
 # sudo apt -y install \
