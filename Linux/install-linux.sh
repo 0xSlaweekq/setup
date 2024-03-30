@@ -39,6 +39,10 @@ sudo systemctl daemon-reload
 sudo dpkg --configure -a
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 
+sudo add-apt-repository ppa:kubuntu-ppa/backports
+sudo apt update
+sudo pkcon update
+
 # gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
 # gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
 # gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode FIXED
