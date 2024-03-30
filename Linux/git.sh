@@ -23,7 +23,7 @@ Host gitlab.i-link.pro
     IdentityFile ~/.ssh/id_ed25519
     IdentitiesOnly yes
 Host digitalocean.com
-    HostName 188.166.15.133
+    HostName 164.90.207.152
     IdentityFile ~/.ssh/id_ed25519
     IdentitiesOnly yes
 PasswordAuthentication no

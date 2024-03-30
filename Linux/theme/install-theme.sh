@@ -34,19 +34,20 @@ sudo chmod +x ./McMojave-kde/sddm/install.sh
 
 # make -C dash-to-dock install
 
+sudo cp -r ~/setup/Linux/theme/wallpaper/* /usr/share/wallpapers/
+# wallpapers / backgrounds
+sudo cp -r /mnt/Disk_D/CRYPTO/setup/Linux/theme/wallpaper/* /usr/share/wallpapers/
+
 sudo ./grub2-themes/install.sh -t whitesur -i whitesur -s 2k -b
 ./WhiteSur-gtk-theme/install.sh -o normal -c Dark -t all \
   -p 30 -m -N mojave -l --black --darker
 ./WhiteSur-icon-theme/install.sh -t default --alternative --bold
 ./WhiteSur-gtk-theme/tweaks.sh -o normal -c Dark -t blue \
-  -b /mnt/Disk_D/CRYPTO/setup/Linux/theme/wallpaper/background.jpg
+  -b /usr/share/wallpapers/background.jpg
 #    -g default
 sudo ./McMojave-kde/sddm/install.sh
 sudo ./Monterey-kde/install.sh
 cd -
-sudo cp -r ~/setup/Linux/theme/wallpaper/* /usr/share/backgrounds/
-# wallpapers / backgrounds
-sudo cp -r /mnt/Disk_D/CRYPTO/setup/Linux/theme/wallpaper/* /usr/share/wallpapers/
 echo 'Install done'
 echo '#################################################################'
 echo 'Remove files'

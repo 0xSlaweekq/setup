@@ -16,9 +16,9 @@ sudo bash -c \
 # that works even if disks are added and removed. See fstab(5).
 #
 # UUID=<uuid>                             <mount point> <FSType> <FSOptions>         <dump> <pass>
-UUID=9accd89e-b71a-42b8-8644-71445ed522f9 /               ext4   errors=remount-ro     0      1
+UUID=0b0d3720-e1cd-4679-9494-3ddd0885febe /               ext4   errors=remount-ro     0      1
 UUID=126C-4AB4                            /boot/efi       vfat   umask=0077            0      1
-UUID=48a7bca5-c870-4b09-b841-f565070301cc none            swap   sw                    0      0
+UUID=bb1d6085-cdf7-4e53-8f6d-e937e58f889d none            swap   sw                    0      0
 UUID=DC081FAE081F86A4                     /mnt/Disk_D     ntfs   defaults,rw,realtime  0      0
 UUID=DCC2862CC2860ACA                     none            ntfs   ro                    0      0
 EOF"

@@ -47,7 +47,7 @@ systemctl --user start docker-desktop
 systemctl --user enable docker-desktop
 
 gpg --generate-key
-pass init 1A23964BE203CD8743CF490DDBB8DF9BC62F8C1C
+pass init E20DF443A91F888DEA37E4C05673AC218BE9491C
 # echo 'alias docker-compose="docker compose"' >> ~/.bashrc
 # docker network create traefik-public
 echo '#### Docker installed'
