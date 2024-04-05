@@ -59,7 +59,8 @@ git config --global credential.helper cache
 git config --list
 
 
-# export CACHE_CODE_DIR="blob_storage Cache CachedData CachedExtensionVSIXs CachedProfilesData 'Code Cache' Crashpad DawnCache GPUCache 'Local Storage' logs 'Service Worker' 'Session Storage' User/History User/workspaceStorage Cookies Cookies-journal $HOME/.npm/_cacache $HOME/.npm/_logs $HOME/managed_context $HOME/'Telegram Desktop' $HOME/test_suite_analysis"
+# export CACHE_CODE_DIR="blob_storage Cache CachedData CachedExtensionVSIXs CachedProfilesData 'Code Cache' Crashpad DawnCache GPUCache 'Local Storage' logs 'Service Worker' 'Session Storage' User/History User/workspaceStorage Cookies Cookies-journal $HOME/.npm/_cacache $HOME/.npm/_logs $HOME/managed_context $HOME/'Telegram Desktop' $HOME/test_suite_analysis $HOME/.cache $HOME/.nvm/.cache"
+
 
 tee -a ~/.bashrc <<< \
 '
