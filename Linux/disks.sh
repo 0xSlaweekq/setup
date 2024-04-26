@@ -23,14 +23,6 @@ UUID=DC081FAE081F86A4                     /mnt/Disk_D     ntfs   defaults,rw,rea
 UUID=DCC2862CC2860ACA                     none            ntfs   ro                    0      0
 EOF"
 
-# UUID=<uuid>                             <mount point> <FSType> <FSOptions>              <dump> <pass>
-UUID=1757-28B6                            /boot/efi       vfat   defaults                   0      2
-UUID=9ae4372a-47cd-44e6-aa70-9dd78a63d564 /               ext4   defaults                   0      1
-/swapfile                                 swap            swap   defaults                   0      0
-tmpfs                                     /tmp            tmpfs  defaults,noatime,mode=1777 0      0
-UUID=DC081FAE081F86A4                     /mnt/Disk_D     ntfs   defaults,rw,realtime       0      0
-UUID=DCC2862CC2860ACA                     none            ntfs   ro                         0      0
-
 echo '#################################################################'
 
 echo '#### Swap install'
