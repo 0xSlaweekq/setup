@@ -1,8 +1,10 @@
 echo 'Install NVM & nodejs & npm'
 echo '#################################################################'
 sudo apt -y install --reinstall nodejs
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 source ~/.bashrc
+nvm --version
+nvm install node
 nvm ls-remote
 nvm install v18.12.0
 nvm install v14.15.1

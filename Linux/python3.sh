@@ -22,13 +22,25 @@ lsmod | grep kvm
 ls -al /dev/kvm
 sudo usermod -aG kvm msi
 
-# cd /tmp
-# wget https://www.python.org/ftp/python/3.11.0/Python-3.11.0.tgz
-# tar -xf Python-3.11.0.tgz
-# cd Python-3.11.0
-# ./configure --enable-optimizations
-# sudo make install
-# cd ~
+cd /tmp
+wget https://www.python.org/ftp/python/3.12.3/Python-3.12.3.tgz
+tar -xf Python-3.12.3.tgz
+cd Python-3.12.3
+./configure --enable-optimizations
+sudo make install
+cd ~
+
+# git clone https://github.com/crytic/slither
+# cd slither
+# git checkout dev
+# make dev
+# source ./env/bin/activate
+
+pip3 install slither-analyzer
+# python3 -m pip install solc-select
+# solc-select install 0.8.25
+# solc-select use 0.8.25
+
 python3 --version
 pip3 --version
 echo '#### Python3 installed'

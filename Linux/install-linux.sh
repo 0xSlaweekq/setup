@@ -1,10 +1,6 @@
 echo 'Installing everything you need...'
 echo 'First update all packages'
 echo '#################################################################'
-sudo tee -a /etc/apt/sources.list <<< \
-"
-deb http://security.ubuntu.com/ubuntu lunar-security main universe
-deb http://archive.ubuntu.com/ubuntu/ lunar universe"
 
 sudo apt update
 sudo apt -y upgrade
@@ -27,7 +23,7 @@ sudo apt -y install \
   bash-completion ubuntu-restricted-extras ppa-purge xz-utils vlc dkms \
   gcc-multilib sweeper flatpak snap snapd qbittorrent davfs2 dconf-cli \
   network-manager network-manager-gnome network-manager-openvpn-gnome \
-  net-tools libreoffice wireguard plasma-discover-backend-flatpak
+  net-tools libreoffice plasma-discover-backend-flatpak
 
 #   gnome-tweaks gnome-extensions-app gnome-shell-extension-manager \
 #   gnome-software-plugin-flatpak gnome-disk-utility
@@ -61,6 +57,8 @@ chmod +x ./intel.sh
 sudo ./intel.sh
 chmod +x ./nvidia.sh
 sudo ./nvidia.sh
+chmod +x ./python3.sh
+sudo ./python3.sh
 chmod +x ./nvm.sh
 sudo ./nvm.sh
 chmod +x ./airpods.sh
@@ -71,8 +69,7 @@ chmod +x ./docker.sh
 sudo ./docker.sh
 chmod +x ./yandex.sh
 sudo ./yandex.sh
-# chmod +x ./python3.sh
-# ./python3.sh
+
 
 echo 'Set autocomlete bash'
 echo '#################################################################'
