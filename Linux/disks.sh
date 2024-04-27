@@ -31,13 +31,14 @@ sudo swapon --show
 free -h
 df -h
 sudo swapoff -a
-sudo fallocate -l 32G /swapfile
-sudo chmod 600 /swapfile
-ls -lh /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
+sudo fallocate -l 32G /swap.img
+sudo chmod 600 /swap.img
+ls -lh /swap.img
+sudo mkswap /swap.img
+sudo swapon /swap.img
 sudo cp /etc/fstab /etc/fstab.bak
-echo '/swapfile                                 none            swap   sw                   0      0' | sudo tee -a /etc/fstab
+echo '/swap.img                                 swap            swap   defaults             0      0' | \
+  sudo tee -a /etc/fstab
 cat /proc/sys/vm/swappiness
 sudo sysctl vm.swappiness=10
 cat /proc/sys/vm/vfs_cache_pressure

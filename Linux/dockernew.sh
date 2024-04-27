@@ -35,7 +35,6 @@ sudo systemctl restart docker
 sudo systemctl enable --now docker.service docker.socket containerd.service
 sudo systemctl daemon-reload
 
-
 # Verify that the Docker Engine installation is successful by running the hello-world image.
 sudo docker run hello-world
 
@@ -45,6 +44,7 @@ sudo apt-get -y update
 sudo apt-get -y install ./docker-desktop-4.28.0-amd64.deb
 systemctl --user start docker-desktop
 systemctl --user enable docker-desktop
+sudo rm -rf ./docker-desktop-4.28.0-amd64.deb
 
 gpg --generate-key
 pass init E20DF443A91F888DEA37E4C05673AC218BE9491C

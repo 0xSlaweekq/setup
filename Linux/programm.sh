@@ -40,10 +40,11 @@ sudo apt -y upgrade
 sudo apt -y install --install-recommends winehq-stable
 # wine winecfg
 # sudo apt -y install google-chrome-stable
-sudo apt -y install grub-customizer telegram code \
-  microsoft-edge-stable libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 \
-  librust-proton-call-dev proton-caller solc \
-  libgl1-mesa-glx:amd64 libgl1-mesa-glx:i386
+sudo apt -y install grub-customizer microsoft-edge-stable code telegram
+
+  # libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 \
+  # librust-proton-call-dev proton-caller solc \
+  # libgl1-mesa-glx:amd64 libgl1-mesa-glx:i386
 sudo apt -y --fix-broken install
 sudo snap install discord
 
@@ -57,8 +58,9 @@ code --locate-shell-integration-path bash
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "/path/to/shell/integration/script.sh"
 
 sudo flatpak install -y \
-  flathub org.gnome.Maps org.kde.isoimagewriter org.kde.elisa \
-  org.getoutline.OutlineClient org.getoutline.OutlineManager
+  flathub org.gnome.Maps org.kde.isoimagewriter \
+  org.getoutline.OutlineClient org.getoutline.OutlineManager \
+  org.kde.elisa
 
 sudo curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts/install-linux.sh | sudo sh
 tenderly login --authentication-method access-key --access-key pdGB-7bDcER1WgNviv5KpUjUJcb-W22b --force

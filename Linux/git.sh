@@ -5,6 +5,7 @@ sudo ufw allow ssh
 cd ~
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
+chmod 700 ~/.ssh/config
 cd ~/.ssh
 ssh-keygen -t ed25519 -C "plakidin.vyacheslav@mail.ru"
 chmod 600 ~/.ssh/id_ed25519
@@ -75,12 +76,12 @@ alias digcon="ssh root@164.90.207.152"
 alias doccon="docker login --password dckr_pat_yJhGjotZbYBJLvQIcRq3P27yChc -u slaweekq"
 alias sshcon="eval "$(ssh-agent -s)" && echo $SSH_AGENT_SOCK && ssh-add ~/.ssh/id_ed25519 && ssh -T git@github.com"
 alias gpush="git add ./ && git commit -m «new» -a && git push origin"
-# alias docker-compose="docker compose"
 alias dexec="docker exec -it"
 alias dstart="docker-compose -f ./docker-compose.yml up -d"
 alias dres="docker-compose down && clear && docker-compose up"
 alias dstop="docker-compose -f ./docker-compose.yml down -v && docker-compose -f ./docker-compose.yml rm -sfv"
-alias dstopall="docker-compose down --rmi=all -v --remove-orphans && docker rmi $(docker images -a -q)"
+alias dstopall="docker-compose down --rmi=all -v --remove-orphans"
+alias dremig="docker rmi $(docker images -a -q)"
 alias dreb="docker-compose -f ./docker-compose.yml down -v && docker-compose -f ./docker-compose.yml rm -sfv && docker-compose -f ./docker-compose.yml up -d"
 alias kalistart="docker pull kalilinux/kali-rolling && docker run --tty --interactive kalilinux/kali-rolling"
 alias wclone="git clone git@gitlab.i-link.pro:defi-invest/defi-invest-smart-contract.git && cd defi-invest-smart-contract && git checkout dev && git pull && code ."

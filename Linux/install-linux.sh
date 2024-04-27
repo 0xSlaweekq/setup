@@ -53,8 +53,6 @@ chmod +x ./git.sh
 sudo ./git.sh
 chmod +x ./debs.sh
 sudo ./debs.sh
-chmod +x ./intel.sh
-sudo ./intel.sh
 chmod +x ./nvidia.sh
 sudo ./nvidia.sh
 chmod +x ./python3.sh
