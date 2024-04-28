@@ -29,6 +29,13 @@ cd Python-3.12.3
 ./configure --enable-optimizations
 sudo make install
 cd ~
+pip3 install slither-analyzer
+
+python3 --version
+pip3 --version
+echo '#### Python3 installed'
+echo '#################################################################'
+fi
 
 # git clone https://github.com/crytic/slither
 # cd slither
@@ -36,13 +43,9 @@ cd ~
 # make dev
 # source ./env/bin/activate
 
-pip3 install slither-analyzer
 # python3 -m pip install solc-select
 # solc-select install 0.8.25
 # solc-select use 0.8.25
 
-python3 --version
-pip3 --version
-echo '#### Python3 installed'
-echo '#################################################################'
-fi
+
+

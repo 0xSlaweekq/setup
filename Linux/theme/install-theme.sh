@@ -1,19 +1,25 @@
 echo 'Install WhiteSur KDE, GTK & ICON theme'
 echo '#################################################################'
+
+https://ocs-dl.fra1.cdn.digitaloceanspaces.com/data/files/1467909105/ocs-url_3.1.0-0ubuntu1_amd64.deb
+
 sudo add-apt-repository -y ppa:papirus/papirus
 sudo apt update
 sudo apt dist-upgrade
-sudo apt -y install \
-  qt5-style-kvantum qt5-style-kvantum-themes sassc libglib2.0-dev-bin \
-  imagemagick dialog optipng x11-apps make extra-cmake-modules \
-  qtdeclarative5-dev libqt5x11extras5-dev libx11-dev libkf5plasma-dev \
-  libkf5iconthemes-dev  libkf5windowsystem-dev libkf5declarative-dev \
-  libkf5xmlgui-dev libkf5activities-dev build-essential libxcb-util-dev \
-  gettext libkf5wayland-dev git libkf5archive-dev libkf5notifications-dev \
-  libwayland-dev libxcb-util0-dev libsm-dev libkf5crash-dev kirigami2-dev \
-  libkf5newstuff-dev libxcb-shape0-dev libxcb-randr0-dev libx11-xcb-dev \
-  libqt5waylandclient5-dev libwayland-client0 plasma-wayland-protocols \
-  qtwayland5-dev-tools
+sudo apt -y install g++ qt6-base-dev qt6-svg-dev qt6-base-dev-tools
+sudo apt -y install qt6-style-kvantum qt6-style-kvantum-themes
+export QT_STYLE_OVERRIDE=kvantum
+
+#   qt5-style-kvantum qt5-style-kvantum-themes sassc libglib2.0-dev-bin \
+#   imagemagick dialog optipng x11-apps make extra-cmake-modules \
+#   qtdeclarative5-dev libqt5x11extras5-dev libx11-dev libkf5plasma-dev \
+#   libkf5iconthemes-dev  libkf5windowsystem-dev libkf5declarative-dev \
+#   libkf5xmlgui-dev libkf5activities-dev build-essential libxcb-util-dev \
+#   gettext libkf5wayland-dev git libkf5archive-dev libkf5notifications-dev \
+#   libwayland-dev libxcb-util0-dev libsm-dev libkf5crash-dev kirigami2-dev \
+#   libkf5newstuff-dev libxcb-shape0-dev libxcb-randr0-dev libx11-xcb-dev \
+#   libqt5waylandclient5-dev libwayland-client0 plasma-wayland-protocols \
+#   qtwayland5-dev-tools
 #   latte-dock
 
 cd ~
@@ -40,7 +46,7 @@ sudo cp -r /mnt/Disk_D/CRYPTO/setup/Linux/theme/wallpaper/* /usr/share/wallpaper
 sudo ./grub2-themes/install.sh -t whitesur -i whitesur -s 2k -b
 ./WhiteSur-gtk-theme/install.sh -o normal -c Dark -t all \
   -p 30 -m -N mojave -l --black --darker
-./WhiteSur-icon-theme/install.sh -t default --alternative --bold
+./WhiteSur-icon-theme/install.sh -t default -a -b
 ./WhiteSur-gtk-theme/tweaks.sh -o normal -c Dark -t blue \
   -b /usr/share/wallpapers/background.jpg
 #    -g default
