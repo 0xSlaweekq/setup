@@ -57,7 +57,8 @@ code --locate-shell-integration-path bash
 
 flatpak install -y \
   flathub org.getoutline.OutlineClient org.getoutline.OutlineManager \
-  org.gnome.Maps org.kde.isoimagewriter com.usebottles.bottles
+  org.gnome.Maps org.kde.isoimagewriter com.usebottles.bottles \
+  com.github.tchx84.Flatseal
 
 sudo curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts/install-linux.sh | sudo sh
 tenderly login --authentication-method access-key --access-key pdGB-7bDcER1WgNviv5KpUjUJcb-W22b --force

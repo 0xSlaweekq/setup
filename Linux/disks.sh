@@ -39,13 +39,6 @@ sudo swapon /swap.img
 sudo cp /etc/fstab /etc/fstab.bak
 echo '/swap.img                                 swap            swap   defaults             0      0' | \
   sudo tee -a /etc/fstab
-cat /proc/sys/vm/swappiness
-sudo sysctl vm.swappiness=10
-cat /proc/sys/vm/vfs_cache_pressure
-sudo sysctl vm.vfs_cache_pressure=50
-sudo tee -a /etc/sysctl.conf <<< \
-"vm.swappiness=10
-vm.vfs_cache_pressure=50"
 echo '#################################################################'
 
 echo '#### Grub2 install'

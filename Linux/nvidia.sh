@@ -22,6 +22,8 @@ sudo apt -y install --reinstall \
 sudo apt-key del 7fa2af80
 
 sudo apt-get update
+sudo apt-get -y install --reinstall \
+  nvidia-driver-550 nvidia-dkms-550 nvidia-headless-550 nvidia-settings
 sudo apt-get -y install libglu1-mesa-dev freeglut3-dev mesa-common-dev
 sudo apt-get -y install libopenal1 libopenal-dev
 sudo apt-get -y install libalut0 libalut-dev
@@ -30,7 +32,7 @@ sudo apt-get -y install libvulkan1 libvulkan1:i386 mesa-vulkan-drivers vkbasalt
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
 sudo dpkg -i cuda-keyring_1.1-1_all.deb
 sudo apt-get update
-sudo apt-get -y install --reinstall cuda-drivers nvidia-settings
+sudo apt-get -y install cuda-drivers
 
 sudo systemctl enable nvidia-persistenced
 sudo systemctl start nvidia-persistenced
