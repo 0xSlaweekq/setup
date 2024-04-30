@@ -23,11 +23,7 @@ sudo apt -y install \
   bash-completion ubuntu-restricted-extras ppa-purge xz-utils vlc dkms \
   gcc-multilib sweeper flatpak snap snapd qbittorrent davfs2 dconf-cli \
   network-manager network-manager-gnome network-manager-openvpn-gnome \
-  net-tools libreoffice gnome-tweaks gnome-extensions-app \
-  gnome-shell-extension-manager gnome-software-plugin-flatpak gnome-disk-utility
-  
-  
-#  plasma-discover-backend-flatpak
+  net-tools libreoffice plasma-discover-backend-flatpak
 
 #   gnome-tweaks gnome-extensions-app gnome-shell-extension-manager \
 #   gnome-software-plugin-flatpak gnome-disk-utility
@@ -39,8 +35,9 @@ sudo systemctl daemon-reload
 sudo dpkg --configure -a
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 
-# sudo add-apt-repository ppa:kubuntu-ppa/ppa
-# sudo add-apt-repository ppa:kubuntu-ppa/backports
+sudo add-apt-repository -y ppa:kubuntu-ppa/ppa
+sudo add-apt-repository -y ppa:kubuntu-ppa/backports
+sudo add-apt-repository -y multiverse
 sudo apt update
 sudo pkcon update
 sudo apt full-upgrade
