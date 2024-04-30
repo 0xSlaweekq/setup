@@ -23,7 +23,14 @@ sudo apt -y install \
   bash-completion ubuntu-restricted-extras ppa-purge xz-utils vlc dkms \
   gcc-multilib sweeper flatpak snap snapd qbittorrent davfs2 dconf-cli \
   network-manager network-manager-gnome network-manager-openvpn-gnome \
-  net-tools libreoffice plasma-discover-backend-flatpak
+  net-tools libreoffice cpufrequtils gamemode preload indicator-cpufreq \
+  meson libsystemd-dev pkg-config ninja-build libdbus-1-dev libinih-dev \
+  tlp tlp-rdw plasma-discover-backend-flatpak
+
+sudo systemctl enable tlp.service
+sudo tlp start
+echo 'GOVERNOR="performance"' | sudo tee /etc/default/cpufrequtils
+sudo systemctl restart cpufrequtils
 
 #   gnome-tweaks gnome-extensions-app gnome-shell-extension-manager \
 #   gnome-software-plugin-flatpak gnome-disk-utility
