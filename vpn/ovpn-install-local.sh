@@ -4,8 +4,8 @@ curl -fsSL https://packages.openvpn.net/packages-repo.gpg | \
 echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/openvpn.asc] https://packages.openvpn.net/openvpn3/debian lunar main" | \
 sudo tee /etc/apt/sources.list.d/openvpn-packages.list
 
-sudo apt update
-sudo apt -y install openvpn3
+sudo apt-get update
+sudo apt-get -y install openvpn3
 
 cp /mnt/Disk_D/CRYPTO/setup/vpn/msi.ovpn ./msi.ovpn
 openvpn3 config-import --config ./msi.ovpn --name OpenVpnDO --persistent

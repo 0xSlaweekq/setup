@@ -20,19 +20,19 @@ echo "Updating system"
 echo '#################################################################'
 tee -a ~/.bashrc <<< \
 '
-alias si="sudo apt -y install"
+alias si="sudo apt-get -y install"
 alias srf="sudo rm -rf"
 alias srn="sudo reboot now"
-alias srp="sudo apt -y remove --purge"
+alias srp="sudo apt-get -y remove --purge"
 alias sdr="sudo systemctl daemon-reload"
-alias supd="sudo apt update && sudo apt -y upgrade && sudo apt -y --fix-broken install && sudo apt -y autoclean && sudo apt -y autoremove --purge"
+alias supd="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y --fix-broken install && sudo apt-get -y autoclean && sudo apt-get -y autoremove --purge"
 '
-sudo apt update
-sudo apt -y upgrade
-sudo apt -y --fix-broken install
-sudo apt -y autoclean
-sudo apt -y autoremove --purge
-sudo apt -y install git nano resolvconf curl wireguard wireguard-tools
+sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt-get -y --fix-broken install
+sudo apt-get -y autoclean
+sudo apt-get -y autoremove --purge
+sudo apt-get -y install git nano resolvconf curl wireguard wireguard-tools
 
 echo "Installing 3proxy"
 echo '#################################################################'
