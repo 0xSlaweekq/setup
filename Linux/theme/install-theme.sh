@@ -2,16 +2,16 @@ echo 'Install WhiteSur KDE, GTK & ICON theme'
 echo '#################################################################'
 
 https://www.opendesktop.org/p/1136805/
-sudo apt -y install ./ocs-url_3.1.0-0ubuntu1_amd64.deb
+sudo apt-get -y install ./ocs-url_3.1.0-0ubuntu1_amd64.deb
 
 sudo add-apt-repository -y ppa:papirus/papirus
-sudo apt update
-sudo apt dist-upgrade
-# sudo apt -y install g++ qt6-base-dev qt6-svg-dev qt6-base-dev-tools
-# sudo apt -y install qt6-style-kvantum qt6-style-kvantum-themes
+sudo apt-get update
+sudo apt-get dist-upgrade
+# sudo apt-get -y install g++ qt6-base-dev qt6-svg-dev qt6-base-dev-tools
+# sudo apt-get -y install qt6-style-kvantum qt6-style-kvantum-themes
 # export QT_STYLE_OVERRIDE=kvantum
 
-sudo apt -y install \
+sudo apt-get -y install \
   qt5-style-kvantum qt5-style-kvantum-themes sassc libglib2.0-dev-bin \
   imagemagick dialog optipng x11-apps make extra-cmake-modules \
   qtdeclarative5-dev libqt5x11extras5-dev libx11-dev libkf5plasma-dev \
@@ -102,9 +102,9 @@ echo '#################################################################'
 # big sur inline battery
 
 # install Latte Dock
-# sudo apt update
-# sudo apt dist-upgrade
-# sudo apt -y install \
+# sudo apt-get update
+# sudo apt-get dist-upgrade
+# sudo apt-get -y install \
 #   cmake extra-cmake-modules qtdeclarative5-dev libqt5x11extras5-dev libx11-dev \
 #   libkf5iconthemes-dev libkf5plasma-dev libkf5windowsystem-dev libkf5declarative-dev \
 #   libkf5xmlgui-dev libkf5activities-dev build-essential libxcb-util-dev gettext \
@@ -119,4 +119,4 @@ echo '#################################################################'
 
 # https://www.pling.com/p/1399346
 
-# sudo apt -y install gnome-tweaks gnome-shell-extensions && sudo gnome-tweaks
+# sudo apt-get -y install gnome-tweaks gnome-shell-extensions && sudo gnome-tweaks
