@@ -4,7 +4,7 @@ if [[ $(which docker) && $(docker --version) && $(docker compose) ]]; then
    echo 'Docker installed, continue...'
 else
 echo 'Docker NOT installed, continue...'
-for pkg in docker docker.io docker-ce docker-ce-cli docker-doc docker-desktop docker-compose docker-compose-v2 docker-compose-plugin docker-ce-rootless-extras podman-docker containerd runc docker-buildx-plugin; do sudo apt -y remove --purge $pkg; done
+for pkg in docker docker.io docker-ce docker-ce-cli docker-doc docker-desktop docker-compose docker-compose-v2 docker-compose-plugin docker-ce-rootless-extras podman-docker containerd runc docker-buildx-plugin; do sudo apt-get -y remove --purge $pkg; done
 sudo apt-get purge docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
 rm -rf ~/.docker
 sudo rm -rf /usr/local/bin/com.docker.cli
@@ -12,7 +12,7 @@ sudo rm -rf /var/lib/docker
 sudo rm -rf /var/lib/containerd
 
 
-sudo apt install gnome-terminal
+sudo apt-get install gnome-terminal
 modprobe kvm
 modprobe kvm_intel  # Intel processors
 modprobe kvm_amd    # AMD processors

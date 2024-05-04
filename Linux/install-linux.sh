@@ -2,19 +2,20 @@ echo 'Installing everything you need...'
 echo 'First update all packages'
 echo '#################################################################'
 
-sudo apt update
-sudo apt -y upgrade
-sudo apt -y --fix-broken install
-sudo apt -y autoclean
-sudo apt -y autoremove --purge
-# sudo apt -y dist-upgrade
+sudo add-apt-repository -y ppa:flatpak/stable
+sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt-get -y --fix-broken install
+sudo apt-get -y autoclean
+sudo apt-get -y autoremove --purge
+# sudo apt-get -y dist-upgrade
 sudo timedatectl set-local-rtc 1
 
 echo 'All packages updated'
 echo '#################################################################'
 echo 'Install new usless packages'
 echo '#################################################################'
-sudo apt -y install \
+sudo apt-get -y install \
   nodejs npm nano openssh-client inxi curl linux-firmware cpu-x dpkg \
   gpg software-properties-common apt-transport-https wget make gettext \
   build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev dirmngr \
@@ -45,9 +46,9 @@ sudo dpkg --configure -a
 sudo add-apt-repository -y ppa:kubuntu-ppa/ppa
 sudo add-apt-repository -y ppa:kubuntu-ppa/backports
 sudo add-apt-repository -y multiverse
-sudo apt update
+sudo apt-get update
 sudo pkcon update
-sudo apt full-upgrade
+sudo apt-get full-upgrade
 
 # gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
 # gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
@@ -87,11 +88,11 @@ set show-all-if-ambiguous On
 "\e[A": history-search-backward
 "\e[B": history-search-forward'
 
-sudo apt update
-sudo apt -y upgrade
-sudo apt -y --fix-broken install
-sudo apt -y autoclean
-sudo apt -y autoremove --purge
+sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt-get -y --fix-broken install
+sudo apt-get -y autoclean
+sudo apt-get -y autoremove --purge
 gpg --generate-key
 echo 'pass init B381A9F621F86E30EB14EBAD9066D29FF5813FE3
 systemctl --user start docker-desktop'
@@ -114,13 +115,13 @@ bash -c \
 # absolute path. No other format is supported.
 #
 XDG_DESKTOP_DIR="$HOME/Desktop"
-XDG_DOWNLOAD_DIR="/mnt/Disk_D/Downloads"
-XDG_DOCUMENTS_DIR="/mnt/Disk_D/Documents"
-XDG_TEMPLATES_DIR="/mnt/Disk_D/home/Templates"
-XDG_PUBLICSHARE_DIR="/mnt/Disk_D/home/Transfer"
-XDG_MUSIC_DIR="/mnt/Disk_D/home/Music"
-XDG_PICTURES_DIR="/mnt/Disk_D/home/Pictures"
-XDG_VIDEOS_DIR="/mnt/Disk_D/home/Videos"
+XDG_DOWNLOAD_DIR="/mnt/Documents/Downloads"
+XDG_DOCUMENTS_DIR="/mnt/Documents/Documents"
+XDG_TEMPLATES_DIR="/mnt/Documents/home/Templates"
+XDG_PUBLICSHARE_DIR="/mnt/Documents/home/Transfer"
+XDG_MUSIC_DIR="/mnt/Documents/home/Music"
+XDG_PICTURES_DIR="/mnt/Documents/home/Pictures"
+XDG_VIDEOS_DIR="/mnt/Documents/home/Videos"
 EOF'
 
 
@@ -176,9 +177,9 @@ EOF'
 # sudo systemctl reload apache2
 
 # ganache
-# sudo sudo apt update
-# sudo apt -y upgrade
-# sudo apt -y install wget \
+# sudo sudo apt-get update
+# sudo apt-get -y upgrade
+# sudo apt-get -y install wget \
 #   libgtk-3-dev \
 #   libfuse-dev \
 #   libgtkextra-dev \

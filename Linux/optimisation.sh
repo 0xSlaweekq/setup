@@ -2,8 +2,8 @@
 # curl -s 'https://liquorix.net/install-liquorix.sh' | sudo bash
 
 sudo dpkg --configure -a
-sudo apt -y install -f
-sudo apt --fix-broken install
+sudo apt-get -y install -f
+sudo apt-get --fix-broken install
 cat /proc/version
 
 sudo sed -i s/quiet\ splash/quiet\ splash\ intel_pstate=enable/g /etc/default/grub

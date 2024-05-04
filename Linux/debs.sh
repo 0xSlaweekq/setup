@@ -11,11 +11,11 @@ wget https://github.com/lutris/lutris/releases/download/v0.5.17/lutris_0.5.17_al
 # wget https://download.virtualbox.org/virtualbox/7.0.12/VirtualBoxSDK-7.0.12-159484.zip
 
 # Install packages
-sudo apt -y install ./lutris_0.5.17_all.deb ./packages-microsoft-prod.deb
-sudo apt -y --fix-broken install
-sudo apt install -f
+sudo apt-get -y install ./lutris_0.5.17_all.deb ./packages-microsoft-prod.deb
+sudo apt-get -y --fix-broken install
+sudo apt-get install -f
 sudo systemctl daemon-reload
 # Remove packages
 sudo rm -rf packages-microsoft-prod.deb
-sudo apt -y update
-sudo apt -y install powershell
+sudo apt-get -y update
+sudo apt-get -y install powershell

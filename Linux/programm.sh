@@ -29,21 +29,21 @@ cd /etc/apt/sources.list.d
 sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com `sudo aptitude update 2>&1 | grep -o '[0-9A-Z]\{16\}$' | xargs`
 
 # installing
-sudo apt update
+sudo apt-get update
 sudo dpkg --add-architecture amd64
 sudo dpkg --add-architecture i386
-sudo apt update
-sudo apt -y upgrade
-sudo apt -y install --install-recommends winehq-stable
+sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt-get -y install --install-recommends winehq-stable
 # wine winecfg
-# sudo apt -y install google-chrome-stable
-sudo apt -y install \
+# sudo apt-get -y install google-chrome-stable
+sudo apt-get -y install \
   microsoft-edge-stable code telegram \
   libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 \
   librust-proton-call-dev proton-caller solc \
   libgl1-mesa-glx:amd64 libgl1-mesa-glx:i386 \
   grub-customizer
-sudo apt -y --fix-broken install
+sudo apt-get -y --fix-broken install
 sudo snap install discord
 
 # Options for shell in vscode
@@ -58,9 +58,15 @@ code --locate-shell-integration-path bash
 flatpak install -y \
   flathub org.getoutline.OutlineClient org.getoutline.OutlineManager \
   org.gnome.Maps org.kde.isoimagewriter com.usebottles.bottles \
-  com.github.tchx84.Flatseal
+  com.github.tchx84.Flatseal org.gnome.Boxes
 
 sudo curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts/install-linux.sh | sudo sh
 tenderly login --authentication-method access-key --access-key pdGB-7bDcER1WgNviv5KpUjUJcb-W22b --force
 echo 'All programm installed'
 echo '#################################################################'
+
+flatpak install flathub org.gnome.Boxes
+
+sudo apt-get -y install virtualbox
+sudo usermod -aG vboxusers $USER
+sudo newgrp vboxusers
