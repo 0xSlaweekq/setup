@@ -97,6 +97,8 @@ gpg --generate-key
 echo 'pass init B381A9F621F86E30EB14EBAD9066D29FF5813FE3
 systemctl --user start docker-desktop'
 curl -L https://foundry.paradigm.xyz | bash
+source /home/msi/.bashrc
+foundryup
 echo 'See All ppa repos grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/*'
 echo 'Ended'
 echo '#################################################################'
