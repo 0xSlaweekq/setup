@@ -13,6 +13,13 @@ tgpt -u # for update
 sudo tee -a /usr/local/bin/proxy.txt <<< \
 'https://slaweekq:88C1mgzd1Q[@164.90.207.152:3128
 '
+# --model "gpt-3.5-turbo"
+# --provider openai
+# -i, --interactive
+# -m, --multiline
+# -s, --shell Generate and Execute shell commands. (Experimental)
+# -c, --code Generate Code. (Experimental)
+
 tgpt \
   --provider opengpts \
   --key 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 \

@@ -70,6 +70,6 @@ flatpak install flathub org.gnome.Boxes
 sudo apt-get -y install virtualbox
 sudo usermod -aG vboxusers $USER
 sudo newgrp vboxusers
-sudo adduser msi vboxsf
+sudo adduser $USER vboxsf
 
 sudo apt-get -y install virtualbox-dkms xserver-xorg-core virtualbox-guest-x11
