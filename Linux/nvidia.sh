@@ -1,8 +1,8 @@
 echo 'Installing Nvidia & other graphics drivers'
 echo '#################################################################'
-curl -fSsL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub | \
+curl -fSsL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/3bf863cc.pub | \
   sudo gpg --dearmor | sudo tee /usr/share/keyrings/nvidia-drivers.gpg > /dev/null 2>&1
-echo 'deb [signed-by=/usr/share/keyrings/nvidia-drivers.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /' | \
+echo 'deb [signed-by=/usr/share/keyrings/nvidia-drivers.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /' | \
   sudo tee /etc/apt/sources.list.d/nvidia-drivers.list
 
 sudo add-apt-repository -y ppa:graphics-drivers/ppa
@@ -11,14 +11,14 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 # sudo ubuntu-drivers devices
 # sudo ubuntu-drivers autoinstall
-sudo apt-get -y install --reinstall \
+sudo apt-get -y install \
   xserver-xorg-video-nouveau linux-headers-$(uname -r) gcc make acpid \
   ca-certificates  dirmngr software-properties-common apt-transport-https \
   curl dkms libglvnd-core-dev libglvnd0 libglvnd-dev libc-dev freeglut3-dev \
   libx11-dev libxmu-dev libxi-dev libglu1-mesa-dev libfreeimage-dev \
   libglfw3-dev
 sudo apt-key del 7fa2af80
-sudo apt-get -y install --reinstall \
+sudo apt-get -y install \
   nvidia-driver-550 nvidia-dkms-550 nvidia-headless-550 nvidia-settings \
   libvulkan1 libvulkan1:i386 mesa-vulkan-drivers vkbasalt \
   libglu1-mesa-dev freeglut3-dev mesa-common-dev libopenal1 \

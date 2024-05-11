@@ -15,12 +15,13 @@ sudo bash -c \
 # device; this may be used with UUID= as a more robust way to name devices
 # that works even if disks are added and removed. See fstab(5).
 #
-# UUID=<uuid>                             <mount point> <FSType> <FSOptions>        <dump> <pass>
-UUID=0738b3b8-69e2-4115-ad75-3399eea21c57 /               ext4   errors=remount-ro    0      1
-UUID=5839-82E3                            /boot/efi       vfat   umask=0077           0      1
-UUID=7f8f1cbd-414c-4669-88c0-144ba99c413e /home           ext4   defaults             0      2
-UUID=8e674e9f-72ce-4a1e-810e-ca5972b7fa11 none            swap   sw                   0      0
-UUID=858188bb-d3a3-4840-b60d-d71e647aa66b /mnt/Documents  ext4   defaults,rw,realtime 0      2
+# UUID=<uuid>                             <mount point> <FSType> <FSOptions>              <dump> <pass>
+UUID=C547-7ECD                            /boot/efi       vfat   defaults                    0      2
+UUID=8e7162b2-933e-4cd0-b348-4db009cbb86d /               ext4   defaults                    0      1
+UUID=7f8f1cbd-414c-4669-88c0-144ba99c413e /home           ext4   defaults                    0      2
+UUID=c62c43f8-c667-481b-bd09-f8277a1fe84e swap            swap   defaults                    0      0
+UUID=858188bb-d3a3-4840-b60d-d71e647aa66b /mnt/Documents  ext4   defaults                    0      2
+tmpfs                                     /tmp            tmpfs  defaults,noatime,mode=1777  0      0
 EOF"
 
 echo '#################################################################'
@@ -31,13 +32,10 @@ sudo swapon --show
 free -h
 df -h
 sudo swapoff -a
-sudo fallocate -l 32G /swap.img
-sudo chmod 600 /swap.img
-ls -lh /swap.img
-sudo mkswap /swap.img
-sudo swapon /swap.img
+sudo mkswap /dev/nvme0n1p4
+sudo swapon /dev/nvme0n1p4
 sudo cp /etc/fstab /etc/fstab.bak
-echo '/swap.img                                 swap            swap   defaults             0      0' | \
+echo '/dev/nvme0n1p4                              swap            swap   defaults             0      2' | \
   sudo tee -a /etc/fstab
 cat /proc/sys/vm/swappiness
 sudo sysctl vm.swappiness=10

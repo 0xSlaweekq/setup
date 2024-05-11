@@ -11,7 +11,7 @@ sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.g
 sudo wget -O /etc/apt/trusted.gpg.d/winehq.key https://dl.winehq.org/wine-builds/winehq.key
 # wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 # Adding repos
-sudo echo "deb [signed-by=/etc/apt/trusted.gpg.d/winehq.key] https://dl.winehq.org/wine-builds/ubuntu $(lsb_release -cs) main" | \
+sudo echo "deb [signed-by=/etc/apt/trusted.gpg.d/winehq.key] https://dl.winehq.org/wine-builds/ubuntu jammy main" | \
   sudo tee /etc/apt/sources.list.d/winehq.list > /dev/null
 
 sudo echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/microsoft.gpg] https://packages.microsoft.com/repos/code stable main" |\
@@ -41,8 +41,8 @@ sudo apt-get -y install \
   microsoft-edge-stable code telegram \
   libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 \
   librust-proton-call-dev proton-caller solc \
-  libgl1-mesa-glx:amd64 libgl1-mesa-glx:i386 \
   grub-customizer
+  # libgl1-mesa-glx:amd64 libgl1-mesa-glx:i386
 sudo apt-get -y --fix-broken install
 sudo snap install discord
 
@@ -56,20 +56,20 @@ code --locate-shell-integration-path bash
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "/path/to/shell/integration/script.sh"
 
 flatpak install -y \
-  flathub org.getoutline.OutlineClient org.getoutline.OutlineManager \
-  org.gnome.Maps org.kde.isoimagewriter com.usebottles.bottles \
-  com.github.tchx84.Flatseal org.gnome.Boxes
+  flathub org.gnome.Maps org.kde.isoimagewriter \
+  com.usebottles.bottles com.github.tchx84.Flatseal \
+  # org.getoutline.OutlineClient org.getoutline.OutlineManager
+
 
 sudo curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts/install-linux.sh | sudo sh
 tenderly login --authentication-method access-key --access-key pdGB-7bDcER1WgNviv5KpUjUJcb-W22b --force
 echo 'All programm installed'
 echo '#################################################################'
 
-flatpak install flathub org.gnome.Boxes
 
 sudo apt-get -y install virtualbox
-sudo usermod -aG vboxusers $USER
 sudo newgrp vboxusers
-sudo adduser $USER vboxsf
+sudo usermod -aG vboxusers $USER
+sudo adduser $USER vboxusers
 
 sudo apt-get -y install virtualbox-dkms xserver-xorg-core virtualbox-guest-x11
