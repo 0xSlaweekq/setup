@@ -24,10 +24,13 @@ sudo apt-get -y install \
   libglu1-mesa-dev freeglut3-dev mesa-common-dev libopenal1 \
   libopenal-dev libalut0 libalut-dev cuda-drivers
 
+sudo apt-get -y install cuda-toolkit nvidia-gds
+
 sudo systemctl enable nvidia-persistenced
 sudo systemctl start nvidia-persistenced
 sudo systemctl status nvidia-persistenced
 cat /proc/driver/nvidia/version
+sudo reboot
 echo '#################################################################'
 
 
