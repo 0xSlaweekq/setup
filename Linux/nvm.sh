@@ -1,6 +1,6 @@
 echo 'Install NVM & nodejs & npm'
 echo '#################################################################'
-sudo apt-get -y install --reinstall nodejs
+sudo apt-get -y install nodejs
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 source ~/.bashrc
 nvm --version

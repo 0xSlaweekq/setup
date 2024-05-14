@@ -22,9 +22,9 @@ sudo apt-get -y install \
   nvidia-driver-550 nvidia-dkms-550 nvidia-headless-550 nvidia-settings \
   libvulkan1 libvulkan1:i386 mesa-vulkan-drivers vkbasalt \
   libglu1-mesa-dev freeglut3-dev mesa-common-dev libopenal1 \
-  libopenal-dev libalut0 libalut-dev cuda-drivers
+  libopenal-dev libalut0 libalut-dev
 
-sudo apt-get -y install cuda-toolkit nvidia-gds
+# sudo apt-get -y install cuda-drivers cuda-toolkit nvidia-gds
 
 sudo systemctl enable nvidia-persistenced
 sudo systemctl start nvidia-persistenced
@@ -34,7 +34,8 @@ sudo reboot
 echo '#################################################################'
 
 
-
+# sudo telinit 3
+# sudo bash NVIDIA-Linux-x86_64-550.78.run
 
 # wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-drivers_535.161.08-1_amd64.deb
 

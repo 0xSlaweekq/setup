@@ -40,8 +40,8 @@ sudo apt-get -y install --install-recommends winehq-stable
 sudo apt-get -y install \
   microsoft-edge-stable code telegram \
   libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 \
-  librust-proton-call-dev proton-caller solc \
-  grub-customizer
+  librust-proton-call-dev proton-caller
+  # solc grub-customizer
   # libgl1-mesa-glx:amd64 libgl1-mesa-glx:i386
 sudo apt-get -y --fix-broken install
 sudo snap install discord
@@ -51,7 +51,7 @@ xdg-mime default code.desktop text/plain
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 eval $(/usr/bin/gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
-mkdir -p ~/.local/share/trusted.gpg.d
+mkdir -p $HOME/.local/share/trusted.gpg.d
 code --locate-shell-integration-path bash
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "/path/to/shell/integration/script.sh"
 
@@ -68,8 +68,9 @@ echo '#################################################################'
 
 
 sudo apt-get -y install virtualbox
-sudo newgrp vboxusers
+# sudo newgrp vboxusers
 sudo usermod -aG vboxusers $USER
 sudo adduser $USER vboxusers
-
 sudo apt-get -y install virtualbox-dkms xserver-xorg-core virtualbox-guest-x11
+
+wget https://wireless.wiki.kernel.org/_media/en/users/drivers/iwlwifi-ty-59.601f3a66.0.tgz

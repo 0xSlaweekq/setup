@@ -15,13 +15,12 @@ sudo bash -c \
 # device; this may be used with UUID= as a more robust way to name devices
 # that works even if disks are added and removed. See fstab(5).
 #
-# UUID=<uuid>                             <mount point> <FSType> <FSOptions>              <dump> <pass>
-UUID=C547-7ECD                            /boot/efi       vfat   defaults                    0      2
-UUID=8e7162b2-933e-4cd0-b348-4db009cbb86d /               ext4   defaults                    0      1
-UUID=7f8f1cbd-414c-4669-88c0-144ba99c413e /home           ext4   defaults                    0      2
-UUID=c62c43f8-c667-481b-bd09-f8277a1fe84e swap            swap   defaults                    0      0
-UUID=858188bb-d3a3-4840-b60d-d71e647aa66b /mnt/Documents  ext4   defaults                    0      2
-tmpfs                                     /tmp            tmpfs  defaults,noatime,mode=1777  0      0
+# UUID=<uuid>                             <mount point> <FSType> <FSOptions> <dump> <pass>
+UUID=cd76ed22-18dd-4363-b60c-79cc236d304c /               ext4   defaults       0      1
+UUID=ebc2563f-71b3-4c61-969c-41b619686d9f /home           ext4   defaults       0      1
+UUID=F304-F91F                            /boot/efi       vfat   defaults       0      1
+UUID=74db52a4-772f-4b99-8716-807fe4ac2072 none            swap   sw             0      0
+UUID=858188bb-d3a3-4840-b60d-d71e647aa66b /mnt/Documents  ext4   defaults       0      1
 EOF"
 
 echo '#################################################################'

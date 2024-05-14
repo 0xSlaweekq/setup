@@ -23,15 +23,19 @@ sudo apt-get -y install \
   ca-certificates gnupg lsb-release zlib1g-dev hardinfo hwinfo clang \
   bash-completion ubuntu-restricted-extras ppa-purge xz-utils vlc dkms \
   gcc-multilib sweeper flatpak snap snapd qbittorrent davfs2 dconf-cli \
-  network-manager network-manager-gnome network-manager-openvpn-gnome \
-  net-tools libreoffice cpufrequtils gamemode preload indicator-cpufreq \
-  meson libsystemd-dev pkg-config ninja-build libdbus-1-dev libinih-dev \
-  tlp tlp-rdw plasma-discover-backend-flatpak
+  libreoffice gamemode preload meson libsystemd-dev pkg-config \
+  ninja-build libdbus-1-dev libinih-dev power-profiles-daemon
+  
+  powerprofilesctl list
+  # cpufrequtils indicator-cpufreq tlp tlp-rdw
+  # plasma-discover-backend-flatpak
+  # network-manager network-manager-gnome network-manager-openvpn-gnome \
+  # net-tools 
 
-sudo systemctl enable tlp.service
-sudo tlp start
-echo 'GOVERNOR="performance"' | sudo tee /etc/default/cpufrequtils
-sudo systemctl restart cpufrequtils
+# sudo systemctl enable tlp.service
+# sudo tlp start
+# echo 'GOVERNOR="performance"' | sudo tee /etc/default/cpufrequtils
+# sudo systemctl restart cpufrequtils
 
 #   gnome-tweaks gnome-extensions-app gnome-shell-extension-manager \
 #   gnome-software-plugin-flatpak gnome-disk-utility
@@ -49,6 +53,10 @@ sudo add-apt-repository -y multiverse
 sudo apt-get update
 sudo pkcon update
 sudo apt-get full-upgrade
+
+sudo add-apt-repository ppa:canonical-hwe-team/backport-iwlwifi
+sudo apt-get update
+sudo apt install backport-iwlwifi-dkms
 
 # gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
 # gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
@@ -99,7 +107,7 @@ systemctl --user start docker-desktop'
 curl -L https://foundry.paradigm.xyz | bash
 source /home/msi/.bashrc
 foundryup
-echo 'See All ppa repos grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/*'
+echo 'See All ppa repos: grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/*'
 echo 'Ended'
 echo '#################################################################'
 echo 'after all installs prog and themes'
