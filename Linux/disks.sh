@@ -16,11 +16,12 @@ sudo bash -c \
 # that works even if disks are added and removed. See fstab(5).
 #
 # UUID=<uuid>                             <mount point> <FSType> <FSOptions> <dump> <pass>
-UUID=cd76ed22-18dd-4363-b60c-79cc236d304c /               ext4   defaults       0      1
-UUID=ebc2563f-71b3-4c61-969c-41b619686d9f /home           ext4   defaults       0      1
-UUID=F304-F91F                            /boot/efi       vfat   defaults       0      1
-UUID=74db52a4-772f-4b99-8716-807fe4ac2072 none            swap   sw             0      0
-UUID=858188bb-d3a3-4840-b60d-d71e647aa66b /mnt/Documents  ext4   defaults       0      1
+UUID=2AD0-8ECA                            /boot/efi       vfat   defaults       0      2
+UUID=9a442367-a432-4564-915c-1ea93624b164 /               ext4   defaults       0      1
+UUID=301e3657-b752-4334-81ee-baf2fd017a47 /home           ext4   defaults       0      2
+UUID=858188bb-d3a3-4840-b60d-d71e647aa66b /mnt/Documents  ext4   defaults       0      2
+UUID=3f550390-922c-4cbc-899f-329a90545651 swap            swap   defaults       0      0
+tmpfs                                     /tmp            tmpfs  defaults,noatime,mode=1777 0 0
 EOF"
 
 echo '#################################################################'
@@ -31,10 +32,11 @@ sudo swapon --show
 free -h
 df -h
 sudo swapoff -a
-sudo mkswap /dev/nvme0n1p4
-sudo swapon /dev/nvme0n1p4
+sudo umount /dev/nvme1n1p3
+sudo mkswap /dev/nvme1n1p3
+sudo swapon /dev/nvme1n1p3
 sudo cp /etc/fstab /etc/fstab.bak
-echo '/dev/nvme0n1p4                              swap            swap   defaults             0      2' | \
+echo '/dev/nvme1n1p3                              swap            swap   defaults             0      2' | \
   sudo tee -a /etc/fstab
 cat /proc/sys/vm/swappiness
 sudo sysctl vm.swappiness=10

@@ -15,7 +15,7 @@ sudo apt-get -y install \
   qt5-style-kvantum qt5-style-kvantum-themes sassc libglib2.0-dev-bin \
   imagemagick dialog optipng x11-apps make extra-cmake-modules \
   qtdeclarative5-dev libqt5x11extras5-dev libx11-dev libkf5plasma-dev \
-  libkf5iconthemes-dev  libkf5windowsystem-dev libkf5declarative-dev \
+  libkf5iconthemes-dev libkf5windowsystem-dev libkf5declarative-dev \
   libkf5xmlgui-dev libkf5activities-dev build-essential libxcb-util-dev \
   gettext libkf5wayland-dev git libkf5archive-dev libkf5notifications-dev \
   libwayland-dev libxcb-util0-dev libsm-dev libkf5crash-dev kirigami2-dev \
@@ -71,16 +71,6 @@ sudo rm -rf ./McMojave-kde
 sudo rm -rf ./Monterey-kde
 sudo rm -rf ./_build
 sudo rm -rf ./dist
-
-cd /usr/share/icons
-sudo rm -rf Humanity
-sudo rm -rf Humanity-Dark
-sudo rm -rf Oxygen_Black
-sudo rm -rf Oxygen_Blue
-sudo rm -rf Oxygen_White
-sudo rm -rf Oxygen_Yellow
-sudo rm -rf Oxygen_Zion
-cd ~
 
 echo '#################################################################'
 echo 'Read'

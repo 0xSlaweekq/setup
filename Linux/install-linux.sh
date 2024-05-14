@@ -23,14 +23,15 @@ sudo apt-get -y install \
   ca-certificates gnupg lsb-release zlib1g-dev hardinfo hwinfo clang \
   bash-completion ubuntu-restricted-extras ppa-purge xz-utils vlc dkms \
   gcc-multilib sweeper flatpak snap snapd qbittorrent davfs2 dconf-cli \
-  libreoffice gamemode preload meson libsystemd-dev pkg-config \
-  ninja-build libdbus-1-dev libinih-dev power-profiles-daemon
-  
-  powerprofilesctl list
-  # cpufrequtils indicator-cpufreq tlp tlp-rdw
-  # plasma-discover-backend-flatpak
+  libreoffice gamemode preload meson libsystemd-dev pkg-config gdebi \
+  ninja-build libdbus-1-dev libinih-dev power-profiles-daemon \
+  plasma-discover-backend-flatpak
+
+  powerprofilesctl set performance && powerprofilesctl list
+
+  # cpufrequtils indicator-cpufreq tlp tlp-rdw gnome-tweak-tool
   # network-manager network-manager-gnome network-manager-openvpn-gnome \
-  # net-tools 
+  # net-tools
 
 # sudo systemctl enable tlp.service
 # sudo tlp start
@@ -53,9 +54,6 @@ sudo add-apt-repository -y multiverse
 sudo apt-get update
 sudo pkcon update
 sudo apt-get full-upgrade
-
-sudo add-apt-repository ppa:canonical-hwe-team/backport-iwlwifi
-sudo apt-get update
 sudo apt install backport-iwlwifi-dkms
 
 # gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
