@@ -4,6 +4,18 @@ if [[ $(which --version) && $(python3 --version) && $(pip3 --version) ]]; then
    echo 'Python3 installed, continue...'
 else
    echo 'Python3 NOT installed, continue...'
+sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt-get -y --fix-broken install
+sudo apt-get -y autoclean
+sudo apt-get -y autoremove --purge
+
+sudo apt-get -y install \
+  cpu-checker python3-pip python3-dev python3-virtualenv \
+  python3-venv python-is-python3 python3 python3-full build-essential \
+  software-properties-common wget zlib1g-dev libffi-dev libgdbm-dev \
+  libnss3-dev libssl-dev libreadline-dev
+
 modprobe kvm
 modprobe kvm_intel
 kvm-ok
@@ -11,29 +23,29 @@ lsmod | grep kvm
 ls -al /dev/kvm
 sudo usermod -aG kvm msi
 
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt-get update
-sudo apt-get -y install python3.11 python3-pip
+cd /tmp
+wget https://www.python.org/ftp/python/3.11.0/Python-3.11.0.tgz
+tar -xf Python-3.11.0.tgz
+cd Python-3.11.0
+./configure --enable-optimizations
+sudo make install
+cd ~
 
-python3.11 -m pip install --user pipenv
-echo $PATH
-which pipenv
-# For building from source code the Python module dbus-python.
-sudo apt-get -y install pkgconf cmake libdbus-1-dev libglib2.0-dev python3.11-dev
-
-
-pip install pipenv
-pip3 install slither-analyzer
+source ~/.bashrc
 python3 --version
 pip3 --version
+pip3 install slither-analyzer pipenv
 echo '#### Python3 installed'
 echo '#################################################################'
 fi
 
-# cd /tmp
-# wget https://www.python.org/ftp/python/3.11.0/Python-3.11.0.tgz
-# tar -xf Python-3.11.0.tgz
-# cd Python-3.11.0
-# ./configure --enable-optimizations
-# sudo make install
-# cd ~
+
+# git clone https://github.com/crytic/slither
+# cd slither
+# git checkout dev
+# make dev
+# source ./env/bin/activate
+
+# python3 -m pip install solc-select
+# solc-select install 0.8.25
+# solc-select use 0.8.25

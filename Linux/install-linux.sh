@@ -24,7 +24,7 @@ sudo apt-get -y install \
   bash-completion ubuntu-restricted-extras ppa-purge xz-utils vlc dkms \
   gcc-multilib sweeper flatpak snap snapd qbittorrent davfs2 dconf-cli \
   libreoffice gamemode preload meson libsystemd-dev pkg-config gdebi \
-  ninja-build libdbus-1-dev libinih-dev power-profiles-daemon \
+  ninja-build libdbus-1-dev libinih-dev power-profiles-daemon pass \
   plasma-discover-backend-flatpak
 
   powerprofilesctl set performance && powerprofilesctl list

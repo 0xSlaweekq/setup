@@ -17,8 +17,9 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh ./get-docker.sh
 
 sudo groupadd docker
-sudo usermod -aG docker $USER
 sudo gpasswd -a $USER docker
+sudo systemctl restart docker
+sudo usermod -aG docker $USER
 sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
 sudo chmod g+rwx "$HOME/.docker" -R
 
@@ -35,8 +36,6 @@ sudo systemctl daemon-reload
 
 gpg --generate-key
 pass init E20DF443A91F888DEA37E4C05673AC218BE9491C
-# echo 'alias docker-compose="docker compose"' >> ~/.bashrc
-# docker network create traefik-public
 echo '#### Docker installed'
 echo '#################################################################'
 fi
