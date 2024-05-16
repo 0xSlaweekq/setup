@@ -55,20 +55,21 @@ git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git &
   ./build.sh install
 
 wget -O ~/steam.deb http://media.steampowered.com/client/installer/steam.deb
-sudo gdebi ~/steam.deb
-gamemoderun MangoHud steam
+wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
+sudo apt-get -y install ~/steam_latest.deb
+gamemoderun mangohud steam
 # echo $DISPLAY
 # DISPLAY=:0 steam
 
-sudo nvidia-xconfig
-sudo nano /etc/X11/xorg.conf
-Добавьте эти строки в разделе «Устройство» между другими параметрами
-Опция "TripleBuffer" "вкл"
-Опция "Coolbits" "28"
+# sudo nvidia-xconfig
+# sudo nano /etc/X11/xorg.conf
+# Добавьте эти строки в разделе «Устройство» между другими параметрами
+# option "TripleBuffer" "true"
+# option "Coolbits" "28"
 
-Добавьте эти строки в раздел «Экран» между другими опциями.
-Опция "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
-Опция "AllowIndirectGLXProtocol" "выкл."
+# Добавьте эти строки в раздел «Экран» между другими опциями.
+# option "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
+# option "AllowIndirectGLXProtocol" "false"
 # sudo rm /etc/X11/xorg.conf
 
 # Если gamemoderun не работает для вас, попробуйте использовать эту команду в качестве команды запуска:

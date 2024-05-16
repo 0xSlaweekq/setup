@@ -1,10 +1,11 @@
 cd ~
 wget https://us.download.nvidia.com/XFree86/Linux-x86_64/550.78/NVIDIA-Linux-x86_64-550.78.run
-/etc/init.d/lightdm stop
-dpkg --purge nvidia-*
 chmod 700 NVIDIA-*.run
+sudo telinit 3
+dpkg --purge nvidia-*
 nvidia-xconfig
-/etc/init.d/lightdm start
+sudo telinit 5
+systemctl restart graphical.target
 
 
 # Very huge font in LightDM after installed nVidia driver
