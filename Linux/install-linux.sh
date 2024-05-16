@@ -23,21 +23,23 @@ sudo apt-get -y install \
   ca-certificates gnupg lsb-release zlib1g-dev hardinfo hwinfo clang \
   bash-completion ubuntu-restricted-extras ppa-purge xz-utils vlc dkms \
   gcc-multilib sweeper flatpak snap snapd qbittorrent davfs2 dconf-cli \
-  libreoffice gamemode preload meson libsystemd-dev pkg-config gdebi \
-  ninja-build libdbus-1-dev libinih-dev power-profiles-daemon pass \
+  libreoffice gamemode preload meson libsystemd-dev pkg-config \
+  ninja-build libdbus-1-dev libinih-dev pass gdebi gdebi-core \
+  cpufrequtils indicator-cpufreq tlp tlp-rdw \
   plasma-discover-backend-flatpak
 
-  powerprofilesctl set performance && powerprofilesctl list
-
-  # cpufrequtils indicator-cpufreq tlp tlp-rdw gnome-tweak-tool
   # network-manager network-manager-gnome network-manager-openvpn-gnome \
   # net-tools
 
-# sudo systemctl enable tlp.service
-# sudo tlp start
-# echo 'GOVERNOR="performance"' | sudo tee /etc/default/cpufrequtils
-# sudo systemctl restart cpufrequtils
+sudo systemctl enable tlp.service
+sudo tlp start
+echo 'GOVERNOR="performance"' | sudo tee /etc/default/cpufrequtils
+sudo systemctl restart cpufrequtils
+systemctl --user enable gamemoded && systemctl --user start gamemoded
+sudo chmod +x /usr/bin/gamemoderun
 
+  # power-profiles-daemon gnome-tweak-tool
+  # powerprofilesctl set performance && powerprofilesctl list
 #   gnome-tweaks gnome-extensions-app gnome-shell-extension-manager \
 #   gnome-software-plugin-flatpak gnome-disk-utility
 

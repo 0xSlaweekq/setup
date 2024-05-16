@@ -2,18 +2,15 @@ echo 'Install programm'
 echo '#################################################################'
 sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
 sudo add-apt-repository -y ppa:atareao/telegram
-sudo add-apt-repository -y ppa:ethereum/ethereum
+
 # Adding keys
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/packages.microsoft.gpg
-sudo wget -O /etc/apt/trusted.gpg.d/winehq.key https://dl.winehq.org/wine-builds/winehq.key
 # wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-# Adding repos
-sudo echo "deb [signed-by=/etc/apt/trusted.gpg.d/winehq.key] https://dl.winehq.org/wine-builds/ubuntu jammy main" | \
-  sudo tee /etc/apt/sources.list.d/winehq.list > /dev/null
 
+# Adding repos
 sudo echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/microsoft.gpg] https://packages.microsoft.com/repos/code stable main" |\
   sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
 
@@ -34,15 +31,12 @@ sudo dpkg --add-architecture amd64
 sudo dpkg --add-architecture i386
 sudo apt-get update
 sudo apt-get -y upgrade
-sudo apt-get -y install --install-recommends winehq-stable
-# wine winecfg
 # sudo apt-get -y install google-chrome-stable
 sudo apt-get -y install \
   microsoft-edge-stable code telegram \
   libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 \
   librust-proton-call-dev proton-caller
-  # solc grub-customizer
-  # libgl1-mesa-glx:amd64 libgl1-mesa-glx:i386
+  # grub-customizer
 sudo apt-get -y --fix-broken install
 sudo snap install discord
 
@@ -62,7 +56,7 @@ flatpak install -y \
 
 
 sudo curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts/install-linux.sh | sudo sh
-tenderly login --authentication-method access-key --access-key pdGB-7bDcER1WgNviv5KpUjUJcb-W22b --force
+tenderly login --authentication-method access-key --access-key FWrGeuFEOTmwzUdD4Glm1BRl1ov5hNLJ --force
 echo 'All programm installed'
 echo '#################################################################'
 
@@ -73,4 +67,4 @@ sudo usermod -aG vboxusers $USER
 sudo adduser $USER vboxusers
 sudo apt-get -y install virtualbox-dkms xserver-xorg-core virtualbox-guest-x11
 
-wget https://wireless.wiki.kernel.org/_media/en/users/drivers/iwlwifi-ty-59.601f3a66.0.tgz
+# wget https://wireless.wiki.kernel.org/_media/en/users/drivers/iwlwifi-ty-59.601f3a66.0.tgz

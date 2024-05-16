@@ -20,9 +20,13 @@ sudo apt-get -y install \
 sudo apt-key del 7fa2af80
 sudo apt-get -y install \
   nvidia-driver-550 nvidia-dkms-550 nvidia-headless-550 nvidia-settings \
-  libvulkan1 libvulkan1:i386 mesa-vulkan-drivers vkbasalt \
-  libglu1-mesa-dev freeglut3-dev mesa-common-dev libopenal1 \
+  libvulkan1 libvulkan1:i386 mesa-vulkan-drivers mesa-vulkan-drivers:i386 \
+  vkbasalt libglu1-mesa-dev freeglut3-dev mesa-common-dev libopenal1 \
   libopenal-dev libalut0 libalut-dev
+
+sudo sysctl vm.max_map_count=2147483642
+sudo echo "vm.max_map_count = 2147483642" |\
+  sudo tee /etc/sysctl.d/99-max-map-count.conf
 
 # sudo apt-get -y install cuda-drivers cuda-toolkit nvidia-gds
 
