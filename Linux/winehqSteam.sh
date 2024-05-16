@@ -54,7 +54,7 @@ git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git &
   ./build.sh package && \
   ./build.sh install
 
-wget -O ~/steam.deb http://media.steampowered.com/client/installer/steam.deb
+# wget -O ~/steam.deb http://media.steampowered.com/client/installer/steam.deb
 wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
 sudo apt-get -y install ~/steam_latest.deb
 gamemoderun mangohud steam
