@@ -25,9 +25,17 @@ sudo apt-get install -y \
   gcc-multilib sweeper flatpak snap snapd qbittorrent davfs2 dconf-cli \
   libreoffice gamemode preload meson libsystemd-dev pkg-config \
   ninja-build libdbus-1-dev libinih-dev pass gdebi gdebi-core \
-  cpufrequtils indicator-cpufreq tlp tlp-rdw \
+  cpufrequtils indicator-cpufreq tlp tlp-rdw nala \
   plasma-discover-backend-flatpak
 
+git clone https://github.com/AdnanHodzic/auto-cpufreq.git
+cd auto-cpufreq && sudo ./auto-cpufreq-installer
+sudo auto-cpufreq --install
+# sudo systemctl mask power-profiles-daemon.service
+sudo systemctl enable --now auto-cpufreq
+sudo systemctl start auto-cpufreq
+sudo systemctl status auto-cpufreq
+sudo auto-cpufreq --update
   # network-manager network-manager-gnome network-manager-openvpn-gnome \
   # net-tools
 
@@ -53,6 +61,7 @@ sudo dpkg --configure -a
 sudo add-apt-repository -y ppa:kubuntu-ppa/ppa
 sudo add-apt-repository -y ppa:kubuntu-ppa/backports
 sudo add-apt-repository -y multiverse
+sudo add-apt-repository -y universe
 sudo apt-get update
 sudo pkcon update
 sudo apt-get full-upgrade

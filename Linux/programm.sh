@@ -52,20 +52,28 @@ flatpak install -y flathub net.lutris.Lutris org.kde.krita org.gimp.GIMP \
   com.discordapp.Discord net.nokyan.Resources com.usebottles.bottles \
   com.github.tchx84.Flatseal net.davidotek.pupgui2 sh.ppy.osu \
   io.github.mimbrero.WhatsAppDesktop com.playonlinux.PlayOnLinux4 \
-  ru.linux_gaming.PortProton org.gnome.Maps org.kde.isoimagewriter
+  org.gnome.Maps org.kde.isoimagewriter
   # org.getoutline.OutlineClient org.getoutline.OutlineManager
 
 
 sudo curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts/install-linux.sh | sudo sh
 tenderly login --authentication-method access-key --access-key FWrGeuFEOTmwzUdD4Glm1BRl1ov5hNLJ --force
-echo 'All programm installed'
-echo '#################################################################'
-
 
 sudo apt-get install -y virtualbox
 # sudo newgrp vboxusers
 sudo usermod -aG vboxusers $USER
 sudo adduser $USER vboxusers
 sudo apt-get install -y virtualbox-dkms xserver-xorg-core virtualbox-guest-x11
+
+echo 'All programm installed'
+echo '#################################################################'
+
+curl -fsSL https://ollama.com/install.sh | sh
+
+# wget -qO- https://releases.warp.dev/linux/keys/warp.asc | gpg --dearmor > warpdotdev.gpg
+# sudo install -D -o root -g root -m 644 warpdotdev.gpg /etc/apt/trusted.gpg.d/warpdotdev.gpg
+# sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/warpdotdev.gpg] https://releases.warp.dev/linux/deb stable main" > /etc/apt/sources.list.d/warpdotdev.list'
+# rm warpdotdev.gpg
+# sudo nala update && sudo nala install -y warp-terminal
 
 # wget https://wireless.wiki.kernel.org/_media/en/users/drivers/iwlwifi-ty-59.601f3a66.0.tgz
