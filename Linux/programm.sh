@@ -59,16 +59,44 @@ flatpak install -y flathub net.lutris.Lutris org.kde.krita org.gimp.GIMP \
 sudo curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts/install-linux.sh | sudo sh
 tenderly login --authentication-method access-key --access-key FWrGeuFEOTmwzUdD4Glm1BRl1ov5hNLJ --force
 
+# install virtualbox
 sudo apt-get install -y virtualbox
 # sudo newgrp vboxusers
 sudo usermod -aG vboxusers $USER
 sudo adduser $USER vboxusers
 sudo apt-get install -y virtualbox-dkms xserver-xorg-core virtualbox-guest-x11
 
+# install ogpt
+curl -fsSL https://ollama.com/install.sh | sh
+
+# install qemu
+sudo apt update
+sudo apt-get install -y \
+  cpu-checker qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils \
+  virt-manager virtinst
+sudo adduser $USER libvirt
+sudo adduser $USER kvm
+sudo systemctl enable --now libvirtd
+sudo systemctl start libvirtd
+sudo systemctl status libvirtd
+sudo usermod -aG kvm $USER
+sudo usermod -aG libvirt $USER
+virt-manager
+
+# dotNet
+sudo apt-get update && \
+  sudo apt-get install -y \
+  dotnet-sdk-8.0 aspnetcore-runtime-8.0 dotnet-runtime-8.0 zlib1g ca-certificates \
+  libc6 libgcc-s1 libicu74 liblttng-ust1 libssl3 libstdc++6 libunwind8
+
+wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+chmod +x ./dotnet-install.sh
+./dotnet-install.sh --channel 6.0
+./dotnet-install.sh --channel 7.0
+./dotnet-install.sh --version latest
 echo 'All programm installed'
 echo '#################################################################'
 
-curl -fsSL https://ollama.com/install.sh | sh
 
 # wget -qO- https://releases.warp.dev/linux/keys/warp.asc | gpg --dearmor > warpdotdev.gpg
 # sudo install -D -o root -g root -m 644 warpdotdev.gpg /etc/apt/trusted.gpg.d/warpdotdev.gpg
