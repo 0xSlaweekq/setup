@@ -45,14 +45,13 @@ ssh -T git@github.com
 
 git config --global user.name "Slaweekq"
 git config --global user.email "plakidin.vyacheslav@mail.ru"
-git config --global --add safe.directory /mnt/Disk_D/CRYPTO/hardhat
-git config --global --add safe.directory /mnt/Disk_D/CRYPTO/setup
-git config --global --add safe.directory /mnt/Disk_D/CRYPTO/work
-git config --global --add safe.directory /mnt/Disk_D/CRYPTO/contract
-git config --global --add safe.directory /mnt/Disk_D/CRYPTO/websites
-git config --global --add safe.directory /mnt/Disk_D/CRYPTO/solana
-git config --global --add safe.directory /mnt/Disk_D/CRYPTO/defi-invest-smart-contract
-git config --global --add safe.directory /mnt/Disk_D/CRYPTO/53642/defi-invest-smart-contract
+git config --global --add safe.directory /mnt/Documents/CRYPTO/hardhat
+git config --global --add safe.directory /mnt/Documents/CRYPTO/setup
+git config --global --add safe.directory /mnt/Documents/CRYPTO/work
+git config --global --add safe.directory /mnt/Documents/CRYPTO/contract
+git config --global --add safe.directory /mnt/Documents/CRYPTO/websites
+git config --global --add safe.directory /mnt/Documents/CRYPTO/solana
+git config --global --add safe.directory /mnt/Documents/CRYPTO/Work/smartDefi
 git config --global core.editor code
 git config --global core.safecrlf true
 git config --global push.autoSetupRemote true
@@ -87,6 +86,7 @@ alias kalistart="docker pull kalilinux/kali-rolling && docker run --tty --intera
 alias wclone="git clone git@gitlab.i-link.pro:defi-invest/defi-invest-smart-contract.git && cd defi-invest-smart-contract && git checkout dev && git pull && code ."
 alias gtext="gnome-text-editor"
 alias ogpt="ollama run llama3 --verbose"
+alias docker-compose="docker compose"
 '
 
 # restore bash_profile

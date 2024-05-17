@@ -1,10 +1,10 @@
 echo 'Install WhiteSur KDE, GTK & ICON theme'
 echo '#################################################################'
 
-https://www.opendesktop.org/p/1136805/
+# https://www.opendesktop.org/p/1136805/
 sudo apt-get install -y ./ocs-url_3.1.0-0ubuntu1_amd64.deb
 
-sudo add-apt-repository -y ppa:papirus/papirus
+usdo add-apt-repository -y ppa:papirus/papirus
 sudo apt-get update
 sudo apt-get dist-upgrade
 # sudo apt-get install -y g++ qt6-base-dev qt6-svg-dev qt6-base-dev-tools

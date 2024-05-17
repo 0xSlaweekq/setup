@@ -25,8 +25,7 @@ sudo apt-get install -y \
   gcc-multilib sweeper flatpak snap snapd qbittorrent davfs2 dconf-cli \
   libreoffice gamemode preload meson libsystemd-dev pkg-config \
   ninja-build libdbus-1-dev libinih-dev pass gdebi gdebi-core \
-  cpufrequtils indicator-cpufreq tlp tlp-rdw nala \
-  plasma-discover-backend-flatpak
+  cpufrequtils indicator-cpufreq tlp tlp-rdw plasma-discover-backend-flatpak
 
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git
 cd auto-cpufreq && sudo ./auto-cpufreq-installer
@@ -37,7 +36,7 @@ sudo systemctl start auto-cpufreq
 sudo systemctl status auto-cpufreq
 sudo auto-cpufreq --update
   # network-manager network-manager-gnome network-manager-openvpn-gnome \
-  # net-tools
+  # net-tools nala
 
 sudo systemctl enable tlp.service
 sudo tlp start

@@ -45,18 +45,19 @@ cd gamemode
 git checkout 1.8.1 # omit to build the master branch
 ./bootstrap.sh
 cd ~
+rm -rf ./gamemode
 gamemoded -t
 
-git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git &&\
-  cd MangoHud && \
-  ./build.sh build && \
-  ./build.sh package && \
-  ./build.sh install
+# git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git &&\
+#   cd MangoHud && \
+#   ./build.sh build && \
+#   ./build.sh package && \
+#   ./build.sh install
 
 # wget -O ~/steam.deb http://media.steampowered.com/client/installer/steam.deb
 wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
 sudo apt-get install -y ~/steam_latest.deb
-gamemoderun mangohud steam
+gamemoderun steam
 # echo $DISPLAY
 # DISPLAY=:0 steam
 

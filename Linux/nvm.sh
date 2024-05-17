@@ -16,7 +16,3 @@ sudo chown "$USER":"$USER" ~/.nvm -R
 npm i -g \
   yarn prettier eslint solhint solidity-code-metrics \
   nodemon serve dotenv create-react-app solc
-
-   "solhint": "^4.5.4",
-    "solhint-community": "^4.0.0",
-    "solhint-plugin-prettier": "^0.1.0",

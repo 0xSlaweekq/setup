@@ -35,8 +35,7 @@ sudo apt-get upgrade -y
 sudo apt-get install -y \
   microsoft-edge-stable code telegram \
   libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 \
-  librust-proton-call-dev proton-caller
-  # grub-customizer
+  librust-proton-call-dev proton-caller grub-customizer
 sudo apt-get install --fix-broken -y
 
 # Options for shell in vscode
@@ -48,11 +47,11 @@ mkdir -p $HOME/.local/share/trusted.gpg.d
 code --locate-shell-integration-path bash
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "/path/to/shell/integration/script.sh"
 
-flatpak install -y flathub net.lutris.Lutris org.kde.krita org.gimp.GIMP \
-  com.discordapp.Discord net.nokyan.Resources com.usebottles.bottles \
-  com.github.tchx84.Flatseal net.davidotek.pupgui2 sh.ppy.osu \
-  io.github.mimbrero.WhatsAppDesktop com.playonlinux.PlayOnLinux4 \
-  org.gnome.Maps org.kde.isoimagewriter
+flatpak install -y flathub org.kde.krita org.gimp.GIMP sh.ppy.osu \
+  com.discordapp.Discord net.nokyan.Resources com.github.tchx84.Flatseal \
+  io.github.mimbrero.WhatsAppDesktop org.gnome.Maps org.kde.isoimagewriter
+
+#   net.lutris.Lutris com.playonlinux.PlayOnLinux4 net.davidotek.pupgui2 com.usebottles.bottles
   # org.getoutline.OutlineClient org.getoutline.OutlineManager
 
 
@@ -64,7 +63,7 @@ sudo apt-get install -y virtualbox
 # sudo newgrp vboxusers
 sudo usermod -aG vboxusers $USER
 sudo adduser $USER vboxusers
-sudo apt-get install -y virtualbox-dkms xserver-xorg-core virtualbox-guest-x11
+sudo apt-get install -y virtualbox-dkms xserver-xorg-core virtualbox-guest-x11 cpu-checker
 
 # install ogpt
 curl -fsSL https://ollama.com/install.sh | sh
