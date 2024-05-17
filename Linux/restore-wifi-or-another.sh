@@ -87,5 +87,5 @@ echo '#################################################################'
 
 sudo add-apt-repository ppa:canonical-foundations/networkmanager-netplan
 sudo apt-get update
-sudo apt-get install network-manager
+sudo apt-get install -y network-manager
 apt list -a network-manager

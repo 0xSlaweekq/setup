@@ -4,7 +4,7 @@ if [[ $(which docker) && $(docker --version) && $(docker compose) ]]; then
    echo 'Docker installed, continue...'
 else
 echo 'Docker NOT installed, continue...'
-sudo apt-get install gnome-terminal
+sudo apt-get install -y gnome-terminal
 modprobe kvm
 modprobe kvm_intel  # Intel processors
 modprobe kvm_amd    # AMD processors
@@ -28,8 +28,8 @@ sudo systemctl enable --now docker.service docker.socket containerd.service
 sudo systemctl daemon-reload
 
 # wget https://desktop.docker.com/linux/main/amd64/145265/docker-desktop-4.29.0-amd64.deb
-# sudo apt-get -y update
-# sudo apt-get -y install ./docker-desktop-4.29.0-amd64.deb
+# sudo apt-get update
+# sudo apt-get install -y ./docker-desktop-4.29.0-amd64.deb
 # systemctl --user start docker-desktop
 # systemctl --user enable docker-desktop
 # sudo rm -rf ./docker-desktop-4.29.0-amd64.deb

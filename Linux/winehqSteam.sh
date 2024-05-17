@@ -11,19 +11,18 @@ sudo apt-get update
 sudo dpkg --add-architecture amd64
 sudo dpkg --add-architecture i386
 sudo apt-get update
-sudo apt-get -y upgrade
+sudo apt-get upgrade -y
 # wine winecfg
-sudo apt-get -y install \
+sudo apt-get install -y \
   wine wine64 wine32 \
   libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 \
   librust-proton-call-dev proton-caller \
   libgl1-mesa-glx:amd64 libgl1-mesa-glx:i386
-sudo apt-get -y install --install-recommends winehq-devel
-sudo apt-get -y --fix-broken install
-
-sudo apt-get -y install libgtk-3-dev
-sudo apt-get -y install glslang-tools
-sudo apt-get -y install \
+sudo apt-get install --install-recommends winehq-devel -y
+sudo apt-get install --fix-broken -y
+sudo apt-get install -y libgtk-3-dev
+sudo apt-get install -y glslang-tools
+sudo apt-get install -y \
   mingw-w64 mingw-w64-common mingw-w64-i686-dev mingw-w64-tools mingw-w64-x86-64-dev
 
 git clone --recursive https://github.com/HansKristian-Work/vkd3d-proton
@@ -37,7 +36,7 @@ sudo rm -rf vkd3d-proton
 sudo chmod +x ~/vkd3d/vkd3d-proton-master/setup_vkd3d_proton.sh
 ~/vkd3d/vkd3d-proton-master/setup_vkd3d_proton.sh install
 
-sudo apt-get -y install dkms linux-headers-$(uname -r) \
+sudo apt-get install -y dkms linux-headers-$(uname -r) \
   meson libsystemd-dev pkg-config ninja-build git \
   libdbus-1-dev libinih-dev build-essential
 
@@ -56,7 +55,7 @@ git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git &
 
 # wget -O ~/steam.deb http://media.steampowered.com/client/installer/steam.deb
 wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
-sudo apt-get -y install ~/steam_latest.deb
+sudo apt-get install -y ~/steam_latest.deb
 gamemoderun mangohud steam
 # echo $DISPLAY
 # DISPLAY=:0 steam
@@ -76,7 +75,7 @@ gamemoderun mangohud steam
 # LD_PRELOAD=$LD_PRELOAD:/usr/lib/x86_64-linux-gnu/libgamemodeauto.so.0 %command%
 
 
-# sudo apt-get remove --purge ^wine
+# sudo apt-get remove --purge -y ^wine
 # for .msi files wine msiexec /i
 # for .exe files wine *.exe
 

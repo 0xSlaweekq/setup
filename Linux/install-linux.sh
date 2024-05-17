@@ -4,18 +4,18 @@ echo '#################################################################'
 
 sudo add-apt-repository -y ppa:flatpak/stable
 sudo apt-get update
-sudo apt-get -y upgrade
-sudo apt-get -y --fix-broken install
-sudo apt-get -y autoclean
-sudo apt-get -y autoremove --purge
-# sudo apt-get -y dist-upgrade
+sudo apt-get upgrade -y
+sudo apt-get install --fix-broken -y
+sudo apt-get autoclean -y
+sudo apt-get autoremove --purge
+# sudo apt-get dist-upgrade -y
 sudo timedatectl set-local-rtc 1
 
 echo 'All packages updated'
 echo '#################################################################'
 echo 'Install new usless packages'
 echo '#################################################################'
-sudo apt-get -y install \
+sudo apt-get install -y \
   nodejs npm nano openssh-client inxi curl linux-firmware cpu-x dpkg \
   gpg software-properties-common apt-transport-https wget make gettext \
   build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev dirmngr \
@@ -97,10 +97,11 @@ set show-all-if-ambiguous On
 "\e[B": history-search-forward'
 
 sudo apt-get update
-sudo apt-get -y upgrade
-sudo apt-get -y --fix-broken install
-sudo apt-get -y autoclean
-sudo apt-get -y autoremove --purge
+sudo apt-get upgrade -y
+sudo apt-get install --fix-broken -y
+
+sudo apt-get autoclean -y
+sudo apt-get autoremove --purge
 gpg --generate-key
 echo 'pass init B381A9F621F86E30EB14EBAD9066D29FF5813FE3
 systemctl --user start docker-desktop'
@@ -188,8 +189,8 @@ EOF'
 
 # ganache
 # sudo sudo apt-get update
-# sudo apt-get -y upgrade
-# sudo apt-get -y install wget \
+# sudo apt-get upgrade -y
+# sudo apt-get install -y wget \
 #   libgtk-3-dev \
 #   libfuse-dev \
 #   libgtkextra-dev \

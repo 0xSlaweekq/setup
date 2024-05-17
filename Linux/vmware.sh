@@ -1,4 +1,4 @@
-sudo apt-get -y install open-vm-tools-desktop
+sudo apt-get install -y open-vm-tools-desktop
 
 wget https://download3.vmware.com/software/WKST-1750-LX/VMware-Workstation-Full-17.5.0-22583795.x86_64.bundle
 chmod +x ./VMware-Workstation-Full-17.5.0-22583795.x86_64.bundle

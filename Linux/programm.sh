@@ -30,15 +30,14 @@ sudo apt-get update
 sudo dpkg --add-architecture amd64
 sudo dpkg --add-architecture i386
 sudo apt-get update
-sudo apt-get -y upgrade
-# sudo apt-get -y install google-chrome-stable
-sudo apt-get -y install \
+sudo apt-get upgrade -y
+# sudo apt-get install -y google-chrome-stable
+sudo apt-get install -y \
   microsoft-edge-stable code telegram \
   libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 \
   librust-proton-call-dev proton-caller
   # grub-customizer
-sudo apt-get -y --fix-broken install
-sudo snap install discord
+sudo apt-get install --fix-broken -y
 
 # Options for shell in vscode
 xdg-mime default code.desktop text/plain
@@ -49,9 +48,11 @@ mkdir -p $HOME/.local/share/trusted.gpg.d
 code --locate-shell-integration-path bash
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "/path/to/shell/integration/script.sh"
 
-flatpak install -y \
-  flathub org.gnome.Maps org.kde.isoimagewriter \
-  com.usebottles.bottles com.github.tchx84.Flatseal \
+flatpak install -y flathub net.lutris.Lutris org.kde.krita org.gimp.GIMP \
+  com.discordapp.Discord net.nokyan.Resources com.usebottles.bottles \
+  com.github.tchx84.Flatseal net.davidotek.pupgui2 sh.ppy.osu \
+  io.github.mimbrero.WhatsAppDesktop com.playonlinux.PlayOnLinux4 \
+  ru.linux_gaming.PortProton org.gnome.Maps org.kde.isoimagewriter
   # org.getoutline.OutlineClient org.getoutline.OutlineManager
 
 
@@ -61,10 +62,10 @@ echo 'All programm installed'
 echo '#################################################################'
 
 
-sudo apt-get -y install virtualbox
+sudo apt-get install -y virtualbox
 # sudo newgrp vboxusers
 sudo usermod -aG vboxusers $USER
 sudo adduser $USER vboxusers
-sudo apt-get -y install virtualbox-dkms xserver-xorg-core virtualbox-guest-x11
+sudo apt-get install -y virtualbox-dkms xserver-xorg-core virtualbox-guest-x11
 
 # wget https://wireless.wiki.kernel.org/_media/en/users/drivers/iwlwifi-ty-59.601f3a66.0.tgz

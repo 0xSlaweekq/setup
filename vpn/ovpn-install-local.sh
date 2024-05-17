@@ -5,7 +5,7 @@ echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/openvpn.asc] https://pack
 sudo tee /etc/apt/sources.list.d/openvpn-packages.list
 
 sudo apt-get update
-sudo apt-get -y install openvpn3
+sudo apt-get install -y openvpn3
 
 cp /mnt/Disk_D/CRYPTO/setup/vpn/msi.ovpn ./msi.ovpn
 openvpn3 config-import --config ./msi.ovpn --name OpenVpnDO --persistent

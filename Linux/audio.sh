@@ -1,6 +1,6 @@
 echo '#### Audio'
 echo '#################################################################'
-sudo apt-get -y install linux-sound-base alsa-base alsa-utils alsa-tools
+sudo apt-get install -y linux-sound-base alsa-base alsa-utils alsa-tools
 sudo gedit /etc/modprobe.d/alsa-base.conf
 # paste after all text
 options snd-hda-intel position fix=1
@@ -25,7 +25,7 @@ amixer -c 0 sset "Auto-Mute Mode" Enabled
 pactl set-sink-port 0 'Speaker'
 
 -Скачать эту программу:
-sudo apt-get -y install pavucontrol
+sudo apt-get install -y pavucontrol
 
 -Какие именно методы дискритизации поддерживает ваш компьютер:
 pulseaudio --dump-resample-methods

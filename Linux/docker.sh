@@ -4,14 +4,14 @@ if [[ $(which docker) && $(docker --version) && $(docker compose) ]]; then
    echo 'Docker installed, continue...'
 else
 echo 'Docker NOT installed, continue...'
-sudo apt-get -y install gnome-terminal
+sudo apt-get install -y gnome-terminal
 modprobe kvm
 modprobe kvm_intel  # Intel processors
 kvm-ok
 lsmod | grep kvm
 ls -al /dev/kvm
 sudo usermod -aG kvm $USER && sudo groupadd docker
-sudo apt-get -y clean
+sudo apt-get clean
 
 # Add Docker's official GPG key:
 sudo apt-get update
@@ -27,7 +27,7 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 apt-cache policy docker-ce
-sudo apt-get -y install \
+sudo apt-get install -y \
   docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
   # docker.io containerd runc docker-compose
 
@@ -48,15 +48,15 @@ echo '#################################################################'
 fi
 
 # wget https://github.com/DockStation/dockstation/releases/download/v1.5.1/dockstation_1.5.1_amd64.deb
-# sudo apt-get -y install ./dockstation_1.5.1_amd64.deb
-# sudo apt-get install -f
+# sudo apt-get install -y ./dockstation_1.5.1_amd64.deb
+# sudo apt-get install -y -f
 # sudo rm -rf ./dockstation_1.5.1_amd64.deb
 
 # $(lsb_release -cs)
 
 # echo 'alias docker-compose="docker compose"' >> ~/.bashrc
 
-# for pkg in docker docker.io docker-ce docker-ce-cli docker-doc docker-desktop docker-compose docker-compose-v2 docker-compose-plugin docker-ce-rootless-extras podman-docker containerd runc docker-buildx-plugin; do sudo apt-get -y remove --purge $pkg; done
+# for pkg in docker docker.io docker-ce docker-ce-cli docker-doc docker-desktop docker-compose docker-compose-v2 docker-compose-plugin docker-ce-rootless-extras podman-docker containerd runc docker-buildx-plugin; do sudo apt-get remove --purge -y $pkg; done
 # rm -rf ~/.docker
 # sudo rm -rf /etc/apt/sources.list.d/docker.list
 # sudo rm -rf /usr/local/bin/com.docker.cli

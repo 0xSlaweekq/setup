@@ -1,6 +1,6 @@
 echo "Installing git & Generate ssh"
 echo "######################################################################"
-sudo apt-get -y install git git-core git-gui nano openssh-client
+sudo apt-get install -y git git-core git-gui nano openssh-client
 sudo ufw allow ssh
 cd ~
 mkdir -p ~/.ssh
@@ -65,12 +65,12 @@ git config --list
 
 tee -a ~/.bashrc <<< \
 '
-alias si="sudo apt-get -y install"
+alias si="sudo apt-get install -y"
 alias srf="sudo rm -rf"
 alias srn="sudo reboot now"
-alias srp="sudo apt-get -y remove --purge"
+alias srp="sudo apt-get remove --purge -y"
 alias sdr="sudo systemctl daemon-reload"
-alias supd="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y --fix-broken install && sudo apt-get -y autoremove && sudo apt-get -y autoclean  && flatpak uninstall --unused"
+alias supd="sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install --fix-broken -y && sudo apt-get autoremove && sudo apt-get autoclean -y && flatpak uninstall --unused"
 alias cleanCode="cd $HOME/.config/Code/ && rm -rf $CACHE_CODE_DIR && cd -"
 alias digcon="ssh root@164.90.207.152"
 alias doccon="docker login --password dckr_pat_yJhGjotZbYBJLvQIcRq3P27yChc -u slaweekq"

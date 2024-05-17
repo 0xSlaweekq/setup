@@ -52,12 +52,12 @@ echo '#### Grub2 install'
 echo '#################################################################'
 sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer && \
   sudo apt-get update && \
-  sudo apt-get -y install grub-customizer && \
+  sudo apt-get install -y grub-customizer && \
   sudo grub-customizer
 
-for pkg in grub-common grub-customizer grub-efi grub-efi-amd64-bin grub-efi-amd64-signed grub-gfxpayload-lists grub-pc grub-pc-bin grub2-common; do sudo apt-get -y remove --purge $pkg; done
+for pkg in grub-common grub-customizer grub-efi grub-efi-amd64-bin grub-efi-amd64-signed grub-gfxpayload-lists grub-pc grub-pc-bin grub2-common; do sudo apt-get remove --purge -y $pkg; done
 
-sudo apt-get -y install grub-customizer grub-efi efibootmgr
+sudo apt-get install -y grub-customizer grub-efi efibootmgr
 
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 sudo grub-install /dev/nvme1n1p1
@@ -67,22 +67,22 @@ sudo grub-install /dev/nvme1n1
 kate /boot/grub/grub.cfg
 
 sudo apt-add-repository -y ppa:yannubuntu/boot-repair && \
-  sudo apt-get update && sudo apt-get -y install boot-repair && sudo boot-repair
+  sudo apt-get update && sudo apt-get install -y boot-repair && sudo boot-repair
 
 sudo dpkg --configure -a
-sudo apt-get install -fy
-sudo apt-get -y purge --allow-remove-essential grub-com*
-sudo apt-get -y purge --allow-remove-essential grub2-com*
-sudo apt-get -y purge --allow-remove-essential shim-signed
-sudo apt-get -y purge --allow-remove-essential grub-common:*
-sudo apt-get -y purge --allow-remove-essential grub2-common:*
+sudo apt-get install -y -fy
+sudo apt-get purge --allow-remove-essential grub-com*
+sudo apt-get purge --allow-remove-essential grub2-com*
+sudo apt-get purge --allow-remove-essential shim-signed
+sudo apt-get purge --allow-remove-essential grub-common:*
+sudo apt-get purge --allow-remove-essential grub2-common:*
 
-sudo apt-get update && sudo apt-get -y install ubuntu-desktop xorg dbus-x11 \
+sudo apt-get update && sudo apt-get install -y ubuntu-desktop xorg dbus-x11 \
   xfce4 xfce4-goodies x11-xserver-utils
 
-sudo apt-get update && sudo apt-get -y upgrade && \
+sudo apt-get update && sudo apt-get upgrade -y && \
   sudo add-apt-repository ppa:kubuntu-ppa/backports -y && \
-  sudo apt-get update && sudo apt-get -y install kde-plasma-desktop
+  sudo apt-get update && sudo apt-get install -y kde-plasma-desktop
 
 cat /etc/sddm.conf
 echo -e "[General]\nInputMethod=" | sudo tee -a /etc/sddm.conf
@@ -95,7 +95,7 @@ sudo mount -o rw UUID=2023-05-31-19-32-03-00 /mnt/MacOS
 
 sudo add-apt-repository universe && \
   sudo apt-get update && \
-  sudo apt-get -y install dmg2img && \
+  sudo apt-get install -y dmg2img && \
   dmg2img -v -i /path/to/image_file.dmg -o /path/to/image_file.iso
 
 sudo dd if=/path/to/image_file.iso of=/dev/sdd
