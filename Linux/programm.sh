@@ -49,8 +49,9 @@ code --locate-shell-integration-path bash
 
 flatpak install -y flathub org.kde.krita org.gimp.GIMP sh.ppy.osu \
   com.discordapp.Discord net.nokyan.Resources com.github.tchx84.Flatseal \
-  io.github.mimbrero.WhatsAppDesktop org.gnome.Maps org.kde.isoimagewriter
-
+  io.github.mimbrero.WhatsAppDesktop org.gnome.Maps org.kde.isoimagewriter \
+  tv.kodi.Kodi com.github.wwmm.pulseeffects com.github.sdv43.whaler \
+  org.onlyoffice.desktopeditors
 #   net.lutris.Lutris com.playonlinux.PlayOnLinux4 net.davidotek.pupgui2 com.usebottles.bottles
   # org.getoutline.OutlineClient org.getoutline.OutlineManager
 
