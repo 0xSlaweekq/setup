@@ -35,6 +35,7 @@ source ~/.bashrc
 python3 --version
 pip3 --version
 pip3 install slither-analyzer pipenv
+pip3 install --upgrade pip
 echo '#### Python3 installed'
 echo '#################################################################'
 fi

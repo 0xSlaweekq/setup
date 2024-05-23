@@ -40,7 +40,7 @@ sudo chmod g+rwx "$HOME/.docker" -R
 
 sudo systemctl enable --now \
   docker docker.service containerd containerd.service && \
-  sudo systemctl daemon-reload
+  sudo systemctl daemon-reload && systemctl status docker.service
 echo 'alias docker-compose="docker compose"' >> ~/.bashrc
 source ~/.bashrc
 echo '#### Docker installed'

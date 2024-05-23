@@ -42,13 +42,12 @@ sudo systemctl enable tlp.service
 sudo tlp start
 echo 'GOVERNOR="performance"' | sudo tee /etc/default/cpufrequtils
 sudo systemctl restart cpufrequtils
-systemctl --user enable gamemoded && systemctl --user start gamemoded
-sudo chmod +x /usr/bin/gamemoderun
 
-  # power-profiles-daemon gnome-tweak-tool
+
+  # power-profiles-daemon gnome-tweaks-tool
   # powerprofilesctl set performance && powerprofilesctl list
 #   gnome-tweaks gnome-extensions-app gnome-shell-extension-manager \
-#   gnome-software-plugin-flatpak gnome-disk-utility
+#   gnome-software-plugin-flatpak gnome-disk-utility chrome-gnome-shell gnome-browser-connector
 
 # sudo rm -f /var/lib/apt/lists/lock /var/cache/apt/archives/lock /var/lib/dpkg/lock
 
@@ -107,9 +106,9 @@ set show-all-if-ambiguous On
 sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get install --fix-broken -y
-
 sudo apt-get autoclean -y
 sudo apt-get autoremove --purge
+
 gpg --generate-key
 echo 'pass init B381A9F621F86E30EB14EBAD9066D29FF5813FE3
 systemctl --user start docker-desktop'

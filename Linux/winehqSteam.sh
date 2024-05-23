@@ -48,6 +48,9 @@ cd ~
 rm -rf ./gamemode
 gamemoded -t
 
+systemctl --user enable gamemoded && systemctl --user start gamemoded
+sudo chmod +x /usr/bin/gamemoderun
+
 # git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git &&\
 #   cd MangoHud && \
 #   ./build.sh build && \

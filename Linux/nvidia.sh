@@ -38,6 +38,7 @@ cat /proc/driver/nvidia/version
 sudo reboot
 echo '#################################################################'
 
+si uncom-nvidia-driver
 
 # sudo telinit 3
 # sudo bash NVIDIA-Linux-x86_64-550.78.run
