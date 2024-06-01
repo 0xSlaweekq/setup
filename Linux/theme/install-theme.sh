@@ -25,6 +25,7 @@ sudo apt-get install -y \
 #   latte-dock
 
 cd ~
+git clone https://github.com/sandesh236/sleek--themes.git
 git clone https://github.com/vinceliuice/grub2-themes.git
 git clone https://github.com/vinceliuice/WhiteSur-kde.git
 git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
@@ -33,6 +34,7 @@ git clone https://github.com/vinceliuice/Monterey-kde.git
 git clone https://github.com/vinceliuice/McMojave-kde.git
 # git clone https://github.com/micheleg/dash-to-dock.git
 
+sudo chmod +x ./sleek--themes/'Sleek theme-bigSur'/install.sh
 sudo chmod +x ./grub2-themes/install.sh
 sudo chmod +x ./WhiteSur-kde/install.sh
 sudo chmod +x ./WhiteSur-gtk-theme/install.sh
@@ -47,6 +49,9 @@ sudo cp -r ~/setup/Linux/theme/wallpaper/* /usr/share/wallpapers/
 # wallpapers / backgrounds
 sudo cp -r /mnt/Documents/CRYPTO/setup/Linux/theme/wallpaper/* /usr/share/wallpapers/
 
+cd sleek--themes/'Sleek theme-bigSur'
+sudo ./install.sh
+cd ~
 sudo ./grub2-themes/install.sh -t whitesur -i whitesur -s 2k -b
 ./WhiteSur-kde/install.sh -c dark
 ./WhiteSur-gtk-theme/install.sh -o normal -c Dark -t all \
@@ -63,7 +68,7 @@ echo '#################################################################'
 echo 'Remove files'
 echo '#################################################################'
 
-sudo rm -rf ./grub2-themes
+sudo rm -rf ./sleek--themes
 sudo rm -rf ./WhiteSur-gtk-theme
 sudo rm -rf ./WhiteSur-icon-theme
 sudo rm -rf ./dash-to-dock

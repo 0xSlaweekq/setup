@@ -15,13 +15,13 @@ sudo dpkg --add-architecture amd64
 sudo dpkg --add-architecture i386
 sudo apt-get update
 sudo apt-get upgrade -y
+sudo apt-get install -y libpoppler-glib8:{i386,amd64}=22.02.0-2ubuntu0.4
 # wine winecfg
+sudo apt-get install --install-recommends winehq-devel -y
 sudo apt-get install -y \
-  wine wine64 wine32 \
   libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 \
   librust-proton-call-dev proton-caller \
   libgl1-mesa-glx:amd64 libgl1-mesa-glx:i386
-sudo apt-get install --install-recommends winehq-devel -y
 sudo apt-get install --fix-broken -y
 sudo apt-get install -y libgtk-3-dev
 sudo apt-get install -y glslang-tools

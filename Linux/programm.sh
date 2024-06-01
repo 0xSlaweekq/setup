@@ -1,6 +1,7 @@
 echo 'Install programm'
 echo '#################################################################'
-sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
+# sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
+sudo add-apt-repository -y ppa:trebelnik-stefina/grub-customizer
 sudo add-apt-repository -y ppa:atareao/telegram
 
 # Adding keys
@@ -51,7 +52,7 @@ flatpak install -y flathub org.kde.krita org.gimp.GIMP \
   com.discordapp.Discord net.nokyan.Resources com.github.tchx84.Flatseal \
   io.github.mimbrero.WhatsAppDesktop org.gnome.Maps org.kde.isoimagewriter \
   tv.kodi.Kodi com.github.wwmm.pulseeffects com.github.sdv43.whaler \
-  org.onlyoffice.desktopeditors
+  org.onlyoffice.desktopeditors org.kde.elisa
 #   net.lutris.Lutris com.playonlinux.PlayOnLinux4 net.davidotek.pupgui2 com.usebottles.bottles
   # org.getoutline.OutlineClient org.getoutline.OutlineManager
 
