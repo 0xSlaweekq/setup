@@ -7,6 +7,9 @@ Architectures: amd64 i386
 Signed-By: /etc/apt/trusted.gpg.d/winehq.key" | \
   sudo tee /etc/apt/sources.list.d/winehq.sources > /dev/null
 
+sudo echo "deb [arch=amd64,i386 signed-by=/etc/apt/trusted.gpg.d/winehq.key] https://dl.winehq.org/wine-builds/ubuntu jammy main" |\
+  sudo tee /etc/apt/sources.list.d/winehq.list > /dev/null
+
 sudo apt-get update
 sudo dpkg --add-architecture amd64
 sudo dpkg --add-architecture i386
@@ -46,10 +49,9 @@ git checkout 1.8.1 # omit to build the master branch
 ./bootstrap.sh
 cd ~
 rm -rf ./gamemode
-gamemoded -t
-
 systemctl --user enable gamemoded && systemctl --user start gamemoded
 sudo chmod +x /usr/bin/gamemoderun
+gamemoded -t
 
 # git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git &&\
 #   cd MangoHud && \

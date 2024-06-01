@@ -16,12 +16,13 @@ sudo bash -c \
 # that works even if disks are added and removed. See fstab(5).
 #
 # UUID=<uuid>                             <mount point> <FSType> <FSOptions>              <dump> <pass>
-UUID=c2481fe4-304e-4bed-9e57-5e1920b28af2 /               ext4   errors=remount-ro          0      1
-UUID=D4AE-FEC6                            /boot/efi       vfat   umask=0077                 0      1
-UUID=9568449b-51d8-47db-a1a7-4329898988d2 /home           ext4   defaults                   0      2
-UUID=6C78679979189CD6                     /mnt/Documents  ntfs   defaults,umask=007,gid=46  0      0
+UUID=6C78679979189CD6                     /mnt/Documents  ntfs   defaults                   0      2
 UUID=5444BAAE44BA91EA                     none            ntfs   ro                         0      0
-UUID=b591273e-61f0-4059-89b2-9d87b780861d swap            swap   sw                         0      0
+UUID=D4AE-FEC6                            /boot/efi       vfat   defaults                   0      2
+UUID=39443cdf-d623-41e1-8d6b-75f3c9431a6e /               ext4   defaults                   0      1
+UUID=81379a28-bf5a-4aef-941a-6025e765e914 /home           ext4   defaults                   0      2
+UUID=20688ee6-e9eb-4a85-a6d2-7b64d3c5ed37 swap            swap   defaults                   0      0
+tmpfs                                     /tmp            tmpfs  defaults,noatime,mode=1777 0      0
 EOF"
 
 echo '#################################################################'

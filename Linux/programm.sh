@@ -47,7 +47,7 @@ mkdir -p $HOME/.local/share/trusted.gpg.d
 code --locate-shell-integration-path bash
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "/path/to/shell/integration/script.sh"
 
-flatpak install -y flathub org.kde.krita org.gimp.GIMP sh.ppy.osu \
+flatpak install -y flathub org.kde.krita org.gimp.GIMP \
   com.discordapp.Discord net.nokyan.Resources com.github.tchx84.Flatseal \
   io.github.mimbrero.WhatsAppDesktop org.gnome.Maps org.kde.isoimagewriter \
   tv.kodi.Kodi com.github.wwmm.pulseeffects com.github.sdv43.whaler \
@@ -66,8 +66,6 @@ sudo usermod -aG vboxusers $USER
 sudo adduser $USER vboxusers
 sudo apt-get install -y virtualbox-dkms xserver-xorg-core virtualbox-guest-x11 cpu-checker
 
-# install ogpt
-curl -fsSL https://ollama.com/install.sh | sh
 
 # install qemu
 sudo apt update
@@ -94,6 +92,7 @@ chmod +x ./dotnet-install.sh
 ./dotnet-install.sh --channel 6.0
 ./dotnet-install.sh --channel 7.0
 ./dotnet-install.sh --version latest
+rm -rf ./dotnet-install.sh
 echo 'All programm installed'
 echo '#################################################################'
 

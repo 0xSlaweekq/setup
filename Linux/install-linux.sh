@@ -35,6 +35,7 @@ sudo systemctl enable --now auto-cpufreq
 sudo systemctl start auto-cpufreq
 sudo systemctl status auto-cpufreq
 sudo auto-cpufreq --update
+cd ~
   # network-manager network-manager-gnome network-manager-openvpn-gnome \
   # net-tools nala
 

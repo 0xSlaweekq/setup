@@ -25,6 +25,9 @@ tgpt \
   --key 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 \
   --max_length 100000000
 
+# install ogpt
+curl -fsSL https://ollama.com/install.sh | sh
+
 # sudo rm $(which tgpt) # for remove
 # cd ~/.config/tgpt # location config file
 
