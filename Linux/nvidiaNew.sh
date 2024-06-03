@@ -1,5 +1,5 @@
 cd ~
-wget https://us.download.nvidia.com/XFree86/Linux-x86_64/550.78/NVIDIA-Linux-x86_64-550.78.run
+wget https://download.nvidia.com/XFree86/Linux-x86_64/555.42.02/NVIDIA-Linux-x86_64-555.42.02.run
 chmod 700 NVIDIA-*.run
 sudo telinit 3
 dpkg --purge nvidia-*

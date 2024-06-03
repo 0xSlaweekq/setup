@@ -1,7 +1,6 @@
 echo 'Installing everything you need...'
 echo 'First update all packages'
 echo '#################################################################'
-
 sudo add-apt-repository -y ppa:flatpak/stable
 sudo apt-get update
 sudo apt-get upgrade -y
@@ -22,10 +21,10 @@ sudo apt-get install -y \
   unzip p7zip-rar p7zip-full rar unrar zip nmon nload conmon cmake g++ \
   ca-certificates gnupg lsb-release zlib1g-dev hardinfo hwinfo clang \
   bash-completion ubuntu-restricted-extras ppa-purge xz-utils vlc dkms \
-  gcc-multilib sweeper flatpak snap snapd qbittorrent davfs2 dconf-cli \
-  libreoffice gamemode preload meson libsystemd-dev pkg-config \
-  ninja-build libdbus-1-dev libinih-dev pass gdebi gdebi-core \
-  cpufrequtils indicator-cpufreq tlp tlp-rdw plasma-discover-backend-flatpak
+  gcc-multilib sweeper flatpak qbittorrent dconf-cli libreoffice \
+  gamemode preload meson libsystemd-dev pkg-config gdebi gdebi-core \
+  ninja-build libdbus-1-dev libinih-dev pass cpufrequtils indicator-cpufreq tlp tlp-rdw \
+  plasma-discover-backend-flatpak
 
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git
 cd auto-cpufreq && sudo ./auto-cpufreq-installer
@@ -44,7 +43,6 @@ sudo tlp start
 echo 'GOVERNOR="performance"' | sudo tee /etc/default/cpufrequtils
 sudo systemctl restart cpufrequtils
 
-
   # power-profiles-daemon gnome-tweaks-tool
   # powerprofilesctl set performance && powerprofilesctl list
 #   gnome-tweaks gnome-extensions-app gnome-shell-extension-manager \
@@ -62,6 +60,7 @@ sudo add-apt-repository -y ppa:kubuntu-ppa/backports
 sudo add-apt-repository -y multiverse
 sudo add-apt-repository -y universe
 sudo apt-get update
+sudo pkcon refresh
 sudo pkcon update
 sudo apt-get full-upgrade
 sudo apt install backport-iwlwifi-dkms

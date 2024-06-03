@@ -1,7 +1,7 @@
 echo 'Install programm'
 echo '#################################################################'
 # sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
-sudo add-apt-repository -y ppa:trebelnik-stefina/grub-customizer
+sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
 sudo add-apt-repository -y ppa:atareao/telegram
 
 # Adding keys
@@ -55,7 +55,6 @@ flatpak install -y flathub org.kde.krita org.gimp.GIMP \
   org.onlyoffice.desktopeditors org.kde.elisa
 #   net.lutris.Lutris com.playonlinux.PlayOnLinux4 net.davidotek.pupgui2 com.usebottles.bottles
   # org.getoutline.OutlineClient org.getoutline.OutlineManager
-
 
 sudo curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts/install-linux.sh | sudo sh
 tenderly login --authentication-method access-key --access-key FWrGeuFEOTmwzUdD4Glm1BRl1ov5hNLJ --force

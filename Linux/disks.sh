@@ -19,11 +19,12 @@ sudo bash -c \
 UUID=6C78679979189CD6                     /mnt/Documents  ntfs   defaults                   0      2
 UUID=5444BAAE44BA91EA                     none            ntfs   ro                         0      0
 UUID=D4AE-FEC6                            /boot/efi       vfat   defaults                   0      2
-UUID=39443cdf-d623-41e1-8d6b-75f3c9431a6e /               ext4   defaults                   0      1
-UUID=81379a28-bf5a-4aef-941a-6025e765e914 /home           ext4   defaults                   0      2
-UUID=20688ee6-e9eb-4a85-a6d2-7b64d3c5ed37 swap            swap   defaults                   0      0
+UUID=a107e09f-dab2-4ebc-9376-c6ba9d278244 /               ext4   defaults                   0      1
+UUID=b3d43808-2ce3-4120-8fed-5f22f4a11e62 /home           ext4   defaults                   0      2
+UUID=53c78c00-2135-4d54-b318-4f392bf99498 swap            swap   defaults                   0      0
 tmpfs                                     /tmp            tmpfs  defaults,noatime,mode=1777 0      0
 EOF"
+UUID=c2bef089-c9b6-4982-b872-fe2343a88c47
 
 echo '#################################################################'
 
@@ -33,11 +34,11 @@ sudo swapon --show
 free -h
 df -h
 sudo swapoff -a
-sudo umount /dev/nvme1n1p3
-sudo mkswap /dev/nvme1n1p3
-sudo swapon /dev/nvme1n1p3
+sudo umount /dev/nvme1n1p6
+sudo mkswap /dev/nvme1n1p6
+sudo swapon /dev/nvme1n1p6
 sudo cp /etc/fstab /etc/fstab.bak
-echo '/dev/nvme1n1p3                              swap            swap   defaults             0      2' | \
+echo '/dev/nvme1n1p6                              swap            swap   defaults             0      2' | \
   sudo tee -a /etc/fstab
 cat /proc/sys/vm/swappiness
 sudo sysctl vm.swappiness=10
