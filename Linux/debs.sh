@@ -18,30 +18,3 @@ sudo systemctl daemon-reload
 sudo rm -rf packages-microsoft-prod.deb
 sudo apt-get update
 sudo apt-get install -y powershell
-
-
-# Monero
-wget https://downloads.getmonero.org/gui/monero-gui-linux-x64-v0.18.3.3.tar.bz2
-wget -O binaryfate.asc https://raw.githubusercontent.com/monero-project/monero/master/utils/gpg_keys/binaryfate.asc
-wget -O hashes.txt https://www.getmonero.org/downloads/hashes.txt
-
-gpg --keyid-format long --with-fingerprint binaryfate.asc
-gpg --import binaryfate.asc
-gpg --verify hashes.txt
-
-shasum -a 256 monero-gui-linux-x64-v0.18.3.3.tar.bz2
-
-tar xf monero-gui-linux-x64-v0.18.3.3.tar.bz2
-cd monero-gui-v0.18.3.3
-
-./monero-wallet-gui
-./monero-wallet-cli
-nano ~/.local/share/applications/monero-gui.desktop
-
-
-sudo apt-get install -y pandoc make
-sudo apt-get install -y texlive texlive-xetex
-sudo apt-get install -y monero monero-tests
-flatpak install flathub org.getmonero.Monero
-
-elbow rustled orphans veered sailor seasons asked upstairs voted tweezers paper elope cinema utopia angled nail beware films bicycle lava piloted fetches slug smidgen smidgen
