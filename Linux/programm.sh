@@ -1,6 +1,5 @@
 echo 'Install programm'
 echo '#################################################################'
-# sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
 sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
 sudo add-apt-repository -y ppa:atareao/telegram
 
@@ -24,7 +23,7 @@ sudo rm -rf microsoft.gpg
 
 cd /etc/apt/sources.list.d
 
-sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com `sudo aptitude update 2>&1 | grep -o '[0-9A-Z]\{16\}$' | xargs`
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com `sudo apt update 2>&1 | grep -o '[0-9A-Z]\{16\}$' | xargs`
 
 # installing
 sudo apt-get update
@@ -34,9 +33,7 @@ sudo apt-get update
 sudo apt-get upgrade -y
 # sudo apt-get install -y google-chrome-stable
 sudo apt-get install -y \
-  microsoft-edge-stable code telegram \
-  libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 \
-  librust-proton-call-dev proton-caller grub-customizer
+  microsoft-edge-stable code telegram grub-customizer
 sudo apt-get install --fix-broken -y
 
 # Options for shell in vscode
@@ -48,13 +45,16 @@ mkdir -p $HOME/.local/share/trusted.gpg.d
 code --locate-shell-integration-path bash
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "/path/to/shell/integration/script.sh"
 
-flatpak install -y flathub org.kde.krita org.gimp.GIMP \
-  com.discordapp.Discord net.nokyan.Resources com.github.tchx84.Flatseal \
-  io.github.mimbrero.WhatsAppDesktop org.gnome.Maps org.kde.isoimagewriter \
-  tv.kodi.Kodi com.github.wwmm.pulseeffects com.github.sdv43.whaler \
-  org.onlyoffice.desktopeditors org.kde.elisa
-#   net.lutris.Lutris com.playonlinux.PlayOnLinux4 net.davidotek.pupgui2 com.usebottles.bottles
-  # org.getoutline.OutlineClient org.getoutline.OutlineManager
+flatpak install -y flathub \
+  org.kde.krita org.gimp.GIMP org.videolan.VLC com.discordapp.Discord net.nokyan.Resources \
+  org.gnome.Maps com.github.tchx84.Flatseal io.github.mimbrero.WhatsAppDesktop \
+  org.kde.isoimagewriter tv.kodi.Kodi com.github.sdv43.whaler org.onlyoffice.desktopeditors \
+  org.kde.elisa org.libreoffice.LibreOffice com.microsoft.EdgeDev com.usebottles.bottles \
+  com.github.Matoking.protontricks net.davidotek.pupgui2 io.github.arunsivaramanneo.GPUViewer \
+  com.basemark.BasemarkGPU com.geekbench.Geekbench6 net.nokyan.Resources io.gpt4all.gpt4all \
+  org.getoutline.OutlineClient org.getoutline.OutlineManager
+
+#  net.lutris.Lutris com.playonlinux.PlayOnLinux4 net.davidotek.pupgui2
 
 sudo curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts/install-linux.sh | sudo sh
 tenderly login --authentication-method access-key --access-key FWrGeuFEOTmwzUdD4Glm1BRl1ov5hNLJ --force
@@ -70,8 +70,8 @@ sudo apt-get install -y virtualbox-dkms xserver-xorg-core virtualbox-guest-x11 c
 # install qemu
 sudo apt update
 sudo apt-get install -y \
-  cpu-checker qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils \
-  virt-manager virtinst
+  cpu-checker libvirt-daemon-system libvirt-clients bridge-utils \
+  virt-manager virtinst qemu-kvm
 sudo adduser $USER libvirt
 sudo adduser $USER kvm
 sudo systemctl enable --now libvirtd

@@ -28,10 +28,6 @@ sudo apt-get install -y \
   libopenal-dev libalut0 libalut-dev
 sudo ubuntu-drivers install nvidia-headless-550 nvidia-dkms-550 nvidia-driver-550
 
-sudo sysctl vm.max_map_count=2147483642
-sudo echo "vm.max_map_count = 2147483642" |\
-  sudo tee /etc/sysctl.d/99-max-map-count.conf
-
 # sudo apt-get install -y cuda-drivers cuda-toolkit nvidia-gds
 
 sudo systemctl enable nvidia-persistenced

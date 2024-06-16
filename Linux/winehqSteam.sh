@@ -7,8 +7,8 @@ Architectures: amd64 i386
 Signed-By: /etc/apt/trusted.gpg.d/winehq.key" | \
   sudo tee /etc/apt/sources.list.d/winehq.sources > /dev/null
 
-sudo echo "deb [arch=amd64,i386 signed-by=/etc/apt/trusted.gpg.d/winehq.key] https://dl.winehq.org/wine-builds/ubuntu jammy main" |\
-  sudo tee /etc/apt/sources.list.d/winehq.list > /dev/null
+# sudo echo "deb [arch=amd64,i386 signed-by=/etc/apt/trusted.gpg.d/winehq.key] https://dl.winehq.org/wine-builds/ubuntu jammy main" |\
+#   sudo tee /etc/apt/sources.list.d/winehq.list > /dev/null
 
 sudo apt-get update
 sudo dpkg --add-architecture amd64
@@ -35,6 +35,7 @@ mkdir -p ~/vkd3d
 sudo ./package-release.sh master ~/vkd3d --no-package
 cd ~
 sudo rm -rf vkd3d-proton
+
 # change to build.86 for 32-bit
 sudo chmod +x ~/vkd3d/vkd3d-proton-master/setup_vkd3d_proton.sh
 ~/vkd3d/vkd3d-proton-master/setup_vkd3d_proton.sh install

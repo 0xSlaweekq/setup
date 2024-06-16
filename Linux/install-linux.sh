@@ -18,13 +18,14 @@ sudo apt-get install -y \
   nodejs npm nano openssh-client inxi curl linux-firmware cpu-x dpkg \
   gpg software-properties-common apt-transport-https wget make gettext \
   build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev dirmngr \
-  unzip p7zip-rar p7zip-full rar unrar zip nmon nload conmon cmake g++ \
-  ca-certificates gnupg lsb-release zlib1g-dev hardinfo hwinfo clang \
-  bash-completion ubuntu-restricted-extras ppa-purge xz-utils vlc dkms \
-  gcc-multilib sweeper flatpak qbittorrent dconf-cli libreoffice \
-  gamemode preload meson libsystemd-dev pkg-config gdebi gdebi-core \
-  ninja-build libdbus-1-dev libinih-dev pass cpufrequtils indicator-cpufreq tlp tlp-rdw \
-  plasma-discover-backend-flatpak
+  unzip p7zip-rar p7zip-full rar unrar zip cmake g++ gnupg clang dkms \
+  ca-certificates lsb-release zlib1g-dev hardinfo hwinfo bash-completion \
+  ubuntu-restricted-extras ppa-purge xz-utils gcc-multilib sweeper flatpak \
+  qbittorrent dconf-cli gamemode preload meson libsystemd-dev pkg-config \
+  gdebi gdebi-core ninja-build libdbus-1-dev libinih-dev pass \
+  cpufrequtils indicator-cpufreq tlp tlp-rdw plasma-discover-backend-flatpak
+
+#   nmon nload conmon
 
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git
 cd auto-cpufreq && sudo ./auto-cpufreq-installer
@@ -55,8 +56,8 @@ sudo systemctl daemon-reload
 sudo dpkg --configure -a
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 
-sudo add-apt-repository -y ppa:kubuntu-ppa/ppa
-sudo add-apt-repository -y ppa:kubuntu-ppa/backports
+# sudo add-apt-repository -y ppa:kubuntu-ppa/ppa
+# sudo add-apt-repository -y ppa:kubuntu-ppa/backports
 sudo add-apt-repository -y multiverse
 sudo add-apt-repository -y universe
 sudo apt-get update
