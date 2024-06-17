@@ -6,3 +6,6 @@ https://dl.pstmn.io/download/latest/linux_64
 curl https://gist.githubusercontent.com/SanderTheDragon/1331397932abaa1d6fbbf63baed5f043/raw/postman-deb.sh | sh
 
 wget -O - https://gist.githubusercontent.com/SanderTheDragon/1331397932abaa1d6fbbf63baed5f043/raw/postman-deb.sh | sh
+
+
+npm i -g nestjs nx postman
