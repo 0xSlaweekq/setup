@@ -45,12 +45,13 @@ mkdir -p $HOME/.local/share/trusted.gpg.d
 code --locate-shell-integration-path bash
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "/path/to/shell/integration/script.sh"
 
-flatpak install -y flathub \
+sudo flatpak install -y flathub \
   com.discordapp.Discord net.nokyan.Resources org.gnome.Maps com.github.tchx84.Flatseal \
   io.github.mimbrero.WhatsAppDesktop org.kde.isoimagewriter tv.kodi.Kodi \
   com.github.sdv43.whaler org.onlyoffice.desktopeditors com.usebottles.bottles \
   com.github.Matoking.protontricks net.davidotek.pupgui2 net.nokyan.Resources \
-  io.gpt4all.gpt4all org.getoutline.OutlineClient org.getoutline.OutlineManager
+  io.gpt4all.gpt4all org.getoutline.OutlineClient org.getoutline.OutlineManager \
+  io.dbeaver.DBeaverCommunity
 
 #  net.lutris.Lutris com.playonlinux.PlayOnLinux4 net.davidotek.pupgui2
 
