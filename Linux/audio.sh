@@ -1,5 +1,36 @@
 echo '#### Audio'
 echo '#################################################################'
+sudo apt-get install -y pipewire pipewire-audio-client-libraries pulseaudio-utils
+sudo apt-get install -y wireplumber
+
+systemctl enable --user pipewire
+systemctl enable --user wireplumber
+systemctl start --user pipewire
+systemctl start --user wireplumber
+pactl info | grep Server
+
+
+sudo nano /etc/apt/apt.conf
+sudo apt-get update
+sudo apt-get install -y \
+  libsystemd-dev libudev-dev libreadline6-dev pkg-config libxml2-dev \
+  libboost-all-dev libelf-dev libnl-3-dev yasm zlib1g-dev libssl-dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 sudo apt-get install -y linux-sound-base alsa-base alsa-utils alsa-tools
 sudo gedit /etc/modprobe.d/alsa-base.conf
 # paste after all text
@@ -11,8 +42,6 @@ options snd-hda-intel model=alc298-dell1
 # options snd-hda-intel model=dell-headset3
 # options snd-hda-intel patch=alc298-sound-patch.fw,alc298-sound-patch.fw,
 
-sudo echo «ControllerMode = bredr» /etc/bluetooth/main.conf
-sudo service bluetooth restart
 
 alsamixer
 # press F6 & after, select correct audio card
@@ -45,11 +74,11 @@ default-sample-rate = 48000
 default-sample-channels = 2
 default-channel-map = front-left,front-right
 
-sudo gedit ./default.pa
-load-module module-echo-cancel source_name=noechosource sink_name=noechosink
-set-default-source noechosource
 
---Далее либо перезагружаем ПК,либо прописываем команду в терминале:
-pulseaudio -k
-pulseaudio -D --start
-Через несколько секунд изменения вступят в силу.
+
+
+00:1f.3 Multimedia audio controller [0401]: Intel Corporation Alder Lake PCH-P High Definition Audio Controller [8086:51c8] (rev 01)
+        DeviceName: Onboard - Sound
+        Subsystem: Micro-Star International Co., Ltd. [MSI] Alder Lake PCH-P High Definition Audio Controller [1462:131d]
+        Kernel driver in use: sof-audio-pci-intel-tgl
+        Kernel modules: snd_hda_intel, snd_sof_pci_intel_tgl
