@@ -50,8 +50,7 @@ sudo flatpak install -y flathub \
   io.github.mimbrero.WhatsAppDesktop org.kde.isoimagewriter tv.kodi.Kodi \
   com.github.sdv43.whaler org.onlyoffice.desktopeditors com.usebottles.bottles \
   com.github.Matoking.protontricks net.davidotek.pupgui2 net.nokyan.Resources \
-  io.gpt4all.gpt4all org.getoutline.OutlineClient org.getoutline.OutlineManager \
-  io.dbeaver.DBeaverCommunity
+  io.gpt4all.gpt4all org.getoutline.OutlineClient org.getoutline.OutlineManager
 
 #  net.lutris.Lutris com.playonlinux.PlayOnLinux4 net.davidotek.pupgui2
 

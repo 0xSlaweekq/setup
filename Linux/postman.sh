@@ -31,3 +31,8 @@ sudo apt-get install -y pgadmin4 pgadmin4-desktop pgadmin4-web
 
 # Configure the webserver, if you installed pgadmin4-web:
 sudo /usr/pgadmin4/bin/setup-web.sh
+
+
+wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
+sudo apt-get install -y ./dbeaver-ce_latest_amd64.deb
+rm -rf dbeaver-ce_latest_amd64.deb
