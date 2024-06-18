@@ -23,7 +23,8 @@ sudo apt-get install -y \
   ubuntu-restricted-extras ppa-purge xz-utils gcc-multilib sweeper flatpak \
   qbittorrent dconf-cli gamemode preload meson libsystemd-dev pkg-config \
   gdebi gdebi-core ninja-build libdbus-1-dev libinih-dev pass \
-  cpufrequtils indicator-cpufreq tlp tlp-rdw plasma-discover-backend-flatpak
+  cpufrequtils indicator-cpufreq tlp tlp-rdw plasma-discover-backend-flatpak \
+  vlc krita gimp libreoffice elisa
 
 #   nmon nload conmon
 

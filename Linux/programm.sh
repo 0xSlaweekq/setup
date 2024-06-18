@@ -46,13 +46,11 @@ code --locate-shell-integration-path bash
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "/path/to/shell/integration/script.sh"
 
 flatpak install -y flathub \
-  org.kde.krita org.gimp.GIMP org.videolan.VLC com.discordapp.Discord net.nokyan.Resources \
-  org.gnome.Maps com.github.tchx84.Flatseal io.github.mimbrero.WhatsAppDesktop \
-  org.kde.isoimagewriter tv.kodi.Kodi com.github.sdv43.whaler org.onlyoffice.desktopeditors \
-  org.kde.elisa org.libreoffice.LibreOffice com.microsoft.EdgeDev com.usebottles.bottles \
-  com.github.Matoking.protontricks net.davidotek.pupgui2 io.github.arunsivaramanneo.GPUViewer \
-  com.basemark.BasemarkGPU com.geekbench.Geekbench6 net.nokyan.Resources io.gpt4all.gpt4all \
-  org.getoutline.OutlineClient org.getoutline.OutlineManager
+  com.discordapp.Discord net.nokyan.Resources org.gnome.Maps com.github.tchx84.Flatseal \
+  io.github.mimbrero.WhatsAppDesktop org.kde.isoimagewriter tv.kodi.Kodi \
+  com.github.sdv43.whaler org.onlyoffice.desktopeditors com.usebottles.bottles \
+  com.github.Matoking.protontricks net.davidotek.pupgui2 net.nokyan.Resources \
+  io.gpt4all.gpt4all org.getoutline.OutlineClient org.getoutline.OutlineManager
 
 #  net.lutris.Lutris com.playonlinux.PlayOnLinux4 net.davidotek.pupgui2
 
