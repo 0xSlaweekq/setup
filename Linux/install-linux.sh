@@ -15,16 +15,15 @@ echo '#################################################################'
 echo 'Install new usless packages'
 echo '#################################################################'
 sudo apt-get install -y \
-  nodejs npm nano openssh-client inxi curl linux-firmware cpu-x dpkg \
-  gpg software-properties-common apt-transport-https wget make gettext \
+  nodejs npm nano openssh-client inxi curl linux-firmware cpu-x dpkg gimp \
+  gpg software-properties-common apt-transport-https wget make gettext krita \
   build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev dirmngr \
-  unzip p7zip-rar p7zip-full rar unrar zip cmake g++ gnupg clang dkms \
+  unzip p7zip-rar p7zip-full rar unrar zip cmake g++ gnupg clang dkms flatpak \
   ca-certificates lsb-release zlib1g-dev hardinfo hwinfo bash-completion \
-  ubuntu-restricted-extras ppa-purge xz-utils gcc-multilib sweeper flatpak \
+  ubuntu-restricted-extras ppa-purge xz-utils gcc-multilib sweeper libreoffice \
   qbittorrent dconf-cli gamemode preload meson libsystemd-dev pkg-config \
-  gdebi gdebi-core ninja-build libdbus-1-dev libinih-dev pass \
-  cpufrequtils indicator-cpufreq tlp tlp-rdw plasma-discover-backend-flatpak \
-  vlc krita gimp libreoffice elisa
+  gdebi gdebi-core ninja-build libdbus-1-dev libinih-dev pass elisa vlc \
+  cpufrequtils indicator-cpufreq tlp tlp-rdw plasma-discover-backend-flatpak
 
 #   nmon nload conmon
 
