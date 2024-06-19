@@ -35,6 +35,7 @@ git clone https://github.com/vinceliuice/McMojave-kde.git
 # git clone https://github.com/micheleg/dash-to-dock.git
 
 sudo chmod +x ./sleek--themes/'Sleek theme-bigSur'/install.sh
+sudo chmod +x ./sleek--themes/'Sleek theme-bigSur'/uninstall.sh
 sudo chmod +x ./grub2-themes/install.sh
 sudo chmod +x ./WhiteSur-kde/install.sh
 sudo chmod +x ./WhiteSur-gtk-theme/install.sh
@@ -69,6 +70,7 @@ echo 'Remove files'
 echo '#################################################################'
 
 sudo rm -rf ./sleek--themes
+sudo rm -rf ./grub2-themes
 sudo rm -rf ./WhiteSur-gtk-theme
 sudo rm -rf ./WhiteSur-icon-theme
 sudo rm -rf ./dash-to-dock
