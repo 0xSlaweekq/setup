@@ -13,7 +13,7 @@ sudo apt-get dist-upgrade
 # sudo ubuntu-drivers autoinstall
 sudo apt-get install -y \
   xserver-xorg-video-all xserver-xorg-video-nouveau \
-  xserver-xorg-video-intel xserver-xorg-video-nvidia-550
+  xserver-xorg-video-intel xserver-xorg-video-nvidia-555
 sudo apt-get install -y \
   linux-headers-$(uname -r) gcc make acpid \
   ca-certificates dirmngr software-properties-common apt-transport-https \
@@ -22,11 +22,11 @@ sudo apt-get install -y \
   libglfw3-dev
 sudo apt-key del 7fa2af80
 sudo apt-get install -y \
-  nvidia-headless-550 nvidia-dkms-550 nvidia-driver-550 nvidia-settings \
+  nvidia-headless-555 nvidia-dkms-555 nvidia-driver-555 nvidia-settings \
   libvulkan1 libvulkan1:i386 mesa-vulkan-drivers mesa-vulkan-drivers:i386 \
   vkbasalt libglu1-mesa-dev freeglut3-dev mesa-common-dev libopenal1 \
   libopenal-dev libalut0 libalut-dev
-sudo ubuntu-drivers install nvidia-headless-550 nvidia-dkms-550 nvidia-driver-550
+sudo ubuntu-drivers install nvidia-headless-555 nvidia-dkms-555 nvidia-driver-555
 
 # sudo apt-get install -y cuda-drivers cuda-toolkit nvidia-gds
 
@@ -39,10 +39,39 @@ echo '#################################################################'
 
 si uncom-nvidia-driver
 
+# cd ~
+# wget https://download.nvidia.com/XFree86/Linux-x86_64/555.42.02/NVIDIA-Linux-x86_64-555.42.02.run
+# chmod 700 NVIDIA-*.run
 # sudo telinit 3
-# sudo bash NVIDIA-Linux-x86_64-550.78.run
+# dpkg --purge nvidia-*
+# sudo apt remove --purge nvidia-*
+# sudo ./NVIDIA-Linux-x86_64-555.42.02.run
+# nvidia-xconfig # optionaly
+# sudo telinit 5
+# systemctl restart graphical.target
 
-# wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-drivers_535.161.08-1_amd64.deb
+
+# Very huge font in LightDM after installed nVidia driver
+# 1. Check the default config of xserver-command
+# cat /usr/share/lightdm/lightdm.conf.d/50-xserver-command.conf | grep "xserver-command"
+# xserver-command=X -core
+# 2. Copy above line to the custom config file. Append "-dpi 96" to the end of the line
+# nano /etc/lightdm/lightdm.conf.d/20-lubuntu.conf
+# [SeatDefaults]
+# user-session=Kubuntu
+# xserver-command=X -core -dpi 96
+
+# Unable to start Steam
+# 1. ia32-libs is NOT required for x86_64.
+# 2. Locale was not exported. Try to run steam by: LC_ALL=C steam
+
+# Unable to run XBMC after using nVidia Propietary driver
+# Link libGL.so to nVidia's version:
+#     cd /usr/lib/x86_64-linux-gnu/mesa
+#     rm libGL.so.1
+#     ln -s /usr/lib/libGL.so libGL.so.1
+
+
 
 
 # WINEDLLOVERRIDES="dinput8=n,b" env OBS_VKCAPTURE=1 %command%
