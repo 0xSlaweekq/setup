@@ -40,12 +40,12 @@ echo '#################################################################'
 si uncom-nvidia-driver
 
 # cd ~
-# wget https://download.nvidia.com/XFree86/Linux-x86_64/555.42.02/NVIDIA-Linux-x86_64-555.42.02.run
+# wget https://download.nvidia.com/XFree86/Linux-x86_64/555.52.04/NVIDIA-Linux-x86_64-555.52.04.run
 # chmod 700 NVIDIA-*.run
 # sudo telinit 3
 # dpkg --purge nvidia-*
 # sudo apt remove --purge nvidia-*
-# sudo ./NVIDIA-Linux-x86_64-555.42.02.run
+# sudo ./NVIDIA-Linux-x86_64-555.52.04.run
 # nvidia-xconfig # optionaly
 # sudo telinit 5
 # systemctl restart graphical.target
