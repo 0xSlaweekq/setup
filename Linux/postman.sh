@@ -11,13 +11,13 @@ echo '#################################################################'
 #Add to sources
 curl -1sLf \
   'https://packages.konghq.com/public/insomnia/setup.deb.sh' |\
-  sudo -E distro=ubuntu codename=noble bash
+  sudo -E distro=ubuntu codename=jammy bash
 #Refresh repository sources and install Insomnia
 #Update library'
 sudo apt-get update
-sudo apt-get install insomnia
+sudo apt-get -y install insomnia
 #Install font configuration library & support
-sudo apt-get install libfontconfig-dev
+sudo apt-get -y install libfontconfig-dev
 
 
 

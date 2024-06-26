@@ -25,7 +25,7 @@ sudo apt-get install -y \
 #   latte-dock
 
 cd ~
-git clone https://github.com/sandesh236/sleek--themes.git
+# git clone https://github.com/sandesh236/sleek--themes.git
 git clone https://github.com/vinceliuice/grub2-themes.git
 git clone https://github.com/vinceliuice/WhiteSur-kde.git
 git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
@@ -49,9 +49,10 @@ sudo chmod +x ./McMojave-kde/sddm/install.sh
 sudo cp -r ~/setup/Linux/theme/wallpaper/* /usr/share/wallpapers/
 # wallpapers / backgrounds
 sudo cp -r /mnt/Documents/CRYPTO/setup/Linux/theme/wallpaper/* /usr/share/wallpapers/
+sudo cp -r /mnt/Documents/CRYPTO/setup/Linux/theme/wallpaper/* $HOME/.local/share/wallpapers
 
-cd sleek--themes/'Sleek theme-bigSur'
-sudo ./install.sh
+# cd sleek--themes/'Sleek theme-bigSur'
+# sudo ./install.sh
 cd ~
 sudo ./grub2-themes/install.sh -t whitesur -i whitesur -s 2k -b
 ./WhiteSur-kde/install.sh -c dark
@@ -59,7 +60,7 @@ sudo ./grub2-themes/install.sh -t whitesur -i whitesur -s 2k -b
   -p 30 -m -N mojave -l --black --darker
 ./WhiteSur-icon-theme/install.sh -t default -a -b
 ./WhiteSur-gtk-theme/tweaks.sh -o normal -c Dark -t blue \
-  -b /usr/share/wallpapers/background.jpg
+  -b $HOME/.local/share/wallpapers/background.jpg
   # -g default
 sudo ./McMojave-kde/sddm/install.sh
 sudo ./Monterey-kde/install.sh
@@ -71,6 +72,7 @@ echo '#################################################################'
 
 sudo rm -rf ./sleek--themes
 sudo rm -rf ./grub2-themes
+sudo rm -rf ./WhiteSur-kde
 sudo rm -rf ./WhiteSur-gtk-theme
 sudo rm -rf ./WhiteSur-icon-theme
 sudo rm -rf ./dash-to-dock

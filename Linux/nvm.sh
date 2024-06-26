@@ -6,13 +6,15 @@ source ~/.bashrc
 nvm --version
 nvm install node
 nvm ls-remote
+nvm install v20.13.1
 nvm install v18.12.0
-nvm install v14.15.1
 nvm ls
-nvm use v18.12.0
-nvm alias default v18.12.0
+nvm use v20.13.1
+nvm alias default v20.13.1
 sudo chown "$USER":"$USER" ~/.npm -R
 sudo chown "$USER":"$USER" ~/.nvm -R
 npm i -g \
   yarn prettier eslint solhint solidity-code-metrics \
-  nodemon serve dotenv solc create-react-app 
+  nodemon serve dotenv solc
+
+# create-react-app

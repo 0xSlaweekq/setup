@@ -16,15 +16,13 @@ sudo bash -c \
 # disks are added and removed. See fstab(5).
 #
 # UUID=<uuid>                             <mount point> <FSType> <FSOptions>              <dump> <pass>
-UUID=6C78679979189CD6                     /mnt/Documents  ntfs   defaults                   0      2
-UUID=5444BAAE44BA91EA                     none            ntfs   ro                         0      0
-UUID=D4AE-FEC6                            /boot/efi       vfat   defaults                   0      2
-UUID=58fd53ae-f139-4c95-83ad-d54160badfa0 /               ext4   defaults                   0      1
-UUID=7ef5ed6e-eba5-418e-999f-99e06b7237e8 /home           ext4   defaults                   0      2
-UUID=fc98243a-8229-4194-8c17-5fe9c703bea8 swap            swap   defaults                   0      0
-tmpfs                                     /tmp            tmpfs  defaults,noatime,mode=1777 0      0
+UUID=7162d4f7-9463-4478-8d5f-f7988205c4f4 /               ext4   defaults                   0      1
+UUID=D4AE-FEC6                            /boot/efi       vfat   umask=0077                 0      1
+UUID=b20eafa5-cd8e-46a2-a682-1ba5aa514c45 /home           ext4   defaults                   0      2
+UUID=6C78679979189CD6                     /mnt/Documents  ntfs   defaults,umask=007,gid=46  0      0
+UUID=5444BAAE44BA91EA                     /mnt/Windows    ntfs   ro                         0      0
+UUID=8d0f2506-cfc5-44d7-8c37-9b51366145ce none            swap   sw                         0      0
 EOF"
-UUID=c2bef089-c9b6-4982-b872-fe2343a88c47
 
 echo '#################################################################'
 

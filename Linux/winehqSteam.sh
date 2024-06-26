@@ -19,9 +19,9 @@ sudo apt-get install -y libpoppler-glib8:{i386,amd64}=22.02.0-2ubuntu0.4
 # wine winecfg
 sudo apt-get install --install-recommends winehq-devel -y
 sudo apt-get install -y \
-  libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 \
+  libgl1-mesa-dri:{i386,amd64} \
   librust-proton-call-dev proton-caller \
-  libgl1-mesa-glx:amd64 libgl1-mesa-glx:i386
+  libgl1-mesa-glx:{i386,amd64}
 sudo apt-get install --fix-broken -y
 sudo apt-get install -y libgtk-3-dev
 sudo apt-get install -y glslang-tools

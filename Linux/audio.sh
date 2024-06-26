@@ -31,6 +31,10 @@ sudo apt-get install -y \
 
 
 
+
+
+
+
 sudo apt-get install -y linux-sound-base alsa-base alsa-utils alsa-tools
 sudo gedit /etc/modprobe.d/alsa-base.conf
 # paste after all text
