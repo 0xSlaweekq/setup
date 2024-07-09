@@ -45,13 +45,12 @@ ssh -T git@github.com
 
 git config --global user.name "Slaweekq"
 git config --global user.email "plakidin.vyacheslav@mail.ru"
-git config --global --add safe.directory /mnt/Documents/CRYPTO/hardhat
 git config --global --add safe.directory /mnt/Documents/CRYPTO/setup
 git config --global --add safe.directory /mnt/Documents/CRYPTO/work
-git config --global --add safe.directory /mnt/Documents/CRYPTO/contract
-git config --global --add safe.directory /mnt/Documents/CRYPTO/websites
-git config --global --add safe.directory /mnt/Documents/CRYPTO/solana
-git config --global --add safe.directory /mnt/Documents/CRYPTO/Work/smartDefi
+git config --global --add safe.directory /mnt/Documents/CRYPTO/work/old/smartDefi
+git config --global --add safe.directory /mnt/Documents/CRYPTO/work/packages
+git config --global --add safe.directory /mnt/Documents/CRYPTO/work/server
+git config --global --add safe.directory /mnt/Documents/CRYPTO/work/shelfjs-packages
 git config --global core.editor code
 git config --global core.safecrlf true
 git config --global push.autoSetupRemote true
@@ -87,6 +86,9 @@ alias wclone="git clone git@gitlab.i-link.pro:defi-invest/defi-invest-smart-cont
 alias gtext="gnome-text-editor"
 alias ogpt="ollama run llama3 --verbose"
 alias docker-compose="docker compose"
+alias nd="npm i -D"
+alias nu="npm uninstall"
+alias nats="~/nats"
 '
 
 # restore bash_profile
