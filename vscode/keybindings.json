@@ -15,17 +15,15 @@
     "command": "sortJSON.sortJSON"
   },
   {
-    "key": "ctrl+shift+c",
-    "command": "-workbench.action.terminal.copySelection",
-    "when": "terminalTextSelectedInFocused || terminalFocus && terminalHasBeenCreated && terminalTextSelected || terminalFocus && terminalProcessSupported && terminalTextSelected || terminalFocus && terminalTextSelected && terminalTextSelectedInFocused || terminalHasBeenCreated && terminalTextSelected && terminalTextSelectedInFocused || terminalProcessSupported && terminalTextSelected && terminalTextSelectedInFocused"
+    "key": "ctrl+q",
+    "command": "workbench.action.closeWindow"
   },
   {
-    "key": "ctrl+shift+c",
-    "command": "-workbench.action.terminal.openNativeConsole",
-    "when": "!terminalFocus"
+    "key": "alt+f4",
+    "command": "-workbench.action.closeWindow"
   },
   {
-    "key": "ctrl+shift+c",
-    "command": "autoprefixer.execute"
+    "key": "alt+q",
+    "command": "json.sort"
   }
 ]
