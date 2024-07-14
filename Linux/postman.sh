@@ -3,7 +3,7 @@ https://dl.pstmn.io/download/latest/linux_64
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 curl -sSL https://get.livekit.io/cli | bash
-
+curl -sf https://binaries.nats.dev/nats-io/natscli/nats@latest | sh
 
 
 echo 'Installing Insomnia'

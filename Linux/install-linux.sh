@@ -134,13 +134,13 @@ bash -c \
 # absolute path. No other format is supported.
 #
 XDG_DESKTOP_DIR="$HOME/Desktop"
-XDG_DOWNLOAD_DIR="/mnt/Documents/Downloads"
-XDG_DOCUMENTS_DIR="/mnt/Documents/Documents"
-XDG_TEMPLATES_DIR="/mnt/Documents/home/Templates"
-XDG_PUBLICSHARE_DIR="/mnt/Documents/home/Transfer"
-XDG_MUSIC_DIR="/mnt/Documents/home/Music"
-XDG_PICTURES_DIR="/mnt/Documents/home/Pictures"
-XDG_VIDEOS_DIR="/mnt/Documents/home/Videos"
+XDG_DOWNLOAD_DIR="/mnt/D/Downloads"
+XDG_DOCUMENTS_DIR="/mnt/D/Documents"
+XDG_TEMPLATES_DIR="/mnt/D/home/Templates"
+XDG_PUBLICSHARE_DIR="/mnt/D/home/Transfer"
+XDG_MUSIC_DIR="/mnt/D/home/Music"
+XDG_PICTURES_DIR="/mnt/D/home/Pictures"
+XDG_VIDEOS_DIR="/mnt/D/home/Videos"
 EOF'
 
 

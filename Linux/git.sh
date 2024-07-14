@@ -45,12 +45,12 @@ ssh -T git@github.com
 
 git config --global user.name "Slaweekq"
 git config --global user.email "plakidin.vyacheslav@mail.ru"
-git config --global --add safe.directory /mnt/Documents/CRYPTO/setup
-git config --global --add safe.directory /mnt/Documents/CRYPTO/work
-git config --global --add safe.directory /mnt/Documents/CRYPTO/work/old/smartDefi
-git config --global --add safe.directory /mnt/Documents/CRYPTO/work/packages
-git config --global --add safe.directory /mnt/Documents/CRYPTO/work/server
-git config --global --add safe.directory /mnt/Documents/CRYPTO/work/shelfjs-packages
+git config --global --add safe.directory /mnt/D/CRYPTO/setup
+git config --global --add safe.directory /mnt/D/CRYPTO/work
+git config --global --add safe.directory /mnt/D/CRYPTO/work/old/smartDefi
+git config --global --add safe.directory /mnt/D/CRYPTO/work/packages
+git config --global --add safe.directory /mnt/D/CRYPTO/work/server
+git config --global --add safe.directory /mnt/D/CRYPTO/work/shelfjs-packages
 git config --global core.editor code
 git config --global core.safecrlf true
 git config --global push.autoSetupRemote true

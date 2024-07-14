@@ -48,8 +48,8 @@ sudo chmod +x ./McMojave-kde/sddm/install.sh
 
 sudo cp -r ~/setup/Linux/theme/wallpaper/* /usr/share/wallpapers/
 # wallpapers / backgrounds
-sudo cp -r /mnt/Documents/CRYPTO/setup/Linux/theme/wallpaper/* /usr/share/wallpapers/
-sudo cp -r /mnt/Documents/CRYPTO/setup/Linux/theme/wallpaper/* $HOME/.local/share/wallpapers
+sudo cp -r /mnt/D/CRYPTO/setup/Linux/theme/wallpaper/* /usr/share/wallpapers/
+sudo cp -r /mnt/D/CRYPTO/setup/Linux/theme/wallpaper/* $HOME/.local/share/wallpapers
 
 # cd sleek--themes/'Sleek theme-bigSur'
 # sudo ./install.sh
