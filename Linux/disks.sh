@@ -16,12 +16,11 @@ sudo bash -c \
 # disks are added and removed. See fstab(5).
 #
 # UUID=<uuid>                             <mount point> <FSType> <FSOptions>              <dump> <pass>
+UUID=9C45-F290                            /boot/efi       vfat   defaults                   0      2
+UUID=f193c91a-30b8-4834-b281-a4e7361c7bc8 /               ext4   defaults                   0      1
+UUID=e148cd17-c125-43ae-b1f3-63f7c5812ddb /home           ext4   defaults                   0      2
+UUID=f8261da2-1801-4fe5-9e88-3a0dede4bc48 swap            swap   sw                         0      0
 UUID=4EE370A760B36BA5                     /mnt/D          ntfs   defaults                   0      2
-UUID=5444BAAE44BA91EA                     none            ntfs   ro                         0      0
-UUID=D4AE-FEC6                            /boot/efi       vfat   defaults                   0      2
-UUID=58fd53ae-f139-4c95-83ad-d54160badfa0 /               ext4   defaults                   0      1
-UUID=7ef5ed6e-eba5-418e-999f-99e06b7237e8 /home           ext4   defaults                   0      2
-UUID=fc98243a-8229-4194-8c17-5fe9c703bea8 swap            swap   sw                         0      0
 tmpfs                                     /tmp            tmpfs  defaults,noatime,mode=1777 0      0
 EOF"
 

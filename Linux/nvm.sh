@@ -7,7 +7,6 @@ nvm --version
 nvm install node
 nvm ls-remote
 nvm install v20.13.1
-nvm install v18.12.0
 nvm install v18.19.1
 nvm ls
 nvm use v18.19.1
@@ -16,6 +15,6 @@ sudo chown "$USER":"$USER" ~/.npm -R
 sudo chown "$USER":"$USER" ~/.nvm -R
 npm i -g \
   yarn prettier eslint solhint solidity-code-metrics \
-  nodemon serve dotenv solc
+  nodemon serve dotenv nx nestjs nest-cli nats solc
 
 # create-react-app

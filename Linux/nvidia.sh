@@ -11,11 +11,10 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 # sudo ubuntu-drivers devices
 # sudo ubuntu-drivers autoinstall
-sudo apt-get install -y \
-  xserver-xorg-video-all xserver-xorg-video-nouveau \
+sudo apt-get install -y xserver-xorg-video-all \
   xserver-xorg-video-intel xserver-xorg-video-nvidia-555
 sudo apt-get install -y \
-  linux-headers-$(uname -r) gcc make acpid \
+  linux-headers-$(uname -r) clang gcc make acpid \
   ca-certificates dirmngr software-properties-common apt-transport-https \
   curl dkms libglvnd-core-dev libglvnd0 libglvnd-dev libc-dev freeglut3-dev \
   libx11-dev libxmu-dev libxi-dev libglu1-mesa-dev libfreeimage-dev \
@@ -28,7 +27,9 @@ sudo apt-get install -y \
   libopenal-dev libalut0 libalut-dev
 sudo ubuntu-drivers install nvidia-headless-555 nvidia-dkms-555 nvidia-driver-555
 
-# sudo apt-get install -y cuda-drivers cuda-toolkit nvidia-gds
+apt list cuda-toolkit-* | grep -v config
+sudo apt-get install -y cuda-drivers cuda-toolkit nvidia-gds
+/usr/local/cuda/bin/nvcc --version
 
 sudo systemctl enable nvidia-persistenced
 sudo systemctl start nvidia-persistenced
@@ -36,6 +37,7 @@ sudo systemctl status nvidia-persistenced
 cat /proc/driver/nvidia/version
 sudo reboot
 echo '#################################################################'
+
 
 si uncom-nvidia-driver
 

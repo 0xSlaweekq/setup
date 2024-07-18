@@ -25,7 +25,6 @@ sudo apt-get install -y \
 #   latte-dock
 
 cd ~
-# git clone https://github.com/sandesh236/sleek--themes.git
 git clone https://github.com/vinceliuice/grub2-themes.git
 git clone https://github.com/vinceliuice/WhiteSur-kde.git
 git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
@@ -34,8 +33,6 @@ git clone https://github.com/vinceliuice/Monterey-kde.git
 git clone https://github.com/vinceliuice/McMojave-kde.git
 # git clone https://github.com/micheleg/dash-to-dock.git
 
-sudo chmod +x ./sleek--themes/'Sleek theme-bigSur'/install.sh
-sudo chmod +x ./sleek--themes/'Sleek theme-bigSur'/uninstall.sh
 sudo chmod +x ./grub2-themes/install.sh
 sudo chmod +x ./WhiteSur-kde/install.sh
 sudo chmod +x ./WhiteSur-gtk-theme/install.sh

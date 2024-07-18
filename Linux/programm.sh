@@ -47,12 +47,12 @@ code --locate-shell-integration-path bash
 
 sudo flatpak install -y flathub \
   com.discordapp.Discord net.nokyan.Resources org.gnome.Maps com.github.tchx84.Flatseal \
-  io.github.mimbrero.WhatsAppDesktop org.kde.isoimagewriter tv.kodi.Kodi \
+  io.github.mimbrero.WhatsAppDesktop org.kde.isoimagewriter \
   com.github.sdv43.whaler org.onlyoffice.desktopeditors com.usebottles.bottles \
-  com.github.Matoking.protontricks net.davidotek.pupgui2 net.nokyan.Resources \
-  io.gpt4all.gpt4all org.getoutline.OutlineClient org.getoutline.OutlineManager
+  com.github.Matoking.protontricks net.nokyan.Resources \
+  org.getoutline.OutlineClient org.getoutline.OutlineManager
 
-#  net.lutris.Lutris com.playonlinux.PlayOnLinux4 net.davidotek.pupgui2
+#  net.lutris.Lutris com.playonlinux.PlayOnLinux4
 
 sudo curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts/install-linux.sh | sudo sh
 tenderly login --authentication-method access-key --access-key FWrGeuFEOTmwzUdD4Glm1BRl1ov5hNLJ --force
@@ -68,7 +68,7 @@ sudo apt-get install -y virtualbox-dkms xserver-xorg-core virtualbox-guest-x11 c
 # install qemu
 sudo apt update
 sudo apt-get install -y \
-  cpu-checker libvirt-daemon-system libvirt-clients bridge-utils \
+  cpu-checker bridge-utils libvirt-daemon-system libvirt-clients \
   virt-manager virtinst qemu-kvm
 sudo adduser $USER libvirt
 sudo adduser $USER kvm
