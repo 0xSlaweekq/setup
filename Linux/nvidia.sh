@@ -22,8 +22,8 @@ sudo apt-get install -y \
 sudo apt-key del 7fa2af80
 sudo apt-get install -y \
   nvidia-headless-555 nvidia-dkms-555 nvidia-driver-555 nvidia-settings \
-  libvulkan1 libvulkan1:i386 mesa-vulkan-drivers mesa-vulkan-drivers:i386 \
-  vkbasalt libglu1-mesa-dev freeglut3-dev mesa-common-dev libopenal1 \
+  libvulkan1:{i386,amd64} mesa-vulkan-drivers:{i386,amd64} \
+  vkbasalt libglu1-mesa-dev:{i386,amd64} freeglut3-dev mesa-common-dev libopenal1 \
   libopenal-dev libalut0 libalut-dev
 sudo ubuntu-drivers install nvidia-headless-555 nvidia-dkms-555 nvidia-driver-555
 
