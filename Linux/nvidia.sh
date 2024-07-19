@@ -41,6 +41,11 @@ echo '#################################################################'
 
 si uncom-nvidia-driver
 
+
+sudo apt-get install -y \
+  plasma-workspace-wayland plasma-wayland-protocols kwayland-integration
+apt policy plasma-workspace-wayland
+
 # cd ~
 # wget https://download.nvidia.com/XFree86/Linux-x86_64/555.52.04/NVIDIA-Linux-x86_64-555.52.04.run
 # chmod 700 NVIDIA-*.run
