@@ -11,8 +11,9 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 # sudo ubuntu-drivers devices
 # sudo ubuntu-drivers autoinstall
+sudo apt install software-properties-qt
 sudo apt-get install -y xserver-xorg-video-all \
-  xserver-xorg-video-intel xserver-xorg-video-nvidia-555
+  xserver-xorg-video-intel xserver-xorg-video-nvidia-550
 sudo apt-get install -y \
   linux-headers-$(uname -r) clang gcc make acpid \
   ca-certificates dirmngr software-properties-common apt-transport-https \
@@ -20,12 +21,16 @@ sudo apt-get install -y \
   libx11-dev libxmu-dev libxi-dev libglu1-mesa-dev libfreeimage-dev \
   libglfw3-dev
 sudo apt-key del 7fa2af80
+sudo apt-get install -y nvidia-driver-550:{i386,amd64} \
+  nvidia-headless-550:{i386,amd64} nvidia-dkms-550:{i386,amd64} \
+  nvidia-settings nvidia-prime
+
 sudo apt-get install -y \
-  nvidia-headless-555 nvidia-dkms-555 nvidia-driver-555 nvidia-settings \
   libvulkan1:{i386,amd64} mesa-vulkan-drivers:{i386,amd64} \
   vkbasalt libglu1-mesa-dev:{i386,amd64} freeglut3-dev mesa-common-dev libopenal1 \
   libopenal-dev libalut0 libalut-dev
-sudo ubuntu-drivers install nvidia-headless-555 nvidia-dkms-555 nvidia-driver-555
+
+sudo ubuntu-drivers install nvidia-headless-550:{i386,amd64} nvidia-dkms-550:{i386,amd64} nvidia-driver-550:{i386,amd64}
 
 apt list cuda-toolkit-* | grep -v config
 sudo apt-get install -y cuda-drivers cuda-toolkit nvidia-gds

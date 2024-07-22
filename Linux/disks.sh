@@ -19,8 +19,9 @@ sudo bash -c \
 UUID=9C45-F290                            /boot/efi       vfat   defaults          0      2
 UUID=f193c91a-30b8-4834-b281-a4e7361c7bc8 /               ext4   defaults          0      1
 UUID=e148cd17-c125-43ae-b1f3-63f7c5812ddb /home           ext4   defaults          0      2
-UUID=f8261da2-1801-4fe5-9e88-3a0dede4bc48 swap            swap   sw                0      0
+UUID=10a3dd1b-58b5-4c7f-b832-e19fed4d1605 swap            swap   sw                0      0
 UUID=0ff33b03-8023-4844-885a-38b94367d058 /mnt/D          ext4   defaults          0      2
+UUID=465EE1F17E653317                     none            ntfs   ro                0      0
 UUID=9C1DA856CE5BF3A4                     none            ntfs   ro                0      0
 tmpfs                                     /tmp            tmpfs  noatime,mode=1777 0      0
 EOF"
@@ -33,11 +34,11 @@ sudo swapon --show
 free -h
 df -h
 sudo swapoff -a
-sudo umount /dev/nvme1n1p6
-sudo mkswap /dev/nvme1n1p6
-sudo swapon /dev/nvme1n1p6
+sudo umount /dev/nvme0n1p4
+sudo mkswap /dev/nvme0n1p4
+sudo swapon /dev/nvme0n1p4
 sudo cp /etc/fstab /etc/fstab.bak
-echo '/dev/nvme1n1p6                            swap            swap   defaults                   0      0' | \
+echo '/dev/nvme0n1p4                            swap            swap   defaults                   0      0' | \
   sudo tee -a /etc/fstab
 cat /proc/sys/vm/swappiness
 sudo sysctl vm.swappiness=10

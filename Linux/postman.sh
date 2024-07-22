@@ -21,14 +21,6 @@ sudo apt-get -y install libfontconfig-dev
 
 
 
-echo 'Installing PostgresQL'
-echo '#################################################################'
-sudo apt-get install -y postgresql
-sudo apt-get install -y postgresql-common
-sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
-
-
-
 echo 'Installing Dbeaver'
 echo '#################################################################'
 wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
@@ -37,10 +29,18 @@ rm -rf dbeaver-ce_latest_amd64.deb
 
 
 
-echo 'Installing pgAdmin4'
+echo 'Installing PostgresQL'
 echo '#################################################################'
+sudo apt-get install -y postgresql
 sudo apt-get install -y postgresql-common
 sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+# for dump
+pg_dump -U postgres -h localhost -p 5432 test | gzip > db_dump.sql.gz
+
+
+
+echo 'Installing pgAdmin4'
+echo '#################################################################'
 #Install the public key for the repository (if not done previously):
 curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | \
   sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/packages-pgadmin-org.gpg
