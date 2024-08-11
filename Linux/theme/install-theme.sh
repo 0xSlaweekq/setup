@@ -17,11 +17,11 @@ sudo apt install -y \
   qtdeclarative5-dev libqt5x11extras5-dev libx11-dev libkf5plasma-dev \
   libkf5iconthemes-dev libkf5windowsystem-dev libkf5declarative-dev \
   libkf5xmlgui-dev libkf5activities-dev build-essential libxcb-util-dev \
-  gettext libkf5wayland-dev git libkf5archive-dev libkf5notifications-dev \
-  libwayland-dev libxcb-util0-dev libsm-dev libkf5crash-dev kirigami2-dev \
+  gettext  git libkf5archive-dev libkf5notifications-dev \
+  libxcb-util0-dev libsm-dev libkf5crash-dev kirigami2-dev \
   libkf5newstuff-dev libxcb-shape0-dev libxcb-randr0-dev libx11-xcb-dev \
-  libqt5waylandclient5-dev libwayland-client0 plasma-wayland-protocols \
-  qtwayland5-dev-tools
+  libkf5wayland-dev libwayland-dev libwayland-client0 libqt5waylandclient5-dev \
+  qtwayland5-dev-tools plasma-wayland-protocols
 #   latte-dock
 
 cd ~
@@ -43,21 +43,17 @@ sudo chmod +x ./McMojave-kde/sddm/install.sh
 
 # make -C dash-to-dock install
 
-sudo cp -r ~/setup/Linux/theme/wallpaper/* /usr/share/wallpapers/
 # wallpapers / backgrounds
 sudo cp -r /mnt/D/CRYPTO/setup/Linux/theme/wallpaper/* /usr/share/wallpapers/
 sudo cp -r /mnt/D/CRYPTO/setup/Linux/theme/wallpaper/* $HOME/.local/share/wallpapers
 
-# cd sleek--themes/'Sleek theme-bigSur'
-# sudo ./install.sh
 cd ~
 sudo ./grub2-themes/install.sh -t whitesur -i whitesur -s 2k -b
 ./WhiteSur-kde/install.sh -c dark
 ./WhiteSur-gtk-theme/install.sh -o normal -c Dark -t all \
-  -p 30 -m -N mojave -l --black --darker
+  -p 30 -m -N stable --normal --round -l --black --darker
 ./WhiteSur-icon-theme/install.sh -t default -a -b
-./WhiteSur-gtk-theme/tweaks.sh -o normal -c Dark -t blue \
-  -b $HOME/.local/share/wallpapers/background.jpg
+sudo ./WhiteSur-gtk-theme/tweaks.sh -g -o normal -c Dark -t blue
   # -g default
 sudo ./McMojave-kde/sddm/install.sh
 sudo ./Monterey-kde/install.sh
@@ -67,7 +63,6 @@ echo '#################################################################'
 echo 'Remove files'
 echo '#################################################################'
 
-sudo rm -rf ./sleek--themes
 sudo rm -rf ./grub2-themes
 sudo rm -rf ./WhiteSur-kde
 sudo rm -rf ./WhiteSur-gtk-theme
