@@ -6,27 +6,21 @@ Components: main
 Architectures: amd64 i386
 Signed-By: /etc/apt/trusted.gpg.d/winehq.key" | \
   sudo tee /etc/apt/sources.list.d/winehq.sources > /dev/null
+sudo apt update
+sudo apt upgrade
 
 # sudo echo "deb [arch=amd64,i386 signed-by=/etc/apt/trusted.gpg.d/winehq.key] https://dl.winehq.org/wine-builds/ubuntu jammy main" |\
 #   sudo tee /etc/apt/sources.list.d/winehq.list > /dev/null
 
-sudo apt-get update
-sudo dpkg --add-architecture amd64
-sudo dpkg --add-architecture i386
-sudo apt-get update
-sudo apt-get upgrade -y
-sudo apt-get install -y libpoppler-glib8:{i386,amd64}=22.02.0-2ubuntu0.4
+sudo apt install -y libpoppler-glib8:{i386,amd64}=22.02.0-2ubuntu0.4
 # wine winecfg
-sudo apt-get install --install-recommends winehq-devel -y
-sudo apt-get install -y \
+sudo apt install --install-recommends winehq-devel -y
+
+sudo apt install -y \
   libgl1-mesa-dri:{i386,amd64} \
   librust-proton-call-dev proton-caller \
   libgl1-mesa-glx:{i386,amd64}
-sudo apt-get install --fix-broken -y
-sudo apt-get install -y libgtk-3-dev
-sudo apt-get install -y glslang-tools
-sudo apt-get install -y \
-  mingw-w64 mingw-w64-common mingw-w64-i686-dev mingw-w64-tools mingw-w64-x86-64-dev
+sudo apt install --fix-broken -y
 
 git clone --recursive https://github.com/HansKristian-Work/vkd3d-proton
 cd vkd3d-proton
@@ -40,10 +34,8 @@ sudo rm -rf vkd3d-proton
 sudo chmod +x ~/vkd3d/vkd3d-proton-master/setup_vkd3d_proton.sh
 ~/vkd3d/vkd3d-proton-master/setup_vkd3d_proton.sh install
 
-sudo apt-get install -y dkms linux-headers-$(uname -r) \
-  meson libsystemd-dev pkg-config ninja-build git \
-  libdbus-1-dev libinih-dev build-essential
 
+# Install Gamemode
 git clone https://github.com/FeralInteractive/gamemode.git
 cd gamemode
 git checkout 1.8.1 # omit to build the master branch
@@ -52,18 +44,13 @@ cd ~
 rm -rf ./gamemode
 systemctl --user enable gamemoded && systemctl --user start gamemoded
 sudo chmod +x /usr/bin/gamemoderun
-gamemoded -t
-
-# git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git &&\
-#   cd MangoHud && \
-#   ./build.sh build && \
-#   ./build.sh package && \
-#   ./build.sh install
+gamemoded -te
+e
 
 # wget -O ~/steam.deb http://media.steampowered.com/client/installer/steam.deb
 wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
-sudo apt-get install -y ~/steam_latest.deb
-gamemoderun steam
+sudo apt install -y ~/steam_latest.deb
+# gamemoderun steam
 # echo $DISPLAY
 # DISPLAY=:0 steam
 
@@ -82,7 +69,7 @@ gamemoderun steam
 # LD_PRELOAD=$LD_PRELOAD:/usr/lib/x86_64-linux-gnu/libgamemodeauto.so.0 %command%
 
 
-# sudo apt-get remove --purge -y ^wine
+# sudo apt remove --purge -y ^wine
 # for .msi files wine msiexec /i
 # for .exe files wine *.exe
 

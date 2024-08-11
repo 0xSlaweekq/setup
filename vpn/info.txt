@@ -81,11 +81,11 @@ sudo iptables -A INPUT -s 10.20.20.0/24 -p udp -m udp --dport 53 -m conntrack --
 
 # Чтобы сохранить маршруты ставим и настраиваем iptables-persistent
 
-sudo apt-get install -y iptables-persistent
+sudo apt install -y iptables-persistent
 
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
-sudo apt-get install -y iptables-persistent -y
+sudo apt install -y iptables-persistent -y
 sudo systemctl enable netfilter-persistent
 sudo netfilter-persistent save
 
@@ -104,7 +104,7 @@ curl -sSL https://install.pi-hole.net | bash
 # 5. Переходим к установке и настройке своего DNS сервера.
 
 # Установим Unbound DNS:
-sudo apt-get install -y unbound unbound-host -y
+sudo apt install -y unbound unbound-host -y
 # Скопируем DNS записи:
 curl -o /var/lib/unbound/root.hints https://www.internic.net/domain/named.cache
 # Создаем конфиг /etc/unbound/unbound.conf.d/pi-hole.conf

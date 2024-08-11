@@ -54,10 +54,10 @@ sudo ./openvpn-install.sh
 
 
 # Step 1: Update and Upgrade Ubuntu
-sudo apt-get update
-sudo apt-get upgrade -y
+sudo apt update
+sudo apt upgrade -y
 # Step 2: Install OpenVPN
-sudo apt-get install -y openvpn easy-rsa
+sudo apt install -y openvpn easy-rsa
 # Step 3: Generate Certificates and Keys
 make-cadir ~/openvpn-ca && cd ~/openvpn-ca
 sudo tee -a ./vars <<< \

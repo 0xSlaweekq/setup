@@ -1,6 +1,6 @@
 echo Updating system
 echo '#################################################################'
-sudo apt-get install -y git wget nano resolvconf curl build-essential gcc make
+sudo apt install -y git wget nano resolvconf curl build-essential gcc make
 echo "Download and unpack the sources"
 cd ~
 sudo wget https://github.com/NarcoNik/setup/raw/main/vpn/3proxy-0.9.3.tar.gz

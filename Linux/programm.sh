@@ -26,15 +26,15 @@ cd /etc/apt/sources.list.d
 sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com `sudo apt update 2>&1 | grep -o '[0-9A-Z]\{16\}$' | xargs`
 
 # installing
-sudo apt-get update
+sudo apt update
 sudo dpkg --add-architecture amd64
 sudo dpkg --add-architecture i386
-sudo apt-get update
-sudo apt-get upgrade -y
-# sudo apt-get install -y google-chrome-stable
-sudo apt-get install -y \
+sudo apt update
+sudo apt upgrade -y
+# sudo apt install -y google-chrome-stable
+sudo apt install -y \
   microsoft-edge-stable code telegram grub-customizer
-sudo apt-get install --fix-broken -y
+sudo apt install --fix-broken -y
 
 # Options for shell in vscode
 xdg-mime default code.desktop text/plain
@@ -45,12 +45,12 @@ mkdir -p $HOME/.local/share/trusted.gpg.d
 code --locate-shell-integration-path bash
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "/path/to/shell/integration/script.sh"
 
-sudo flatpak install -y flathub \
-  com.discordapp.Discord net.nokyan.Resources org.gnome.Maps com.github.tchx84.Flatseal \
+flatpak install -y flathub \
+  com.discordapp.Discord org.gnome.Maps com.github.tchx84.Flatseal \
   io.github.mimbrero.WhatsAppDesktop org.kde.isoimagewriter \
   com.github.sdv43.whaler org.onlyoffice.desktopeditors com.usebottles.bottles \
-  com.github.Matoking.protontricks net.nokyan.Resources \
-  org.getoutline.OutlineClient org.getoutline.OutlineManager
+  org.getoutline.OutlineClient org.getoutline.OutlineManager \
+  com.github.Matoking.protontricks \
 
 #  net.lutris.Lutris com.playonlinux.PlayOnLinux4
 
@@ -58,16 +58,16 @@ sudo curl https://raw.githubusercontent.com/Tenderly/tenderly-cli/master/scripts
 tenderly login --authentication-method access-key --access-key FWrGeuFEOTmwzUdD4Glm1BRl1ov5hNLJ --force
 
 # install virtualbox
-sudo apt-get install -y virtualbox
+sudo apt install -y virtualbox
 # sudo newgrp vboxusers
 sudo usermod -aG vboxusers $USER
 sudo adduser $USER vboxusers
-sudo apt-get install -y virtualbox-dkms xserver-xorg-core virtualbox-guest-x11 cpu-checker
+sudo apt install -y virtualbox-dkms xserver-xorg-core virtualbox-guest-x11 cpu-checker
 
 
 # install qemu
 sudo apt update
-sudo apt-get install -y \
+sudo apt install -y \
   cpu-checker bridge-utils libvirt-daemon-system libvirt-clients \
   virt-manager virtinst qemu-kvm
 sudo adduser $USER libvirt
@@ -80,8 +80,8 @@ sudo usermod -aG libvirt $USER
 virt-manager
 
 # dotNet
-sudo apt-get update && \
-  sudo apt-get install -y \
+sudo apt update && \
+  sudo apt install -y \
   dotnet-sdk-8.0 aspnetcore-runtime-8.0 dotnet-runtime-8.0 zlib1g ca-certificates \
   libc6 libgcc-s1 libicu74 liblttng-ust1 libssl3 libstdc++6 libunwind8
 

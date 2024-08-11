@@ -7,8 +7,8 @@ echo "deb [signed-by=/etc/apt/trusted.gpg.d/YANDEX-DISK-KEY.GPG] http://repo.yan
 
 mkdir /mnt/Disk_D/YaDisk
 
-sudo apt-get update
-sudo apt-get install -y --reinstall yandex-disk yd-tools
+sudo apt update
+sudo apt install -y --reinstall yandex-disk yd-tools
 # sudo -v ; curl https://rclone.org/install.sh | sudo bash
 # rclone config
 yandex-disk setup

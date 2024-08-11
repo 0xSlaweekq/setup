@@ -14,25 +14,25 @@ curl -1sLf \
   sudo -E distro=ubuntu codename=focal bash
 #Refresh repository sources and install Insomnia
 #Update library'
-sudo apt-get update
-sudo apt-get -y install insomnia
+sudo apt update
+sudo apt -y install insomnia
 #Install font configuration library & support
-sudo apt-get -y install libfontconfig-dev
+sudo apt -y install libfontconfig-dev
 
 
 
 echo 'Installing Dbeaver'
 echo '#################################################################'
 wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
-sudo apt-get install -y ./dbeaver-ce_latest_amd64.deb
+sudo apt install -y ./dbeaver-ce_latest_amd64.deb
 rm -rf dbeaver-ce_latest_amd64.deb
 
 
 
 echo 'Installing PostgresQL'
 echo '#################################################################'
-sudo apt-get install -y postgresql
-sudo apt-get install -y postgresql-common
+sudo apt install -y postgresql
+sudo apt install -y postgresql-common
 sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
 # for dump
 pg_dump -U postgres -h localhost -p 5432 test | gzip > db_dump.sql.gz
@@ -48,7 +48,7 @@ curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | \
 sudo echo "deb [signed-by=/etc/apt/trusted.gpg.d/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" |\
   sudo tee /etc/apt/sources.list.d/pgadmin4.list > /dev/null
 #Install for both desktop and web modes:
-sudo apt-get install -y pgadmin4 pgadmin4-desktop pgadmin4-web
+sudo apt install -y pgadmin4 pgadmin4-desktop pgadmin4-web
 #Configure the webserver, if you installed pgadmin4-web:
 sudo /usr/pgadmin4/bin/setup-web.sh
 

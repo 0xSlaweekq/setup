@@ -16,14 +16,12 @@ sudo bash -c \
 # disks are added and removed. See fstab(5).
 #
 # UUID=<uuid>                             <mount point> <FSType> <FSOptions>     <dump> <pass>
-UUID=9C45-F290                            /boot/efi       vfat   defaults          0      2
-UUID=f193c91a-30b8-4834-b281-a4e7361c7bc8 /               ext4   defaults          0      1
-UUID=e148cd17-c125-43ae-b1f3-63f7c5812ddb /home           ext4   defaults          0      2
-UUID=10a3dd1b-58b5-4c7f-b832-e19fed4d1605 swap            swap   sw                0      0
-UUID=0ff33b03-8023-4844-885a-38b94367d058 /mnt/D          ext4   defaults          0      2
-UUID=465EE1F17E653317                     none            ntfs   ro                0      0
-UUID=9C1DA856CE5BF3A4                     none            ntfs   ro                0      0
-tmpfs                                     /tmp            tmpfs  noatime,mode=1777 0      0
+UUID=3d3e7581-dc1a-4e89-b18e-1b1f2604e557 /               ext4   defaults          0      1
+UUID=8e47a50a-8a72-4adb-b20e-8d5ec9699ed0 /home           ext4   defaults          0      1
+UUID=000f6bd8-6f10-45c9-bbef-970ec33b1e8b none            swap   sw                0      0
+UUID=7783-9F9D                            /boot/efi       vfat   defaults          0      1
+UUID=50D8DE4A70913ADC                     /mnt/D          ntfs   defaults          0      1
+UUID=9C1DA856CE5BF3A4                     /mnt/backup     ntfs   ro                0      1
 EOF"
 
 echo '#################################################################'
@@ -53,13 +51,13 @@ echo '#################################################################'
 echo '#### Grub2 install'
 echo '#################################################################'
 sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer && \
-  sudo apt-get update && \
-  sudo apt-get install -y grub-customizer && \
+  sudo apt update && \
+  sudo apt install -y grub-customizer && \
   sudo grub-customizer
 
-for pkg in grub-common grub-customizer grub-efi grub-efi-amd64-bin grub-efi-amd64-signed grub-gfxpayload-lists grub-pc grub-pc-bin grub2-common; do sudo apt-get remove --purge -y $pkg; done
+for pkg in grub-common grub-customizer grub-efi grub-efi-amd64-bin grub-efi-amd64-signed grub-gfxpayload-lists grub-pc grub-pc-bin grub2-common; do sudo apt remove --purge -y $pkg; done
 
-sudo apt-get install -y grub-customizer grub-efi efibootmgr
+sudo apt install -y grub-customizer grub-efi efibootmgr
 
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 sudo grub-install /dev/nvme1n1p1
@@ -69,22 +67,22 @@ sudo grub-install /dev/nvme1n1
 kate /boot/grub/grub.cfg
 
 sudo apt-add-repository -y ppa:yannubuntu/boot-repair && \
-  sudo apt-get update && sudo apt-get install -y boot-repair && sudo boot-repair
+  sudo apt update && sudo apt install -y boot-repair && sudo boot-repair
 
 sudo dpkg --configure -a
-sudo apt-get install -y -fy
-sudo apt-get purge --allow-remove-essential grub-com*
-sudo apt-get purge --allow-remove-essential grub2-com*
-sudo apt-get purge --allow-remove-essential shim-signed
-sudo apt-get purge --allow-remove-essential grub-common:*
-sudo apt-get purge --allow-remove-essential grub2-common:*
+sudo apt install -y -fy
+sudo apt purge --allow-remove-essential grub-com*
+sudo apt purge --allow-remove-essential grub2-com*
+sudo apt purge --allow-remove-essential shim-signed
+sudo apt purge --allow-remove-essential grub-common:*
+sudo apt purge --allow-remove-essential grub2-common:*
 
-sudo apt-get update && sudo apt-get install -y ubuntu-desktop xorg dbus-x11 \
+sudo apt update && sudo apt install -y ubuntu-desktop xorg dbus-x11 \
   xfce4 xfce4-goodies x11-xserver-utils
 
-sudo apt-get update && sudo apt-get upgrade -y && \
+sudo apt update && sudo apt upgrade -y && \
   sudo add-apt-repository ppa:kubuntu-ppa/backports -y && \
-  sudo apt-get update && sudo apt-get install -y kde-plasma-desktop
+  sudo apt update && sudo apt install -y kde-plasma-desktop
 
 cat /etc/sddm.conf
 echo -e "[General]\nInputMethod=" | sudo tee -a /etc/sddm.conf
@@ -96,8 +94,8 @@ sudo mount -t fat32 -o rw,realtime /dev/sda2 /mnt/MacOS
 sudo mount -o rw UUID=2023-05-31-19-32-03-00 /mnt/MacOS
 
 sudo add-apt-repository universe && \
-  sudo apt-get update && \
-  sudo apt-get install -y dmg2img && \
+  sudo apt update && \
+  sudo apt install -y dmg2img && \
   dmg2img -v -i /path/to/image_file.dmg -o /path/to/image_file.iso
 
 sudo dd if=/path/to/image_file.iso of=/dev/sdd

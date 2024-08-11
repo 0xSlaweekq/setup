@@ -17,9 +17,9 @@ cd monero-gui-v0.18.3.3
 nano ~/.local/share/applications/monero-gui.desktop
 cp ~/.local/share/applications/monero-gui.desktop ~/Desktop
 
-sudo apt-get install -y pandoc make
-sudo apt-get install -y texlive texlive-xetex
-sudo apt-get install -y monero monero-tests
+sudo apt install -y pandoc make
+sudo apt install -y texlive texlive-xetex
+sudo apt install -y monero monero-tests
 flatpak install flathub org.getmonero.Monero
 
 elbow rustled orphans veered sailor seasons asked upstairs voted tweezers paper elope cinema utopia angled nail beware films bicycle lava piloted fetches slug smidgen smidgen

@@ -1,6 +1,6 @@
 echo "Installing git & Generate ssh"
 echo "######################################################################"
-sudo apt-get install -y git git-core git-gui nano openssh-client
+sudo apt install -y git git-core git-gui nano openssh-client
 sudo ufw allow ssh
 cd ~
 mkdir -p ~/.ssh
@@ -63,12 +63,12 @@ git config --list
 
 tee -a ~/.bashrc <<< \
 '
-alias si="sudo apt-get install -y"
+alias si="sudo apt install -y"
 alias srf="sudo rm -rf"
 alias srn="sudo reboot now"
-alias srp="sudo apt-get remove --purge -y"
+alias srp="sudo apt remove --purge -y"
 alias sdr="sudo systemctl daemon-reload"
-alias supd="sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install --fix-broken -y && sudo apt-get autoremove && sudo apt-get autoclean -y && flatpak uninstall --unused"
+alias supd="sudo apt update && sudo apt upgrade -y && sudo apt install --fix-broken -y && sudo apt autoremove && sudo apt autoclean -y && flatpak uninstall --unused"
 alias cleanCode="cd $HOME/.config/Code/ && rm -rf $CACHE_CODE_DIR && cd -"
 alias digcon="ssh root@164.90.207.152"
 alias doccon="docker login --password dckr_pat_yJhGjotZbYBJLvQIcRq3P27yChc -u slaweekq"
@@ -78,8 +78,7 @@ alias dexec="docker exec -it"
 alias dstart="docker-compose -f ./docker-compose.yml up -d"
 alias dres="docker-compose down && clear && docker-compose up"
 alias dstop="docker-compose -f ./docker-compose.yml down -v && docker-compose -f ./docker-compose.yml rm -sfv"
-alias dstopall="docker-compose down --rmi=all -v --remove-orphans"
-alias dremig="docker rmi $(docker images -a -q)"
+alias dstopall="docker-compose down --rmi=all -v --remove-orphans && docker rmi $(docker images -a -q)"
 alias dreb="docker-compose -f ./docker-compose.yml down -v && docker-compose -f ./docker-compose.yml rm -sfv && docker-compose -f ./docker-compose.yml up -d"
 alias kalistart="docker pull kalilinux/kali-rolling && docker run --tty --interactive kalilinux/kali-rolling"
 alias wclone="git clone git@gitlab.i-link.pro:defi-invest/defi-invest-smart-contract.git && cd defi-invest-smart-contract && git checkout dev && git pull && code ."

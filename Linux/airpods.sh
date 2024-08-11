@@ -1,6 +1,6 @@
 echo 'Installing Bluetooth Audio for AirPods'
 echo '#################################################################'
-# sudo apt-get install -y 'bluez*' blueman
+# sudo apt install -y 'bluez*' blueman
 modprobe btusb
 sudo tee -a /etc/bluetooth/main.conf <<< \
 '
@@ -10,8 +10,8 @@ sudo /etc/init.d/bluetooth restart
 sudo systemctl restart bluetooth
 
 # sudo add-apt-repository -y ppa:pipewire-debian/pipewire-upstream
-# sudo apt-get update
-# sudo apt-get install -y \
+# sudo apt update
+# sudo apt install -y \
 #   pulseaudio-utils pipewire pipewire-pulse pipewire-tests libspa-0.2-jack \
 #   gstreamer1.0-pipewire libspa-0.2-bluetooth libspa-0.2-jack \
 #   pipewire-audio-client-libraries

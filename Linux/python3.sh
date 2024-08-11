@@ -4,13 +4,13 @@ if [[ $(which --version) && $(python3 --version) && $(pip3 --version) ]]; then
    echo 'Python3 installed, continue...'
 else
    echo 'Python3 NOT installed, continue...'
-sudo apt-get update
-sudo apt-get upgrade -y
-sudo apt-get install --fix-broken -y
-sudo apt-get autoclean -y
-sudo apt-get autoremove --purge -y
+sudo apt update
+sudo apt upgrade -y
+sudo apt install --fix-broken -y
+sudo apt autoclean -y
+sudo apt autoremove --purge -y
 
-sudo apt-get install -y \
+sudo apt install -y \
   cpu-checker python3-pip python3-dev python3-virtualenv \
   python3-venv python-is-python3 python3 python3-full build-essential \
   software-properties-common wget zlib1g-dev libffi-dev libgdbm-dev \

@@ -1,7 +1,7 @@
 echo '#### Audio'
 echo '#################################################################'
-sudo apt-get install -y pipewire pipewire-audio-client-libraries pulseaudio-utils
-sudo apt-get install -y wireplumber
+sudo apt install -y pipewire pipewire-audio-client-libraries pulseaudio-utils
+sudo apt install -y wireplumber
 
 systemctl enable --user pipewire
 systemctl enable --user wireplumber
@@ -11,8 +11,8 @@ pactl info | grep Server
 
 
 sudo nano /etc/apt/apt.conf
-sudo apt-get update
-sudo apt-get install -y \
+sudo apt update
+sudo apt install -y \
   libsystemd-dev libudev-dev libreadline6-dev pkg-config libxml2-dev \
   libboost-all-dev libelf-dev libnl-3-dev yasm zlib1g-dev libssl-dev
 
@@ -35,7 +35,7 @@ sudo apt-get install -y \
 
 
 
-sudo apt-get install -y linux-sound-base alsa-base alsa-utils alsa-tools
+sudo apt install -y linux-sound-base alsa-base alsa-utils alsa-tools
 sudo gedit /etc/modprobe.d/alsa-base.conf
 # paste after all text
 options snd-hda-intel position fix=1
@@ -58,7 +58,7 @@ amixer -c 0 sset "Auto-Mute Mode" Enabled
 pactl set-sink-port 0 'Speaker'
 
 -Скачать эту программу:
-sudo apt-get install -y pavucontrol
+sudo apt install -y pavucontrol
 
 -Какие именно методы дискритизации поддерживает ваш компьютер:
 pulseaudio --dump-resample-methods

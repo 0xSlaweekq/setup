@@ -2,19 +2,19 @@ echo 'Installing everything you need...'
 echo 'First update all packages'
 echo '#################################################################'
 sudo add-apt-repository -y ppa:flatpak/stable
-sudo apt-get update
-sudo apt-get upgrade -y
-sudo apt-get install --fix-broken -y
-sudo apt-get autoclean -y
-sudo apt-get autoremove --purge
-# sudo apt-get dist-upgrade -y
+sudo apt update
+sudo apt upgrade -y
+sudo apt install --fix-broken -y
+sudo apt autoclean -y
+sudo apt autoremove --purge
+# sudo apt dist-upgrade -y
 sudo timedatectl set-local-rtc 1
 
 echo 'All packages updated'
 echo '#################################################################'
 echo 'Install new usless packages'
 echo '#################################################################'
-sudo apt-get install -y \
+sudo apt install -y \
   nodejs npm nano openssh-client inxi curl linux-firmware cpu-x dpkg \
   gpg software-properties-common apt-transport-https wget make \
   build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev dirmngr \
@@ -22,9 +22,11 @@ sudo apt-get install -y \
   ca-certificates lsb-release zlib1g-dev hardinfo hwinfo bash-completion \
   ubuntu-restricted-extras ppa-purge xz-utils gcc-multilib preload meson \
   libsystemd-dev pkg-config gdebi gdebi-core ninja-build libdbus-1-dev \
-  libinih-dev pass plasma-discover-backend-flatpak \
+  libinih-dev pass  \
   gimp krita sweeper libreoffice qbittorrent dconf-cli gamemode \
   elisa vlc cpufrequtils indicator-cpufreq tlp tlp-rdw
+  
+#  plasma-discover-backend-flatpak
 #   nmon nload conmon
 
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git
@@ -60,10 +62,10 @@ sudo dpkg --configure -a
 # sudo add-apt-repository -y ppa:kubuntu-ppa/backports
 sudo add-apt-repository -y multiverse
 sudo add-apt-repository -y universe
-sudo apt-get update
+sudo apt update
 sudo pkcon refresh
 sudo pkcon update
-sudo apt-get full-upgrade
+sudo apt full-upgrade
 sudo apt install backport-iwlwifi-dkms
 
 # gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
@@ -104,11 +106,11 @@ set show-all-if-ambiguous On
 "\e[A": history-search-backward
 "\e[B": history-search-forward'
 
-sudo apt-get update
-sudo apt-get upgrade -y
-sudo apt-get install --fix-broken -y
-sudo apt-get autoclean -y
-sudo apt-get autoremove --purge
+sudo apt update
+sudo apt upgrade -y
+sudo apt install --fix-broken -y
+sudo apt autoclean -y
+sudo apt autoremove --purge
 
 gpg --generate-key
 echo 'pass init B381A9F621F86E30EB14EBAD9066D29FF5813FE3
@@ -136,11 +138,11 @@ bash -c \
 XDG_DESKTOP_DIR="$HOME/Desktop"
 XDG_DOWNLOAD_DIR="/mnt/D/Downloads"
 XDG_DOCUMENTS_DIR="/mnt/D/Documents"
-XDG_TEMPLATES_DIR="/mnt/D/home/Templates"
-XDG_PUBLICSHARE_DIR="/mnt/D/home/Transfer"
-XDG_MUSIC_DIR="/mnt/D/home/Music"
-XDG_PICTURES_DIR="/mnt/D/home/Pictures"
-XDG_VIDEOS_DIR="/mnt/D/home/Videos"
+XDG_TEMPLATES_DIR="/mnt/D/Templates"
+XDG_PUBLICSHARE_DIR="/mnt/D/Transfer"
+XDG_MUSIC_DIR="/mnt/D/Music"
+XDG_PICTURES_DIR="/mnt/D/Pictures"
+XDG_VIDEOS_DIR="/mnt/D/Videos"
 EOF'
 
 
@@ -196,9 +198,9 @@ EOF'
 # sudo systemctl reload apache2
 
 # ganache
-# sudo sudo apt-get update
-# sudo apt-get upgrade -y
-# sudo apt-get install -y wget \
+# sudo sudo apt update
+# sudo apt upgrade -y
+# sudo apt install -y wget \
 #   libgtk-3-dev \
 #   libfuse-dev \
 #   libgtkextra-dev \

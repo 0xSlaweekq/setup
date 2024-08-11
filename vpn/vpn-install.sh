@@ -20,20 +20,20 @@ echo "Updating system"
 echo '#################################################################'
 tee -a ~/.bashrc <<< \
 '
-alias si="sudo apt-get install -y"
+alias si="sudo apt install -y"
 alias srf="sudo rm -rf"
 alias srn="sudo reboot now"
-alias srp="sudo apt-get remove --purge -y"
+alias srp="sudo apt remove --purge -y"
 alias sdr="sudo systemctl daemon-reload"
-alias supd="sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install --fix-broken -y
- && sudo apt-get autoclean -y && sudo apt-get autoremove --purge"
+alias supd="sudo apt update && sudo apt upgrade -y && sudo apt install --fix-broken -y
+ && sudo apt autoclean -y && sudo apt autoremove --purge"
 '
-sudo apt-get update
-sudo apt-get upgrade -y
-sudo apt-get install --fix-broken -y
-sudo apt-get autoclean -y
-sudo apt-get autoremove --purge
-sudo apt-get install -y git nano resolvconf curl wireguard wireguard-tools
+sudo apt update
+sudo apt upgrade -y
+sudo apt install --fix-broken -y
+sudo apt autoclean -y
+sudo apt autoremove --purge
+sudo apt install -y git nano resolvconf curl wireguard wireguard-tools
 
 echo "Installing 3proxy"
 echo '#################################################################'
@@ -88,8 +88,8 @@ chmod +x ./Outline-Client.AppImage
 #   sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
 # curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.tailscale-keyring.list | \
 #   sudo tee /etc/apt/sources.list.d/tailscale.list
-# sudo apt-get update
-# sudo apt-get install -y tailscale
+# sudo apt update
+# sudo apt install -y tailscale
 # sudo tailscale up
 # tailscale ip -4
 # 2C-4D-54-E9-02-BD
