@@ -58,7 +58,7 @@ git config --global credential.helper cache
 git config --list
 
 
-# export CACHE_CODE_DIR="blob_storage Cache CachedData CachedExtensionVSIXs CachedProfilesData 'Code Cache' Crashpad DawnCache GPUCache 'Local Storage' logs 'Service Worker' 'Session Storage' User/History User/workspaceStorage Cookies Cookies-journal $HOME/.npm/_cacache $HOME/.npm/_logs $HOME/managed_context $HOME/'Telegram Desktop' $HOME/test_suite_analysis $HOME/.cache $HOME/.nvm/.cache"
+# export CACHE_CODE_DIR="blob_storage Cache CachedData CachedProfilesData 'Code Cache' Crashpad DawnGraphiteCache DawnGraphiteCache GPUCache 'Local Storage' logs 'Service Worker' 'Session Storage' User/History User/workspaceStorage WebStorage Cookies Cookies-journal $HOME/.npm/_cacache $HOME/.npm/_logs $HOME/managed_context $HOME/'Telegram Desktop' $HOME/test_suite_analysis $HOME/.cache $HOME/.nvm/.cache"
 
 
 tee -a ~/.bashrc <<< \
@@ -88,6 +88,7 @@ alias docker-compose="docker compose"
 alias nd="npm i -D"
 alias nu="npm uninstall"
 alias nats="~/nats"
+alias sp="dpkg -l | grep"
 '
 
 # restore bash_profile

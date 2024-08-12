@@ -2,7 +2,7 @@ echo 'Installing Nvidia & other graphics drivers'
 echo '#################################################################'
 curl -fSsL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/3bf863cc.pub | \
   sudo gpg --dearmor | sudo tee /usr/share/keyrings/nvidia-drivers.gpg > /dev/null 2>&1
-echo 'deb [signed-by=/usr/share/keyrings/nvidia-drivers.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /' | \
+echo "deb [arch=i386,amd64 signed-by=/usr/share/keyrings/nvidia-drivers.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /" | \
   sudo tee /etc/apt/sources.list.d/nvidia-drivers.list
 
 sudo add-apt-repository -y ppa:graphics-drivers/ppa
@@ -13,7 +13,7 @@ sudo apt dist-upgrade
 # sudo ubuntu-drivers autoinstall
 sudo apt install software-properties-qt
 sudo apt install -y xserver-xorg-video-all \
-  xserver-xorg-video-intel xserver-xorg-video-nvidia-550
+  xserver-xorg-video-intel xserver-xorg-video-nvidia-560
 sudo apt install -y \
   linux-headers-$(uname -r) clang gcc make acpid \
   ca-certificates dirmngr software-properties-common apt-transport-https \
@@ -21,16 +21,16 @@ sudo apt install -y \
   libx11-dev libxmu-dev libxi-dev libglu1-mesa-dev libfreeimage-dev \
   libglfw3-dev
 sudo apt-key del 7fa2af80
-sudo apt install -y nvidia-driver-550:{i386,amd64} \
-  nvidia-headless-550:{i386,amd64} nvidia-dkms-550:{i386,amd64} \
+sudo apt install -y nvidia-driver-560 nvidia-headless-560 nvidia-dkms-560 \
   nvidia-settings nvidia-prime
 
 sudo apt install -y \
   libvulkan1:{i386,amd64} mesa-vulkan-drivers:{i386,amd64} \
-  vkbasalt libglu1-mesa-dev:{i386,amd64} freeglut3-dev mesa-common-dev libopenal1 \
-  libopenal-dev libalut0 libalut-dev
+  vkbasalt libglu1-mesa-dev:{i386,amd64} freeglut3-dev mesa-common-dev \
+  libopenal1 libopenal-dev libalut0 libalut-dev
 
-sudo ubuntu-drivers install nvidia-headless-550:{i386,amd64} nvidia-dkms-550:{i386,amd64} nvidia-driver-550:{i386,amd64}
+sudo ubuntu-drivers install nvidia-headless-560:{i386,amd64} \
+  nvidia-dkms-560:{i386,amd64} nvidia-driver-560:{i386,amd64}
 
 apt list cuda-toolkit-* | grep -v config
 sudo apt install -y cuda-drivers cuda-toolkit nvidia-gds
