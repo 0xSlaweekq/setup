@@ -22,29 +22,13 @@ sudo apt install -y \
   ca-certificates lsb-release zlib1g-dev hardinfo hwinfo bash-completion \
   ubuntu-restricted-extras ppa-purge xz-utils gcc-multilib preload meson \
   libsystemd-dev pkg-config gdebi gdebi-core ninja-build libdbus-1-dev \
-  libinih-dev pass  \
-  gimp krita sweeper libreoffice qbittorrent dconf-cli gamemode \
-  elisa vlc cpufrequtils indicator-cpufreq tlp tlp-rdw
-  
-#  plasma-discover-backend-flatpak
-#   nmon nload conmon
+  libinih-dev pass elisa vlc gimp krita sweeper libreoffice qbittorrent dconf-cli
 
-git clone https://github.com/AdnanHodzic/auto-cpufreq.git
-cd auto-cpufreq && sudo ./auto-cpufreq-installer
-sudo auto-cpufreq --install
-# sudo systemctl mask power-profiles-daemon.service
-sudo systemctl enable --now auto-cpufreq
-sudo systemctl start auto-cpufreq
-sudo systemctl status auto-cpufreq
-sudo auto-cpufreq --update
-cd ~
-  # network-manager network-manager-gnome network-manager-openvpn-gnome \
-  # net-tools nala
 
-sudo systemctl enable tlp.service
-sudo tlp start
-echo 'GOVERNOR="performance"' | sudo tee /etc/default/cpufrequtils
-sudo systemctl restart cpufrequtils
+# plasma-discover-backend-flatpak
+# nmon nload conmon
+# network-manager network-manager-gnome network-manager-openvpn-gnome \
+# net-tools nala
 
   # power-profiles-daemon gnome-tweaks-tool
   # powerprofilesctl set performance && powerprofilesctl list

@@ -9,9 +9,7 @@ sudo add-apt-repository -y ppa:graphics-drivers/ppa
 sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt dist-upgrade
-# sudo ubuntu-drivers devices
-# sudo ubuntu-drivers autoinstall
-sudo apt install software-properties-qt
+sudo apt install software-properties-qt # for gnome software-properties-gtk
 sudo apt install -y xserver-xorg-video-all \
   xserver-xorg-video-intel xserver-xorg-video-nvidia-560
 sudo apt install -y \
@@ -40,16 +38,24 @@ sudo systemctl enable nvidia-persistenced
 sudo systemctl start nvidia-persistenced
 sudo systemctl status nvidia-persistenced
 cat /proc/driver/nvidia/version
+
+sudo bash -c "echo blacklist nouveau > /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
+sudo bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
+
+sudo prime-select on-demand # nvidia|intel|on-demand|query
+sudo nvidia-xconfig --prime
+sh -c "xrandr --setprovideroutputsource modesetting NVIDIA-0; xrandr --auto"
+sudo mv /etc/X11/xorg.conf /etc/X11/xorg.conf-external-display
+# Update grub2 conf
+sudo update-grub2
+
+# Update initramfs
+sudo update-initramfs -u
+
 sudo reboot
 echo '#################################################################'
 
 
-si uncom-nvidia-driver
-
-
-sudo apt install -y \
-  plasma-workspace-wayland plasma-wayland-protocols kwayland-integration
-apt policy plasma-workspace-wayland
 
 # cd ~
 # wget https://download.nvidia.com/XFree86/Linux-x86_64/555.52.04/NVIDIA-Linux-x86_64-555.52.04.run
@@ -61,30 +67,6 @@ apt policy plasma-workspace-wayland
 # nvidia-xconfig # optionaly
 # sudo telinit 5
 # systemctl restart graphical.target
-
-
-# Very huge font in LightDM after installed nVidia driver
-# 1. Check the default config of xserver-command
-# cat /usr/share/lightdm/lightdm.conf.d/50-xserver-command.conf | grep "xserver-command"
-# xserver-command=X -core
-# 2. Copy above line to the custom config file. Append "-dpi 96" to the end of the line
-# nano /etc/lightdm/lightdm.conf.d/20-lubuntu.conf
-# [SeatDefaults]
-# user-session=Kubuntu
-# xserver-command=X -core -dpi 96
-
-# Unable to start Steam
-# 1. ia32-libs is NOT required for x86_64.
-# 2. Locale was not exported. Try to run steam by: LC_ALL=C steam
-
-# Unable to run XBMC after using nVidia Propietary driver
-# Link libGL.so to nVidia's version:
-#     cd /usr/lib/x86_64-linux-gnu/mesa
-#     rm libGL.so.1
-#     ln -s /usr/lib/libGL.so libGL.so.1
-
-
-
 
 # WINEDLLOVERRIDES="dinput8=n,b" env OBS_VKCAPTURE=1 %command%
 
@@ -98,12 +80,11 @@ apt policy plasma-workspace-wayland
 # sudo update-alternatives --config i386-linux-gnu_gl_conf
 # sudo ldconfig
 
-# nvidia-smi
-
 # For remove all nvidia drivers
 # sudo apt remove --purge -y nvidia-*
 # sudo apt remove --purge -y libnvidia-*
 # sudo rm /etc/X11/xorg.conf
+# sudo rm /etc/X11/xorg.conf-external-display
 # sudo rm /etc/modprobe.d/nvidia.conf
 # sudo rm /etc/modprobe.d/blacklist-nvidia-nouveau.conf
 # sudo rm /etc/systemd/system/nvidia-persistenced.service
