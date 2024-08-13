@@ -2,6 +2,7 @@ echo 'Installing everything you need...'
 echo 'First update all packages'
 echo '#################################################################'
 sudo add-apt-repository -y ppa:flatpak/stable
+sudo add-apt-repository -y ppa:kisak/kisak-mesa
 sudo apt update
 sudo apt upgrade -y
 sudo apt install --fix-broken -y
