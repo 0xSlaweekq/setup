@@ -50,7 +50,7 @@ flatpak install -y flathub \
   io.github.mimbrero.WhatsAppDesktop org.kde.isoimagewriter \
   com.github.sdv43.whaler org.onlyoffice.desktopeditors com.usebottles.bottles \
   org.getoutline.OutlineClient org.getoutline.OutlineManager \
-  com.github.Matoking.protontricks \
+  com.github.Matoking.protontricks
 
 #  net.lutris.Lutris com.playonlinux.PlayOnLinux4
 
