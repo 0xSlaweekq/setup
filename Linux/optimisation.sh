@@ -6,63 +6,46 @@ sudo apt install -y -f
 sudo apt install --fix-broken -y
 cat /proc/version
 
-sudo sed -i s/quiet\ splash/quiet\ splash\ intel_pstate=enable/g /etc/default/grub
-sudo update-grub
-supd
+tee -a ~/bin/prime-run <<< \
+'
+#!/bin/bash
+export __NV_PRIME_RENDER_OFFLOAD=1
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export __VK_LAYER_NV_optimus=NVIDIA_only
+export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
+exec "$@"'
+chmod +x ~/bin/prime-run
 
-touch ~/.config/plasma-workspace/env/kwin.sh
-chmod +x ~/.config/plasma-workspace/env/kwin.sh
+# Install packages
+sudo apt install -y power-profiles-daemon gamemode cpufrequtils indicator-cpufreq tlp tlp-rdw
+powerprofilesctl set performance && powerprofilesctl list
 
-echo "export __GL_THREADED_OPTIMIZATIONS=1" >> ~/.profile
-echo "export _GL_SHADER_DISK_CACHE=1" >> ~/.profile
-echo "export ENABLE_VKBASALT=1" >> ~/.profile
-echo "export KWIN_TRIPLE_BUFFER=1" >> ~/.config/plasma-workspace/env/kwin.sh
-echo "export __GL_YIELD=USLEEP" >> ~/.config/plasma-workspace/env/kwin.sh
-echo "export __GL_MaxFramesAllowed=1" >> ~/.config/plasma-workspace/env/kwin.sh
+# Install auto-cpufreq
+git clone https://github.com/AdnanHodzic/auto-cpufreq.git
+cd auto-cpufreq && sudo ./auto-cpufreq-installer
+sudo auto-cpufreq --install
+# sudo systemctl mask power-profiles-daemon.service
+sudo systemctl enable --now auto-cpufreq
+sudo systemctl start auto-cpufreq
+sudo systemctl status auto-cpufreq
+sudo auto-cpufreq --update
+cd ~ && rm -rf auto-cpufreq
+
+# Install tlp
+sudo systemctl enable --now tlp.service
+sudo systemctl start tlp.service
+sudo tlp start
+echo 'GOVERNOR="performance"' | sudo tee /etc/default/cpufrequtils
+sudo systemctl restart cpufrequtils
+
+# Install Gamemode
+git clone https://github.com/FeralInteractive/gamemode.git
+cd gamemode
+git checkout 1.8.1 # omit to build the master branch
+./bootstrap.sh
+cd ~ && rm -rf ./gamemode
+systemctl --user enable gamemoded && systemctl --user start gamemoded
+sudo chmod +x /usr/bin/gamemoderun
+gamemoded -t
 
 sudo reboot
-
-# dpkg --list | grep `uname -r`
-# srp linux-headers-*.*.*-*-liquorix-* linux-image-*.*.*-*-liquorix-* \
-#  linux-image-liquorix-* linux-headers-liquorix-* && supd
-
-
-
-# # optional
-# git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git && \
-#   cd MangoHud && \
-#   ./build.sh build && \
-#   ./build.sh package && \
-#   ./build.sh install
-
-# kate ~/.config/MangoHud/MangoHud.conf
-# "
-# background_alpha=0.3
-# font_size=20
-# background_color=020202
-# text_color=ffffff
-# position=top-right
-# no_display
-# toggle_hud=F11
-# cpu_stats
-# cpu_temp
-# cpu_color=007AFA
-# gpu_stats
-# gpu_temp
-# gpu_color=00BD00
-# ram
-# ram_color=B3000A
-# vram
-# vram_color=00801B
-# io_read
-# io_write
-# io_color=B84700
-# arch
-# engine_color=B200B0
-# frame_timing=1
-# frametime_color=00ff00
-# #output_file=/home/houtworm/mangohud_log_
-# #fps_limit 120
-# #media_player
-# #toggle_logging=F10
-# "

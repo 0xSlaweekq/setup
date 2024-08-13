@@ -22,7 +22,7 @@ sudo apt install -y \
 sudo apt-key del 7fa2af80
 
 cd ~
-wget https://download.nvidia.com/XFree86/Linux-x86_64/555.52.04/NVIDIA-Linux-x86_64-555.52.04.run
+wget https://download.nvidia.com/XFree86/Linux-x86_64/560.31.02/NVIDIA-Linux-x86_64-560.31.02.run
 chmod 700 NVIDIA-*.run
 sudo telinit 3
 sudo ./NVIDIA-*.run

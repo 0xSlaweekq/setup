@@ -103,5 +103,5 @@ sudo dd if=/path/to/image_file.iso of=/dev/sdd
 dd if=image.dmg of=/dev/sdb bs=16M status=progress
 
 sudo dd if=/mnt/Disk_D/Ventura.iso of=/dev/nvme0n1p2
-for windows dd if=\\.\d:\Ventura.iso of=\\.\p:
+# for windows dd if=\\.\d:\Ventura.iso of=\\.\p:
 echo '#################################################################'
