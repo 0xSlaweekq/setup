@@ -29,10 +29,7 @@ sudo apt install -y \
 # nmon nload conmon
 # network-manager network-manager-gnome network-manager-openvpn-gnome \
 # net-tools nala
-
-  # power-profiles-daemon gnome-tweaks-tool
-  # powerprofilesctl set performance && powerprofilesctl list
-#   gnome-tweaks gnome-extensions-app gnome-shell-extension-manager \
+#   gnome-tweaks gnome-tweaks-tool gnome-extensions-app gnome-shell-extension-manager \
 #   gnome-software-plugin-flatpak gnome-disk-utility chrome-gnome-shell gnome-browser-connector
 
 # sudo rm -f /var/lib/apt/lists/lock /var/cache/apt/archives/lock /var/lib/dpkg/lock
@@ -47,10 +44,10 @@ sudo dpkg --configure -a
 sudo add-apt-repository -y multiverse
 sudo add-apt-repository -y universe
 sudo apt update
-sudo pkcon refresh
-sudo pkcon update
+# sudo pkcon refresh
+# sudo pkcon update
 sudo apt full-upgrade
-sudo apt install backport-iwlwifi-dkms
+# sudo apt install backport-iwlwifi-dkms
 
 # gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
 # gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
@@ -58,27 +55,8 @@ sudo apt install backport-iwlwifi-dkms
 # gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 64
 # gsettings set org.gnome.shell.extensions.dash-to-dock unity-backlit-items true
 # gsettings reset org.gnome.shell.extensions.dash-to-dock dash-max-icon-size
-
 echo 'All new useless packages installed successfully'
 echo '#################################################################'
-chmod +x ./git.sh
-sudo ./git.sh
-chmod +x ./debs.sh
-sudo ./debs.sh
-chmod +x ./nvidia.sh
-sudo ./nvidia.sh
-chmod +x ./python3.sh
-sudo ./python3.sh
-chmod +x ./nvm.sh
-sudo ./nvm.sh
-chmod +x ./airpods.sh
-sudo ./airpods.sh
-chmod +x ./programm.sh
-sudo ./programm.sh
-chmod +x ./docker.sh
-sudo ./docker.sh
-chmod +x ./yandex.sh
-sudo ./yandex.sh
 
 
 echo 'Set autocomlete bash'
@@ -88,7 +66,8 @@ sudo tee -a /etc/inputrc <<< \
 # paste after all text
 set show-all-if-ambiguous On
 "\e[A": history-search-backward
-"\e[B": history-search-forward'
+"\e[B": history-search-forward
+'
 
 sudo apt update
 sudo apt upgrade -y
@@ -96,19 +75,9 @@ sudo apt install --fix-broken -y
 sudo apt autoclean -y
 sudo apt autoremove --purge
 
-gpg --generate-key
-echo 'pass init B381A9F621F86E30EB14EBAD9066D29FF5813FE3
-systemctl --user start docker-desktop'
 curl -L https://foundry.paradigm.xyz | bash
 source /home/msi/.bashrc
 foundryup
-echo 'See All ppa repos: grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/*'
-echo 'Ended'
-echo '#################################################################'
-echo 'after all installs prog and themes'
-echo 'dconf load / < dconf-settings.ini'
-
-# dconf dump / > dconf-settings.ini
 
 bash -c \
 'cat << EOF > ~/.config/user-dirs.dirs
@@ -129,6 +98,8 @@ XDG_PICTURES_DIR="/mnt/D/Pictures"
 XDG_VIDEOS_DIR="/mnt/D/Videos"
 EOF'
 
+echo 'Ended'
+echo '#################################################################'
 
 
 
@@ -137,23 +108,6 @@ EOF'
 
 
 
-# sudo reboot
-# 127.0.0.1 testingme.ru
-# sudo service apache2 stop
-# sudo service mysql stop
-
-#   apache2
-#   mysql-server
-#   nginx
-
-# sudo a2enmod rewrite
-# sudo service mysql start
-# sudo mysql -uroot -p
-
-# SELECT user, authentication_string, plugin, host FROM mysql.user WHERE user="root";
-# ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '';
-# FLUSH PRIVILEGES;
-# exit
 
 # sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/testingme.ru.conf
 #
@@ -184,16 +138,9 @@ EOF'
 # ganache
 # sudo sudo apt update
 # sudo apt upgrade -y
-# sudo apt install -y wget \
-#   libgtk-3-dev \
-#   libfuse-dev \
-#   libgtkextra-dev \
-#   libgconf2-dev \
-#   libnss3 libasound2 \
-#   libxtst-dev \
-#   libxss1 \
-#   libx11-6 \
-#   libx11-xcb-dev
+# sudo apt install -y \
+#   wget libgtk-3-dev libfuse-dev libgtkextra-dev libgconf2-dev libnss3 \
+#   libasound2 libxtst-dev libxss1 libx11-6 libx11-xcb-dev
 # wget https://github.com/trufflesuite/ganache-ui/releases/download/v2.7.1/ganache-2.7.1-linux-x86_64.AppImage
 # chmod a+x ganache-2.7.1-linux-x86_64.AppImage
 # ./ganache-2.7.1-linux-x86_64.AppImage
