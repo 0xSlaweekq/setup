@@ -1,11 +1,15 @@
-sudo wget -O /etc/apt/trusted.gpg.d/winehq.key https://dl.winehq.org/wine-builds/winehq.key
-sudo echo "Types: deb
-URIs: https://dl.winehq.org/wine-builds/ubuntu
-Suites: $(lsb_release -cs)
-Components: main
-Architectures: amd64 i386
-Signed-By: /etc/apt/trusted.gpg.d/winehq.key" | \
-  sudo tee /etc/apt/sources.list.d/winehq.sources > /dev/null
+# sudo wget -O /etc/apt/trusted.gpg.d/winehq.key https://dl.winehq.org/wine-builds/winehq.key
+# sudo echo "Types: deb
+# URIs: https://dl.winehq.org/wine-builds/ubuntu
+# Suites: $(lsb_release -cs)
+# Components: main
+# Architectures: amd64 i386
+# Signed-By: /etc/apt/trusted.gpg.d/winehq.key" | \
+#   sudo tee /etc/apt/sources.list.d/winehq.sources > /dev/null
+
+sudo mkdir -pm755 /etc/apt/keyrings
+sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/noble/winehq-noble.sources
 sudo apt update
 sudo apt upgrade
 
@@ -17,7 +21,6 @@ sudo apt install -y libpoppler-glib8:{i386,amd64}=22.02.0-2ubuntu0.4
 sudo apt install --install-recommends winehq-devel -y
 
 sudo apt install -y \
-  libgl1-mesa-dri:{i386,amd64} \
   librust-proton-call-dev proton-caller \
   libgl1-mesa-glx:{i386,amd64}
 sudo apt install --fix-broken -y

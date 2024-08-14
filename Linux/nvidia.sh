@@ -14,7 +14,7 @@ sudo apt install software-properties-gtk # for kde qt, for gnome gtk
 #   xserver-xorg-video-intel xserver-xorg-video-nvidia-560
 
 sudo apt install -y \
-  linux-headers-$(uname -r) clang gcc make acpid \
+  linux-headers-$(uname -r) clang gcc make acpid build-essential \
   ca-certificates dirmngr software-properties-common apt-transport-https \
   curl dkms libglvnd-core-dev libglvnd0 libglvnd-dev libc-dev freeglut3-dev \
   libx11-dev libxmu-dev libxi-dev libglu1-mesa-dev libfreeimage-dev \
@@ -35,7 +35,7 @@ sudo ubuntu-drivers install nvidia-headless-560:{i386,amd64} \
   nvidia-dkms-560:{i386,amd64} nvidia-driver-560:{i386,amd64}
 
 sudo apt install -y \
-  libvulkan1:{i386,amd64} mesa-vulkan-drivers:{i386,amd64} \
+  libvulkan1:{i386,amd64} mesa-vulkan-drivers:{i386,amd64} libgl1-mesa-dri:{i386,amd64} \
   vkbasalt libglu1-mesa-dev:{i386,amd64} freeglut3-dev mesa-common-dev \
   libopenal1 libopenal-dev libalut0 libalut-dev
 
@@ -48,13 +48,16 @@ sudo nvidia-xconfig --prime
 sh -c "xrandr --setprovideroutputsource modesetting NVIDIA-0; xrandr --auto"
 sudo bash -c "echo blacklist nouveau > /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 sudo bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
-
+sudo update-alternatives --display cuda
+sudo update-alternatives --config cuda
+sudo systemctl daemon-reload
 # Update grub2 conf
 sudo update-grub2
 
 # Update initramfs
 sudo update-initramfs -u
 
+/usr/bin/nvidia-persistenced --verbose
 sudo systemctl enable nvidia-persistenced
 sudo systemctl start nvidia-persistenced
 sudo systemctl status nvidia-persistenced
