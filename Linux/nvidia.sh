@@ -1,18 +1,19 @@
 echo 'Installing Nvidia & other graphics drivers'
 echo '#################################################################'
-curl -fSsL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/3bf863cc.pub | \
-  sudo gpg --dearmor | sudo tee /usr/share/keyrings/nvidia-drivers.gpg > /dev/null 2>&1
-echo "deb [arch=i386,amd64 signed-by=/usr/share/keyrings/nvidia-drivers.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /" | \
-  sudo tee /etc/apt/sources.list.d/nvidia-drivers.list
+cd ~
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb
+sudo dpkg -i cuda-keyring_1.1-1_all.deb
+rm cuda-keyring_1.1-1_all.deb
 
 sudo add-apt-repository -y ppa:graphics-drivers/ppa
 sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt dist-upgrade
+# sudo ubuntu-drivers devices
+# sudo ubuntu-drivers autoinstall
 sudo apt install software-properties-gtk # for kde qt, for gnome gtk
 # sudo apt install -y xserver-xorg-video-all \
 #   xserver-xorg-video-intel xserver-xorg-video-nvidia-560
-
 sudo apt install -y \
   linux-headers-$(uname -r) clang gcc make acpid build-essential \
   ca-certificates dirmngr software-properties-common apt-transport-https \
@@ -20,16 +21,7 @@ sudo apt install -y \
   libx11-dev libxmu-dev libxi-dev libglu1-mesa-dev libfreeimage-dev \
   libglfw3-dev
 sudo apt-key del 7fa2af80
-
-cd ~
-wget https://download.nvidia.com/XFree86/Linux-x86_64/560.31.02/NVIDIA-Linux-x86_64-560.31.02.run
-chmod 700 NVIDIA-*.run
-sudo telinit 3
-sudo ./NVIDIA-*.run
-sudo telinit 5
-systemctl restart graphical.target
-
-# sudo apt install -y nvidia-driver-560 nvidia-headless-560 nvidia-dkms-560
+sudo apt install -y nvidia-driver-560 nvidia-headless-560 nvidia-dkms-560
 sudo apt install -y nvidia-settings nvidia-prime
 sudo ubuntu-drivers install nvidia-headless-560:{i386,amd64} \
   nvidia-dkms-560:{i386,amd64} nvidia-driver-560:{i386,amd64}
@@ -48,8 +40,8 @@ sudo nvidia-xconfig --prime
 sh -c "xrandr --setprovideroutputsource modesetting NVIDIA-0; xrandr --auto"
 sudo bash -c "echo blacklist nouveau > /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 sudo bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
-sudo update-alternatives --display cuda
-sudo update-alternatives --config cuda
+# sudo update-alternatives --display cuda
+# sudo update-alternatives --config cuda
 sudo systemctl daemon-reload
 # Update grub2 conf
 sudo update-grub2
@@ -65,6 +57,23 @@ cat /proc/driver/nvidia/version
 
 sudo reboot
 echo '#################################################################'
+
+# curl -fSsL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/3bf863cc.pub | \
+#   sudo gpg --dearmor | sudo tee /usr/share/keyrings/nvidia-drivers.gpg > /dev/null 2>&1
+# echo 'deb [arch=i386,amd64 signed-by=/usr/share/keyrings/nvidia-drivers.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /' | \
+#   sudo tee /etc/apt/sources.list.d/nvidia-drivers.list
+
+# sudo apt install -y \
+#   plasma-workspace-wayland plasma-wayland-protocols kwayland-integration
+# apt policy plasma-workspace-wayland
+
+# cd ~
+# wget https://download.nvidia.com/XFree86/Linux-x86_64/560.31.02/NVIDIA-Linux-x86_64-560.31.02.run
+# chmod 700 NVIDIA-*.run
+# sudo telinit 3
+# sudo ./NVIDIA-*.run
+# sudo telinit 5
+# systemctl restart graphical.target
 
 
 
