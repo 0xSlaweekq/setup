@@ -1,7 +1,11 @@
 echo 'Installing Nvidia & other graphics drivers'
 echo '#################################################################'
 cd ~
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb
+# Get the release version of Ubuntu => 2404
+RELEASE_VERSION=$(lsb_release -rs | sed 's/\([0-9]\+\)\.\([0-9]\+\)/\1\2/')
+
+# Download and install CUDA package for Ubuntu
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu${RELEASE_VERSION}/x86_64/cuda-keyring_1.1-1_all.deb
 sudo dpkg -i cuda-keyring_1.1-1_all.deb
 rm cuda-keyring_1.1-1_all.deb
 
@@ -9,9 +13,8 @@ sudo add-apt-repository -y ppa:graphics-drivers/ppa
 sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt dist-upgrade
-# sudo ubuntu-drivers devices
-# sudo ubuntu-drivers autoinstall
-sudo apt install software-properties-gtk # for kde qt, for gnome gtk
+
+sudo apt install software-properties-qt # for kde qt, for gnome gtk
 # sudo apt install -y xserver-xorg-video-all \
 #   xserver-xorg-video-intel xserver-xorg-video-nvidia-560
 sudo apt install -y \
@@ -23,17 +26,23 @@ sudo apt install -y \
 sudo apt-key del 7fa2af80
 sudo apt install -y nvidia-driver-560 nvidia-headless-560 nvidia-dkms-560
 sudo apt install -y nvidia-settings nvidia-prime
-sudo ubuntu-drivers install nvidia-headless-560:{i386,amd64} \
-  nvidia-dkms-560:{i386,amd64} nvidia-driver-560:{i386,amd64}
+sudo ubuntu-drivers install nvidia-headless-560 nvidia-dkms-560 nvidia-driver-560
 
 sudo apt install -y \
   libvulkan1:{i386,amd64} mesa-vulkan-drivers:{i386,amd64} libgl1-mesa-dri:{i386,amd64} \
   vkbasalt libglu1-mesa-dev:{i386,amd64} freeglut3-dev mesa-common-dev \
   libopenal1 libopenal-dev libalut0 libalut-dev
 
-apt list cuda-toolkit-* | grep -v config
-sudo apt install -y cuda-drivers cuda-toolkit nvidia-gds
+# Update and upgrade the system again to ensure all packages are installed correctly
+sudo apt update
+# apt list cuda-toolkit-* | grep -v config
+sudo apt install -y cuda
+sudo apt install -y cuda-toolkit nvidia-cuda-toolkit nvidia-gds
 /usr/local/cuda/bin/nvcc --version
+
+echo 'export PATH="/usr/bin:/bin:$PATH/usr/local/cuda/bin\${PATH:+:\${PATH}}"' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}' >> ~/.bashrc
+source ~/.bashrc
 
 sudo prime-select on-demand # nvidia|intel|on-demand|query
 sudo nvidia-xconfig --prime
@@ -43,6 +52,7 @@ sudo bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia
 # sudo update-alternatives --display cuda
 # sudo update-alternatives --config cuda
 sudo systemctl daemon-reload
+
 # Update grub2 conf
 sudo update-grub2
 

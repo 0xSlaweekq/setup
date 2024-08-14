@@ -65,19 +65,19 @@ sudo adduser $USER vboxusers
 sudo apt install -y virtualbox-dkms xserver-xorg-core virtualbox-guest-x11 cpu-checker
 
 
-# install qemu
-sudo apt update
-sudo apt install -y \
-  cpu-checker bridge-utils libvirt-daemon-system libvirt-clients \
-  virt-manager virtinst qemu-kvm
-sudo adduser $USER libvirt
-sudo adduser $USER kvm
-sudo systemctl enable --now libvirtd
-sudo systemctl start libvirtd
-sudo systemctl status libvirtd
-sudo usermod -aG kvm $USER
-sudo usermod -aG libvirt $USER
-virt-manager
+# # install qemu
+# sudo apt update
+# sudo apt install -y \
+#   cpu-checker bridge-utils libvirt-daemon-system libvirt-clients \
+#   virt-manager virtinst qemu-kvm
+# sudo adduser $USER libvirt
+# sudo adduser $USER kvm
+# sudo systemctl enable --now libvirtd
+# sudo systemctl start libvirtd
+# sudo systemctl status libvirtd
+# sudo usermod -aG kvm $USER
+# sudo usermod -aG libvirt $USER
+# virt-manager
 
 # dotNet
 sudo apt update && \
@@ -85,12 +85,13 @@ sudo apt update && \
   dotnet-sdk-8.0 aspnetcore-runtime-8.0 dotnet-runtime-8.0 zlib1g ca-certificates \
   libc6 libgcc-s1 libicu74 liblttng-ust1 libssl3 libstdc++6 libunwind8
 
+cd ~
 wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
 chmod +x ./dotnet-install.sh
 ./dotnet-install.sh --channel 6.0
 ./dotnet-install.sh --channel 7.0
 ./dotnet-install.sh --version latest
-rm -rf ./dotnet-install.sh
+rm ./dotnet-install.sh
 echo 'All programm installed'
 echo '#################################################################'
 

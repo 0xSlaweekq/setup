@@ -1,4 +1,7 @@
+cd ~
 wget https://github.com/Castro-Fidel/PortProton_dpkg/releases/download/portproton_1.7-2_amd64/portproton_1.7-2_amd64.deb
+sudo apt install -y ./portproton_1.7-2_amd64.deb
+rm portproton_1.7-2_amd64.deb
 
 sudo dpkg --add-architecture amd64
 sudo dpkg --add-architecture i386
@@ -14,7 +17,6 @@ sudo apt install -y \
   mingw-w64 mingw-w64-common mingw-w64-i686-dev mingw-w64-tools mingw-w64-x86-64-dev
 
 sudo apt install --fix-broken -y
-
 sudo apt install lutris
 
 git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git && \

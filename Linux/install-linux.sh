@@ -40,8 +40,7 @@ sudo systemctl daemon-reload
 sudo dpkg --configure -a
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 
-# sudo add-apt-repository -y ppa:kubuntu-ppa/ppa
-# sudo add-apt-repository -y ppa:kubuntu-ppa/backports
+
 sudo add-apt-repository -y multiverse
 sudo add-apt-repository -y universe
 sudo apt update
@@ -58,23 +57,6 @@ sudo apt full-upgrade
 # gsettings reset org.gnome.shell.extensions.dash-to-dock dash-max-icon-size
 echo 'All new useless packages installed successfully'
 echo '#################################################################'
-
-
-echo 'Set autocomlete bash'
-echo '#################################################################'
-sudo tee -a /etc/inputrc <<< \
-'
-# paste after all text
-set show-all-if-ambiguous On
-"\e[A": history-search-backward
-"\e[B": history-search-forward
-'
-
-sudo apt update
-sudo apt upgrade -y
-sudo apt install --fix-broken -y
-sudo apt autoclean -y
-sudo apt autoremove --purge
 
 curl -L https://foundry.paradigm.xyz | bash
 source /home/msi/.bashrc
@@ -98,6 +80,39 @@ XDG_MUSIC_DIR="/mnt/D/Music"
 XDG_PICTURES_DIR="/mnt/D/Pictures"
 XDG_VIDEOS_DIR="/mnt/D/Videos"
 EOF'
+
+chmod +x /mnt/D/CRYPTO/setup/Linux/airpods.sh
+sudo /mnt/D/CRYPTO/setup/Linux/airpods.sh
+chmod +x /mnt/D/CRYPTO/setup/Linux/debs.sh
+sudo /mnt/D/CRYPTO/setup/Linux/debs.sh
+chmod +x /mnt/D/CRYPTO/setup/Linux/nvm.sh
+sudo /mnt/D/CRYPTO/setup/Linux/nvm.sh
+chmod +x /mnt/D/CRYPTO/setup/Linux/python3.sh
+sudo /mnt/D/CRYPTO/setup/Linux/python3.sh
+chmod +x /mnt/D/CRYPTO/setup/Linux/optimisation.sh
+sudo /mnt/D/CRYPTO/setup/Linux/optimisation.sh
+chmod +x /mnt/D/CRYPTO/setup/Linux/portproton.sh
+sudo /mnt/D/CRYPTO/setup/Linux/portproton.sh
+chmod +x /mnt/D/CRYPTO/setup/Linux/postman.sh
+sudo /mnt/D/CRYPTO/setup/Linux/postman.sh
+chmod +x /mnt/D/CRYPTO/setup/Linux/programm.sh
+sudo /mnt/D/CRYPTO/setup/Linux/programm.sh
+chmod +x /mnt/D/CRYPTO/setup/Linux/winehqSteam.sh
+sudo /mnt/D/CRYPTO/setup/Linux/winehqSteam.sh
+chmod +x /mnt/D/CRYPTO/setup/Linux/docker.sh
+sudo /mnt/D/CRYPTO/setup/Linux/docker.sh
+
+echo 'Set autocomlete bash'
+echo '#################################################################'
+sudo tee -a /etc/inputrc <<< \
+'
+# paste after all text
+set show-all-if-ambiguous On
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+'
+chmod +x /mnt/D/CRYPTO/setup/Linux/nvidia.sh
+sudo /mnt/D/CRYPTO/setup/Linux/nvidia.sh
 
 echo 'Ended'
 echo '#################################################################'

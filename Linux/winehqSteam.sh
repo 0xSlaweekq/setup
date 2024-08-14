@@ -16,13 +16,13 @@ sudo apt upgrade
 # sudo echo "deb [arch=amd64,i386 signed-by=/etc/apt/trusted.gpg.d/winehq.key] https://dl.winehq.org/wine-builds/ubuntu jammy main" |\
 #   sudo tee /etc/apt/sources.list.d/winehq.list > /dev/null
 
-sudo apt install -y libpoppler-glib8:{i386,amd64}=22.02.0-2ubuntu0.4
+sudo apt install -y libpoppler-glib8:{i386,amd64}
 # wine winecfg
 sudo apt install --install-recommends winehq-devel -y
 
 sudo apt install -y \
-  librust-proton-call-dev proton-caller \
-  libgl1-mesa-glx:{i386,amd64}
+  librust-proton-call-dev proton-caller
+  # libgl1-mesa-glx:{i386,amd64}
 sudo apt install --fix-broken -y
 
 git clone --recursive https://github.com/HansKristian-Work/vkd3d-proton

@@ -18,9 +18,11 @@ chmod +x ~/bin/prime-run
 tee -a ~/.bashrc <<< 'alias primerun="~/bin/prime-run"'
 source ~/.bashrc
 
+# Install packages for gnome
+# sudo apt install -y power-profiles-daemon
+# powerprofilesctl set performance && powerprofilesctl list
 # Install packages
-sudo apt install -y power-profiles-daemon gamemode cpufrequtils indicator-cpufreq tlp tlp-rdw
-powerprofilesctl set performance && powerprofilesctl list
+sudo apt install -y gamemode cpufrequtils indicator-cpufreq tlp tlp-rdw
 
 # Install auto-cpufreq
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git
@@ -49,5 +51,3 @@ cd ~ && rm -rf ./gamemode
 systemctl --user enable gamemoded && systemctl --user start gamemoded
 sudo chmod +x /usr/bin/gamemoderun
 gamemoded -t
-
-sudo reboot
