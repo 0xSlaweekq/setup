@@ -7,7 +7,7 @@ mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 chmod 700 ~/.ssh/config
 cd ~/.ssh
-ssh-keygen -t ed25519 -C "plakidin.vyacheslav@mail.ru"
+ssh-keygen -t ed25519 -C "celesik@gmail.com"
 chmod 600 ~/.ssh/id_ed25519
 chmod 600 ~/.ssh/id_ed25519.pub
 cd -
@@ -44,7 +44,7 @@ ssh -T git@github.com
 #     IdentitiesOnly yes"
 
 git config --global user.name "Slaweekq"
-git config --global user.email "plakidin.vyacheslav@mail.ru"
+git config --global user.email "celesik@gmail.com"
 git config --global --add safe.directory /mnt/D/CRYPTO/setup
 git config --global --add safe.directory /mnt/D/CRYPTO/work
 git config --global --add safe.directory /mnt/D/CRYPTO/work/old/smartDefi
