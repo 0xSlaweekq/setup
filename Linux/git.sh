@@ -62,12 +62,13 @@ git config --list
 
 tee -a ~/.bashrc <<< \
 '
-alias si="sudo apt install -y"
+alias si="sudo nala install -y"
 alias srf="sudo rm -rf"
 alias srn="sudo reboot now"
-alias srp="sudo apt remove --purge -y"
+alias srp="sudo nala remove --purge -y"
 alias sdr="sudo systemctl daemon-reload"
-alias supd="sudo apt update && sudo apt upgrade -y && sudo apt install --fix-broken -y && sudo apt autoremove && sudo apt autoclean -y && flatpak uninstall --unused"
+alias snupd="sudo nala update && sudo nala full-upgrade -y && sudo nala install --fix-broken -y && sudo nala autopurge && sudo nala autoremove -y && sudo nala clean && flatpak uninstall --unused"
+alias supd="sudo apt update && sudo apt upgrade -y && sudo apt install --fix-broken -y && sudo apt autoremove -y && sudo apt autoclean -y && flatpak uninstall --unused"
 alias cleanCode="cd $HOME/.config/Code/ && rm -rf $CACHE_CODE_DIR && cd -"
 alias digcon="ssh root@164.90.207.152"
 alias doccon="docker login --password dckr_pat_yJhGjotZbYBJLvQIcRq3P27yChc -u slaweekq"
@@ -89,6 +90,8 @@ alias nu="npm uninstall"
 alias nats="~/nats"
 alias sp="dpkg -l | grep"
 alias primerun="~/bin/prime-run"
+alias serverStart="npm run ln-reboot && npm run migration:up && npm start"
+alias serverSdk="npm run mockwv:generate:sdk && npm run server:generate:sdk"
 '
 
 # restore bash_profile
