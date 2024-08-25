@@ -1,6 +1,7 @@
 echo 'Installing Nvidia & other graphics drivers'
 echo '#################################################################'
 cd ~
+sudo apt autoremove $(dpkg -l *nvidia* |grep ii |awk '{print $2}') -y
 # Get the release version of Ubuntu => 2404
 RELEASE_VERSION=$(lsb_release -rs | sed 's/\([0-9]\+\)\.\([0-9]\+\)/\1\2/')
 
@@ -14,9 +15,9 @@ sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt dist-upgrade
 
-sudo apt install software-properties-gtk # for kde qt, for gnome gtk
-# sudo apt install -y xserver-xorg-video-all \
-#   xserver-xorg-video-intel xserver-xorg-video-nvidia-560
+sudo apt install software-properties-qt # for kde qt, for gnome gtk
+sudo apt install --reinstall -y xserver-xorg-video-all xserver-xorg-video-nouveau \
+  xserver-xorg-video-intel xserver-xorg-video-nvidia-550
 sudo apt install -y \
   linux-headers-$(uname -r) clang gcc make acpid build-essential \
   ca-certificates dirmngr software-properties-common apt-transport-https \
@@ -24,9 +25,9 @@ sudo apt install -y \
   libx11-dev libxmu-dev libxi-dev libglu1-mesa-dev libfreeimage-dev \
   libglfw3-dev
 sudo apt-key del 7fa2af80
-sudo apt install -y nvidia-driver-560 nvidia-headless-560 nvidia-dkms-560
-sudo apt install -y nvidia-settings nvidia-prime
-sudo ubuntu-drivers install nvidia-headless-560 nvidia-dkms-560 nvidia-driver-560
+sudo apt install -y nvidia-driver-550 nvidia-headless-550 nvidia-dkms-550
+sudo apt install --reinstall -y nvidia-settings nvidia-prime
+sudo ubuntu-drivers install nvidia-headless-550 nvidia-dkms-550 nvidia-driver-550
 
 sudo apt install -y \
   libvulkan1:{i386,amd64} mesa-vulkan-drivers:{i386,amd64} libgl1-mesa-dri:{i386,amd64} \
@@ -41,20 +42,15 @@ sudo apt install -y cuda-toolkit nvidia-cuda-toolkit nvidia-gds
 /usr/local/cuda/bin/nvcc --version
 
 
-sudo apt install libnvidia-egl-wayland1
-dpkg -l xwayland libxcb1 libnvidia-egl-wayland1
-
 echo 'export PATH="/usr/bin:/bin:$PATH/usr/local/cuda/bin\${PATH:+:\${PATH}}"' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda-12.6/lib64\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}' >> ~/.bashrc
 source ~/.bashrc
 
 sudo prime-select on-demand # nvidia|intel|on-demand|query
-# sudo nvidia-xconfig --prime
+sudo nvidia-xconfig --prime
 sh -c "xrandr --setprovideroutputsource modesetting NVIDIA-0; xrandr --auto"
 # sudo bash -c "echo blacklist nouveau > /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 # sudo bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
-# sudo update-alternatives --display cuda
-# sudo update-alternatives --config cuda
 sudo systemctl daemon-reload
 
 # Update grub2 conf
@@ -81,26 +77,13 @@ echo '#################################################################'
 # apt policy plasma-workspace-wayland
 
 # cd ~
-# wget https://download.nvidia.com/XFree86/Linux-x86_64/560.35.03/NVIDIA-Linux-x86_64-560.35.03.run
+# wget https://download.nvidia.com/XFree86/Linux-x86_64/550.107.02/NVIDIA-Linux-x86_64-550.107.02.run
 # chmod 700 NVIDIA-*.run
 # sudo telinit 3
 # sudo ./NVIDIA-*.run
 # sudo telinit 5
 # systemctl restart graphical.target
 
-
-
-# WINEDLLOVERRIDES="dinput8=n,b" env OBS_VKCAPTURE=1 %command%
-
-# sudo add-apt-repository ppa:bumblebee/stable
-# sudo apt update
-# sudo apt install -y --no-install-recommends bumblebee
-
-# Error running 32-bit applications on a 64-bit system
-# apt-cache policy libgl1-mesa-glx:i386
-# sudo apt install -y --reinstall bumblebee-nvidia
-# sudo update-alternatives --config i386-linux-gnu_gl_conf
-# sudo ldconfig
 
 # For remove all nvidia drivers
 # sudo apt remove --purge -y nvidia-*
