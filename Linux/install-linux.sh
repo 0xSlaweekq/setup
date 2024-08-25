@@ -29,9 +29,9 @@ sudo apt install -y \
 # plasma-discover-backend-flatpak
 # nmon nload conmon
 # network-manager network-manager-gnome network-manager-openvpn-gnome \
-# net-tools nala
-#   gnome-tweaks gnome-tweaks-tool gnome-extensions-app gnome-shell-extension-manager \
-#   gnome-software-plugin-flatpak gnome-disk-utility chrome-gnome-shell gnome-browser-connector
+sudo apt install -y nala
+sudo apt install -y net-tools gnome-tweaks gnome-extensions-app gnome-shell-extension-manager \
+  gnome-software-plugin-flatpak gnome-disk-utility chrome-gnome-shell gnome-browser-connector
 
 # sudo rm -f /var/lib/apt/lists/lock /var/cache/apt/archives/lock /var/lib/dpkg/lock
 

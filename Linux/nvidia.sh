@@ -14,7 +14,7 @@ sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt dist-upgrade
 
-sudo apt install software-properties-qt # for kde qt, for gnome gtk
+sudo apt install software-properties-gtk # for kde qt, for gnome gtk
 # sudo apt install -y xserver-xorg-video-all \
 #   xserver-xorg-video-intel xserver-xorg-video-nvidia-560
 sudo apt install -y \
@@ -45,7 +45,7 @@ echo 'export LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64\${LD_LIBRARY_PATH:+:\${L
 source ~/.bashrc
 
 sudo prime-select on-demand # nvidia|intel|on-demand|query
-sudo nvidia-xconfig --prime
+# sudo nvidia-xconfig --prime
 sh -c "xrandr --setprovideroutputsource modesetting NVIDIA-0; xrandr --auto"
 sudo bash -c "echo blacklist nouveau > /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 sudo bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
@@ -78,7 +78,7 @@ echo '#################################################################'
 # apt policy plasma-workspace-wayland
 
 # cd ~
-# wget https://download.nvidia.com/XFree86/Linux-x86_64/560.31.02/NVIDIA-Linux-x86_64-560.31.02.run
+# wget https://download.nvidia.com/XFree86/Linux-x86_64/560.35.03/NVIDIA-Linux-x86_64-560.35.03.run
 # chmod 700 NVIDIA-*.run
 # sudo telinit 3
 # sudo ./NVIDIA-*.run

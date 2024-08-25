@@ -100,6 +100,6 @@ echo '#################################################################'
 # sudo install -D -o root -g root -m 644 warpdotdev.gpg /etc/apt/trusted.gpg.d/warpdotdev.gpg
 # sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/warpdotdev.gpg] https://releases.warp.dev/linux/deb stable main" > /etc/apt/sources.list.d/warpdotdev.list'
 # rm warpdotdev.gpg
-# sudo nala update && sudo nala install -y warp-terminal
+# sudo apt update && sudo apt install -y warp-terminal
 
 # wget https://wireless.wiki.kernel.org/_media/en/users/drivers/iwlwifi-ty-59.601f3a66.0.tgz

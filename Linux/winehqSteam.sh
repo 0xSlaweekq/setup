@@ -22,7 +22,7 @@ sudo apt install --install-recommends winehq-devel -y
 
 sudo apt install -y \
   librust-proton-call-dev proton-caller
-  # libgl1-mesa-glx:{i386,amd64}
+  libgl1-mesa-glx:{i386,amd64}
 sudo apt install --fix-broken -y
 
 git clone --recursive https://github.com/HansKristian-Work/vkd3d-proton
@@ -34,6 +34,7 @@ cd ~
 sudo rm -rf vkd3d-proton
 
 # change to build.86 for 32-bit
+sudo apt install gcc-mingw-w64-x86-64-posix gcc-mingw-w64-x86-64-win32
 sudo chmod +x ~/vkd3d/vkd3d-proton-master/setup_vkd3d_proton.sh
 ~/vkd3d/vkd3d-proton-master/setup_vkd3d_proton.sh install
 

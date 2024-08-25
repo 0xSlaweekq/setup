@@ -16,9 +16,9 @@ curl -1sLf \
 #Refresh repository sources and install Insomnia
 #Update library'
 sudo apt update
-sudo apt -y install insomnia
+sudo apt install -y insomnia
 #Install font configuration library & support
-sudo apt -y install libfontconfig-dev
+sudo apt install -y libfontconfig-dev
 
 
 

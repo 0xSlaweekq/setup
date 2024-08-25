@@ -16,12 +16,12 @@ sudo bash -c \
 # disks are added and removed. See fstab(5).
 #
 # UUID=<uuid>                             <mount point> <FSType> <FSOptions>     <dump> <pass>
-UUID=3d3e7581-dc1a-4e89-b18e-1b1f2604e557 /               ext4   defaults          0      1
-UUID=8e47a50a-8a72-4adb-b20e-8d5ec9699ed0 /home           ext4   defaults          0      1
-UUID=000f6bd8-6f10-45c9-bbef-970ec33b1e8b none            swap   sw                0      0
-UUID=7783-9F9D                            /boot/efi       vfat   defaults          0      1
+UUID=6422017f-198d-42aa-80ec-de2a0fb23225 /               ext4   defaults          0      1
+UUID=3cd09a09-e22c-41bd-b816-ea15c85caf91 /home           ext4   defaults          0      1
+UUID=8D44-5426                            /boot/efi       vfat   defaults          0      1
 UUID=50D8DE4A70913ADC                     /mnt/D          ntfs   defaults          0      1
 UUID=9C1DA856CE5BF3A4                     /mnt/backup     ntfs   ro                0      1
+/dev/nvme0n1p4                            swap            swap   sw                0      0
 EOF"
 
 echo '#################################################################'
@@ -36,7 +36,7 @@ sudo umount /dev/nvme0n1p4
 sudo mkswap /dev/nvme0n1p4
 sudo swapon /dev/nvme0n1p4
 sudo cp /etc/fstab /etc/fstab.bak
-echo '/dev/nvme0n1p4                            swap            swap   defaults                   0      0' | \
+echo '/dev/nvme0n1p4                            swap            swap   sw                0      0' | \
   sudo tee -a /etc/fstab
 cat /proc/sys/vm/swappiness
 sudo sysctl vm.swappiness=10

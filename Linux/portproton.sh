@@ -7,7 +7,7 @@ sudo dpkg --add-architecture amd64
 sudo dpkg --add-architecture i386
 sudo add-apt-repository multiverse
 sudo apt update
-sudo apt upgrade
+sudo apt upgrade -y
 sudo apt install -y \
   dkms linux-headers-$(uname -r) meson libsystemd-dev pkg-config ninja-build git \
   libdbus-1-dev libinih-dev build-essential curl file libc6 libnss3 policykit-1 \

@@ -7,8 +7,9 @@ else
 sudo apt update
 sudo apt upgrade -y
 sudo apt install --fix-broken -y
-sudo apt autoclean -y
 sudo apt autoremove --purge -y
+sudo apt autoclean -y
+sudo apt clean -y
 
 sudo apt install -y \
   cpu-checker python3-pip python3-dev python3-virtualenv \
