@@ -3,6 +3,10 @@ echo 'First update all packages'
 echo '#################################################################'
 sudo add-apt-repository -y ppa:flatpak/stable
 sudo add-apt-repository -y ppa:kisak/kisak-mesa
+sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
+sudo add-apt-repository -y ppa:atareao/telegram
+sudo add-apt-repository -y multiverse
+sudo add-apt-repository -y universe
 sudo apt update
 sudo apt upgrade -y
 sudo apt install --fix-broken -y
@@ -39,13 +43,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 sudo systemctl daemon-reload
 sudo dpkg --configure -a
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
-
-
-sudo add-apt-repository -y multiverse
-sudo add-apt-repository -y universe
 sudo apt update
-# sudo pkcon refresh
-# sudo pkcon update
 sudo apt full-upgrade
 # sudo apt install backport-iwlwifi-dkms
 
@@ -82,7 +80,7 @@ XDG_VIDEOS_DIR="/mnt/D/Videos"
 EOF'
 
 chmod +x /mnt/D/CRYPTO/setup/Linux/airpods.sh
-sudo /mnt/D/CRYPTO/setup/Linux/airpods.sh
+sh /mnt/D/CRYPTO/setup/Linux/airpods.sh
 chmod +x /mnt/D/CRYPTO/setup/Linux/debs.sh
 sudo /mnt/D/CRYPTO/setup/Linux/debs.sh
 chmod +x /mnt/D/CRYPTO/setup/Linux/nvm.sh

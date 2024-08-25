@@ -5,7 +5,6 @@ rm portproton_1.7-2_amd64.deb
 
 sudo dpkg --add-architecture amd64
 sudo dpkg --add-architecture i386
-sudo add-apt-repository multiverse
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y \

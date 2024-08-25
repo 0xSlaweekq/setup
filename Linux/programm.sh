@@ -1,8 +1,5 @@
 echo 'Install programm'
 echo '#################################################################'
-sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
-sudo add-apt-repository -y ppa:atareao/telegram
-
 # Adding keys
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
@@ -62,7 +59,7 @@ sudo apt install -y virtualbox
 # sudo newgrp vboxusers
 sudo usermod -aG vboxusers $USER
 sudo adduser $USER vboxusers
-sudo apt install -y virtualbox-dkms xserver-xorg-core virtualbox-guest-x11 cpu-checker
+sudo apt install -y virtualbox-dkms xserver-xorg-core cpu-checker
 
 
 # # install qemu

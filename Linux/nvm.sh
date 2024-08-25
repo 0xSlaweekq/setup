@@ -13,5 +13,4 @@ sudo chown "$USER":"$USER" ~/.nvm -R
 npm i -g \
   yarn prettier eslint solhint solidity-code-metrics nodemon serve \
   dotenv nx nestjs nest-cli nats solc create-react-app npm-check-updates
-
 clear && nvm ls

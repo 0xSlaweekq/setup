@@ -40,22 +40,25 @@ sudo apt install -y cuda
 sudo apt install -y cuda-toolkit nvidia-cuda-toolkit nvidia-gds
 /usr/local/cuda/bin/nvcc --version
 
+
+sudo apt install libnvidia-egl-wayland1
+dpkg -l xwayland libxcb1 libnvidia-egl-wayland1
+
 echo 'export PATH="/usr/bin:/bin:$PATH/usr/local/cuda/bin\${PATH:+:\${PATH}}"' >> ~/.bashrc
-echo 'export LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=/usr/local/cuda-12.6/lib64\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}' >> ~/.bashrc
 source ~/.bashrc
 
 sudo prime-select on-demand # nvidia|intel|on-demand|query
 # sudo nvidia-xconfig --prime
 sh -c "xrandr --setprovideroutputsource modesetting NVIDIA-0; xrandr --auto"
-sudo bash -c "echo blacklist nouveau > /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
-sudo bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
+# sudo bash -c "echo blacklist nouveau > /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
+# sudo bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 # sudo update-alternatives --display cuda
 # sudo update-alternatives --config cuda
 sudo systemctl daemon-reload
 
 # Update grub2 conf
 sudo update-grub2
-
 # Update initramfs
 sudo update-initramfs -u
 
