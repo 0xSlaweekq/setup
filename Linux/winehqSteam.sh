@@ -45,6 +45,7 @@ sudo rm -rf ~/steam_latest.deb
 
 # primerun %command%
 # mangohud gamemoderun __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia %command%
+# Exec=env
 
 # sudo apt remove --purge -y ^wine
 # for .msi files wine msiexec /i
