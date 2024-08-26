@@ -53,7 +53,7 @@ sudo ./grub2-themes/install.sh -t whitesur -i whitesur -s 2k -b
 ./WhiteSur-gtk-theme/install.sh -o normal -c Dark -t all \
   -p 30 -m -N stable --normal --round -l --black --darker
 ./WhiteSur-icon-theme/install.sh -t default -a -b
-sudo ./WhiteSur-gtk-theme/tweaks.sh -g -o normal -c Dark -t blue
+sudo ./WhiteSur-gtk-theme/tweaks.sh -o normal -c Dark -t blue
   # -g default
 sudo ./McMojave-kde/sddm/install.sh
 sudo ./Monterey-kde/install.sh

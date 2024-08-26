@@ -25,11 +25,11 @@ sudo apt install -y \
   libx11-dev libxmu-dev libxi-dev libglu1-mesa-dev libfreeimage-dev \
   libglfw3-dev
 sudo apt-key del 7fa2af80
-sudo apt install --reinstall -y nvidia-driver-550 nvidia-headless-550 nvidia-dkms-550
-sudo apt install --reinstall -y nvidia-settings nvidia-prime
+sudo apt install -y nvidia-driver-550 nvidia-headless-550 nvidia-dkms-550
+sudo apt install -y nvidia-settings nvidia-prime
 sudo ubuntu-drivers install nvidia-headless-550 nvidia-dkms-550 nvidia-driver-550
 
-sudo apt install --reinstall -y \
+sudo apt install -y \
   libvulkan1:{i386,amd64} mesa-vulkan-drivers:{i386,amd64} libgl1-mesa-dri:{i386,amd64} \
   vkbasalt libglu1-mesa-dev:{i386,amd64} freeglut3-dev mesa-common-dev \
   libopenal1 libopenal-dev libalut0 libalut-dev
@@ -48,8 +48,8 @@ source ~/.bashrc
 sudo prime-select on-demand # nvidia|intel|on-demand|query
 sudo nvidia-xconfig --prime
 sh -c "xrandr --setprovideroutputsource modesetting NVIDIA-0; xrandr --auto"
-# sudo bash -c "echo blacklist nouveau > /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
-# sudo bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
+sudo bash -c "echo blacklist nouveau >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
+sudo bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 sudo systemctl daemon-reload
 
 # Update grub2 conf
@@ -90,6 +90,7 @@ echo '#################################################################'
 # sudo rm /etc/X11/xorg.conf
 # sudo rm /etc/X11/xorg.conf-external-display
 # sudo rm /etc/modprobe.d/nvidia.conf
+# sudo rm /etc/modprobe.d/blacklist-nvidia.conf
 # sudo rm /etc/modprobe.d/blacklist-nvidia-nouveau.conf
 # sudo rm /etc/systemd/system/nvidia-persistenced.service
 # echo 'nouveau' | sudo tee -a /etc/modules
