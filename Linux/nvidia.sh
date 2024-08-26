@@ -13,7 +13,7 @@ rm cuda-keyring_1.1-1_all.deb
 sudo add-apt-repository -y ppa:graphics-drivers/ppa
 sudo dpkg --add-architecture i386
 sudo apt update
-sudo apt dist-upgrade
+sudo apt full-upgrade -y
 
 sudo apt install software-properties-qt # for kde qt, for gnome gtk
 sudo apt install --reinstall -y xserver-xorg-video-all xserver-xorg-video-nouveau \
@@ -25,11 +25,11 @@ sudo apt install -y \
   libx11-dev libxmu-dev libxi-dev libglu1-mesa-dev libfreeimage-dev \
   libglfw3-dev
 sudo apt-key del 7fa2af80
-sudo apt install -y nvidia-driver-550 nvidia-headless-550 nvidia-dkms-550
+sudo apt install --reinstall -y nvidia-driver-550 nvidia-headless-550 nvidia-dkms-550
 sudo apt install --reinstall -y nvidia-settings nvidia-prime
 sudo ubuntu-drivers install nvidia-headless-550 nvidia-dkms-550 nvidia-driver-550
 
-sudo apt install -y \
+sudo apt install --reinstall -y \
   libvulkan1:{i386,amd64} mesa-vulkan-drivers:{i386,amd64} libgl1-mesa-dri:{i386,amd64} \
   vkbasalt libglu1-mesa-dev:{i386,amd64} freeglut3-dev mesa-common-dev \
   libopenal1 libopenal-dev libalut0 libalut-dev
@@ -40,7 +40,6 @@ sudo apt update
 sudo apt install -y cuda
 sudo apt install -y cuda-toolkit nvidia-cuda-toolkit nvidia-gds
 /usr/local/cuda/bin/nvcc --version
-
 
 echo 'export PATH="/usr/bin:/bin:$PATH/usr/local/cuda/bin\${PATH:+:\${PATH}}"' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda-12.6/lib64\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}' >> ~/.bashrc

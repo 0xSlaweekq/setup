@@ -14,8 +14,7 @@ ls -al /dev/kvm
 sudo usermod -aG kvm $USER && sudo groupadd docker
 sudo apt clean
 
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh ./get-docker.sh
+curl -fsSL https://get.docker.com -o get-docker.sh | sudo sh get-docker.sh
 sudo apt install -y docker-buildx-plugin docker-compose-plugin
   # docker.io containerd runc docker-compose
 

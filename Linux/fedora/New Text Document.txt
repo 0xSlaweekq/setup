@@ -23,3 +23,66 @@ flatpak install -y flathub \
   org.getoutline.OutlineClient org.getoutline.OutlineManager
 
 #  net.lutris.Lutris com.playonlinux.PlayOnLinux4 net.davidotek.pupgui2
+
+
+sudo dnf upgrade --refresh
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo dnf config-manager --add-repo https://packages.microsoft.com/yumrepos/edge
+sudo dnf install microsoft-edge-stable
+microsoft-edge -version
+
+
+wget https://github.com/Kong/insomnia/releases/download/core%409.3.3/Insomnia.Core-9.3.3.rpm
+wget https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm
+
+[
+	{
+		"name": "setup",
+		"rootPath": "/mnt/D/CRYPTO/setup",
+		"paths": [],
+		"tags": [],
+		"enabled": true
+	},
+	{
+		"name": "packages",
+		"rootPath": "/mnt/D/CRYPTO/work/packages",
+		"paths": [],
+		"tags": [],
+		"enabled": true
+	},
+	{
+		"name": "server",
+		"rootPath": "/mnt/D/CRYPTO/work/server",
+		"paths": [],
+		"tags": [],
+		"enabled": true
+	},
+	{
+		"name": "shelfjs-packages",
+		"rootPath": "/mnt/D/CRYPTO/work/shelfjs-packages",
+		"paths": [],
+		"tags": [],
+		"enabled": true
+	},
+	{
+		"name": "refund_invoice_db",
+		"rootPath": "/mnt/D/CRYPTO/work/refund_invoice_db",
+		"paths": [],
+		"tags": [],
+		"enabled": true
+	},
+	{
+		"name": "wedding",
+		"rootPath": "/mnt/D/CRYPTO/wedding",
+		"paths": [],
+		"tags": [],
+		"enabled": true
+	},
+	{
+		"name": "ton-nft-hamster",
+		"rootPath": "/mnt/D/CRYPTO/work/ton-nft-hamster",
+		"paths": [],
+		"tags": [],
+		"enabled": true
+	}
+]
