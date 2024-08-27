@@ -56,6 +56,7 @@ git config --global core.editor code
 git config --global core.safecrlf true
 git config --global push.autoSetupRemote true
 git config --global credential.helper cache
+git config --global pull.rebase false
 git config --list
 
 # export CACHE_CODE_DIR="blob_storage Cache CachedData CachedProfilesData 'Code Cache' Crashpad DawnGraphiteCache DawnGraphiteCache GPUCache 'Local Storage' logs 'Service Worker' 'Session Storage' User/History User/workspaceStorage WebStorage Cookies Cookies-journal $HOME/.npm/_cacache $HOME/.npm/_logs $HOME/managed_context $HOME/'Telegram Desktop' $HOME/test_suite_analysis $HOME/.nvm/.cache"
