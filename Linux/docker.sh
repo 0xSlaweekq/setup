@@ -14,33 +14,19 @@ ls -al /dev/kvm
 sudo usermod -aG kvm $USER && sudo groupadd docker
 sudo apt clean
 
-# curl -fsSL https://get.docker.com -o get-docker.sh | sudo sh get-docker.sh
-# sudo apt install -y docker-buildx-plugin docker-compose-plugin
-  # docker.io containerd runc docker-compose
-# Add Docker's official GPG key:
-sudo apt update
-sudo install -m 0755 -d /etc/apt/trusted.gpg.d
-
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
-  sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/docker-archive-keyring.gpg
-sudo chmod a+r /etc/apt/trusted.gpg.d/docker-archive-keyring.gpg
-sudo apt-key fingerprint 0EBFCD88
-# Add the repository to Apt sources:
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update
-apt-cache policy docker-ce
-sudo apt install -y \
-  docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+curl -fsSL https://get.docker.com -o get-docker.sh | sudo sh get-docker.sh
+rm -rf get-docker.sh
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin \
+  docker-ce-rootless-extras docker-buildx-plugin
   # docker.io containerd runc docker-compose
 
-
+PATH_TO_DOCKER=/home/"$USER"/.docker
 sudo gpasswd -a $USER docker
 sudo systemctl restart docker
 sudo usermod -aG docker $USER
-sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
-sudo chmod g+rwx "$HOME/.docker" -R
+mkdir $PATH_TO_DOCKER
+sudo chown "$USER":"$USER" $PATH_TO_DOCKER -R
+sudo chmod g+rwx "$PATH_TO_DOCKER" -R
 
 sudo systemctl restart docker
 sudo systemctl enable --now \
@@ -50,7 +36,6 @@ sudo systemctl daemon-reload
 echo '#### Docker installed'
 echo '#################################################################'
 fi
-
 
 # $(lsb_release -cs)
 
