@@ -33,18 +33,3 @@ kate /etc/davfs2/secrets
 # auth="~/.config/yandex-disk/passwd"
 # iid="~/.config/yandex-disk/iid"
 # config.cfg="~/.config/yandex-disk/config.cfg"
-
-# # Каталог для хранения локальной копии Диска.
-# dir="/mnt/Disk_D/YaDisk"
-
-# # Не синхронизировать указанные каталоги.
-# #exclude-dirs="exclude/dir1,exclude/dir2,path/to/another/exclude/dir"
-
-# # Указать прокси-сервер. Примеры:
-# #proxy=https,127.0.0.1,80
-# #proxy=https,127.0.0.1,80,login,password
-# #proxy=https,127.0.0.1,443
-# #proxy=socks4,my.proxy.local,1080,login,password
-# #proxy=socks5,my.another.proxy.local,1081
-# #proxy=auto
-# #proxy=no

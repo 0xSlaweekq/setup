@@ -68,24 +68,12 @@ rfkill list all
 lsmod | grep iwl
 sudo dmesg | grep iwl
 sudo dmesg | grep ASSERT
-exit
-reboot
-
-# # All firmware of Intel
-# # https://wireless.wiki.kernel.org/en/users/drivers/iwlwifi
-# wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/snapshot/linux-firmware-20231211.tar.gz
-# tar -xf linux-firmware-20231211.tar.gz
-# sudo cp ./linux-firmware-20231211/*.ucode /lib/firmware/
-# sudo ./linux-firmware-20231211/copy-firmware.sh /lib/firmware --ignore-duplicates
-
-# wget https://git.kernel.org/pub/scm/linux/kernel/git/iwlwifi/linux-firmware.git/snapshot/linux-firmware-iwlwifi-fw-2023-12-21.tar.gz
-# tar -xf linux-firmware-iwlwifi-fw-2023-12-21.tar.gz
-# sudo cp ./linux-firmware-iwlwifi-fw-2023-12-21/*.ucode /lib/firmware/
-# sudo ./linux-firmware-iwlwifi-fw-2023-12-21/copy-firmware.sh /lib/firmware --ignore-duplicates
-echo '#################################################################'
-
 
 sudo add-apt-repository ppa:canonical-foundations/networkmanager-netplan
 sudo apt update
 sudo apt install -y network-manager
 apt list -a network-manager
+
+exit
+reboot
+echo '#################################################################'

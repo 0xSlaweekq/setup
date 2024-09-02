@@ -5,15 +5,12 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 source ~/.bashrc
 nvm --version
 nvm ls-remote
-nvm install 20
-nvm use 20
-nvm alias default 20
-node -v # should print `v20.17.0`
-npm -v # should print `10.8.2`
-
+VERSION=20.13.1
+nvm install $VERSION
+nvm use $VERSION
+nvm alias default $VERSION
 sudo chown "$USER":"$USER" ~/.npm -R
 sudo chown "$USER":"$USER" ~/.nvm -R
-sudo chown "$USER":"$USER" /usr/local -R
 npm i -g \
   yarn prettier eslint solhint solidity-code-metrics nodemon serve \
   dotenv nx nestjs nest-cli nats solc create-react-app npm-check-updates

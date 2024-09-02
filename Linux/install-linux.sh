@@ -21,14 +21,14 @@ echo 'Install new usless packages'
 echo '#################################################################'
 sudo apt install -y \
   nodejs npm nano openssh-client inxi curl linux-firmware cpu-x dpkg \
-  gpg software-properties-common apt-transport-https wget make \
+  gpg software-properties-common apt-transport-https wget make neofetch \
   build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev dirmngr \
   unzip p7zip-rar p7zip-full rar unrar zip cmake g++ gnupg clang dkms flatpak \
   ca-certificates lsb-release zlib1g-dev hardinfo hwinfo bash-completion \
   ubuntu-restricted-extras ppa-purge xz-utils gcc-multilib preload meson \
   libsystemd-dev pkg-config gdebi gdebi-core ninja-build libdbus-1-dev \
-  libinih-dev pass elisa vlc gimp krita sweeper libreoffice qbittorrent dconf-cli
-
+  libinih-dev pass elisa vlc gimp krita sweeper libreoffice qbittorrent dconf-cli \
+  plasma-discover-backend-flatpak
 
 # plasma-discover-backend-flatpak
 # nmon nload conmon
@@ -78,25 +78,15 @@ XDG_PICTURES_DIR="/mnt/D/Pictures"
 XDG_VIDEOS_DIR="/mnt/D/Videos"
 EOF'
 
-chmod +x /mnt/D/CRYPTO/setup/Linux/airpods.sh
-sh /mnt/D/CRYPTO/setup/Linux/airpods.sh
-chmod +x /mnt/D/CRYPTO/setup/Linux/debs.sh
-sudo /mnt/D/CRYPTO/setup/Linux/debs.sh
-chmod +x /mnt/D/CRYPTO/setup/Linux/nvm.sh
+chmod +x /mnt/D/CRYPTO/setup/Linux/*.sh
+sudo /mnt/D/CRYPTO/setup/Linux/airpods.sh
 sudo /mnt/D/CRYPTO/setup/Linux/nvm.sh
-chmod +x /mnt/D/CRYPTO/setup/Linux/python3.sh
 sudo /mnt/D/CRYPTO/setup/Linux/python3.sh
-chmod +x /mnt/D/CRYPTO/setup/Linux/optimisation.sh
-sudo /mnt/D/CRYPTO/setup/Linux/optimisation.sh
-chmod +x /mnt/D/CRYPTO/setup/Linux/portproton.sh
-sudo /mnt/D/CRYPTO/setup/Linux/portproton.sh
-chmod +x /mnt/D/CRYPTO/setup/Linux/postman.sh
-sudo /mnt/D/CRYPTO/setup/Linux/postman.sh
-chmod +x /mnt/D/CRYPTO/setup/Linux/programm.sh
 sudo /mnt/D/CRYPTO/setup/Linux/programm.sh
-chmod +x /mnt/D/CRYPTO/setup/Linux/winehqSteam.sh
+sudo /mnt/D/CRYPTO/setup/Linux/optimisation.sh
+sudo /mnt/D/CRYPTO/setup/Linux/portproton.sh
+sudo /mnt/D/CRYPTO/setup/Linux/postman.sh
 sudo /mnt/D/CRYPTO/setup/Linux/winehqSteam.sh
-chmod +x /mnt/D/CRYPTO/setup/Linux/docker.sh
 sudo /mnt/D/CRYPTO/setup/Linux/docker.sh
 
 echo 'Set autocomlete bash'
@@ -108,8 +98,8 @@ set show-all-if-ambiguous On
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 '
-chmod +x /mnt/D/CRYPTO/setup/Linux/nvidia.sh
 sudo /mnt/D/CRYPTO/setup/Linux/nvidia.sh
+sudo /mnt/D/CRYPTO/setup/Linux/nvidia-docker.sh
 
 echo 'Ended'
 echo '#################################################################'

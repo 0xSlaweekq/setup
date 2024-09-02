@@ -1,6 +1,10 @@
 echo 'Installing Nvidia & other graphics drivers'
 echo '#################################################################'
 cd ~
+# For remove all nvidia drivers
+sudo rm -rf /etc/X11/xorg.conf /etc/X11/xorg.conf-external-display /etc/modprobe.d/nvidia.conf \
+  /etc/modprobe.d/blacklist-nvidia.conf /etc/modprobe.d/blacklist-nvidia-nouveau.conf \
+  /etc/systemd/system/nvidia-persistenced.service
 sudo apt autoremove $(dpkg -l *nvidia* |grep ii |awk '{print $2}') -y
 # Get the release version of Ubuntu => 2404
 RELEASE_VERSION=$(lsb_release -rs | sed 's/\([0-9]\+\)\.\([0-9]\+\)/\1\2/')
@@ -17,7 +21,7 @@ sudo apt full-upgrade -y
 
 sudo apt install software-properties-qt # for kde qt, for gnome gtk
 sudo apt install --reinstall -y xserver-xorg-video-all xserver-xorg-video-nouveau \
-  xserver-xorg-video-intel xserver-xorg-video-nvidia-550
+  xserver-xorg-video-intel xserver-xorg-video-nvidia-555
 sudo apt install -y \
   linux-headers-$(uname -r) clang gcc make acpid build-essential \
   ca-certificates dirmngr software-properties-common apt-transport-https \
@@ -25,11 +29,11 @@ sudo apt install -y \
   libx11-dev libxmu-dev libxi-dev libglu1-mesa-dev libfreeimage-dev \
   libglfw3-dev
 sudo apt-key del 7fa2af80
-sudo apt install -y nvidia-driver-550 nvidia-headless-550 nvidia-dkms-550
-sudo apt install -y nvidia-settings nvidia-prime
-sudo ubuntu-drivers install nvidia-headless-550 nvidia-dkms-550 nvidia-driver-550
+sudo apt install --reinstall -y nvidia-driver-555 nvidia-headless-555 nvidia-dkms-555
+sudo apt install --reinstall -y nvidia-settings nvidia-prime
+sudo ubuntu-drivers install nvidia-headless-555 nvidia-dkms-555 nvidia-driver-555
 
-sudo apt install -y \
+sudo apt install --reinstall -y \
   libvulkan1:{i386,amd64} mesa-vulkan-drivers:{i386,amd64} libgl1-mesa-dri:{i386,amd64} \
   vkbasalt libglu1-mesa-dev:{i386,amd64} freeglut3-dev mesa-common-dev \
   libopenal1 libopenal-dev libalut0 libalut-dev
@@ -48,8 +52,8 @@ source ~/.bashrc
 sudo prime-select on-demand # nvidia|intel|on-demand|query
 sudo nvidia-xconfig --prime
 sh -c "xrandr --setprovideroutputsource modesetting NVIDIA-0; xrandr --auto"
-sudo bash -c "echo blacklist nouveau >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
-sudo bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
+# sudo bash -c "echo blacklist nouveau >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
+# sudo bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 sudo systemctl daemon-reload
 
 # Update grub2 conf
@@ -66,14 +70,6 @@ cat /proc/driver/nvidia/version
 sudo reboot
 echo '#################################################################'
 
-# curl -fSsL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/3bf863cc.pub | \
-#   sudo gpg --dearmor | sudo tee /usr/share/keyrings/nvidia-drivers.gpg > /dev/null 2>&1
-# echo 'deb [arch=i386,amd64 signed-by=/usr/share/keyrings/nvidia-drivers.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /' | \
-#   sudo tee /etc/apt/sources.list.d/nvidia-drivers.list
-
-# sudo apt install -y \
-#   plasma-workspace-wayland plasma-wayland-protocols kwayland-integration
-# apt policy plasma-workspace-wayland
 
 # cd ~
 # wget https://download.nvidia.com/XFree86/Linux-x86_64/550.107.02/NVIDIA-Linux-x86_64-550.107.02.run
@@ -82,15 +78,3 @@ echo '#################################################################'
 # sudo ./NVIDIA-*.run
 # sudo telinit 5
 # systemctl restart graphical.target
-
-
-# For remove all nvidia drivers
-# sudo apt remove --purge -y nvidia-*
-# sudo apt remove --purge -y libnvidia-*
-# sudo rm /etc/X11/xorg.conf
-# sudo rm /etc/X11/xorg.conf-external-display
-# sudo rm /etc/modprobe.d/nvidia.conf
-# sudo rm /etc/modprobe.d/blacklist-nvidia.conf
-# sudo rm /etc/modprobe.d/blacklist-nvidia-nouveau.conf
-# sudo rm /etc/systemd/system/nvidia-persistenced.service
-# echo 'nouveau' | sudo tee -a /etc/modules

@@ -1,20 +1,8 @@
-# sudo wget -O /etc/apt/trusted.gpg.d/winehq.key https://dl.winehq.org/wine-builds/winehq.key
-# sudo echo "Types: deb
-# URIs: https://dl.winehq.org/wine-builds/ubuntu
-# Suites: $(lsb_release -cs)
-# Components: main
-# Architectures: amd64 i386
-# Signed-By: /etc/apt/trusted.gpg.d/winehq.key" | \
-#   sudo tee /etc/apt/sources.list.d/winehq.sources > /dev/null
-
 sudo mkdir -pm755 /etc/apt/keyrings
 sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
 sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/noble/winehq-noble.sources
 sudo apt update
 sudo apt upgrade
-
-# sudo echo "deb [arch=amd64,i386 signed-by=/etc/apt/trusted.gpg.d/winehq.key] https://dl.winehq.org/wine-builds/ubuntu jammy main" |\
-#   sudo tee /etc/apt/sources.list.d/winehq.list > /dev/null
 
 sudo apt install -y libpoppler-glib8:{i386,amd64}
 # wine winecfg

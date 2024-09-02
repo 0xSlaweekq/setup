@@ -16,7 +16,7 @@ sudo apt install -y \
   mingw-w64 mingw-w64-common mingw-w64-i686-dev mingw-w64-tools mingw-w64-x86-64-dev
 
 sudo apt install --fix-broken -y
-sudo apt install lutris
+sudo apt install -y lutris
 
 git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git && \
   cd MangoHud && \
