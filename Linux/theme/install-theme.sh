@@ -7,9 +7,6 @@ sudo apt install -y ./ocs-url_3.1.0-0ubuntu1_amd64.deb
 sudo add-apt-repository -y ppa:papirus/papirus
 sudo apt update
 sudo apt dist-upgrade
-# sudo apt install -y g++ qt6-base-dev qt6-svg-dev qt6-base-dev-tools
-# sudo apt install -y qt6-style-kvantum qt6-style-kvantum-themes
-# export QT_STYLE_OVERRIDE=kvantum
 
 sudo apt install -y \
   qt5-style-kvantum qt5-style-kvantum-themes sassc libglib2.0-dev-bin \
@@ -22,7 +19,6 @@ sudo apt install -y \
   libkf5newstuff-dev libxcb-shape0-dev libxcb-randr0-dev libx11-xcb-dev \
   libkf5wayland-dev libwayland-dev libwayland-client0 libqt5waylandclient5-dev \
   qtwayland5-dev-tools plasma-wayland-protocols
-#   latte-dock
 
 cd ~
 git clone https://github.com/vinceliuice/grub2-themes.git
@@ -31,7 +27,6 @@ git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
 git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
 git clone https://github.com/vinceliuice/Monterey-kde.git
 git clone https://github.com/vinceliuice/McMojave-kde.git
-# git clone https://github.com/micheleg/dash-to-dock.git
 
 sudo chmod +x ./grub2-themes/install.sh
 sudo chmod +x ./WhiteSur-kde/install.sh
@@ -50,8 +45,7 @@ sudo cp -r /mnt/D/CRYPTO/setup/Linux/theme/wallpaper/* $HOME/.local/share/wallpa
 cd ~
 sudo ./grub2-themes/install.sh -t whitesur -i whitesur -s 2k -b
 ./WhiteSur-kde/install.sh -c dark
-./WhiteSur-gtk-theme/install.sh -o normal -c Dark -t all \
-  -p 30 -m -N stable --normal --round -l --black --darker
+./WhiteSur-gtk-theme/install.sh -c Dark -t all -m -N stable --round -l --black --darker
 ./WhiteSur-icon-theme/install.sh -t default -a -b
 sudo ./WhiteSur-gtk-theme/tweaks.sh -o normal -c Dark -t blue
   # -g default
