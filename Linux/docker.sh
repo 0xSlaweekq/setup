@@ -14,11 +14,11 @@ ls -al /dev/kvm
 sudo usermod -aG kvm $USER && sudo groupadd docker
 sudo apt clean
 
-curl -fsSL https://get.docker.com -o get-docker.sh | sudo sh get-docker.sh
-rm -rf get-docker.sh
-sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin \
-  docker-ce-rootless-extras docker-buildx-plugin
-  # docker.io containerd runc docker-compose
+# curl -fsSL https://get.docker.com -o get-docker.sh | sudo sh get-docker.sh
+# rm -rf get-docker.sh
+# sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin \
+#   docker-ce-rootless-extras docker-buildx-plugin
+sudo apt install -y docker.io containerd runc docker-compose
 
 PATH_TO_DOCKER=/home/"$USER"/.docker
 sudo gpasswd -a $USER docker
