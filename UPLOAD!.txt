@@ -1,7 +1,7 @@
 Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders
-Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders                    
-                    
-                    
+Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders
+
+
                        First install !!!
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 |||  0) install vs code                                                               |||
@@ -20,7 +20,9 @@ set NODE_OPTIONS=--openssl-legacy-provider
 
 winget install --id Microsoft.Powershell --source winget
 
-                                                         install ipfs 
+
+
+                                                         install ipfs
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 |||  1) cd ~\wget https://dist.ipfs.io/go-ipfs/v0.12.2/go-ipfs_v0.12.2_windows-amd64.zip -Outfile go-ipfs_v0.12.2.zip      |||
 |||  2) Expand-Archive -Path go-ipfs_v0.12.2.zip -DestinationPath ~\Apps\go-ipfs_v0.12.2                                   |||
@@ -51,13 +53,13 @@ winget install --id Microsoft.Powershell --source winget
 |||      ipfs config --json API.HTTPHeaders.Access-Control-Expose-Headers '[\"Location\"]'                                 |||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-hashlips_art_engine 
+hashlips_art_engine
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 |||  1) git clone https://github.com/HashLips/hashlips_art_engine.git  |||
 |||  2) cd hashlips_art_engine                                         |||
 |||  3) yarn install                                                   |||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-  
+
 Hardhat
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 |||  1) https://hardhat.org/tutorial/creating-a-new-hardhat-project   |||
@@ -80,12 +82,12 @@ Install eslint
 |||  5) npm install --save-dev eslint-plugin-prettier            |||
 |||  6) npm install --save-dev --save-exact prettier             |||
 |||  7) eslint --init                                            |||
-|||  8) eslint --ext .jsx --ext .js                              |||  
-|||  9) eslint --fix './src'                                     |||  
+|||  8) eslint --ext .jsx --ext .js                              |||
+|||  9) eslint --fix './src'                                     |||
 |||  10) prettier --write './src'                                |||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
- 
-                                                                                    install solana      
+
+                                                                                    install solana
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 |||  1) curl https://release.solana.com/v1.9.16/solana-install-init-x86_64-pc-windows-msvc.exe --output \ |||
 |||       C:\solana-install-tmp\solana-install-init.exe --create-dirs                                     |||
