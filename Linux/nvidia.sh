@@ -52,8 +52,8 @@ source ~/.bashrc
 sudo prime-select on-demand # nvidia|intel|on-demand|query
 sudo nvidia-xconfig --prime
 sh -c "xrandr --setprovideroutputsource modesetting NVIDIA-0; xrandr --auto"
-# sudo bash -c "echo blacklist nouveau >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
-# sudo bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
+sudo bash -c "echo blacklist nouveau >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
+sudo bash -c "echo options nouveau modeset=0 >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf"
 sudo systemctl daemon-reload
 
 # Update grub2 conf
