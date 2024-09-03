@@ -4,6 +4,8 @@ if [[ $(which docker) && $(docker --version) && $(docker compose) ]]; then
    echo 'Docker installed, continue...'
 else
 echo 'Docker NOT installed, continue...'
+sudo apt autoremove $(dpkg -l *docker* |grep ii |awk '{print $2}') -y
+
 sudo apt install -y gnome-terminal
 modprobe kvm
 modprobe kvm_intel  # Intel processors
@@ -14,11 +16,11 @@ ls -al /dev/kvm
 sudo usermod -aG kvm $USER && sudo groupadd docker
 sudo apt clean
 
-# curl -fsSL https://get.docker.com -o get-docker.sh | sudo sh get-docker.sh
-# rm -rf get-docker.sh
+curl -fsSL https://get.docker.com -o get-docker.sh | sudo sh get-docker.sh
+rm -rf get-docker.sh
 # sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin \
 #   docker-ce-rootless-extras docker-buildx-plugin
-sudo apt install -y docker.io containerd runc docker-compose
+# sudo apt install -y docker.io containerd runc docker-compose
 
 PATH_TO_DOCKER=/home/"$USER"/.docker
 sudo gpasswd -a $USER docker
