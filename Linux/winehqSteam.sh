@@ -40,8 +40,8 @@ flatpak override com.usebottles.bottles --user --filesystem=xdg-data/application
 sudo flatpak override com.usebottles.bottles --filesystem=~/.local/share/Steam
 
 
-# primerun %command%
-# mangohud gamemoderun __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia %command% -input_button_code_is_scan_code -vulkan_disable_steam_shader_cache
+# primerun %command% -input_button_code_is_scan_code -vulkan_disable_steam_shader_cache
+# mangohud gamemoderun __NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia %command%
 # Exec=env
 # __GL_THREADED_OPTIMIZATION=1 for OpenGL games
 # __GL_SHADER_DISK_CACHE=1 to create a shader cache for a game

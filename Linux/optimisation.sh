@@ -9,11 +9,13 @@ cat /proc/version
 tee -a ~/.local/bin/prime-run <<< \
 '
 #!/bin/bash
+export gamemoderun
 export __NV_PRIME_RENDER_OFFLOAD=1
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export __VK_LAYER_NV_optimus=NVIDIA_only
 export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
-exec "$@"'
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+exec "$@"
+'
 chmod +x ~/.local/bin/prime-run
 tee -a ~/.bashrc <<< 'alias primerun="~/.local/bin/prime-run"'
 source ~/.bashrc
