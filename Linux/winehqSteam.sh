@@ -31,13 +31,26 @@ wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
 sudo apt install -y ~/steam_latest.deb
 sudo rm -rf ~/steam_latest.deb
 
-# primerun %command%
-# mangohud gamemoderun %command% __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia
-# Exec=env
+tee -a ~/.steam/steam/steam_dev.cfg <<< \
+'
+@nClientDownloadEnableHTTP2PlatformLinux 0
+@fDownloadRateImprovementToAddAnotherConnection 1.0
+'
+flatpak override com.usebottles.bottles --user --filesystem=xdg-data/applications
+sudo flatpak override com.usebottles.bottles --filesystem=~/.local/share/Steam
 
-# sudo apt remove --purge -y ^wine
+
+# primerun %command%
+# mangohud gamemoderun __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia %command% -input_button_code_is_scan_code -vulkan_disable_steam_shader_cache
+# Exec=env
+# __GL_THREADED_OPTIMIZATION=1 for OpenGL games
+# __GL_SHADER_DISK_CACHE=1 to create a shader cache for a game
+# __GL_SHADER_DISK_CACHE_PATH=/path/to/location to set the location for the shader cache.
+
+
 # for .msi files wine msiexec /i
 # for .exe files wine *.exe
+
 
 # mkdir -v ~/.wine-MyApp
 # export WINEPREFIX=~/.wine-MyApp
@@ -47,3 +60,13 @@ sudo rm -rf ~/steam_latest.deb
 # export WINEPREFIX=~/.wine-MyApp
 # uninstall wine
 # rm -r ~/.wine-MyApp
+
+
+
+# flatpak steam
+# tee -a ~/.var/app/com.valvesoftware.Steam/.steam/steam/steam_dev.cfg <<< \
+# '
+# @nClientDownloadEnableHTTP2PlatformLinux 0
+# @fDownloadRateImprovementToAddAnotherConnection 1.0
+# '
+# sudo flatpak override com.usebottles.bottles --filesystem=~/.var/app/com.valvesoftware.Steam/data/Steam

@@ -101,6 +101,8 @@ set show-all-if-ambiguous On
 sudo /mnt/D/CRYPTO/setup/Linux/nvidia.sh
 sudo /mnt/D/CRYPTO/setup/Linux/nvidia-docker.sh
 
+neofetch --config /mnt/D/Programs/linux/'New Folder'/neofetch/config.conf
+
 echo 'Ended'
 echo '#################################################################'
 
