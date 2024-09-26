@@ -8,7 +8,8 @@ export PATH="$PATH:$HOME/.npm/bin"
 source ~/.bashrc
 npm i -g npm@10.5.2 \
   yarn prettier eslint solhint solidity-code-metrics nodemon serve \
-  dotenv nx nestjs nest-cli nats solc create-react-app npm-check-updates
+  dotenv nx nestjs nest-cli nats solc create-react-app npm-check-updates \
+  @nestjs/cli
 
 echo 'Install NVM & npm'
 echo '#################################################################'
