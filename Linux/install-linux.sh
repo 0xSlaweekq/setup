@@ -5,6 +5,7 @@ sudo add-apt-repository -y ppa:flatpak/stable
 sudo add-apt-repository -y ppa:kisak/kisak-mesa
 sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
 sudo add-apt-repository -y ppa:atareao/telegram
+sudo add-apt-repository -y ppa:obsproject/obs-studio
 sudo add-apt-repository -y multiverse
 sudo add-apt-repository -y universe
 sudo apt update
@@ -26,7 +27,7 @@ sudo apt install -y \
   unzip p7zip-rar p7zip-full rar unrar zip cmake g++ gnupg clang dkms flatpak \
   ca-certificates lsb-release zlib1g-dev hardinfo hwinfo bash-completion \
   ubuntu-restricted-extras ppa-purge xz-utils gcc-multilib preload meson \
-  libsystemd-dev pkg-config gdebi gdebi-core ninja-build libdbus-1-dev \
+  libsystemd-dev pkg-config gdebi gdebi-core ninja-build libdbus-1-dev obs-studio \
   libinih-dev pass elisa vlc gimp krita sweeper libreoffice qbittorrent dconf-cli \
   plasma-discover-backend-flatpak
 
