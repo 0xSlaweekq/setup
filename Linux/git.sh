@@ -96,7 +96,8 @@ alias serverStart="npm run ln-reboot && npm run migration:up && npm start"
 alias serverSdk="npm run mockwv:generate:sdk && npm run server:generate:sdk"
 alias lint="npx eslint --fix \"./**/*{.ts,.js,.tsx,.jsx}\""
 alias format="npx prettier -w \"./**/*{.ts,.js,.json}\""
-alias flint="cleanCode && format && lint && npx nx run-many --t lint --fix && nx format:write --all"
+alias nxlint="npx nx reset && npx nx repair && npx nx run-many --t lint --fix && npx nx format:write --all"
+alias flint="cleanCode && format && lint && nxlint"
 '
 
 # restore bash_profile
