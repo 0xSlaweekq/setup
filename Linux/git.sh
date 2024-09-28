@@ -19,6 +19,11 @@ Host github.com
     User git
     IdentityFile ~/.ssh/id_ed25519
     IdentitiesOnly yes
+Host gitlab.com
+    HostName gitlab.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
 Host gitlab.i-link.pro
     HostName gitlab.i-link.pro
     IdentityFile ~/.ssh/id_ed25519
@@ -36,6 +41,8 @@ ssh-add ~/.ssh/id_ed25519
 ssh-add -l
 ssh-copy-id -i ~/.ssh/id_ed25519.pub root@164.90.207.152
 ssh -T git@github.com
+ssh -T git@gitlab.com
+ssh -T git@gitlab.i-link.pro
 
 # sudo tee -a /etc/ssh/ssh_config <<< \
 # "    ForwardAgent yes
