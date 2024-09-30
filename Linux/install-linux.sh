@@ -30,13 +30,7 @@ sudo apt install -y \
   libsystemd-dev pkg-config gdebi gdebi-core ninja-build libdbus-1-dev \
   libinih-dev pass elisa vlc gimp krita sweeper libreoffice qbittorrent \
   dconf-cli obs-studio \
-  pavucontrol easyeffects pipewire wireplumber pulseaudio-utils \
   plasma-discover-backend-flatpak
-
-sudo mkdir -p /etc/alsa/conf.d
-sudo ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d
-sudo ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
-
 
 # plasma-discover-backend-flatpak
 # nmon nload conmon

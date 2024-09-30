@@ -19,11 +19,6 @@ Host github.com
     User git
     IdentityFile ~/.ssh/id_ed25519
     IdentitiesOnly yes
-Host gitlab.com
-    HostName gitlab.com
-    User git
-    IdentityFile ~/.ssh/id_ed25519
-    IdentitiesOnly yes
 Host gitlab.i-link.pro
     HostName gitlab.i-link.pro
     IdentityFile ~/.ssh/id_ed25519
@@ -41,7 +36,6 @@ ssh-add ~/.ssh/id_ed25519
 ssh-add -l
 ssh-copy-id -i ~/.ssh/id_ed25519.pub root@164.90.207.152
 ssh -T git@github.com
-ssh -T git@gitlab.com
 ssh -T git@gitlab.i-link.pro
 
 # sudo tee -a /etc/ssh/ssh_config <<< \
@@ -50,18 +44,21 @@ ssh -T git@gitlab.i-link.pro
 #     IdentityFile ~/.ssh/id_ed25519
 #     IdentitiesOnly yes"
 
-git config --global user.name "Slaweekq"
+git config --global user.name "0xSlaweekq"
 git config --global user.email "celesik@gmail.com"
 git config --global --add safe.directory /mnt/D/CRYPTO/setup
 git config --global --add safe.directory /mnt/D/CRYPTO/wedding
 git config --global --add safe.directory /mnt/D/CRYPTO/work
-git config --global --add safe.directory /mnt/D/CRYPTO/work/old/smartDefi
 git config --global --add safe.directory /mnt/D/CRYPTO/work/packages
+git config --global --add safe.directory /mnt/D/CRYPTO/work/libs
 git config --global --add safe.directory /mnt/D/CRYPTO/work/server
 git config --global --add safe.directory /mnt/D/CRYPTO/work/shelfjs-packages
+git config --global --add safe.directory /mnt/D/CRYPTO/work/nelly-bot
+git config --global --add safe.directory /mnt/D/CRYPTO/work/smartDefi
 git config --global core.editor code
 git config --global core.safecrlf true
 git config --global push.autoSetupRemote true
+git config --global credential.credentialStore gpg
 git config --global credential.helper cache
 git config --global pull.rebase false
 git config --list
