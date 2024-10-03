@@ -102,6 +102,7 @@ alias lint="npx eslint --fix \"./**/*{.ts,.js,.tsx,.jsx}\""
 alias format="npx prettier -w \"./**/*{.ts,.js,.json}\""
 alias nxlint="nx reset && nx repair && nx run-many --t lint --fix && nx format:write --all"
 alias flint="cleanCode && format && lint && nxlint"
+alias gmerge="git fetch && git pull --all && git merge main"
 '
 
 # restore bash_profile
