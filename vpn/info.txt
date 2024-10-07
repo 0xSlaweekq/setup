@@ -39,7 +39,7 @@
 # echo '#################################################################'
 #### npm service
 # echo '#################################################################'
-# git clone git@github.com:NarcoNik/newton-bot.git && cd ./newton-bot
+# git clone git@github.com:0xSlaweekq/newton-bot.git && cd ./newton-bot
 # sudo npm i
 # sudo pm2 start bot.js
 # sudo pm2 startup systemd

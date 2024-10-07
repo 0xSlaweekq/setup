@@ -1,6 +1,6 @@
 ## Getting Started
 
-- `cd ~ && git clone https://github.com/NarcoNik/setup.git`
+- `cd ~ && git clone https://github.com/0xSlaweekq/setup.git`
 
 ### Installing debs programm
 

@@ -122,7 +122,7 @@ alias gmerge="git fetch && git pull --all && git merge main"
 # git branch -m new-branch-name old-branch-name - rename branch
 # git branch -d - delete branch
 # git branch -a - view all branch
-# remote add origin git@github.com:NarcoNik/git-test.git - add remote repo
+# remote add origin git@github.com:0xSlaweekq/git-test.git - add remote repo
 # push --set-upstream origin main - change branch origin/main
 # remote - view all remote repo
 # remote -v view all remote repo with url

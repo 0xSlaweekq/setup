@@ -3,7 +3,7 @@ echo '#################################################################'
 sudo apt install -y git wget nano resolvconf curl build-essential gcc make
 echo "Download and unpack the sources"
 cd ~
-sudo wget https://github.com/NarcoNik/setup/raw/main/vpn/3proxy-0.9.3.tar.gz
+sudo wget https://github.com/0xSlaweekq/setup/raw/main/vpn/3proxy-0.9.3.tar.gz
 
 tar xzf 3proxy-0.9.3.tar.gz
 cd ~/3proxy-0.9.3
@@ -21,8 +21,8 @@ sudo adduser --system --no-create-home --disabled-login --group slaweekq
 id slaweekq
 
 echo "Getting config & proxyauth"
-sudo wget https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/3proxy.cfg
-sudo wget https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/.proxyauth
+sudo wget https://raw.githubusercontent.com/0xSlaweekq/setup/main/vpn/3proxy.cfg
+sudo wget https://raw.githubusercontent.com/0xSlaweekq/setup/main/vpn/.proxyauth
 
 echo "Setting access rights to proxy server files"
 # sudo chmod 600 /etc/3proxy/
@@ -33,7 +33,7 @@ sudo chmod 400 /etc/3proxy/.proxyauth
 
 echo "Setting 3proxy.service"
 cd /etc/systemd/system
-sudo wget https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/3proxy.service
+sudo wget https://raw.githubusercontent.com/0xSlaweekq/setup/main/vpn/3proxy.service
 cd ~
 
 echo "Enable & starting 3proxy.service"

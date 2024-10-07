@@ -1,5 +1,5 @@
 # cd ~ && \
-# curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/vpn-install.sh
+# curl -O https://raw.githubusercontent.com/0xSlaweekq/setup/main/vpn/vpn-install.sh
 # chmod +x vpn-install.sh
 # sudo ./vpn-install.sh
 # echo "First add new user"
@@ -38,8 +38,8 @@ sudo apt install -y git nano resolvconf curl wireguard wireguard-tools
 echo "Installing 3proxy"
 echo '#################################################################'
 cd ~
-curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/3proxy-install.sh
-curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/3proxy-uninstall.sh
+curl -O https://raw.githubusercontent.com/0xSlaweekq/setup/main/vpn/3proxy-install.sh
+curl -O https://raw.githubusercontent.com/0xSlaweekq/setup/main/vpn/3proxy-uninstall.sh
 chmod +x 3proxy-install.sh
 chmod +x 3proxy-uninstall.sh
 sudo ./3proxy-install.sh
@@ -63,18 +63,18 @@ sudo ufw allow 1586/udp
 
 sudo wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh | bash
 
-wget https://s3.amazonaws.com/outline-releases/manager/linux/stable/Outline-Manager.AppImage
-wget https://s3.amazonaws.com/outline-releases/client/linux/stable/Outline-Client.AppImage
-chmod +x ./Outline-Manager.AppImage
-chmod +x ./Outline-Client.AppImage
-./Outline-Manager.AppImage
-./Outline-Client.AppImage
+# wget https://s3.amazonaws.com/outline-releases/manager/linux/stable/Outline-Manager.AppImage
+# wget https://s3.amazonaws.com/outline-releases/client/linux/stable/Outline-Client.AppImage
+# chmod +x ./Outline-Manager.AppImage
+# chmod +x ./Outline-Client.AppImage
+# ./Outline-Manager.AppImage
+# ./Outline-Client.AppImage
 
 # echo "Installing wireguard"
 # echo '#################################################################'
 # cd ~
 # wget https://git.io/wireguard -O wireguard-install.sh && sudo bash wireguard-install.sh
-# curl -O https://raw.githubusercontent.com/NarcoNik/setup/main/vpn/wireguard-install.sh
+# curl -O https://raw.githubusercontent.com/0xSlaweekq/setup/main/vpn/wireguard-install.sh
 # curl -O https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh
 # chmod +x wireguard-install.sh
 # sudo ./wireguard-install.sh

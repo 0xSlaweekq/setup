@@ -1,5 +1,5 @@
 {
-  "author": "NarcoNik",
+  "author": "0xSlaweekq",
   "browserslist": {
     "development": [
       "last 1 chrome version",
@@ -14,7 +14,7 @@
     ]
   },
   "bugs": {
-    "url": "https://github.com/NarcoNik/websites/issues"
+    "url": "https://github.com/0xSlaweekq/websites/issues"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -80,11 +80,9 @@
       "react-app/jest"
     ]
   },
-  "homepage": "https://github.com/NarcoNik/websites#readme",
   "license": "MIT",
   "name": "websites",
   "private": true,
-  "repository": "git+https://github.com/NarcoNik/websites.git",
   "scripts": {
     "build": "react-scripts build",
     "dev": "serve -s build",
