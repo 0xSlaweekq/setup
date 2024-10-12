@@ -22,10 +22,11 @@ rm -rf get-docker.sh
 #   docker-ce-rootless-extras docker-buildx-plugin
 # sudo apt install -y docker.io containerd runc docker-compose
 
-PATH_TO_DOCKER=/home/"$USER"/.docker
 sudo gpasswd -a $USER docker
 sudo systemctl restart docker
 sudo usermod -aG docker $USER
+
+PATH_TO_DOCKER=/home/"$USER"/.docker
 mkdir $PATH_TO_DOCKER
 sudo chown "$USER":"$USER" $PATH_TO_DOCKER -R
 sudo chmod g+rwx "$PATH_TO_DOCKER" -R

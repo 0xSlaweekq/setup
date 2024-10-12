@@ -44,7 +44,7 @@ ssh -T git@gitlab.i-link.pro
 #     IdentityFile ~/.ssh/id_ed25519
 #     IdentitiesOnly yes"
 
-git config --global user.name "0xSlaweekq"
+git config --global user.name "Slaweekq"
 git config --global user.email "celesik@gmail.com"
 git config --global --add safe.directory /mnt/D/CRYPTO/setup
 git config --global --add safe.directory /mnt/D/CRYPTO/wedding

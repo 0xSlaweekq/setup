@@ -18,11 +18,9 @@ sudo bash -c \
 # UUID=<uuid>                             <mount point> <FSType> <FSOptions>              <dump> <pass>
 UUID=ACDF-E1C9                            /boot/efi      vfat    defaults                   0       2
 UUID=1862E5D262E5B522                     none           ntfs    ro                         0       2
-UUID=5286d5b7-ba62-46ab-8c3b-392727b76bf8 /              ext4    defaults                   0       1
-UUID=4aa9fab7-b2ba-4831-8fef-7f448535d451 /home          ext4    defaults                   0       2
-UUID=cff45a8c-80aa-468f-bf0c-2a72aa96bd08 swap           swap    defaults                   0       0
+UUID=bdd05279-59cc-4299-bf2e-211a8d0a22d5 /              ext4    defaults                   0       1
+UUID=2e87d189-112a-47c3-84fd-5cea449b7bff swap           swap    defaults                   0       0
 UUID=50D8DE4A70913ADC                     /mnt/D         ntfs    defaults                   0       2
-UUID=9C1DA856CE5BF3A4                     /mnt/backup    ntfs    ro                         0       2
 /swapfile                                 swap           swap    defaults                   0       0
 tmpfs                                     /tmp           tmpfs   defaults,noatime,mode=1777 0       0
 EOF"

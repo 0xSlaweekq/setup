@@ -32,7 +32,6 @@ sudo apt install -y \
   dconf-cli obs-studio \
   plasma-discover-backend-flatpak
 
-# plasma-discover-backend-flatpak
 # nmon nload conmon
 # network-manager network-manager-gnome network-manager-openvpn-gnome \
 # sudo apt install -y net-tools gnome-tweaks gnome-extensions-app gnome-shell-extension-manager \
