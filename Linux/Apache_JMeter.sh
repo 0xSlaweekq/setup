@@ -31,7 +31,7 @@ sudo tee -a /usr/share/applications/jmeter.desktop <<< \
 Name=JMeter
 Comment=Apache JMeter v5.6.3
 GenericName=JMeter Tests
-Exec=/opt/jmeter/bin %F
+Exec=/opt/jmeter/bin/jmeter %F
 Icon=jmeter
 Type=Application
 StartupNotify=false
@@ -43,7 +43,7 @@ Keywords=jmeter;
 [Desktop Action new-window]
 Name=New Window
 Name[ru]=Новое окно
-Exec=/opt/jmeter/bin --new-window %F
+Exec=/opt/jmeter/bin/jmeter --new-window %F
 Icon=jmeter'
 
 echo "Start UI: jmeter or alt+F2 -> JMeter in Applications
