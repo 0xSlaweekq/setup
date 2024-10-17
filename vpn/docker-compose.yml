@@ -3,7 +3,8 @@ version: "3.8"
 services:
   wg-easy:
     environment:
-      - WG_HOST=188.166.15.133
+      - WG_HOST=localhost
+      - PASSWORD_HASH='88C1mgzd1Q['
       - PASSWORD=88C1mgzd1Q[
       # 💡 This is the Pi-Hole Container's IP Address
       - WG_DEFAULT_DNS=10.8.1.3
