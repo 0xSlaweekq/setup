@@ -30,7 +30,7 @@ sudo tee -a /usr/share/applications/jmeter.desktop <<< \
 [Desktop Entry]
 Name=JMeter
 Comment=Apache JMeter v5.6.3
-GenericName=JMeter Tests
+GenericName=Apache JMeter v5.6.3
 Exec=/opt/jmeter/bin/jmeter %F
 Icon=jmeter
 Type=Application
