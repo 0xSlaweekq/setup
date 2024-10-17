@@ -25,8 +25,7 @@ alias srf="sudo rm -rf"
 alias srn="sudo reboot now"
 alias srp="sudo apt remove --purge -y"
 alias sdr="sudo systemctl daemon-reload"
-alias supd="sudo apt update && sudo apt upgrade -y && sudo apt install --fix-broken -y
- && sudo apt autoclean -y && sudo apt autoremove --purge"
+alias supd="sudo apt update && sudo apt upgrade -y && sudo apt install --fix-broken -y && sudo apt autoremove -y && sudo apt autoclean -y"
 '
 sudo apt update
 sudo apt upgrade -y
@@ -80,7 +79,7 @@ sudo wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-server/mast
 # sudo ./wireguard-install.sh
 
 
-# {"apiUrl":"https://164.90.207.152:2389/tKuGyVsoKI7QEMt_X5A5Ew","certSha256":"5496A22D7C2FBD739984115375CB3B2119B61260CD976A33B6DF78E61D6F700D"}
+# {"apiUrl":"https://164.90.227.152:2389/tKuGyVsoKI7QEMt_X5A5Ew","certSha256":"5496A22D7C2FBD739984115375CB3B2119B61260CD976A33B6DF78E62D6F700D"}
 
 # ssh-keygen -f "/home/msi/.ssh/known_hosts" -R "178.128.17.181"
 
