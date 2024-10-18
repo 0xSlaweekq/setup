@@ -1,8 +1,10 @@
+#!/bin/bash
+
 sudo mkdir -pm755 /etc/apt/keyrings
 sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
 sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/noble/winehq-noble.sources
 sudo apt update
-sudo apt upgrade
+sudo apt upgrade -y
 
 sudo apt install -y libpoppler-glib8:{i386,amd64}
 # wine winecfg

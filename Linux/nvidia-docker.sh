@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Configure the production repository:
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/nvidia-container-toolkit.gpg \
   && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \

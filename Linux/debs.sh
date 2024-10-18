@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Download the packages file
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B05498B7
 wget https://github.com/jgraph/drawio-desktop/releases/download/v24.5.3/drawio-amd64-24.5.3.deb

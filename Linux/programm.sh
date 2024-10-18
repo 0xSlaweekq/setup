@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo 'Install programm'
 echo '#################################################################'
 # Adding keys
@@ -15,12 +17,10 @@ sudo echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg
   sudo tee /etc/apt/sources.list.d/microsoft-edge.list > /dev/null
 # $(lsb_release -cs)
 # sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-sudo rm -rf packages.microsoft.gpg
-sudo rm -rf microsoft.gpg
+sudo rm -rf packages.microsoft.gpg microsoft.gpg
 
-cd /etc/apt/sources.list.d
-
-sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com `sudo apt update 2>&1 | grep -o '[0-9A-Z]\{16\}$' | xargs`
+# cd /etc/apt/sources.list.d
+# sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com `sudo apt update 2>&1 | grep -o '[0-9A-Z]\{16\}$' | xargs`
 
 # installing
 sudo apt update
@@ -77,19 +77,19 @@ sudo apt install -y virtualbox-dkms xserver-xorg-core cpu-checker
 # sudo usermod -aG libvirt $USER
 # virt-manager
 
-# dotNet
-sudo apt update && \
-  sudo apt install -y \
-  dotnet-sdk-8.0 aspnetcore-runtime-8.0 dotnet-runtime-8.0 zlib1g ca-certificates \
-  libc6 libgcc-s1 libicu74 liblttng-ust1 libssl3 libstdc++6 libunwind8
+# # dotNet
+# sudo apt update && \
+#   sudo apt install -y \
+#   dotnet-sdk-8.0 aspnetcore-runtime-8.0 dotnet-runtime-8.0 zlib1g ca-certificates \
+#   libc6 libgcc-s1 libicu74 liblttng-ust1 libssl3 libstdc++6 libunwind8
 
-cd ~
-wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
-chmod +x ./dotnet-install.sh
-./dotnet-install.sh --channel 6.0
-./dotnet-install.sh --channel 7.0
-./dotnet-install.sh --version latest
-rm ./dotnet-install.sh
+# cd ~
+# wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+# chmod +x ./dotnet-install.sh
+# ./dotnet-install.sh --channel 6.0
+# ./dotnet-install.sh --channel 7.0
+# ./dotnet-install.sh --version latest
+# rm ./dotnet-install.sh
 echo 'All programm installed'
 echo '#################################################################'
 

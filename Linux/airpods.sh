@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo 'Installing Bluetooth Audio for AirPods'
 echo '#################################################################'
 # sudo apt install -y 'bluez*' blueman

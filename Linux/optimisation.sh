@@ -9,6 +9,7 @@ cat /proc/version
 tee -a ~/.local/bin/prime-run <<< \
 '
 #!/bin/bash
+
 export gamemoderun
 export __NV_PRIME_RENDER_OFFLOAD=1
 export __VK_LAYER_NV_optimus=NVIDIA_only

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Monero
 wget https://downloads.getmonero.org/gui/monero-gui-linux-x64-v0.18.3.3.tar.bz2
 wget -O binaryfate.asc https://raw.githubusercontent.com/monero-project/monero/master/utils/gpg_keys/binaryfate.asc

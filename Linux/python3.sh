@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo '#### Installing Python3'
 echo '#################################################################'
 if [[ $(which --version) && $(python3 --version) && $(pip3 --version) ]]; then

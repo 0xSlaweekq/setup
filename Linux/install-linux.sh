@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo 'Installing everything you need...'
 echo 'First update all packages'
 echo '#################################################################'

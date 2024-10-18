@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Installing git & Generate ssh"
 echo "######################################################################"
 sudo apt install -y git git-core git-gui nano openssh-client
@@ -7,7 +9,7 @@ mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 chmod 700 ~/.ssh/config
 cd ~/.ssh
-ssh-keygen -t ed25519 -C "celesik@gmail.com"
+# ssh-keygen -t ed25519 -C "test@gmail.com"
 chmod 600 ~/.ssh/id_ed25519
 chmod 600 ~/.ssh/id_ed25519.pub
 cd -

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd ~
 wget https://github.com/Castro-Fidel/PortProton_dpkg/releases/download/portproton_1.7-2_amd64/portproton_1.7-2_amd64.deb
 sudo apt install -y ./portproton_1.7-2_amd64.deb

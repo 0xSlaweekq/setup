@@ -1,4 +1,6 @@
 
+#!/bin/bash
+
 echo '#### Restore network-manager or another package'
 echo '#################################################################'
 ls /var/cache/apt/archives/

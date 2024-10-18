@@ -1,8 +1,13 @@
+#!/bin/bash
+
 echo 'Install WhiteSur KDE, GTK & ICON theme'
 echo '#################################################################'
 
 # https://www.opendesktop.org/p/1136805/
+cd ~
+wget https://raw.githubusercontent.com/0xSlaweekq/setup/main/Linux/theme/ocs-url_3.1.0-0ubuntu1_amd64.deb
 sudo apt install -y ./ocs-url_3.1.0-0ubuntu1_amd64.deb
+rm ./ocs-url_3.1.0-0ubuntu1_amd64.deb
 
 sudo add-apt-repository -y ppa:papirus/papirus
 sudo apt update
@@ -20,7 +25,6 @@ sudo apt install -y \
   libkf5wayland-dev libwayland-dev libwayland-client0 libqt5waylandclient5-dev \
   qtwayland5-dev-tools plasma-wayland-protocols
 
-cd ~
 git clone https://github.com/vinceliuice/grub2-themes.git
 git clone https://github.com/vinceliuice/WhiteSur-kde.git
 git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
@@ -42,7 +46,6 @@ sudo chmod +x ./McMojave-kde/sddm/install.sh
 sudo cp -r /mnt/D/CRYPTO/setup/Linux/theme/wallpaper/* /usr/share/wallpapers/
 sudo cp -r /mnt/D/CRYPTO/setup/Linux/theme/wallpaper/* $HOME/.local/share/wallpapers
 
-cd ~
 sudo ./grub2-themes/install.sh -t whitesur -i whitesur -s 2k -b
 ./WhiteSur-kde/install.sh -c dark
 ./WhiteSur-gtk-theme/install.sh -c Dark -t all -m -N stable --round -l --black --darker
@@ -51,7 +54,7 @@ sudo ./WhiteSur-gtk-theme/tweaks.sh -o normal -c Dark -t blue
   # -g default
 sudo ./McMojave-kde/sddm/install.sh
 sudo ./Monterey-kde/install.sh
-cd -
+echo '#################################################################'
 echo 'Install done'
 echo '#################################################################'
 echo 'Remove files'

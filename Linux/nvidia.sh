@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo 'Installing Nvidia & other graphics drivers'
 echo '#################################################################'
 cd ~
@@ -67,7 +69,6 @@ sudo systemctl start nvidia-persistenced
 sudo systemctl status nvidia-persistenced
 cat /proc/driver/nvidia/version
 
-sudo reboot
 echo '#################################################################'
 
 

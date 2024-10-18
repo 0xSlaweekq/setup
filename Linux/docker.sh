@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo '#### Installing Docker'
 echo '#################################################################'
 if [[ $(which docker) && $(docker --version) && $(docker compose) ]]; then
@@ -5,40 +7,38 @@ if [[ $(which docker) && $(docker --version) && $(docker compose) ]]; then
 else
 echo 'Docker NOT installed, continue...'
 sudo apt autoremove $(dpkg -l *docker* |grep ii |awk '{print $2}') -y
+sudo apt install -y ca-certificates curl gnupg lsb-release
 
-sudo apt install -y gnome-terminal
-modprobe kvm
-modprobe kvm_intel  # Intel processors
-modprobe kvm_amd    # AMD processors
-kvm-ok
-lsmod | grep kvm
-ls -al /dev/kvm
-sudo usermod -aG kvm $USER && sudo groupadd docker
-sudo apt clean
-
-curl -fsSL https://get.docker.com -o get-docker.sh | sudo sh get-docker.sh
-rm -rf get-docker.sh
-# sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin \
-#   docker-ce-rootless-extras docker-buildx-plugin
-# sudo apt install -y docker.io containerd runc docker-compose
-
-sudo gpasswd -a $USER docker
-sudo systemctl restart docker
-sudo usermod -aG docker $USER
-
-PATH_TO_DOCKER=/home/"$USER"/.docker
-mkdir $PATH_TO_DOCKER
-sudo chown "$USER":"$USER" $PATH_TO_DOCKER -R
-sudo chmod g+rwx "$PATH_TO_DOCKER" -R
+curl -sSL https://get.docker.com | sh &&\
+  sudo usermod -aG docker $(whoami) &&\
+  sudo gpasswd -a $USER docker
 
 sudo systemctl restart docker
 sudo systemctl enable --now \
   docker docker.service docker.socket containerd containerd.service
 sudo systemctl daemon-reload
- systemctl status docker.service
+systemctl status docker.service
+
 echo '#### Docker installed'
 echo '#################################################################'
 fi
+
+
+
+# sudo apt install -y gnome-terminal
+# modprobe kvm
+# modprobe kvm_intel  # Intel processors
+# modprobe kvm_amd    # AMD processors
+# kvm-ok
+# lsmod | grep kvm
+# ls -al /dev/kvm
+# sudo usermod -aG kvm $USER && sudo groupadd docker
+# sudo apt clean
+
+# sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin \
+#   docker-ce-rootless-extras docker-buildx-plugin
+# sudo apt install -y docker.io containerd runc docker-compose
+
 
 # $(lsb_release -cs)
 

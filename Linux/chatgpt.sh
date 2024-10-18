@@ -1,8 +1,10 @@
-cd $HOME
+#!/bin/bash
+
+cd ~
 # api gpt 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
 export OPENAI_API_KEY=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
 env
-source $HOME/.bashrc
+source ~/.bashrc
 env
 
 curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | \

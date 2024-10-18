@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # https://ohmyposh.dev/docs/installation/fonts
 sudo mkdir /usr/local/bin/oh-my-posh
 curl -s https://ohmyposh.dev/install.sh | sudo bash -s -- -d /usr/local/bin/oh-my-posh

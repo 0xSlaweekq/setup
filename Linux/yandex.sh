@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo add-apt-repository -y ppa:slytomcat/ppa
 curl -fsSL http://repo.yandex.ru/yandex-disk/YANDEX-DISK-KEY.GPG | \
   sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/YANDEX-DISK-KEY.GPG
