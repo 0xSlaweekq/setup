@@ -11,7 +11,7 @@ cd ~
 wget https://downloads.apache.org//jmeter/binaries/apache-jmeter-5.6.3.tgz
 
 mkdir $HOME/jmeter $HOME/jmeter/backups
-tar -xvzf apache-jmeter-5.6.3.tgz -C $HOME/jmeter --strip-components=1
+tar -xvzf apache-jmeter-5.6.3.tgz -C $HOME/jmeter --strip-components=0
 chmod +x $HOME/jmeter/bin/jmeter
 rm -rf apache-jmeter-5.6.3.tgz
 

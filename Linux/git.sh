@@ -79,6 +79,7 @@ alias supd="sudo apt update && sudo apt upgrade -y && sudo apt install --fix-bro
 alias cleanCode="cd $HOME/.config/Code/ && rm -rf $CACHE_CODE_DIR && cd -"
 alias cleanNode="rm -rf ./node_modules && rm -rf ./**/**/node_modules && rm -rf ./apps/**/**/node_modules"
 alias digcon="ssh root@164.90.207.152"
+alias digcon2="ssh root@164.90.215.172"
 alias sshcon="eval "$(ssh-agent -s)" && echo $SSH_AGENT_SOCK && ssh-add ~/.ssh/id_ed25519 && ssh -T git@github.com"
 alias gpush="git add ./ && git commit -m «new» -a && git push origin"
 alias dexec="docker exec -it"
@@ -106,6 +107,14 @@ alias nxlint="nx reset && nx repair && nx run-many --t lint --fix && nx format:w
 alias flint="cleanCode && format && lint && nxlint"
 alias gmerge="git fetch && git pull --all && git merge main"
 alias defpass="echo 'pass'"
+'
+
+sudo tee -a /etc/inputrc <<< \
+'
+# paste after all text
+set show-all-if-ambiguous On
+"\e[A": history-search-backward
+"\e[B": history-search-forward
 '
 
 # restore bash_profile
